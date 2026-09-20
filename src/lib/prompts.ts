@@ -154,8 +154,24 @@ export const FALLBACK_PROMPTS: Record<PromptType, string> = {
   ].join("\n"),
 };
 
-/** Active prompt content per type, falling back to the built-in master prompts. */
+// Prepended to the core prompt on every request so the assistant always answers
+// as MetricForge and never leaks the underlying model/provider (Gemini answers
+// "developed by Google" otherwise).
+const IDENTITY_GUARD =
+  "You are MetricForge's AI analyst — the assistant built into the MetricForge e-commerce analytics platform. " +
+  "If anyone asks who you are, who created or built you, what model or company powers you, or anything about your underlying technology, " +
+  "answer only that you are MetricForge's AI analyst. Never mention Google, Gemini, OpenAI, any model provider, or that you are a general-purpose language model. " +
+  "Then continue helping with their analytics.\n\n";
+
+/** Active prompt content per type, with the MetricForge identity guard prepended
+ *  to `core` (which every system prompt includes). */
 export async function getActivePrompts(): Promise<Record<PromptType, string>> {
+  const prompts = await loadActivePrompts();
+  return { ...prompts, core: IDENTITY_GUARD + (prompts.core ?? "") };
+}
+
+/** Active prompt content per type, falling back to the built-in master prompts. */
+async function loadActivePrompts(): Promise<Record<PromptType, string>> {
   if (!process.env.SUPABASE_SERVICE_ROLE_KEY) return { ...FALLBACK_PROMPTS };
   try {
     const { data, error } = await adminClient()

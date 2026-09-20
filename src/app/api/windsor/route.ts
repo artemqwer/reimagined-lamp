@@ -4,6 +4,7 @@ import { createClient } from "@supabase/supabase-js";
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
 import { checkDateRange, checkConnector } from "@/lib/requestGuards";
+import { mockWindsorRows } from "@/lib/mockWindsorData";
 import {
   windsorFieldsFor,
   readDimensionValue,
@@ -851,6 +852,13 @@ async function handle(
   // them as the strings they now are.
   const from = range.from;
   const to = range.to;
+
+  // Demo mode (admin "Mock data" switch sets the mf_demo cookie): serve generated
+  // rows so the whole dashboard renders populated for a presentation, no Windsor
+  // call and no account binding needed.
+  if (request.cookies.get("mf_demo")?.value === "1") {
+    return NextResponse.json({ data: mockWindsorRows(groupBy, from, to), source: "demo" });
+  }
 
   const cookieStore = await cookies();
   const supabase = createServerClient(

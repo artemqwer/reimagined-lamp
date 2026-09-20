@@ -1394,8 +1394,13 @@ export default function AdminPage() {
             const next = !mockMode;
             setMockMode(next);
             localStorage.setItem("admin:mock", next ? "1" : "0");
+            // Also drives the dashboard: /api/windsor serves generated rows while
+            // this cookie is set, so the charts/tables render populated too.
+            document.cookie = next
+              ? "mf_demo=1; path=/; max-age=31536000; samesite=lax"
+              : "mf_demo=; path=/; max-age=0; samesite=lax";
           }}
-          title="Fill the panel with demo data while the database is being set up"
+          title="Fill the admin panel AND dashboard with demo data (for presentations)"
           className="shrink-0 flex items-center gap-2 whitespace-nowrap pb-2.5 text-[13px] font-medium text-gray-500 hover:text-gray-700"
         >
           <span

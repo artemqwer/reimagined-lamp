@@ -1,0 +1,6 @@
+{
+  "crons": [
+    { "path": "/api/ai-optimizer/refresh", "schedule": "0 3 * * *" },
+    { "path": "/api/bq/sync", "schedule": "0 */6 * * *" }
+  ]
+}

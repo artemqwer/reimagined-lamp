@@ -1,0 +1,12 @@
+allowBuilds:
+  protobufjs: true
+  sharp: true
+  unrs-resolver: true
+
+# Pinned to match what npm's package-lock.json previously resolved — pnpm's
+# fresh resolution otherwise picks up 7.1.1, which enables a new stricter
+# react-hooks/set-state-in-effect rule that flags ~30 pre-existing call-on-
+# mount effects across the app. Not something this migration should silently
+# introduce as a side effect.
+overrides:
+  eslint-plugin-react-hooks: "7.0.1"

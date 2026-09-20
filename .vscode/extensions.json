@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "bradlc.vscode-tailwindcss",
+    "eamodio.gitlens",
+    "mikestead.dotenv",
+    "christian-kohler.path-intellisense",
+    "usernamehw.errorlens",
+    "orta.vscode-jest",
+    "yoavbls.pretty-ts-errors",
+    "formulahendry.auto-rename-tag"
+  ]
+}

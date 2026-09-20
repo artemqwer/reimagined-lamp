@@ -1,0 +1,32 @@
+name: AI Optimizer daily refresh
+
+# Runs the optimizer's phrasing refresh once a day so recommendations are worded
+# by the batch job, never on a page open. Independent of the Vercel plan's cron
+# (vercel.json also schedules it — whichever fires first does the work; the other
+# finds nothing pending and no-ops).
+#
+# Setup (once): add a repository secret CRON_SECRET matching the CRON_SECRET env
+# var set on the Vercel project. Optionally set a repository variable
+# OPTIMIZER_REFRESH_URL if the production URL differs from the default below.
+
+on:
+  schedule:
+    - cron: "0 3 * * *" # 03:00 UTC daily
+  workflow_dispatch: {} # allow a manual run from the Actions tab
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger the refresh endpoint
+        env:
+          SECRET: ${{ secrets.CRON_SECRET }}
+          URL: ${{ vars.OPTIMIZER_REFRESH_URL }}
+        run: |
+          if [ -z "$SECRET" ]; then
+            echo "CRON_SECRET is not set — add it in Settings → Secrets and variables → Actions. Skipping."
+            exit 0
+          fi
+          curl -fsS -X POST \
+            -H "Authorization: Bearer $SECRET" \
+            "${URL:-https://app.datarocks.net/api/ai-optimizer/refresh}"

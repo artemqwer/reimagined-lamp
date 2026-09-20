@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    # `master` was renamed to `main` and deleted. Until this was corrected, no
+    # push to main ran CI at all — only pull_request events did — so every merge
+    # deployed to production without the merged tree ever being checked.
+    branches: [main]
+
+jobs:
+  checks:
+    name: Lint, typecheck, test, build
+    runs-on: ubuntu-latest
+    env:
+      # Build-only placeholders — nothing calls out to Supabase during `next
+      # build` (this app is client-fetched, not statically generated against
+      # live data), so these just need to be non-empty for the client bundle.
+      NEXT_PUBLIC_SUPABASE_URL: https://placeholder.supabase.co
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: placeholder-anon-key
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      # A real gate now: the lint debt that forced continue-on-error is paid off
+      # and the tree is at 0 errors. Warnings (57, all pre-existing) still print
+      # but don't fail — `--max-warnings` would be the next ratchet once that
+      # number is coming down rather than holding steady.
+      - run: pnpm lint
+
+      # Formatting has no debt to carry — the repo was formatted in one pass and
+      # the pre-commit hook keeps it that way, so drift here means the hook was
+      # bypassed and is worth reporting (not failing, same as lint).
+      - run: pnpm format:check
+        continue-on-error: true
+
+      - run: pnpm exec tsc --noEmit
+
+      - run: pnpm test
+
+      - run: pnpm run build

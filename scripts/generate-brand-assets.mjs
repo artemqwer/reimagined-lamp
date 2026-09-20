@@ -1,10 +1,10 @@
-// Renders the Data Rocks logo into the raster icon files Next.js serves from
+// Renders the MetricForge logo into the raster icon files Next.js serves from
 // `src/app/` — `favicon.ico` (16/32/48), `icon.png` (256) and `apple-icon.png`
 // (180).
 //
 // Run with `node scripts/generate-brand-assets.mjs` after changing the logo.
 //
-// The source of truth is `public/data-rocks-logo.png` — the SAME asset the
+// The source of truth is `public/metricforge-logo.png` — the SAME asset the
 // sidebar and the auth screens render, so the tab icon can never drift from the
 // logo in the app. An earlier version of this script drew its own four-bar mark
 // instead; that mark is gone, along with the `src/app/icon.svg` twin it kept in
@@ -21,7 +21,7 @@ import { dirname, join } from "node:path";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const APP_DIR = join(ROOT, "src", "app");
-const SOURCE = join(ROOT, "public", "data-rocks-logo.png");
+const SOURCE = join(ROOT, "public", "metricforge-logo.png");
 
 // ─── PNG decoder ────────────────────────────────────────────────────────────
 // Enough of the spec for the one file we read: 8-bit, non-interlaced, colour
@@ -270,7 +270,7 @@ writeFileSync(join(APP_DIR, "icon.png"), icon);
 const apple = encodePng(180, flatten(at(180), [255, 255, 255]));
 writeFileSync(join(APP_DIR, "apple-icon.png"), apple);
 
-console.log(`source         ${src.width}×${src.height} from public/data-rocks-logo.png`);
+console.log(`source         ${src.width}×${src.height} from public/metricforge-logo.png`);
 console.log(`favicon.ico    ${ico.length} bytes (16, 32, 48)`);
 console.log(`icon.png       ${icon.length} bytes (256×256)`);
 console.log(`apple-icon.png ${apple.length} bytes (180×180, flattened onto white)`);

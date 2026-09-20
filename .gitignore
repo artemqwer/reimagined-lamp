@@ -62,3 +62,6 @@ design/figma/
 /CLAUDE.md
 /docs/
 /.claude/
+
+# Supabase CLI local state
+/supabase/.temp/

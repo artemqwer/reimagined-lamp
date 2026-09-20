@@ -115,7 +115,7 @@ function buildInsightsPrompt(
   }
   lines.push("");
   lines.push(`---`);
-  lines.push(`LIVE CONTEXT (${c.label}, inside the DataRocks dashboard).`);
+  lines.push(`LIVE CONTEXT (${c.label}, inside the MetricForge dashboard).`);
   lines.push(`Current period: ${ctx.dateRange}`);
   lines.push("");
 

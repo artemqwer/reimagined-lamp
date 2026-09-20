@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 // Same fallback the OAuth routes use, so a preview deploy without the env var
 // set still resolves absolute metadata URLs instead of failing the build.
-const siteUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://app.datarocks.net";
+const siteUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://metricforge.app";
 
 const TITLE = "MetricForge — E-commerce Intelligence";
 const DESCRIPTION =

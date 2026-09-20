@@ -7,7 +7,7 @@ import type { MetadataRoute } from "next";
 // Only the pages reachable signed out are listed. Everything else is per-tenant
 // data behind a login and has nothing to index.
 
-const siteUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://app.datarocks.net";
+const siteUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://metricforge.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

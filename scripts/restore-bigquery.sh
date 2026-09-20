@@ -5,17 +5,17 @@
 # This is a RECREATION script, not a restore. There was nothing to back up:
 # every dataset was empty when BigQuery was removed — `ads_data` held 0 tables
 # and had never held any, and the 40 most recent query jobs had all failed with
-# "Not found: Table datarocks-prod:ads_data.user_ads_stats". See
+# "Not found: Table metricforge-prod:ads_data.user_ads_stats". See
 # docs/bigquery-disabled.md for the evidence.
 #
 # Running this restores the INFRASTRUCTURE. The application code has to come
 # back separately — see step 0.
 #
 # Usage:  ./scripts/restore-bigquery.sh [PROJECT_ID]
-# Default project: datarocks-prod
+# Default project: metricforge-prod
 set -euo pipefail
 
-PROJECT="${1:-datarocks-prod}"
+PROJECT="${1:-metricforge-prod}"
 DATASET="ads_data"
 TABLE="user_ads_stats"
 # ── LOCATION IS LOAD-BEARING ────────────────────────────────────────────────
@@ -24,7 +24,7 @@ TABLE="user_ads_stats"
 # would be a DIFFERENT dataset that the old queries could never reach, and
 # BigQuery does not move datasets between locations.
 LOCATION="EU"
-SA_NAME="datarocks-bq"
+SA_NAME="metricforge-bq"
 SA="${SA_NAME}@${PROJECT}.iam.gserviceaccount.com"
 
 echo "==> project=${PROJECT} dataset=${DATASET} table=${TABLE} location=${LOCATION}"
@@ -59,7 +59,7 @@ conversions:FLOAT,conversion_value:FLOAT,synced_at:TIMESTAMP 2>/dev/null \
 
 echo "==> service account"
 gcloud iam service-accounts create "${SA_NAME}" \
-  --display-name="DataRocks BigQuery" --project="${PROJECT}" 2>/dev/null \
+  --display-name="MetricForge BigQuery" --project="${PROJECT}" 2>/dev/null \
   || echo "    (already exists)"
 for ROLE in roles/bigquery.dataEditor roles/bigquery.jobUser; do
   gcloud projects add-iam-policy-binding "${PROJECT}" \
@@ -79,7 +79,7 @@ cat <<EOF
 
 1. Credentials. The organisation enforces
    iam.disableServiceAccountKeyCreation, so you CANNOT create a JSON key in
-   ${PROJECT}. The old key existed only because datarocks-prod-494700 carried a
+   ${PROJECT}. The old key existed only because metricforge-prod-494700 carried a
    project-level exemption, and that project is being shut down. Use workload
    identity federation instead — src/lib/gemini.ts already does exactly this
    and is the model to copy.

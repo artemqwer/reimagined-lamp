@@ -248,7 +248,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
         <div className={`flex items-center gap-2 min-w-0 ${collapsed ? "" : "flex-1"}`}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/data-rocks-logo.png"
+            src="/metricforge-logo.png"
             alt="MetricForge"
             width={36}
             height={36}
@@ -420,7 +420,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
             <div className="flex items-center gap-2">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/data-rocks-logo.png"
+                src="/metricforge-logo.png"
                 alt="MetricForge"
                 width={36}
                 height={36}

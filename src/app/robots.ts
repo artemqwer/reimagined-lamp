@@ -5,7 +5,7 @@ import type { MetadataRoute } from "next";
 // for the share card: Slack, X and LinkedIn all check it before unfurling, so
 // the public entry points have to stay crawlable even though the app does not.
 
-const siteUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://app.datarocks.net";
+const siteUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://metricforge.app";
 
 export default function robots(): MetadataRoute.Robots {
   return {

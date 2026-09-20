@@ -29,4 +29,4 @@ jobs:
           fi
           curl -fsS -X POST \
             -H "Authorization: Bearer $SECRET" \
-            "${URL:-https://app.datarocks.net/api/ai-optimizer/refresh}"
+            "${URL:-https://metricforge.app/api/ai-optimizer/refresh}"

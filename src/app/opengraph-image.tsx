@@ -5,7 +5,7 @@ import { join } from "node:path";
 // The card that unfurls when a MetricForge link is pasted into Slack, LinkedIn,
 // iMessage, X … Generated rather than committed as a PNG so the copy and the
 // brand colours stay editable in one place. The lockup uses the SAME
-// public/data-rocks-logo.png the favicon and the sidebar render, so the card
+// public/metricforge-logo.png the favicon and the sidebar render, so the card
 // cannot drift from the logo. No request-time APIs are used, so Next prerenders
 // it at build time and social crawlers are served a static file.
 
@@ -20,9 +20,9 @@ export const contentType = "image/png";
 const font = (weight: 400 | 700) => readFile(join(process.cwd(), "assets", `inter-${weight}.ttf`));
 
 // Satori has no filesystem, so the logo is inlined as a data URI. Same file the
-// app serves at /data-rocks-logo.png — read at build time, not fetched.
+// app serves at /metricforge-logo.png — read at build time, not fetched.
 const logo = async () =>
-  `data:image/png;base64,${(await readFile(join(process.cwd(), "public", "data-rocks-logo.png"))).toString("base64")}`;
+  `data:image/png;base64,${(await readFile(join(process.cwd(), "public", "metricforge-logo.png"))).toString("base64")}`;
 
 const BLUE = "#3B82F6";
 const CONNECTORS = ["Google Ads", "Meta Ads", "GA4", "Shopify"];

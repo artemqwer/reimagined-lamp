@@ -137,7 +137,7 @@ function buildSystemPrompt(
 ${sourceBrief}
 
 ---
-LIVE CONTEXT: You are answering live chat questions as the ${c.label} analyst inside the DataRocks dashboard.
+LIVE CONTEXT: You are answering live chat questions as the ${c.label} analyst inside the MetricForge dashboard.
 Today's date: ${today}
 Current period: ${ctx.dateRange}
 Data source status: ${dataStatus}

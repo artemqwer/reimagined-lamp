@@ -239,7 +239,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               <div className="flex items-center gap-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/data-rocks-logo.png"
+                  src="/metricforge-logo.png"
                   alt="MetricForge"
                   width={28}
                   height={28}

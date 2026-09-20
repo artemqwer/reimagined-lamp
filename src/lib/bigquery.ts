@@ -28,7 +28,7 @@ export interface SyncKey {
 }
 
 const project = () => process.env.BQ_PROJECT_ID ?? "";
-const dataset = () => process.env.BQ_DATASET || "datarocks";
+const dataset = () => process.env.BQ_DATASET || "metricforge";
 const table = () => process.env.BQ_TABLE || "windsor_rows";
 const tableRef = () => `${project()}.${dataset()}.${table()}`;
 

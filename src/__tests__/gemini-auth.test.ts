@@ -52,7 +52,7 @@ afterAll(() => {
 const WIF_ENV = {
   GCP_WORKLOAD_IDENTITY_PROVIDER:
     "projects/65246199654/locations/global/workloadIdentityPools/vercel/providers/vercel-oidc",
-  GCP_SERVICE_ACCOUNT_EMAIL: "datarocks-gemini@datarocks-prod.iam.gserviceaccount.com",
+  GCP_SERVICE_ACCOUNT_EMAIL: "metricforge-gemini@metricforge-prod.iam.gserviceaccount.com",
   VERCEL_OIDC_TOKEN: "vercel.oidc.jwt",
 };
 
@@ -119,12 +119,12 @@ describe("federated token exchange", () => {
     const vertex = calls[2];
     expect(vertex.url).toContain("aiplatform.googleapis.com");
     // No key to read project_id from — it comes out of the account email.
-    expect(vertex.url).toContain("/projects/datarocks-prod/");
+    expect(vertex.url).toContain("/projects/metricforge-prod/");
     expect((vertex.init.headers as Record<string, string>).Authorization).toBe("Bearer sa-token");
   });
 
   it("GEMINI_PROJECT_ID wins over the email-derived project", async () => {
-    Object.assign(process.env, WIF_ENV, { GEMINI_PROJECT_ID: "datarocks-dev-app" });
+    Object.assign(process.env, WIF_ENV, { GEMINI_PROJECT_ID: "metricforge-dev-app" });
     const calls = mockFetchSequence([
       { body: { access_token: "f" } },
       { body: { accessToken: "s", expireTime: new Date(Date.now() + 3600_000).toISOString() } },
@@ -132,7 +132,7 @@ describe("federated token exchange", () => {
     ]);
     const { geminiGenerate } = await import("@/lib/gemini");
     await geminiGenerate({ system: "s", user: "hello" });
-    expect(calls[2].url).toContain("/projects/datarocks-dev-app/");
+    expect(calls[2].url).toContain("/projects/metricforge-dev-app/");
   });
 
   it("says what is missing when no OIDC token can be obtained", async () => {

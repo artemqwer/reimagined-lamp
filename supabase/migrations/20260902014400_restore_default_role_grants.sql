@@ -9,7 +9,7 @@
 --
 -- It was not just the admin routes: anon and authenticated were missing the
 -- same four privileges, so the user-facing tables would have failed identically.
--- The sibling project datarocks-dev, created 2026-09, already had the full set;
+-- The sibling project metricforge-dev, created 2026-09, already had the full set;
 -- this brings both to the same grants and, crucially, fixes the DEFAULT so the
 -- next migration cannot reintroduce it.
 --

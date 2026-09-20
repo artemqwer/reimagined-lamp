@@ -459,7 +459,7 @@ function valuesOf(t: MetricTotals, _marginPct: number): Record<string, number> {
     roas: t.cost > 0 ? t.revenue / t.cost : 0,
     convRate: t.clicks > 0 ? t.conversions / t.clicks : 0,
     // Ad Profit = revenue − spend, matching the metric named everywhere else in
-    // DataRocks (not a margin-adjusted "net profit"). marginPct is unused here now.
+    // MetricForge (not a margin-adjusted "net profit"). marginPct is unused here now.
     adProfit: t.revenue - t.cost,
   };
 }

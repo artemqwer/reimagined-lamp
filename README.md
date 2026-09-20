@@ -1,4 +1,4 @@
-# Data Rocks (ads-dashboard)
+# MetricForge (ads-dashboard)
 
 E-commerce / advertising intelligence dashboard. Aggregates performance data
 from Google Ads, Meta Ads, Google Analytics 4 and Shopify (plus any data
@@ -178,8 +178,8 @@ Environments map like this:
 
 | Vercel     | branch    | Supabase         | Vertex AI project |
 | ---------- | --------- | ---------------- | ----------------- |
-| Production | `main`    | `datarocks-prod` | `datarocks-prod`  |
-| Preview    | any other | `datarocks-dev`  | `datarocks-dev`   |
+| Production | `main`    | `metricforge-prod` | `metricforge-prod`  |
+| Preview    | any other | `metricforge-dev`  | `metricforge-dev`   |
 
 The split is enforced by GCP, not by the app: each workload-identity provider
 pins the Vercel `environment` claim, so a preview deployment cannot obtain a

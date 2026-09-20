@@ -5,7 +5,7 @@ export default function BrandLogo() {
           the auth screens match the app (the old hand-drawn SVG bars are gone). */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/data-rocks-logo.png"
+        src="/metricforge-logo.png"
         alt="MetricForge"
         width={42}
         height={42}

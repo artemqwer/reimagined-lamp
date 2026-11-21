@@ -1535,7 +1535,7 @@ export default function AdminPage() {
               rows={PLANS.map((p, i) => ({
                 label: p,
                 value: users.filter((u) => u.plan === p).length,
-                color: ["#71717A", "var(--brand)", "#EC4899", "#8B5CF6"][i],
+                color: ["#71717A", "var(--brand)", "#22D3EE", "#818CF6"][i],
               }))}
             />
           </div>
@@ -1558,7 +1558,7 @@ export default function AdminPage() {
                 label: p,
                 value:
                   users.filter((u) => u.plan === p && u.status === "Active").length * PLAN_PRICE[p],
-                color: ["var(--brand)", "#EC4899", "#8B5CF6"][i],
+                color: ["var(--brand)", "#22D3EE", "#818CF8"][i],
               }))}
             />
           </div>

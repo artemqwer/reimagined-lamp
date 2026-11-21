@@ -366,16 +366,16 @@ export const CAMPAIGNS = [
   "Shopping - Winter Clearance",
 ];
 export const COLORS = [
-  "#F472B6",
-  "#FB923C",
-  "#FACC15",
-  "#4ADE80",
-  "#A78BFA",
+  "#22D3EE",
+  "#818CF8",
+  "#FDE047",
+  "#34D399",
+  "#FB7185",
   "#60A5FA",
   "var(--brand)",
   "var(--brand)",
-  "#f59e0b",
-  "#6366f1",
+  "#F59E0B",
+  "#2DD4BF",
 ];
 
 export const CAMPAIGN_TYPE_MAP: Record<string, string> = {
@@ -404,9 +404,9 @@ export const TYPES = [
 ];
 export const TYPE_COLORS_MAP: Record<string, string> = {
   Search: "#60A5FA",
-  Shopping: "#FACC15",
-  PMax: "#A78BFA",
-  Display: "#F472B6",
+  Shopping: "#FDE047",
+  PMax: "#818CF8",
+  Display: "#22D3EE",
   Video: "#FB7185",
   "Demand Gen": "var(--brand-fg)",
   App: "#22D3EE",
@@ -534,14 +534,14 @@ export const tlWebItems = [
 export const SEG_COLORS = [
   "var(--brand)",
   "var(--brand)",
-  "#f59e0b",
-  "#6366f1",
-  "#f43f5e",
-  "#06b6d4",
-  "#8b5cf6",
-  "#ec4899",
-  "#14b8a6",
-  "#f97316",
+  "#F59E0B",
+  "#818CF8",
+  "#FB7185",
+  "#22D3EE",
+  "#A78BFA",
+  "#34D399",
+  "#2DD4BF",
+  "#FDE047",
 ];
 
 export const segRevenue = [

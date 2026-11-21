@@ -112,7 +112,7 @@ export const BarXTick = ({ x, y, payload, data }: any) => {
         x={0}
         y={0}
         dy={12}
-        fill={weekend ? "#3B82F6" : "#71717A"}
+        fill={weekend ? "var(--brand-fg)" : "#71717A"}
         fontSize={13}
         textAnchor="middle"
         fontWeight={400}
@@ -133,7 +133,7 @@ export const AdXTick = ({ x, y, payload, data }: any) => {
         x={0}
         y={0}
         dy={12}
-        fill={weekend ? "#3B82F6" : "#71717A"}
+        fill={weekend ? "var(--brand-fg)" : "#71717A"}
         fontSize={12}
         textAnchor="middle"
         fontWeight={400}
@@ -153,7 +153,7 @@ export const PlXTick = ({ x, y, payload, data }: any) => {
         x={0}
         y={0}
         dy={12}
-        fill={weekend ? "#3B82F6" : "#71717A"}
+        fill={weekend ? "var(--brand-fg)" : "#71717A"}
         fontSize={12}
         textAnchor="middle"
         fontWeight={400}

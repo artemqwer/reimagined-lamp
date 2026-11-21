@@ -135,7 +135,7 @@ function StatusBadge({ status }: { status: AdminUser["status"] }) {
   const s = map[status] ?? map.Active;
   return (
     <span
-      className="inline-flex items-center gap-1.5 h-8 px-3 rounded-[10px] text-[14px] font-medium"
+      className="inline-flex items-center gap-1.5 h-8 px-3 rounded-xl text-[14px] font-medium"
       style={{ background: s.bg, color: s.fg }}
     >
       {s.icon}
@@ -194,7 +194,7 @@ export default function AdminUserDetailPage() {
         >
           <ArrowLeft size={18} /> Back to User Management
         </button>
-        <div className="glass rounded-[10px] p-10 text-center text-zinc-500 text-[14px]">
+        <div className="glass rounded-xl p-10 text-center text-zinc-500 text-[14px]">
           {error || "User not found"}
         </div>
       </div>
@@ -254,12 +254,12 @@ export default function AdminUserDetailPage() {
   return (
     <div className="p-4 sm:p-6 flex flex-col gap-6 text-[#F4F4F5]">
       {/* ── Header bar ── */}
-      <div className="bg-zinc-900 border border-[#3F3F46] rounded-[10px] p-6">
+      <div className="bg-zinc-900 border border-[#3F3F46] rounded-xl p-6">
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <div className="flex items-center gap-4">
             <button
               onClick={() => router.push("/admin")}
-              className="w-10 h-10 rounded-[10px] bg-[#27272A] hover:bg-zinc-800 flex items-center justify-center text-[#F4F4F5] transition shrink-0"
+              className="w-10 h-10 rounded-xl bg-[#27272A] hover:bg-zinc-800 flex items-center justify-center text-[#F4F4F5] transition shrink-0"
             >
               <ArrowLeft size={20} />
             </button>
@@ -268,7 +268,7 @@ export default function AdminUserDetailPage() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => router.push(`/admin?edit=${user.id}`)}
-              className="inline-flex items-center gap-2 h-[41px] px-4 rounded-[10px] border border-[#52525B] bg-zinc-900 text-[16px] text-[#A1A1AA] hover:bg-zinc-800/60 transition"
+              className="inline-flex items-center gap-2 h-[41px] px-4 rounded-xl border border-zinc-700/60 bg-zinc-900 text-[16px] text-[#A1A1AA] hover:bg-zinc-800/60 transition"
             >
               <Pencil size={16} /> Edit
             </button>
@@ -288,7 +288,7 @@ export default function AdminUserDetailPage() {
                 }
                 router.push("/google-ads");
               }}
-              className="inline-flex items-center gap-2 h-[41px] px-4 rounded-[10px] bg-[var(--brand)] hover:bg-emerald-700 text-white text-[16px] transition"
+              className="inline-flex items-center gap-2 h-[41px] px-4 rounded-xl bg-[var(--brand)] hover:bg-emerald-700 text-white text-[16px] transition"
             >
               <Eye size={16} /> View as Client
             </button>
@@ -297,7 +297,7 @@ export default function AdminUserDetailPage() {
       </div>
 
       {/* ── Identity card ── */}
-      <div className="bg-zinc-900 border border-[#3F3F46] rounded-[10px] overflow-hidden">
+      <div className="bg-zinc-900 border border-[#3F3F46] rounded-xl overflow-hidden">
         <div
           className="h-16 w-full"
           style={{ background: "linear-gradient(to right,#2b7fff,#ad46ff,#f6339a)" }}
@@ -314,7 +314,7 @@ export default function AdminUserDetailPage() {
                   src={user.avatarUrl}
                   alt={user.name}
                   referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover rounded-[10px]"
+                  className="w-full h-full object-cover rounded-xl"
                 />
               ) : (
                 <span className="text-[24px] leading-[32px] font-bold text-white">
@@ -345,7 +345,7 @@ export default function AdminUserDetailPage() {
           <div className="flex items-center gap-3 flex-wrap">
             <StatusBadge status={user.status} />
             <span
-              className="inline-flex items-center h-8 px-3 rounded-[10px] text-[14px] font-medium"
+              className="inline-flex items-center h-8 px-3 rounded-xl text-[14px] font-medium"
               style={{ background: "#f3e8ff", color: "#8200db" }}
             >
               {user.plan} Plan
@@ -357,10 +357,10 @@ export default function AdminUserDetailPage() {
       {/* ── Stat cards ── */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {STATS.map((s) => (
-          <div key={s.label} className="bg-zinc-900 border border-[#3F3F46] rounded-[10px] p-5">
+          <div key={s.label} className="bg-zinc-900 border border-[#3F3F46] rounded-xl p-5">
             <div className="flex items-center gap-4">
               <div
-                className="w-12 h-12 rounded-[10px] flex items-center justify-center shrink-0"
+                className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
                 style={{ background: s.bg, color: s.fg }}
               >
                 {s.icon}
@@ -377,7 +377,7 @@ export default function AdminUserDetailPage() {
       </div>
 
       {/* ── Tabbed content ── */}
-      <div className="bg-zinc-900 border border-[#3F3F46] rounded-[10px] overflow-hidden">
+      <div className="bg-zinc-900 border border-[#3F3F46] rounded-xl overflow-hidden">
         {/* tabs */}
         <div className="flex border-b border-[#3F3F46]">
           {(
@@ -421,7 +421,7 @@ export default function AdminUserDetailPage() {
                           <div className="flex items-start justify-between">
                             <div className="flex items-center gap-3 min-w-0">
                               <div
-                                className="w-12 h-12 rounded-[10px] flex items-center justify-center shrink-0 text-white"
+                                className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 text-white"
                                 style={{ background: st.grad }}
                               >
                                 <Megaphone size={24} />
@@ -466,7 +466,7 @@ export default function AdminUserDetailPage() {
                   {ACTIVITY.map((a, i) => (
                     <div
                       key={i}
-                      className="bg-[#18181B] rounded-[10px] h-[62px] px-3 flex items-center gap-3"
+                      className="bg-[#18181B] rounded-xl h-[62px] px-3 flex items-center gap-3"
                     >
                       <span className="shrink-0 mt-0.5" style={{ color: a.fg }}>
                         {a.icon}
@@ -499,7 +499,7 @@ export default function AdminUserDetailPage() {
               {ACTIVITY.map((a, i) => (
                 <div
                   key={i}
-                  className="bg-[#18181B] rounded-[10px] h-[62px] px-3 flex items-center gap-3"
+                  className="bg-[#18181B] rounded-xl h-[62px] px-3 flex items-center gap-3"
                 >
                   <span className="shrink-0 mt-0.5" style={{ color: a.fg }}>
                     {a.icon}

@@ -128,7 +128,7 @@ function Kpi({
     <div className="relative card-elevate rounded-xl px-4 pr-9 py-4 min-w-0">
       <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
         <div
-          className="w-8 h-8 rounded-[10px] flex items-center justify-center shrink-0"
+          className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0"
           style={{ background: iconBg }}
         >
           {icon}

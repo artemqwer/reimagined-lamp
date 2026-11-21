@@ -190,7 +190,7 @@ export default function ForecastPanel({
           return (
             <div
               key={f.metric}
-              className="flex flex-wrap items-center gap-x-2.5 gap-y-1 glass rounded-[10px] px-3 py-2"
+              className="flex flex-wrap items-center gap-x-2.5 gap-y-1 glass rounded-xl px-3 py-2"
             >
               <span className="text-[13px] font-semibold text-[#F4F4F5] mr-auto">
                 {def?.label ?? f.metric}

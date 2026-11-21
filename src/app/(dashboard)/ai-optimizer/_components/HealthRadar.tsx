@@ -102,7 +102,7 @@ export default function HealthRadar({
 
   if (data.length < 3)
     return (
-      <div className="h-[260px] flex items-center justify-center text-center px-6">
+      <div className="h-[300px] flex items-center justify-center text-center px-6">
         <p className="text-[13px] text-zinc-500 max-w-xs">
           A shape needs at least three sides. This source has{" "}
           {data.length === 0 ? "no breakdowns" : `only ${data.length}`} with data in this period, so
@@ -113,7 +113,7 @@ export default function HealthRadar({
 
   return (
     <div>
-      <div className="h-[260px] sm:h-[300px]">
+      <div className="h-[300px] sm:h-[300px]">
         <ResponsiveContainer width="100%" height="100%">
           <RadarChart data={data} outerRadius="72%">
             <PolarGrid stroke="#3F3F46" />
@@ -124,7 +124,12 @@ export default function HealthRadar({
               // to stay inside the card on a phone.
             />
             <PolarRadiusAxis domain={[0, 100]} tick={{ fontSize: 9, fill: "#52525B" }} />
-            <Radar dataKey="score" stroke="#7F22FE" fill="#AD46FF" fillOpacity={0.45} />
+            <Radar
+              dataKey="score"
+              stroke="var(--brand-fg)"
+              fill="var(--brand)"
+              fillOpacity={0.28}
+            />
             <Tooltip content={<AxisTooltip />} />
           </RadarChart>
         </ResponsiveContainer>

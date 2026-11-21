@@ -735,7 +735,7 @@ export default function Timeline({
                         setCatTip({ type: t, x: r.left + r.width / 2, y: r.bottom + 8 });
                       }}
                       onMouseLeave={() => setCatTip((cur) => (cur?.type === t ? null : cur))}
-                      className={`relative w-7 h-7 rounded-[10px] shadow-sm flex items-center justify-center transition cursor-pointer ${off ? "opacity-40" : "hover:scale-105"}`}
+                      className={`relative w-7 h-7 rounded-xl shadow-sm flex items-center justify-center transition cursor-pointer ${off ? "opacity-40" : "hover:scale-105"}`}
                       style={{ background: meta.bg, color: meta.color }}
                     >
                       {meta.icon}
@@ -757,7 +757,7 @@ export default function Timeline({
           {!compact && <div className="bg-[#52525B] h-6 w-px shrink-0" />}
           <button
             onClick={onAddEvent}
-            className="text-[12px] font-medium text-[#A1A1AA] border border-[#52525B] rounded-lg px-[11px] py-[7px] hover:bg-zinc-800/60 flex items-center gap-1.5 whitespace-nowrap"
+            className="text-[12px] font-medium text-[#A1A1AA] border border-zinc-700/60 rounded-lg px-[11px] py-[7px] hover:bg-zinc-800/60 flex items-center gap-1.5 whitespace-nowrap"
           >
             <svg
               width="14"

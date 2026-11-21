@@ -359,7 +359,7 @@ export default function TabContent({
           <div className="relative shrink-0">
             <button
               onClick={() => onGranularityOpenChange(!granularityOpen)}
-              className="flex items-center gap-2 bg-zinc-900 border border-[#52525B] rounded-[10px] px-4 py-2 cursor-pointer hover:bg-zinc-800/60 whitespace-nowrap text-[14px] font-medium text-[#A1A1AA]"
+              className="flex items-center gap-2 bg-zinc-800/50 border border-zinc-700/60 rounded-xl px-4 py-2 cursor-pointer hover:bg-zinc-800/60 whitespace-nowrap text-[14px] font-medium text-[#A1A1AA]"
             >
               {granularity.charAt(0).toUpperCase() + granularity.slice(1)}
               <svg
@@ -430,7 +430,7 @@ export default function TabContent({
           return (
             <div key={chartKey} className="chart-fade">
               <div className="sm:overflow-x-auto scrollbar-none -mx-1 px-1 outline-none focus:outline-none">
-                <div className="h-[260px] sm:h-[340px] lg:h-[440px] sm:min-w-[600px] relative">
+                <div className="h-[300px] sm:h-[380px] lg:h-[440px] sm:min-w-[600px] relative">
                   {!metricHasValue && (
                     <div className="absolute inset-y-0 left-12 right-4 sm:left-16 sm:right-6 z-10 flex items-center justify-center pointer-events-none">
                       {isLoading ? (
@@ -460,7 +460,7 @@ export default function TabContent({
                       barCategoryGap="18%"
                       margin={{ top: 28, right: 10, left: -10, bottom: isMobile ? 0 : 4 }}
                     >
-                      <CartesianGrid vertical={false} strokeDasharray="4 3" stroke="#27272A" />
+                      <CartesianGrid vertical={false} strokeDasharray="1 4" stroke="#27272A" />
                       <XAxis
                         dataKey="date"
                         tick={
@@ -528,7 +528,7 @@ export default function TabContent({
                                 : 1
                             }
                             hide={isHidden}
-                            radius={isVisibleTop ? [4, 4, 0, 0] : [0, 0, 0, 0]}
+                            radius={isVisibleTop ? [7, 7, 0, 0] : [0, 0, 0, 0]}
                             isAnimationActive={true}
                             animationDuration={700}
                             animationEasing="ease-out"
@@ -736,7 +736,7 @@ export default function TabContent({
       {activeTab === 1 && (
         <div key={chartKey} className="chart-fade">
           <div className="sm:overflow-x-auto scrollbar-none -mx-1 px-1 outline-none focus:outline-none">
-            <div className="h-[260px] sm:h-[340px] lg:h-[440px] sm:min-w-[600px]">
+            <div className="h-[300px] sm:h-[380px] lg:h-[440px] sm:min-w-[600px]">
               <ResponsiveContainer width="100%" height="100%">
                 <ComposedChart
                   data={aggregatedAdPerfData}
@@ -745,7 +745,7 @@ export default function TabContent({
                 >
                   <CartesianGrid
                     vertical={false}
-                    strokeDasharray="4 3"
+                    strokeDasharray="1 4"
                     stroke="#27272A"
                     yAxisId="left"
                   />
@@ -795,7 +795,7 @@ export default function TabContent({
                     stackId="a"
                     fill="#F87171"
                     fillOpacity={0.9}
-                    radius={[0, 0, 3, 3]}
+                    radius={[0, 0, 6, 6]}
                     hide={hiddenAdPerf.has("cost")}
                     isAnimationActive={true}
                     animationDuration={700}
@@ -811,7 +811,7 @@ export default function TabContent({
                     dataKey="profitBar"
                     stackId="a"
                     fill="#4ADE80"
-                    radius={[3, 3, 0, 0]}
+                    radius={[6, 6, 0, 0]}
                     hide={hiddenAdPerf.has("profit")}
                     isAnimationActive={true}
                     animationDuration={700}
@@ -830,7 +830,7 @@ export default function TabContent({
                     dataKey="lossBar"
                     stackId="a"
                     fill="#B91C1C"
-                    radius={[0, 0, 3, 3]}
+                    radius={[0, 0, 6, 6]}
                     hide={hiddenAdPerf.has("loss")}
                     isAnimationActive={true}
                     animationDuration={700}
@@ -845,7 +845,7 @@ export default function TabContent({
                     dataKey="clicks"
                     stroke="#D4D4D8"
                     strokeWidth={1.5}
-                    strokeDasharray="4 3"
+                    strokeDasharray="1 4"
                     dot={false}
                     activeDot={{ r: 4, fill: "#D4D4D8" }}
                     hide={hiddenAdPerf.has("clicks")}
@@ -922,7 +922,7 @@ export default function TabContent({
                           y2="2"
                           stroke={hidden ? "#71717A" : color}
                           strokeWidth="1.5"
-                          strokeDasharray="4 2"
+                          strokeDasharray="1 4"
                         />
                       </svg>
                     ) : dot ? (
@@ -996,7 +996,7 @@ export default function TabContent({
                           y2="2"
                           stroke={hidden ? "#71717A" : color}
                           strokeWidth="1.5"
-                          strokeDasharray="4 2"
+                          strokeDasharray="1 4"
                         />
                       </svg>
                     ) : dot ? (
@@ -1043,7 +1043,7 @@ export default function TabContent({
       {activeTab === 2 && (
         <div key={chartKey} className="chart-fade">
           <div className="sm:overflow-x-auto scrollbar-none -mx-1 px-1 outline-none focus:outline-none">
-            <div className="h-[260px] sm:h-[340px] lg:h-[440px] sm:min-w-[600px]">
+            <div className="h-[300px] sm:h-[380px] lg:h-[440px] sm:min-w-[600px]">
               <ResponsiveContainer width="100%" height="100%">
                 <ComposedChart
                   data={aggregatedPlData}
@@ -1052,7 +1052,7 @@ export default function TabContent({
                 >
                   <CartesianGrid
                     vertical={false}
-                    strokeDasharray="4 3"
+                    strokeDasharray="1 4"
                     stroke="#27272A"
                     yAxisId="left"
                   />
@@ -1091,7 +1091,7 @@ export default function TabContent({
                   <Bar
                     yAxisId="left"
                     dataKey="cumulative"
-                    radius={[3, 3, 0, 0]}
+                    radius={[6, 6, 0, 0]}
                     hide={hiddenPL.has("cumulative")}
                     isAnimationActive={true}
                     animationDuration={700}
@@ -1108,7 +1108,7 @@ export default function TabContent({
                     dataKey="dailyProfit"
                     stroke="#D4D4D8"
                     strokeWidth={1.5}
-                    strokeDasharray="4 3"
+                    strokeDasharray="1 4"
                     hide={hiddenPL.has("daily")}
                     isAnimationActive={true}
                     animationDuration={700}
@@ -1202,7 +1202,7 @@ export default function TabContent({
                           y2="2"
                           stroke={hidden ? "#71717A" : color}
                           strokeWidth="1.5"
-                          strokeDasharray="4 2"
+                          strokeDasharray="1 4"
                         />
                       </svg>
                     ) : dot ? (
@@ -1280,7 +1280,7 @@ export default function TabContent({
                           y2="2"
                           stroke={hidden ? "#71717A" : color}
                           strokeWidth="1.5"
-                          strokeDasharray="4 2"
+                          strokeDasharray="1 4"
                         />
                       </svg>
                     ) : dot ? (
@@ -1371,7 +1371,7 @@ export default function TabContent({
       {activeTab === 4 && (
         <div key={chartKey} className="chart-fade">
           <div className="sm:overflow-x-auto scrollbar-none -mx-1 px-1 outline-none focus:outline-none">
-            <div className="h-[260px] sm:h-[340px] lg:h-[440px] sm:min-w-[600px]">
+            <div className="h-[300px] sm:h-[380px] lg:h-[440px] sm:min-w-[600px]">
               <ResponsiveContainer width="100%" height="100%">
                 <ComposedChart
                   data={aggregatedAdPerfData}
@@ -1380,7 +1380,7 @@ export default function TabContent({
                 >
                   <CartesianGrid
                     vertical={false}
-                    strokeDasharray="4 3"
+                    strokeDasharray="1 4"
                     stroke="#27272A"
                     yAxisId="left"
                   />
@@ -1447,7 +1447,7 @@ export default function TabContent({
                     yAxisId="left"
                     dataKey="convValue"
                     fill="#4ADE80"
-                    radius={[3, 3, 0, 0]}
+                    radius={[6, 6, 0, 0]}
                     isAnimationActive={true}
                     animationDuration={700}
                     animationEasing="ease-out"
@@ -1458,7 +1458,7 @@ export default function TabContent({
                     dataKey="conv"
                     stroke="#D4D4D8"
                     strokeWidth={1.5}
-                    strokeDasharray="4 3"
+                    strokeDasharray="1 4"
                     dot={false}
                     activeDot={{ r: 4, fill: "#D4D4D8" }}
                     isAnimationActive={true}

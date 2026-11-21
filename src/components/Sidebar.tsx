@@ -154,7 +154,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
             onNavigate?.();
           }}
           title={collapsed ? CONNECTORS[id].label : undefined}
-          className={`flex items-center rounded-[10px] text-[14px] transition mb-1 ${
+          className={`flex items-center rounded-xl text-[14px] transition mb-1 ${
             collapsed ? "justify-center px-0 py-2.5" : "gap-3 px-3 py-2"
           } ${active ? "bg-emerald-500/10 text-[var(--brand-fg)] ring-1 ring-emerald-500/25" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
         >
@@ -172,7 +172,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
         href="/ai-optimizer"
         onClick={onNavigate}
         title={collapsed ? "Forge AI" : undefined}
-        className={`flex items-center rounded-[10px] text-[14px] transition mb-1 ${
+        className={`flex items-center rounded-xl text-[14px] transition mb-1 ${
           collapsed ? "justify-center px-0 py-2.5" : "gap-3 px-3 py-2"
         } ${active ? "bg-emerald-500/10 text-[var(--brand-fg)] ring-1 ring-emerald-500/25" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
       >
@@ -199,7 +199,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
         href="/smart-goals"
         onClick={onNavigate}
         title={collapsed ? "Watchtower" : undefined}
-        className={`flex items-center rounded-[10px] text-[14px] transition mb-1 ${
+        className={`flex items-center rounded-xl text-[14px] transition mb-1 ${
           collapsed ? "justify-center px-0 py-2.5" : "gap-3 px-3 py-2"
         } ${active ? "bg-emerald-500/10 text-[var(--brand-fg)] ring-1 ring-emerald-500/25" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
       >
@@ -349,7 +349,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
                   href={href}
                   onClick={onMobileClose}
                   title={collapsed ? label : undefined}
-                  className={`flex items-center rounded-[10px] text-[14px] transition mb-1 ${
+                  className={`flex items-center rounded-xl text-[14px] transition mb-1 ${
                     collapsed ? "justify-center px-0 py-2.5" : "gap-3 px-3 py-2"
                   } ${active ? "bg-emerald-500/10 text-[var(--brand-fg)] ring-1 ring-emerald-500/25" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
                 >
@@ -502,7 +502,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
                       key={href}
                       href={href}
                       onClick={onMobileClose}
-                      className={`flex items-center gap-3 px-3 py-2 rounded-[10px] text-[14px] transition mb-1 ${
+                      className={`flex items-center gap-3 px-3 py-2 rounded-xl text-[14px] transition mb-1 ${
                         active
                           ? "bg-emerald-500/10 text-[var(--brand-fg)] ring-1 ring-emerald-500/25"
                           : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"

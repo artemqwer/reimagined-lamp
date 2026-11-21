@@ -160,13 +160,13 @@ function AnalysisBlocks({ rec }: { rec: Recommendation }) {
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
-        <div className="rounded-[10px] bg-[#18181B] border border-[#3F3F46] px-3 py-2">
+        <div className="rounded-xl bg-[#18181B] border border-[#3F3F46] px-3 py-2">
           <p className="text-[10px] font-bold text-[#71717A] uppercase tracking-wider mb-0.5">
             Current state
           </p>
           <p className="text-[12px] text-[#F4F4F5] font-medium">{rec.currentState}</p>
         </div>
-        <div className="rounded-[10px] bg-[#18181B] border border-[#3F3F46] px-3 py-2">
+        <div className="rounded-xl bg-[#18181B] border border-[#3F3F46] px-3 py-2">
           <p className="text-[10px] font-bold text-[#71717A] uppercase tracking-wider mb-0.5">
             Expected result
           </p>
@@ -174,7 +174,7 @@ function AnalysisBlocks({ rec }: { rec: Recommendation }) {
         </div>
       </div>
 
-      <div className="mt-2.5 rounded-[10px] border border-[#3F3F46] bg-[#18181B] px-3 py-2.5">
+      <div className="mt-2.5 rounded-xl border border-[#3F3F46] bg-[#18181B] px-3 py-2.5">
         <p className="text-[12px] text-[#A1A1AA]">
           <span className="font-semibold text-[#F4F4F5]">⚡ Action:</span> {rec.action}
         </p>
@@ -238,7 +238,7 @@ export default function RecommendationCard({
     const isComp = state === "completed";
     return (
       <div
-        className={`p-4 border rounded-[10px] my-3 mx-4 sm:mx-5 transition ${
+        className={`p-4 border rounded-xl my-3 mx-4 sm:mx-5 transition ${
           isComp ? "bg-[rgba(240,253,244,0.3)] border-[#7BF1A8]" : "bg-zinc-900/70 border-zinc-800"
         }`}
       >
@@ -317,7 +317,7 @@ export default function RecommendationCard({
           {analysisOpen && (
             <div className="mt-2">
               {analysisPeriod && (
-                <div className="rounded-[10px] bg-zinc-900 border border-[#3F3F46] px-3 py-2 inline-block">
+                <div className="rounded-xl bg-zinc-900 border border-[#3F3F46] px-3 py-2 inline-block">
                   <p className="text-[10px] font-bold text-[#71717A] uppercase tracking-wider mb-0.5">
                     Analysis period
                   </p>

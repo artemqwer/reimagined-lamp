@@ -195,7 +195,7 @@ export default function GoalProgressChart({
             }}
             onMouseLeave={() => onHoverKey(null)}
           >
-            <CartesianGrid vertical={false} strokeDasharray="4 3" stroke="#27272A" />
+            <CartesianGrid vertical={false} strokeDasharray="1 4" stroke="#27272A" />
             <XAxis
               dataKey="key"
               interval={tickInterval}
@@ -241,7 +241,7 @@ export default function GoalProgressChart({
                 key={m.index}
                 x={points[m.index]?.key}
                 stroke="#3F3F46"
-                strokeDasharray="3 3"
+                strokeDasharray="1 4"
                 label={{ value: m.label, position: "top", fontSize: 10, fill: "#71717A" }}
               />
             ))}
@@ -252,7 +252,7 @@ export default function GoalProgressChart({
               <ReferenceLine
                 y={target}
                 stroke={accent}
-                strokeDasharray="2 4"
+                strokeDasharray="1 4"
                 strokeOpacity={0.8}
                 label={{
                   value: `Goal: ${formatMetric(target, def)}`,
@@ -288,7 +288,7 @@ export default function GoalProgressChart({
                 dataKey="pace"
                 stroke="#71717A"
                 strokeWidth={1.5}
-                strokeDasharray="5 4"
+                strokeDasharray="1 4"
                 dot={false}
                 isAnimationActive={true}
                 animationDuration={750}
@@ -312,7 +312,7 @@ export default function GoalProgressChart({
               y2="3"
               stroke="#71717A"
               strokeWidth="1.5"
-              strokeDasharray="5 4"
+              strokeDasharray="1 4"
             />
           </svg>
           Target
@@ -339,7 +339,7 @@ export default function GoalProgressChart({
                 y2="3"
                 stroke={accent}
                 strokeWidth="1.5"
-                strokeDasharray="2 4"
+                strokeDasharray="1 4"
                 strokeOpacity="0.8"
               />
             </svg>

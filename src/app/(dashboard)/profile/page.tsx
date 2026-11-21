@@ -367,7 +367,7 @@ export default function ProfilePage() {
                 type="button"
                 onClick={() => fileInputRef.current?.click()}
                 disabled={avatarLoading}
-                className="text-[14px] px-4 h-[37px] bg-[var(--brand)] hover:bg-emerald-700 disabled:bg-emerald-400 text-white rounded-[10px] transition"
+                className="text-[14px] px-4 h-[37px] bg-[var(--brand)] hover:bg-emerald-700 disabled:bg-emerald-400 text-white rounded-xl transition"
               >
                 Upload new photo
               </button>
@@ -375,7 +375,7 @@ export default function ProfilePage() {
                 <button
                   type="button"
                   onClick={handleRemoveAvatar}
-                  className="text-[14px] px-4 h-[37px] border border-[#52525B] text-[#A1A1AA] hover:bg-zinc-800/60 rounded-[10px] transition"
+                  className="text-[14px] px-4 h-[37px] border border-zinc-700/60 text-[#A1A1AA] hover:bg-zinc-800/60 rounded-xl transition"
                 >
                   Remove
                 </button>
@@ -418,7 +418,7 @@ export default function ProfilePage() {
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                   placeholder="John"
-                  className="w-full h-11 pl-10 pr-4 text-[16px] border border-[#52525B] rounded-[10px] outline-none transition text-[#0a0a0a] placeholder-[#71717A] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
+                  className="w-full h-11 pl-10 pr-4 text-[16px] border border-zinc-700/60 rounded-xl outline-none transition text-[#0a0a0a] placeholder-[#71717A] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
                 />
               </div>
             </div>
@@ -443,7 +443,7 @@ export default function ProfilePage() {
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   placeholder="Doe"
-                  className="w-full h-11 pl-10 pr-4 text-[16px] border border-[#52525B] rounded-[10px] outline-none transition text-[#0a0a0a] placeholder-[#71717A] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
+                  className="w-full h-11 pl-10 pr-4 text-[16px] border border-zinc-700/60 rounded-xl outline-none transition text-[#0a0a0a] placeholder-[#71717A] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
                 />
               </div>
             </div>
@@ -470,7 +470,7 @@ export default function ProfilePage() {
                   type="email"
                   value={email}
                   disabled
-                  className="w-full h-11 pl-10 pr-4 text-[16px] border border-[#3F3F46] rounded-[10px] outline-none bg-zinc-900 text-zinc-500 cursor-not-allowed"
+                  className="w-full h-11 pl-10 pr-4 text-[16px] border border-[#3F3F46] rounded-xl outline-none bg-zinc-900 text-zinc-500 cursor-not-allowed"
                 />
               </div>
             </div>
@@ -494,7 +494,7 @@ export default function ProfilePage() {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="+1 (555) 123-4567"
-                  className="w-full h-11 pl-10 pr-4 text-[16px] border border-[#52525B] rounded-[10px] outline-none transition text-[#0a0a0a] placeholder-[#71717A] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
+                  className="w-full h-11 pl-10 pr-4 text-[16px] border border-zinc-700/60 rounded-xl outline-none transition text-[#0a0a0a] placeholder-[#71717A] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
                 />
               </div>
             </div>
@@ -521,7 +521,7 @@ export default function ProfilePage() {
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
                 placeholder="New York, USA"
-                className="w-full h-11 pl-10 pr-4 text-[16px] border border-[#52525B] rounded-[10px] outline-none transition text-[#0a0a0a] placeholder-[#71717A] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
+                className="w-full h-11 pl-10 pr-4 text-[16px] border border-zinc-700/60 rounded-xl outline-none transition text-[#0a0a0a] placeholder-[#71717A] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
               />
             </div>
           </div>
@@ -532,7 +532,7 @@ export default function ProfilePage() {
             <button
               type="submit"
               disabled={profileLoading}
-              className="bg-[var(--brand)] hover:bg-emerald-700 disabled:bg-emerald-400 text-white text-[16px] px-5 h-11 rounded-[10px] flex items-center gap-2 transition"
+              className="bg-[var(--brand)] hover:bg-emerald-700 disabled:bg-emerald-400 text-white text-[16px] px-5 h-11 rounded-xl flex items-center gap-2 transition"
             >
               {profileLoading && (
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -594,7 +594,7 @@ export default function ProfilePage() {
                   value={value}
                   onChange={(e) => set(e.target.value)}
                   placeholder={placeholder}
-                  className="w-full h-11 pl-10 pr-11 text-[16px] border border-[#52525B] rounded-[10px] outline-none transition text-[#0a0a0a] placeholder-[#71717A] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
+                  className="w-full h-11 pl-10 pr-11 text-[16px] border border-zinc-700/60 rounded-xl outline-none transition text-[#0a0a0a] placeholder-[#71717A] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
                 />
                 <button
                   type="button"
@@ -638,7 +638,7 @@ export default function ProfilePage() {
             <button
               type="submit"
               disabled={passwordLoading}
-              className="bg-[var(--brand)] hover:bg-emerald-700 disabled:bg-emerald-400 text-white text-[16px] px-5 h-11 rounded-[10px] flex items-center gap-2 transition"
+              className="bg-[var(--brand)] hover:bg-emerald-700 disabled:bg-emerald-400 text-white text-[16px] px-5 h-11 rounded-xl flex items-center gap-2 transition"
             >
               {passwordLoading && (
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -653,7 +653,7 @@ export default function ProfilePage() {
       <div className="bg-zinc-900 rounded-[14px] border border-[#3F3F46] p-6 mb-6">
         <div className="flex items-center justify-between gap-4 flex-wrap">
           <div className="flex items-center gap-3 min-w-0">
-            <div className="w-10 h-10 rounded-[10px] bg-[rgba(59,130,246,0.14)] text-[var(--brand)] flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-[rgba(59,130,246,0.14)] text-[var(--brand)] flex items-center justify-center shrink-0">
               <svg
                 width="20"
                 height="20"
@@ -689,7 +689,7 @@ export default function ProfilePage() {
                 <button
                   type="button"
                   onClick={() => setMfaDisableConfirm(false)}
-                  className="text-[14px] px-3 h-9 border border-[#52525B] text-[#A1A1AA] hover:bg-zinc-800/60 rounded-[10px] transition"
+                  className="text-[14px] px-3 h-9 border border-zinc-700/60 text-[#A1A1AA] hover:bg-zinc-800/60 rounded-xl transition"
                 >
                   Cancel
                 </button>
@@ -697,7 +697,7 @@ export default function ProfilePage() {
                   type="button"
                   onClick={handleDisableMfa}
                   disabled={mfaBusy}
-                  className="text-[14px] px-4 h-9 bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white rounded-[10px] transition flex items-center gap-1.5"
+                  className="text-[14px] px-4 h-9 bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white rounded-xl transition flex items-center gap-1.5"
                 >
                   {mfaBusy && (
                     <div className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -709,7 +709,7 @@ export default function ProfilePage() {
               <button
                 type="button"
                 onClick={() => setMfaDisableConfirm(true)}
-                className="shrink-0 text-[14px] px-4 h-9 border border-red-500/20 text-red-600 hover:bg-red-500/10 rounded-[10px] transition"
+                className="shrink-0 text-[14px] px-4 h-9 border border-red-500/20 text-red-600 hover:bg-red-500/10 rounded-xl transition"
               >
                 Disable 2FA
               </button>
@@ -719,7 +719,7 @@ export default function ProfilePage() {
               type="button"
               onClick={handleStartMfa}
               disabled={mfaBusy}
-              className="shrink-0 text-[14px] px-4 h-9 bg-[var(--brand)] hover:bg-emerald-700 disabled:opacity-50 text-white rounded-[10px] transition flex items-center gap-1.5"
+              className="shrink-0 text-[14px] px-4 h-9 bg-[var(--brand)] hover:bg-emerald-700 disabled:opacity-50 text-white rounded-xl transition flex items-center gap-1.5"
             >
               {mfaBusy && !mfaEnrolling && (
                 <div className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin" />

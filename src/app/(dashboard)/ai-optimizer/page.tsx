@@ -990,7 +990,7 @@ export default function AiOptimizerPage() {
       {analysis ? (
         <HealthRadar categories={analysis.categories} />
       ) : (
-        <div className="h-[260px] bg-zinc-900 rounded-xl animate-pulse" />
+        <div className="h-[300px] bg-zinc-900 rounded-xl animate-pulse" />
       )}
     </div>
   );
@@ -1461,7 +1461,7 @@ export default function AiOptimizerPage() {
                             <button
                               key={c.key}
                               onClick={() => selectCategory(c.key)}
-                              className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-[10px] border transition ${
+                              className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-xl border transition ${
                                 isSel
                                   ? "bg-violet-500/10 border-violet-500/40"
                                   : "bg-[#18181B] border-[#27272A] hover:bg-zinc-800/70"

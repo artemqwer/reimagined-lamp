@@ -298,10 +298,11 @@ export default function SegmentDonut({
               data={data}
               cx="50%"
               cy="50%"
-              innerRadius={70}
-              outerRadius={105}
+              innerRadius={78}
+              outerRadius={100}
               dataKey="value"
-              paddingAngle={1}
+              paddingAngle={3}
+              cornerRadius={6}
               startAngle={90}
               endAngle={-270}
               strokeWidth={0}

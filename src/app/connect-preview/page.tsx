@@ -125,11 +125,11 @@ export default function ConnectPreviewPage() {
       </div>
 
       <div className="w-full max-w-md">
-        <div className="bg-zinc-900 rounded-3xl border border-zinc-800 shadow-sm overflow-hidden">
+        <div className="card-elevate rounded-3xl shadow-sm overflow-hidden">
           {/* Header */}
           <div className="px-7 pt-7 pb-5 border-b border-zinc-800">
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center shrink-0">
+              <div className="w-11 h-11 rounded-2xl glass flex items-center justify-center shrink-0">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                   <circle cx="7" cy="17" r="3.2" fill="#34A853" />
                   <rect

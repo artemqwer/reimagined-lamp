@@ -124,7 +124,7 @@ function TableEditor({
             return (
               <span
                 key={key}
-                className="flex items-center gap-1 text-[12px] bg-zinc-900 border border-zinc-800 rounded-lg px-2 py-1"
+                className="flex items-center gap-1 text-[12px] glass rounded-lg px-2 py-1"
               >
                 {d?.singular ?? key}
                 <button
@@ -161,7 +161,7 @@ function TableEditor({
                     additionalDimensions: [...table.additionalDimensions, e.target.value],
                   });
               }}
-              className="text-[12px] border border-dashed border-emerald-500/20 text-emerald-600 rounded-lg px-2 py-1 bg-zinc-900 cursor-pointer"
+              className="text-[12px] border border-dashed border-emerald-500/20 text-[var(--brand-fg)] rounded-lg px-2 py-1 bg-zinc-900 cursor-pointer"
             >
               <option value="">+ Add dimension</option>
               {availableDims.map((d) => (
@@ -176,7 +176,7 @@ function TableEditor({
 
       <div>
         <label className="text-[12px] font-medium text-zinc-400 block mb-1.5">Metric Columns</label>
-        <div className="bg-zinc-900 rounded-lg border border-zinc-800 divide-y divide-gray-50">
+        <div className="card-elevate rounded-lg divide-y divide-gray-50">
           {visibleMetricRows.length === 0 && (
             <p className="px-3 py-3 text-[12px] text-zinc-500">No columns yet — add one below.</p>
           )}
@@ -231,7 +231,7 @@ function TableEditor({
                 <button
                   key={r.key}
                   onClick={() => toggleMetric(r.key)}
-                  className="text-[11px] font-medium text-emerald-600 border border-dashed border-emerald-500/20 rounded-lg px-2 py-1 hover:bg-emerald-500/10"
+                  className="text-[11px] font-medium text-[var(--brand-fg)] border border-dashed border-emerald-500/20 rounded-lg px-2 py-1 hover:bg-emerald-500/10"
                 >
                   + {r.label}
                 </button>
@@ -245,7 +245,7 @@ function TableEditor({
         <button
           type="button"
           onClick={() => onChange({ ...table, crossFiltering: !table.crossFiltering })}
-          className="flex items-center justify-between gap-3 border border-zinc-800 rounded-lg px-3 py-2 hover:bg-zinc-900 transition bg-zinc-900"
+          className="flex items-center justify-between gap-3 border border-zinc-800 rounded-lg px-3 py-2 hover:bg-zinc-800/60 transition bg-zinc-900"
         >
           <span className="text-[13px] font-medium text-zinc-300">Cross-filtering</span>
           <span
@@ -409,7 +409,7 @@ export default function TableWidgetsPanel({
               </button>
               <button
                 onClick={() => setExpanded(expanded === t.id ? null : t.id)}
-                className="text-[11px] font-semibold text-emerald-600 hover:text-emerald-700 shrink-0"
+                className="text-[11px] font-semibold text-[var(--brand-fg)] hover:text-[var(--brand-fg)] shrink-0"
               >
                 {expanded === t.id ? "Close" : "Configure"}
               </button>
@@ -444,7 +444,7 @@ export default function TableWidgetsPanel({
       <div className="px-5 py-3.5">
         <button
           onClick={add}
-          className="flex items-center gap-1.5 text-[12px] font-semibold text-emerald-600 border border-dashed border-emerald-500/20 rounded-lg px-3 py-1.5 hover:bg-emerald-500/10 transition"
+          className="flex items-center gap-1.5 text-[12px] font-semibold text-[var(--brand-fg)] border border-dashed border-emerald-500/20 rounded-lg px-3 py-1.5 hover:bg-emerald-500/10 transition"
         >
           <svg
             width="12"

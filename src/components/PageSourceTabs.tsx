@@ -85,13 +85,18 @@ export default function PageSourceTabs({
       <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3 mb-3 px-1 empty:mb-0">
         {/* Hidden on a phone: the top bar already names the section there, so
             the page heading would just repeat it. Kept from sm up. */}
-        <h1 className="hidden sm:block text-[22px] sm:text-[26px] font-bold text-[#F4F4F5] leading-tight">
+        <h1 className="hidden sm:flex items-center gap-2.5 text-[22px] sm:text-[26px] font-bold text-[#F4F4F5] leading-tight">
+          <span
+            aria-hidden
+            className="w-2 h-6 rounded-full"
+            style={{ background: "linear-gradient(180deg, var(--brand-fg), var(--brand))" }}
+          />
           {title}
         </h1>
         {actions && <div className="flex items-center gap-2 flex-wrap">{actions}</div>}
       </div>
 
-      <div className="bg-zinc-900 rounded-2xl border border-zinc-800 px-4 sm:px-5 pt-1 pb-4 sm:pb-5 mb-4">
+      <div className="card-elevate rounded-2xl px-4 sm:px-5 pt-1 pb-4 sm:pb-5 mb-4">
         {tabs.length === 0 ? (
           <p className="text-[13px] text-zinc-400 py-3">
             No connected platform has {title} switched on. An admin can enable it under Data source
@@ -105,17 +110,17 @@ export default function PageSourceTabs({
             // Scrolls sideways only. overflow-y-hidden matters: with overflow-x
             // set to auto, CSS computes overflow-y to auto as well, which let the
             // strip be dragged VERTICALLY a few pixels on a phone — the bug.
-            <div className="flex gap-1 overflow-x-auto overflow-y-hidden scrollbar-none border-b border-zinc-800 mb-4">
+            <div className="inline-flex gap-1 bg-zinc-800/50 rounded-xl p-1 mb-4 max-w-full overflow-x-auto overflow-y-hidden scrollbar-none">
               {tabs.map((id) => {
                 const on = id === activeConnector;
                 return (
                   <button
                     key={id}
                     onClick={() => setActiveConnector(id)}
-                    className={`flex items-center gap-2 text-[13.5px] font-medium px-3 py-2.5 -mb-px border-b-2 whitespace-nowrap transition ${
+                    className={`flex items-center gap-2 text-[13.5px] font-medium px-3.5 py-2 whitespace-nowrap rounded-lg transition ${
                       on
-                        ? "border-[var(--brand-fg)] text-[var(--brand-fg)]"
-                        : "border-transparent text-[#71717A] hover:text-[#A1A1AA]"
+                        ? "bg-zinc-900 text-[var(--brand-fg)] shadow-sm"
+                        : "text-[#71717A] hover:text-[#A1A1AA]"
                     }`}
                   >
                     <ConnectorBrandIcon id={id} size={15} />

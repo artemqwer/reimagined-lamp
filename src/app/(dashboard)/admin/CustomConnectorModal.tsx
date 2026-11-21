@@ -262,7 +262,7 @@ export function WindsorFieldPicker({
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search…"
-          className="flex-1 text-[11px] bg-zinc-900 border border-zinc-800 rounded px-2 py-1 outline-none focus:border-emerald-400"
+          className="flex-1 text-[11px] glass rounded px-2 py-1 outline-none focus:border-emerald-400"
         />
         <span className="text-[10px] text-zinc-500 shrink-0">{filtered.length}</span>
       </div>
@@ -283,7 +283,7 @@ export function WindsorFieldPicker({
               <span className="text-[12px] text-zinc-300 truncate block">{o.label}</span>
               <span className="text-[10px] text-zinc-500 font-mono truncate block">{o.key}</span>
             </span>
-            <span className="text-[11px] font-semibold text-emerald-600 shrink-0">+</span>
+            <span className="text-[11px] font-semibold text-[var(--brand-fg)] shrink-0">+</span>
           </button>
         ))}
       </div>
@@ -416,7 +416,7 @@ export default function CustomConnectorModal({
       onClick={onClose}
     >
       <div
-        className="bg-zinc-900 rounded-2xl shadow-xl w-full max-w-3xl p-6 max-h-[92vh] overflow-y-auto"
+        className="card-elevate rounded-2xl shadow-xl w-full max-w-3xl p-6 max-h-[92vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between mb-5">
@@ -494,7 +494,7 @@ export default function CustomConnectorModal({
                   key={s.id}
                   type="button"
                   onClick={() => setMetricSchema(s.id)}
-                  className={`text-left border rounded-lg px-3 py-2 transition ${metricSchema === s.id ? "border-emerald-300 bg-emerald-500/10" : "border-zinc-800 hover:bg-zinc-900"}`}
+                  className={`text-left border rounded-lg px-3 py-2 transition ${metricSchema === s.id ? "border-emerald-300 bg-emerald-500/10" : "border-zinc-800 hover:bg-zinc-800/60"}`}
                 >
                   <p className="text-[13px] font-semibold text-zinc-200">{s.label}</p>
                   <p className="text-[11px] text-zinc-500 mt-0.5 leading-snug">{s.hint}</p>
@@ -515,7 +515,7 @@ export default function CustomConnectorModal({
                 type="button"
                 onClick={loadWindsorFields}
                 disabled={loadingFields}
-                className="shrink-0 text-[12px] font-semibold text-emerald-600 border border-emerald-500/20 rounded-lg px-3 py-2 hover:bg-emerald-500/10 transition disabled:opacity-50 whitespace-nowrap"
+                className="shrink-0 text-[12px] font-semibold text-[var(--brand-fg)] border border-emerald-500/20 rounded-lg px-3 py-2 hover:bg-emerald-500/10 transition disabled:opacity-50 whitespace-nowrap"
               >
                 {loadingFields ? "Loading…" : "Load fields from Windsor"}
               </button>
@@ -582,7 +582,7 @@ export default function CustomConnectorModal({
               <button
                 type="button"
                 onClick={() => setDimensions((rs) => [...rs, { ...emptyDim }])}
-                className="flex items-center gap-1.5 text-[12px] text-emerald-600 hover:text-emerald-700 border border-dashed border-emerald-500/20 rounded-lg px-3 py-1.5 w-full justify-center hover:bg-emerald-500/10 transition"
+                className="flex items-center gap-1.5 text-[12px] text-[var(--brand-fg)] hover:text-[var(--brand-fg)] border border-dashed border-emerald-500/20 rounded-lg px-3 py-1.5 w-full justify-center hover:bg-emerald-500/10 transition"
               >
                 <svg
                   width="12"
@@ -620,7 +620,7 @@ export default function CustomConnectorModal({
               <button
                 type="button"
                 onClick={() => setCustomMetrics((rs) => [...rs, { ...emptyMetric }])}
-                className="flex items-center gap-1.5 text-[12px] text-emerald-600 hover:text-emerald-700 border border-dashed border-emerald-500/20 rounded-lg px-3 py-1.5 w-full justify-center hover:bg-emerald-500/10 transition"
+                className="flex items-center gap-1.5 text-[12px] text-[var(--brand-fg)] hover:text-[var(--brand-fg)] border border-dashed border-emerald-500/20 rounded-lg px-3 py-1.5 w-full justify-center hover:bg-emerald-500/10 transition"
               >
                 <svg
                   width="12"
@@ -661,7 +661,7 @@ export default function CustomConnectorModal({
             ))}
           <button
             onClick={onClose}
-            className="flex-1 text-[13px] font-medium border border-zinc-800 text-zinc-400 py-2 rounded-xl hover:bg-zinc-900 transition"
+            className="flex-1 text-[13px] font-medium border border-zinc-800 text-zinc-400 py-2 rounded-xl hover:bg-zinc-800/60 transition"
           >
             Cancel
           </button>

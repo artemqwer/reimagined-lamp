@@ -1169,7 +1169,7 @@ export default function AiOptimizerPage() {
           number can say which that is. */}
       {!openEntity && (
         <div className="space-y-4">
-          <div className="bg-zinc-900 rounded-2xl border border-zinc-800 overflow-hidden">
+          <div className="card-elevate rounded-2xl overflow-hidden">
             <div className="flex flex-wrap items-center justify-between gap-3 px-4 sm:px-5 py-3 border-b border-zinc-800">
               <p className="text-[16px] font-semibold text-[#F4F4F5]">
                 {primaryLabel} ({entityList?.entities.length ?? 0})
@@ -1251,7 +1251,7 @@ export default function AiOptimizerPage() {
                     <Link
                       key={e.name}
                       href={`/ai-optimizer?${periodQS ? `period=${encodeURIComponent(periodParam!)}&` : ""}entity=${encodeURIComponent(e.name)}`}
-                      className="block px-4 sm:px-5 py-2.5 sm:py-3.5 border-t border-zinc-800 hover:bg-zinc-900/80 transition"
+                      className="block px-4 sm:px-5 py-2.5 sm:py-3.5 border-t border-zinc-800 hover:bg-zinc-800/60/80 transition"
                     >
                       {/* Mobile: one compact card — name + arrow, then a single
                           stats line. No progress bar, no separate Profit block. */}
@@ -1398,7 +1398,7 @@ export default function AiOptimizerPage() {
         <div className="flex flex-col lg:flex-row gap-4">
           {/* Categories — the full list matching Figma */}
           <aside className="lg:w-[270px] shrink-0">
-            <div className="bg-zinc-900 rounded-2xl border border-zinc-800 p-3 lg:sticky lg:top-4">
+            <div className="card-elevate rounded-2xl p-3 lg:sticky lg:top-4">
               <p className="px-2.5 py-1.5 text-[11px] font-semibold text-[#71717A] uppercase tracking-wider">
                 OPTIMIZATION CATEGORIES
               </p>
@@ -1407,7 +1407,7 @@ export default function AiOptimizerPage() {
                 className={`w-full flex items-center justify-between gap-2 px-3 py-2 rounded-xl text-[13px] transition ${
                   selectedCategory === null
                     ? "bg-violet-500/10 text-violet-400 font-semibold border border-violet-500/40"
-                    : "text-[#F4F4F5] hover:bg-zinc-900 border border-transparent"
+                    : "text-[#F4F4F5] hover:bg-zinc-800/60 border border-transparent"
                 }`}
               >
                 <span className="flex items-center gap-2 font-medium">
@@ -1507,7 +1507,7 @@ export default function AiOptimizerPage() {
           </aside>
 
           <div ref={recsRef} className="flex-1 min-w-0 space-y-4 scroll-mt-4">
-            <div className="bg-zinc-900 rounded-2xl border border-zinc-800 overflow-hidden">
+            <div className="card-elevate rounded-2xl overflow-hidden">
               {/* overflow-y-hidden: iOS Safari computes overflow-y to auto once
                   overflow-x is auto, which let the strip scroll vertically inside
                   too. Pinning it to hidden keeps the scroll sideways only. */}

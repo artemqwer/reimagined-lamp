@@ -17,7 +17,7 @@ interface ExtendedAnalyticsProps {
 
 function ComingSoonTable({ title }: { title: string }) {
   return (
-    <div className="bg-zinc-900 rounded-2xl border border-zinc-800">
+    <div className="card-elevate rounded-2xl">
       <div className="px-4 sm:px-5 py-4 border-b border-zinc-800 flex items-center gap-3">
         <h2 className="text-[15px] sm:text-[17px] font-bold text-zinc-100">{title}</h2>
         <span className="text-[11px] bg-zinc-800 text-zinc-400 px-2 py-0.5 rounded-full font-medium">
@@ -143,7 +143,7 @@ export default function ExtendedAnalytics({
                 no duplicate Clear all here. Only the Show / Hide toggle remains. */}
             <button
               onClick={() => setOpen((v) => !v)}
-              className="flex items-center gap-1 text-[13px] font-semibold text-emerald-600 hover:text-emerald-700 transition shrink-0"
+              className="flex items-center gap-1 text-[13px] font-semibold text-[var(--brand-fg)] hover:text-[var(--brand-fg)] transition shrink-0"
             >
               {open ? "Hide" : "Show"}
               <svg

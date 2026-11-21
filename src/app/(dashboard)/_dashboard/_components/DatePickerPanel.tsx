@@ -83,7 +83,7 @@ export default function DatePickerPanel({
   }, [pickerViewYear, pickerViewMonth]);
 
   return (
-    <div className="hidden sm:block absolute right-0 top-full mt-2 w-[580px] bg-zinc-900 border border-zinc-800 rounded-2xl shadow-2xl z-[300] overflow-hidden animate-in fade-in zoom-in duration-200 origin-top-right">
+    <div className="hidden sm:block absolute right-0 top-full mt-2 w-[580px] glass rounded-2xl shadow-2xl z-[300] overflow-hidden animate-in fade-in zoom-in duration-200 origin-top-right">
       <div className="flex h-[580px]">
         {/* Sidebar */}
         <div className="w-[190px] border-r border-zinc-800 py-4 flex flex-col bg-zinc-900/30">
@@ -107,7 +107,7 @@ export default function DatePickerPanel({
                 <button
                   key={label}
                   onClick={() => handlePresetClick(label)}
-                  className="w-full text-left px-4 py-2 text-[13px] rounded-lg transition-colors text-zinc-400 hover:bg-zinc-900 hover:text-emerald-600"
+                  className="w-full text-left px-4 py-2 text-[13px] rounded-lg transition-colors text-zinc-400 hover:bg-zinc-800/60 hover:text-[var(--brand-fg)]"
                 >
                   {label}
                 </button>
@@ -178,7 +178,7 @@ export default function DatePickerPanel({
                   setPickerViewYear((v) => v - 1);
                 } else setPickerViewMonth((v) => v - 1);
               }}
-              className="w-8 h-8 flex items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900 hover:bg-zinc-900 transition shadow-sm text-zinc-400 group"
+              className="w-8 h-8 flex items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900 hover:bg-zinc-800/60 transition shadow-sm text-zinc-400 group"
               title="Previous Month"
             >
               <svg
@@ -199,7 +199,7 @@ export default function DatePickerPanel({
                 setPickerViewYear(() => NOW_YEAR);
                 setPickerViewMonth(() => NOW_MONTH);
               }}
-              className="text-[10px] font-bold text-zinc-500 hover:text-emerald-600 uppercase tracking-widest transition"
+              className="text-[10px] font-bold text-zinc-500 hover:text-[var(--brand-fg)] uppercase tracking-widest transition"
               title="Jump to current month"
             >
               Today
@@ -212,7 +212,7 @@ export default function DatePickerPanel({
                   setPickerViewYear((v) => v + 1);
                 } else setPickerViewMonth((v) => v + 1);
               }}
-              className="w-8 h-8 flex items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900 hover:bg-zinc-900 transition shadow-sm text-zinc-400 group"
+              className="w-8 h-8 flex items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900 hover:bg-zinc-800/60 transition shadow-sm text-zinc-400 group"
               title="Next Month"
             >
               <svg
@@ -283,7 +283,7 @@ export default function DatePickerPanel({
               <div className="flex items-center justify-between mb-5">
                 <button
                   onClick={() => setYMPickerYear((y) => Math.max(2000, y - 1))}
-                  className="w-8 h-8 flex items-center justify-center rounded-lg border border-zinc-800 hover:bg-zinc-900 transition text-zinc-400"
+                  className="w-8 h-8 flex items-center justify-center rounded-lg border border-zinc-800 hover:bg-zinc-800/60 transition text-zinc-400"
                 >
                   <svg
                     width="14"
@@ -300,7 +300,7 @@ export default function DatePickerPanel({
                 <button
                   onClick={() => setYMPickerYear((y) => Math.min(NOW_YEAR, y + 1))}
                   disabled={yMPickerYear >= NOW_YEAR}
-                  className="w-8 h-8 flex items-center justify-center rounded-lg border border-zinc-800 hover:bg-zinc-900 transition text-zinc-400 disabled:opacity-30"
+                  className="w-8 h-8 flex items-center justify-center rounded-lg border border-zinc-800 hover:bg-zinc-800/60 transition text-zinc-400 disabled:opacity-30"
                 >
                   <svg
                     width="14"
@@ -332,7 +332,7 @@ export default function DatePickerPanel({
                           ? "bg-emerald-600 text-white"
                           : isFuture
                             ? "text-zinc-600 cursor-not-allowed"
-                            : "text-zinc-300 hover:bg-emerald-500/10 hover:text-emerald-600"
+                            : "text-zinc-300 hover:bg-emerald-500/10 hover:text-[var(--brand-fg)]"
                       }`}
                     >
                       {mn}
@@ -353,7 +353,7 @@ export default function DatePickerPanel({
           <div className="px-4 py-4 border-t border-zinc-800 flex justify-end gap-3 bg-zinc-900">
             <button
               onClick={() => setDatePickerOpen(false)}
-              className="px-6 py-2 text-[14px] font-semibold text-zinc-400 hover:bg-zinc-900 rounded-xl transition"
+              className="px-6 py-2 text-[14px] font-semibold text-zinc-400 hover:bg-zinc-800/60 rounded-xl transition"
             >
               Cancel
             </button>

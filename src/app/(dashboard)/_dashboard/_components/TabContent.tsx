@@ -208,7 +208,7 @@ export default function TabContent({
                     className="fixed inset-0 z-40"
                     onClick={() => onChartMetricOpenChange(false)}
                   />
-                  <div className="absolute left-0 top-full mt-1.5 w-[155px] bg-zinc-900 border border-zinc-800 rounded-xl shadow-lg z-50 py-1 overflow-hidden animate-in fade-in zoom-in-95 duration-150 origin-top">
+                  <div className="absolute left-0 top-full mt-1.5 w-[155px] glass rounded-xl shadow-lg z-50 py-1 overflow-hidden animate-in fade-in zoom-in-95 duration-150 origin-top">
                     {CHART_METRICS.map((m) => (
                       <button
                         key={m.key}
@@ -216,7 +216,7 @@ export default function TabContent({
                           onChartMetricChange(m.key);
                           onChartMetricOpenChange(false);
                         }}
-                        className={`w-full text-left px-3 py-2 text-[13px] hover:bg-zinc-900 flex items-center gap-2.5 transition ${chartMetric === m.key ? "text-emerald-600 font-semibold bg-emerald-500/10/60" : "text-zinc-300"}`}
+                        className={`w-full text-left px-3 py-2 text-[13px] hover:bg-zinc-800/60 flex items-center gap-2.5 transition ${chartMetric === m.key ? "text-[var(--brand-fg)] font-semibold bg-emerald-500/10/60" : "text-zinc-300"}`}
                       >
                         {m.label}
                         {chartMetric === m.key && (
@@ -268,7 +268,7 @@ export default function TabContent({
                     className="fixed inset-0 z-40"
                     onClick={() => onChartGroupByOpenChange(false)}
                   />
-                  <div className="absolute left-0 top-full mt-1.5 w-[175px] bg-zinc-900 border border-zinc-800 rounded-xl shadow-lg z-50 py-1 overflow-hidden animate-in fade-in zoom-in-95 duration-150 origin-top">
+                  <div className="absolute left-0 top-full mt-1.5 w-[175px] glass rounded-xl shadow-lg z-50 py-1 overflow-hidden animate-in fade-in zoom-in-95 duration-150 origin-top">
                     {CHART_GROUPBY.map((g) => (
                       <button
                         key={g}
@@ -276,7 +276,7 @@ export default function TabContent({
                           onChartGroupByChange(g);
                           onChartGroupByOpenChange(false);
                         }}
-                        className={`w-full text-left px-3 py-2 text-[13px] hover:bg-zinc-900 flex items-center gap-2.5 transition ${chartGroupBy === g ? "text-emerald-600 font-semibold bg-emerald-500/10/60" : "text-zinc-300"}`}
+                        className={`w-full text-left px-3 py-2 text-[13px] hover:bg-zinc-800/60 flex items-center gap-2.5 transition ${chartGroupBy === g ? "text-[var(--brand-fg)] font-semibold bg-emerald-500/10/60" : "text-zinc-300"}`}
                       >
                         {groupByLabel(g)}
                         {chartGroupBy === g && (
@@ -359,7 +359,7 @@ export default function TabContent({
           <div className="relative shrink-0">
             <button
               onClick={() => onGranularityOpenChange(!granularityOpen)}
-              className="flex items-center gap-2 bg-zinc-900 border border-[#52525B] rounded-[10px] px-4 py-2 cursor-pointer hover:bg-zinc-900 whitespace-nowrap text-[14px] font-medium text-[#A1A1AA]"
+              className="flex items-center gap-2 bg-zinc-900 border border-[#52525B] rounded-[10px] px-4 py-2 cursor-pointer hover:bg-zinc-800/60 whitespace-nowrap text-[14px] font-medium text-[#A1A1AA]"
             >
               {granularity.charAt(0).toUpperCase() + granularity.slice(1)}
               <svg
@@ -380,7 +380,7 @@ export default function TabContent({
                   className="fixed inset-0 z-40"
                   onClick={() => onGranularityOpenChange(false)}
                 />
-                <div className="absolute right-0 top-full mt-1.5 w-[120px] bg-zinc-900 border border-zinc-800 rounded-xl shadow-lg z-50 py-1 overflow-hidden animate-in fade-in zoom-in-95 duration-150 origin-top-right">
+                <div className="absolute right-0 top-full mt-1.5 w-[120px] glass rounded-xl shadow-lg z-50 py-1 overflow-hidden animate-in fade-in zoom-in-95 duration-150 origin-top-right">
                   {(["days", "weeks", "months"] as const).map((g) => (
                     <button
                       key={g}
@@ -388,7 +388,7 @@ export default function TabContent({
                         onGranularityChange(g);
                         onGranularityOpenChange(false);
                       }}
-                      className={`w-full text-left px-3.5 py-2 text-[13px] hover:bg-zinc-900 flex items-center justify-between transition ${granularity === g ? "text-emerald-600 font-semibold bg-emerald-500/10/60" : "text-zinc-300"}`}
+                      className={`w-full text-left px-3.5 py-2 text-[13px] hover:bg-zinc-800/60 flex items-center justify-between transition ${granularity === g ? "text-[var(--brand-fg)] font-semibold bg-emerald-500/10/60" : "text-zinc-300"}`}
                     >
                       {g.charAt(0).toUpperCase() + g.slice(1)}
                       {granularity === g && (
@@ -608,7 +608,7 @@ export default function TabContent({
                         {legendSeries.length > LEGEND_LIMIT && (
                           <button
                             onClick={() => setLegendExpanded((v) => !v)}
-                            className="flex items-center gap-1 text-[11px] sm:text-[13px] text-emerald-500 hover:text-emerald-700 font-medium transition-colors select-none"
+                            className="flex items-center gap-1 text-[11px] sm:text-[13px] text-emerald-500 hover:text-[var(--brand-fg)] font-medium transition-colors select-none"
                           >
                             {legendExpanded
                               ? "↑ Show less"
@@ -678,7 +678,7 @@ export default function TabContent({
                         {legendSeries.length > LEGEND_LIMIT && (
                           <button
                             onClick={() => setLegendExpanded((v) => !v)}
-                            className="flex items-center gap-1 text-[11px] sm:text-[13px] text-emerald-500 hover:text-emerald-700 font-medium transition-colors select-none bg-zinc-900/80 backdrop-blur-sm px-1.5 py-0.5 rounded-md"
+                            className="flex items-center gap-1 text-[11px] sm:text-[13px] text-emerald-500 hover:text-[var(--brand-fg)] font-medium transition-colors select-none bg-zinc-900/80 backdrop-blur-sm px-1.5 py-0.5 rounded-md"
                           >
                             {legendExpanded
                               ? "↑ Show less"
@@ -1419,7 +1419,7 @@ export default function TabContent({
                       const d = payload[0].payload as { convValue: number; conv: number };
                       const aov = d.conv > 0 ? d.convValue / d.conv : 0;
                       return (
-                        <div className="bg-zinc-900 border border-zinc-800 rounded-xl shadow-lg px-3 py-2 text-[12px]">
+                        <div className="glass rounded-xl shadow-lg px-3 py-2 text-[12px]">
                           <p className="font-semibold text-zinc-200 mb-1">{label}</p>
                           <p className="text-zinc-400">
                             Total sales:{" "}

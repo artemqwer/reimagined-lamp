@@ -181,7 +181,7 @@ export default function WindsorConnectCard({
 
   return (
     <div
-      className={`bg-zinc-900 rounded-2xl border shadow-sm p-5 transition ${saved ? "border-green-500/20" : "border-zinc-800"}`}
+      className={`card-elevate rounded-2xl border shadow-sm p-5 transition ${saved ? "border-green-500/20" : "border-zinc-800"}`}
     >
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-3 min-w-0">
@@ -231,7 +231,7 @@ export default function WindsorConnectCard({
           </div>
           <button
             onClick={disconnect}
-            className="text-[12px] font-medium border border-zinc-800 hover:bg-zinc-900 text-zinc-400 px-3 py-2 rounded-xl transition shrink-0"
+            className="text-[12px] font-medium border border-zinc-800 hover:bg-zinc-800/60 text-zinc-400 px-3 py-2 rounded-xl transition shrink-0"
           >
             Disconnect
           </button>
@@ -255,7 +255,7 @@ export default function WindsorConnectCard({
                   </div>
                   <div className="text-[12px] text-zinc-500 tabular-nums">ID {a.account_id}</div>
                 </div>
-                <span className="text-[12px] font-semibold text-emerald-600 shrink-0">
+                <span className="text-[12px] font-semibold text-[var(--brand-fg)] shrink-0">
                   Use this →
                 </span>
               </button>

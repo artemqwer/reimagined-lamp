@@ -30,7 +30,7 @@ const usd = (n: number | undefined | null) => `$${(n ?? 0).toLocaleString("en-US
 function PlanBadge({ plan }: { plan: Plan }) {
   const map: Record<Plan, string> = {
     Free: "bg-zinc-800 text-zinc-400",
-    Professional: "bg-emerald-500/10 text-emerald-700",
+    Professional: "bg-emerald-500/10 text-[var(--brand-fg)]",
     Business: "bg-pink-500/10 text-pink-600",
     Enterprise: "bg-purple-500/10 text-purple-700",
   };
@@ -125,7 +125,7 @@ function Kpi({
   // squircle icon, then value (24px Bold #F4F4F5) + delta (14px SemiBold green/
   // red) inline, label (14px Regular #A1A1AA) below, info icon top-right.
   return (
-    <div className="relative bg-zinc-900 rounded-xl border border-zinc-800 px-4 pr-9 py-4 min-w-0">
+    <div className="relative card-elevate rounded-xl px-4 pr-9 py-4 min-w-0">
       <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
         <div
           className="w-8 h-8 rounded-[10px] flex items-center justify-center shrink-0"
@@ -222,7 +222,7 @@ function EditModal({ user, onClose, onSave, onDelete }: EditModalProps) {
       onClick={onClose}
     >
       <div
-        className="bg-zinc-900 rounded-2xl shadow-xl w-full max-w-md p-6 max-h-[92vh] overflow-y-auto"
+        className="card-elevate rounded-2xl shadow-xl w-full max-w-md p-6 max-h-[92vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between mb-5">
@@ -298,7 +298,7 @@ function EditModal({ user, onClose, onSave, onDelete }: EditModalProps) {
           <button
             type="button"
             onClick={() => setIsAdmin((v) => !v)}
-            className="w-full flex items-center justify-between gap-3 border border-zinc-800 rounded-lg px-3 py-2.5 hover:bg-zinc-900 transition"
+            className="w-full flex items-center justify-between gap-3 border border-zinc-800 rounded-lg px-3 py-2.5 hover:bg-zinc-800/60 transition"
           >
             <div className="flex items-center gap-2 text-left">
               <svg
@@ -333,7 +333,7 @@ function EditModal({ user, onClose, onSave, onDelete }: EditModalProps) {
             <>
               <button
                 onClick={() => setConfirmDel(false)}
-                className="flex-1 text-[13px] font-medium border border-zinc-800 text-zinc-400 py-2 rounded-xl hover:bg-zinc-900 transition"
+                className="flex-1 text-[13px] font-medium border border-zinc-800 text-zinc-400 py-2 rounded-xl hover:bg-zinc-800/60 transition"
               >
                 Cancel
               </button>
@@ -355,7 +355,7 @@ function EditModal({ user, onClose, onSave, onDelete }: EditModalProps) {
               </button>
               <button
                 onClick={onClose}
-                className="flex-1 text-[13px] font-medium border border-zinc-800 text-zinc-400 py-2 rounded-xl hover:bg-zinc-900 transition"
+                className="flex-1 text-[13px] font-medium border border-zinc-800 text-zinc-400 py-2 rounded-xl hover:bg-zinc-800/60 transition"
               >
                 Cancel
               </button>
@@ -574,7 +574,7 @@ function QuestionList({
       <button
         type="button"
         onClick={add}
-        className="flex items-center gap-1.5 text-[12px] text-emerald-600 hover:text-emerald-700 border border-dashed border-emerald-500/20 rounded-lg px-3 py-1.5 w-full justify-center hover:bg-emerald-500/10 transition"
+        className="flex items-center gap-1.5 text-[12px] text-[var(--brand-fg)] hover:text-[var(--brand-fg)] border border-dashed border-emerald-500/20 rounded-lg px-3 py-1.5 w-full justify-center hover:bg-emerald-500/10 transition"
       >
         <svg
           width="12"
@@ -672,7 +672,7 @@ function PromptEditor({
       onClick={onClose}
     >
       <div
-        className="bg-zinc-900 rounded-2xl shadow-xl w-full max-w-2xl p-6 max-h-[92vh] overflow-y-auto"
+        className="card-elevate rounded-2xl shadow-xl w-full max-w-2xl p-6 max-h-[92vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between mb-5">
@@ -743,7 +743,7 @@ function PromptEditor({
           <button
             type="button"
             onClick={() => setActive((v) => !v)}
-            className="w-full flex items-center justify-between gap-3 border border-zinc-800 rounded-lg px-3 py-2.5 hover:bg-zinc-900 transition"
+            className="w-full flex items-center justify-between gap-3 border border-zinc-800 rounded-lg px-3 py-2.5 hover:bg-zinc-800/60 transition"
           >
             <div className="text-left">
               <p className="text-[13px] font-medium text-zinc-300">Active</p>
@@ -780,7 +780,7 @@ function PromptEditor({
             ))}
           <button
             onClick={onClose}
-            className="flex-1 text-[13px] font-medium border border-zinc-800 text-zinc-400 py-2 rounded-xl hover:bg-zinc-900 transition"
+            className="flex-1 text-[13px] font-medium border border-zinc-800 text-zinc-400 py-2 rounded-xl hover:bg-zinc-800/60 transition"
           >
             Cancel
           </button>
@@ -884,7 +884,7 @@ function PromptsPanel({ showToast }: { showToast: (t: "success" | "error", s: st
   })();
 
   return (
-    <div className="bg-zinc-900 rounded-2xl border border-zinc-800 overflow-hidden">
+    <div className="card-elevate rounded-2xl overflow-hidden">
       <div className="px-4 sm:px-5 py-3.5 border-b border-zinc-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <p className="text-[14px] font-bold text-zinc-200">Prompt Library</p>
@@ -950,7 +950,7 @@ function PromptsPanel({ showToast }: { showToast: (t: "success" | "error", s: st
             editor to create the <code className="bg-zinc-800 px-1 rounded">prompts</code> table,
             then refresh. Until then the AI uses the built-in default prompts.
           </p>
-          <button onClick={load} className="text-[12px] text-emerald-600 hover:underline">
+          <button onClick={load} className="text-[12px] text-[var(--brand-fg)] hover:underline">
             Refresh
           </button>
         </div>
@@ -966,7 +966,7 @@ function PromptsPanel({ showToast }: { showToast: (t: "success" | "error", s: st
               <button
                 onClick={seed}
                 disabled={seeding}
-                className="text-[13px] font-semibold text-emerald-600 border border-emerald-500/20 rounded-xl px-4 py-2 hover:bg-emerald-500/10 transition disabled:opacity-50 inline-flex items-center gap-2"
+                className="text-[13px] font-semibold text-[var(--brand-fg)] border border-emerald-500/20 rounded-xl px-4 py-2 hover:bg-emerald-500/10 transition disabled:opacity-50 inline-flex items-center gap-2"
               >
                 {seeding && (
                   <span className="w-3 h-3 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin" />
@@ -1006,7 +1006,7 @@ function PromptsPanel({ showToast }: { showToast: (t: "success" | "error", s: st
                         e.stopPropagation();
                         activate(p.id);
                       }}
-                      className="text-[12px] font-medium text-emerald-600 border border-emerald-500/20 rounded-lg px-2.5 py-1 hover:bg-emerald-500/10 transition shrink-0"
+                      className="text-[12px] font-medium text-[var(--brand-fg)] border border-emerald-500/20 rounded-lg px-2.5 py-1 hover:bg-emerald-500/10 transition shrink-0"
                     >
                       Activate
                     </button>
@@ -1234,7 +1234,7 @@ export default function AdminPage() {
   if (!allowed)
     return (
       <div className="px-4 sm:px-6 py-16 min-h-screen bg-[#18181B] flex items-start justify-center">
-        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 max-w-md text-center">
+        <div className="glass rounded-2xl p-8 max-w-md text-center">
           <p className="text-[16px] font-semibold text-[#F4F4F5]">This page is for admins</p>
           <p className="text-[13.5px] text-zinc-400 mt-1.5">
             Your account doesn&apos;t have access to user management. If you think it should, ask
@@ -1314,7 +1314,7 @@ export default function AdminPage() {
           <button
             key={id}
             onClick={() => setTab(id)}
-            className={`flex shrink-0 items-center gap-2 whitespace-nowrap pb-2.5 text-[14px] font-medium border-b-2 -mb-px transition ${tab === id ? "border-emerald-600 text-emerald-600" : "border-transparent text-zinc-500 hover:text-zinc-400"}`}
+            className={`flex shrink-0 items-center gap-2 whitespace-nowrap pb-2.5 text-[14px] font-medium border-b-2 -mb-px transition ${tab === id ? "border-emerald-600 text-[var(--brand-fg)]" : "border-transparent text-zinc-500 hover:text-zinc-400"}`}
           >
             {id === "users" ? (
               <svg
@@ -1529,7 +1529,7 @@ export default function AdminPage() {
         <PromptsPanel showToast={showToast} />
       ) : tab === "analytics" ? (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-          <div className="bg-zinc-900 rounded-2xl border border-zinc-800 p-5">
+          <div className="card-elevate rounded-2xl p-5">
             <h3 className="text-[14px] font-bold text-zinc-200 mb-4">Users by Plan</h3>
             <Bars
               rows={PLANS.map((p, i) => ({
@@ -1539,7 +1539,7 @@ export default function AdminPage() {
               }))}
             />
           </div>
-          <div className="bg-zinc-900 rounded-2xl border border-zinc-800 p-5">
+          <div className="card-elevate rounded-2xl p-5">
             <h3 className="text-[14px] font-bold text-zinc-200 mb-4">Users by Status</h3>
             <Bars
               rows={STATUSES.map((s, i) => ({
@@ -1549,7 +1549,7 @@ export default function AdminPage() {
               }))}
             />
           </div>
-          <div className="bg-zinc-900 rounded-2xl border border-zinc-800 p-5 lg:col-span-2">
+          <div className="card-elevate rounded-2xl p-5 lg:col-span-2">
             <h3 className="text-[14px] font-bold text-zinc-200 mb-4">
               Monthly recurring revenue by plan
             </h3>
@@ -1564,10 +1564,10 @@ export default function AdminPage() {
           </div>
         </div>
       ) : (
-        <div className="bg-zinc-900 rounded-2xl border border-zinc-800 overflow-hidden">
+        <div className="card-elevate rounded-2xl overflow-hidden">
           {/* Filters */}
           <div className="px-4 sm:px-5 py-3.5 border-b border-zinc-800 flex flex-col sm:flex-row sm:items-center gap-2.5">
-            <div className="flex items-center gap-2 flex-1 bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 min-w-0">
+            <div className="flex items-center gap-2 flex-1 glass rounded-xl px-3 py-2 min-w-0">
               <svg
                 width="14"
                 height="14"
@@ -1626,7 +1626,7 @@ export default function AdminPage() {
           {!loading && fetchError && (
             <div className="flex flex-col items-center py-16 gap-2 text-[14px]">
               <p className="text-red-500">{fetchError}</p>
-              <button onClick={load} className="text-[12px] text-emerald-600 hover:underline">
+              <button onClick={load} className="text-[12px] text-[var(--brand-fg)] hover:underline">
                 Try again
               </button>
             </div>
@@ -1815,7 +1815,7 @@ export default function AdminPage() {
                 <button
                   onClick={() => setPage((p) => Math.max(1, p - 1))}
                   disabled={curPage === 1}
-                  className="flex items-center gap-1 text-[12px] text-zinc-400 border border-zinc-800 rounded-lg px-2.5 py-1.5 hover:bg-zinc-900 disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="flex items-center gap-1 text-[12px] text-zinc-400 border border-zinc-800 rounded-lg px-2.5 py-1.5 hover:bg-zinc-800/60 disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   ‹ Previous
                 </button>
@@ -1823,7 +1823,7 @@ export default function AdminPage() {
                   <button
                     key={p}
                     onClick={() => setPage(p)}
-                    className={`w-8 h-8 rounded-lg text-[12px] font-medium transition ${p === curPage ? "bg-emerald-600 text-white" : "text-zinc-400 border border-zinc-800 hover:bg-zinc-900"}`}
+                    className={`w-8 h-8 rounded-lg text-[12px] font-medium transition ${p === curPage ? "bg-emerald-600 text-white" : "text-zinc-400 border border-zinc-800 hover:bg-zinc-800/60"}`}
                   >
                     {p}
                   </button>
@@ -1831,7 +1831,7 @@ export default function AdminPage() {
                 <button
                   onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                   disabled={curPage === totalPages}
-                  className="flex items-center gap-1 text-[12px] text-zinc-400 border border-zinc-800 rounded-lg px-2.5 py-1.5 hover:bg-zinc-900 disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="flex items-center gap-1 text-[12px] text-zinc-400 border border-zinc-800 rounded-lg px-2.5 py-1.5 hover:bg-zinc-800/60 disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   Next ›
                 </button>

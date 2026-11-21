@@ -232,10 +232,7 @@ export default function DataSourcesPage() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {comingSoon.map((c) => (
-            <div
-              key={c.id}
-              className="bg-zinc-900 rounded-2xl border border-zinc-800 shadow-sm p-5 opacity-60"
-            >
+            <div key={c.id} className="card-elevate rounded-2xl shadow-sm p-5 opacity-60">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-zinc-900 flex items-center justify-center shrink-0">

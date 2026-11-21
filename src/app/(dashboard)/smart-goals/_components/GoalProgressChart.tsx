@@ -150,7 +150,7 @@ export default function GoalProgressChart({
   const hasData = points.some((p) => p.value !== null && p.value !== 0);
 
   return (
-    <div className={bare ? "" : "bg-zinc-900 rounded-2xl border border-zinc-800 p-4 sm:p-5"}>
+    <div className={bare ? "" : "card-elevate rounded-2xl p-4 sm:p-5"}>
       <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
         <div className="min-w-0">
           <div className="flex items-center gap-1.5">
@@ -221,7 +221,7 @@ export default function GoalProgressChart({
                 if (!active || !payload?.length) return null;
                 const p = payload[0].payload as SeriesPoint;
                 return (
-                  <div className="bg-zinc-900 border border-zinc-800 rounded-lg shadow-md px-2.5 py-2 text-[11px]">
+                  <div className="glass rounded-lg shadow-md px-2.5 py-2 text-[11px]">
                     <p className="font-semibold text-zinc-300 mb-1">{formatBucket(p.key)}</p>
                     <p className="text-zinc-400">
                       {def.label}:{" "}

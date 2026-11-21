@@ -4668,7 +4668,7 @@ export default function DashboardView() {
                     if (datePickerOpen) setDatePickerOpen(false);
                     else openDatePicker();
                   }}
-                  className="flex items-center gap-2 text-[14px] text-zinc-400 bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-1.5 cursor-pointer hover:bg-zinc-900 transition"
+                  className="flex items-center gap-2 text-[14px] text-zinc-400 glass rounded-lg px-3 py-1.5 cursor-pointer hover:bg-zinc-800/60 transition"
                 >
                   <svg
                     width="14"
@@ -4785,7 +4785,7 @@ export default function DashboardView() {
                   className={`inline-flex items-center gap-1 border text-[12px] rounded-full pl-2.5 pr-1 py-0.5 max-w-full ${
                     c.aggregated
                       ? "bg-emerald-500/10 border-emerald-300 text-emerald-800 font-semibold"
-                      : "bg-emerald-500/10 border-emerald-500/20 text-emerald-700 font-medium"
+                      : "bg-emerald-500/10 border-emerald-500/20 text-[var(--brand-fg)] font-medium"
                   }`}
                 >
                   <span
@@ -4886,7 +4886,7 @@ export default function DashboardView() {
                       <span className="text-[13px] font-bold text-zinc-200 shrink-0">
                         Active Filters
                       </span>
-                      <span className="text-[11px] font-semibold text-emerald-700 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-2 py-0.5 shrink-0">
+                      <span className="text-[11px] font-semibold text-[var(--brand-fg)] bg-emerald-500/10 border border-emerald-500/20 rounded-full px-2 py-0.5 shrink-0">
                         {activeFilterChips.length}
                       </span>
                       {/* Toggle next to "Active Filters" — except in inline-expanded mode,
@@ -4972,7 +4972,7 @@ export default function DashboardView() {
 
           {/* Chart card. Desktop padding per the Figma spec: 16px top, 24px sides,
           ~0 bottom (the inner blocks carry their own bottom spacing). */}
-          <div className="bg-zinc-900 rounded-2xl border border-zinc-800 p-3 sm:px-6 sm:pt-4 sm:pb-0 mb-5 min-w-0">
+          <div className="card-elevate rounded-2xl p-3 sm:px-6 sm:pt-4 sm:pb-0 mb-5 min-w-0">
             {/* Tabs row. Two things must hold at once:
               1) the active tab's 2px underline merges with the bottom divider, and
               2) the AI Analytics button is vertically CENTRED in the row.
@@ -5048,7 +5048,7 @@ export default function DashboardView() {
                     className={`flex items-center gap-2 h-8 px-3 leading-none text-[14px] font-medium rounded-[9px] transition whitespace-nowrap ${
                       aiOpen
                         ? "text-zinc-500 bg-zinc-900 cursor-default"
-                        : "text-[#A1A1AA] bg-zinc-900 hover:bg-zinc-900/80"
+                        : "text-[#A1A1AA] bg-zinc-900 hover:bg-zinc-800/60/80"
                     }`}
                   >
                     <svg

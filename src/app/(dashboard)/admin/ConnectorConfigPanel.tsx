@@ -244,7 +244,8 @@ function ConfigList({
           {hiddenCount > 0 && (
             <>
               {" "}
-              — <span className="text-emerald-600 font-medium">
+              —{" "}
+              <span className="text-[var(--brand-fg)] font-medium">
                 {hiddenCount} available to add
               </span>{" "}
               (tick to show).
@@ -368,7 +369,7 @@ function ConfigList({
             {!r.visible && (
               <button
                 onClick={() => toggle(i)}
-                className="text-[11px] font-semibold text-emerald-600 hover:text-emerald-700 shrink-0"
+                className="text-[11px] font-semibold text-[var(--brand-fg)] hover:text-[var(--brand-fg)] shrink-0"
               >
                 + Add
               </button>
@@ -549,7 +550,7 @@ export default function ConnectorConfigPanel({
   };
 
   return (
-    <div className="bg-zinc-900 rounded-2xl border border-zinc-800 overflow-hidden">
+    <div className="card-elevate rounded-2xl overflow-hidden">
       <div className="px-5 py-3.5 border-b border-zinc-800">
         <p className="text-[14px] font-bold text-zinc-200">Data source configuration</p>
         <p className="text-[12px] text-zinc-500">
@@ -569,7 +570,7 @@ export default function ConnectorConfigPanel({
             <div key={id} className="flex items-center gap-0.5">
               <button
                 onClick={() => setSelected(id)}
-                className={`flex items-center gap-2 text-[13px] font-medium px-3 py-1.5 rounded-lg border transition ${isSel ? "border-emerald-300 bg-emerald-500/10 text-emerald-700" : "border-zinc-800 text-zinc-400 hover:bg-zinc-900"}`}
+                className={`flex items-center gap-2 text-[13px] font-medium px-3 py-1.5 rounded-lg border transition ${isSel ? "border-emerald-300 bg-emerald-500/10 text-[var(--brand-fg)]" : "border-zinc-800 text-zinc-400 hover:bg-zinc-800/60"}`}
               >
                 <span className="w-2.5 h-2.5 rounded-full" style={{ background: c.color }} />
                 {c.label}
@@ -602,7 +603,7 @@ export default function ConnectorConfigPanel({
         })}
         <button
           onClick={() => setEditingCustom("new")}
-          className="flex items-center gap-1.5 text-[12px] font-semibold text-emerald-600 border border-dashed border-emerald-500/20 rounded-lg px-3 py-1.5 hover:bg-emerald-500/10 transition"
+          className="flex items-center gap-1.5 text-[12px] font-semibold text-[var(--brand-fg)] border border-dashed border-emerald-500/20 rounded-lg px-3 py-1.5 hover:bg-emerald-500/10 transition"
         >
           <svg
             width="12"
@@ -780,7 +781,7 @@ export default function ConnectorConfigPanel({
                         { metric: "clicks", op: "gte", value: 0 },
                       ])
                     }
-                    className="text-[12px] font-medium text-emerald-600 hover:text-emerald-700"
+                    className="text-[12px] font-medium text-[var(--brand-fg)] hover:text-[var(--brand-fg)]"
                   >
                     + Add rule
                   </button>

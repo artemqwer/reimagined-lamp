@@ -63,7 +63,7 @@ export default function ForecastPanel({
 
   if (loading)
     return (
-      <div className="bg-zinc-900 rounded-2xl border border-zinc-800 p-5">
+      <div className="card-elevate rounded-2xl p-5">
         <div className="h-4 w-40 bg-zinc-800 rounded mb-3 animate-pulse" />
         <div className="h-16 bg-zinc-900 rounded-xl animate-pulse" />
       </div>
@@ -126,7 +126,7 @@ export default function ForecastPanel({
 
   if (forecasts.length === 0)
     return (
-      <div className="bg-zinc-900 rounded-2xl border border-zinc-800 p-5">
+      <div className="card-elevate rounded-2xl p-5">
         <h2 className="text-[15px] font-bold text-zinc-100 mb-1">End-of-period forecast</h2>
         <p className="text-[13px] text-zinc-400">
           Not enough data yet to project this period — come back once a couple of days have closed.
@@ -190,7 +190,7 @@ export default function ForecastPanel({
           return (
             <div
               key={f.metric}
-              className="flex flex-wrap items-center gap-x-2.5 gap-y-1 bg-zinc-900 border border-zinc-800 rounded-[10px] px-3 py-2"
+              className="flex flex-wrap items-center gap-x-2.5 gap-y-1 glass rounded-[10px] px-3 py-2"
             >
               <span className="text-[13px] font-semibold text-[#F4F4F5] mr-auto">
                 {def?.label ?? f.metric}

@@ -56,7 +56,7 @@ export default function BigQuerySyncPanel({
   };
 
   return (
-    <div className="bg-zinc-900 rounded-2xl border border-zinc-800 p-5 mb-4">
+    <div className="card-elevate rounded-2xl p-5 mb-4">
       <div className="flex items-start justify-between gap-4 flex-wrap">
         <div>
           <h3 className="text-[14px] font-bold text-zinc-200">BigQuery cache</h3>
@@ -71,7 +71,7 @@ export default function BigQuerySyncPanel({
           <button
             onClick={() => run("test")}
             disabled={busy !== null}
-            className="px-3.5 py-2 rounded-lg text-[13px] font-medium border border-zinc-800 text-zinc-300 hover:bg-zinc-900 disabled:opacity-50"
+            className="px-3.5 py-2 rounded-lg text-[13px] font-medium border border-zinc-800 text-zinc-300 hover:bg-zinc-800/60 disabled:opacity-50"
           >
             {busy === "test" ? "Testing…" : "Test connection"}
           </button>
@@ -102,7 +102,7 @@ export default function BigQuerySyncPanel({
                       ? `Accounts: ${result.accounts} · Synced: ${result.synced} · Errors: ${result.errors}`
                       : "Done"}
           </div>
-          <pre className="mt-2 text-[11.5px] text-zinc-400 bg-zinc-900 border border-zinc-800 rounded-lg p-3 overflow-x-auto">
+          <pre className="mt-2 text-[11.5px] text-zinc-400 glass rounded-lg p-3 overflow-x-auto">
             {JSON.stringify(result, null, 2)}
           </pre>
         </div>

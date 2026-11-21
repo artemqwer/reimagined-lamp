@@ -50,7 +50,7 @@ export default function InvitesPage() {
       )}
 
       {!loading && invites.length === 0 && (
-        <div className="bg-zinc-900 rounded-2xl border border-zinc-800 shadow-sm p-10 flex flex-col items-center gap-3 text-center">
+        <div className="card-elevate rounded-2xl shadow-sm p-10 flex flex-col items-center gap-3 text-center">
           <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center">
             <svg
               width="22"
@@ -76,10 +76,7 @@ export default function InvitesPage() {
       {!loading && invites.length > 0 && (
         <div className="space-y-3">
           {invites.map((inv) => (
-            <div
-              key={inv.from_id}
-              className="bg-zinc-900 rounded-2xl border border-zinc-800 shadow-sm p-5"
-            >
+            <div key={inv.from_id} className="card-elevate rounded-2xl shadow-sm p-5">
               <div className="flex items-start gap-4">
                 <div className="w-11 h-11 rounded-full bg-emerald-600 flex items-center justify-center text-white text-[14px] font-bold shrink-0">
                   {inv.from_name.slice(0, 2).toUpperCase()}
@@ -101,7 +98,7 @@ export default function InvitesPage() {
                 <button
                   onClick={() => handleRespond(inv.from_id, "decline")}
                   disabled={responding === inv.from_id}
-                  className="flex-1 text-[13px] font-medium border border-zinc-800 text-zinc-400 py-2 rounded-xl hover:bg-zinc-900 transition disabled:opacity-50"
+                  className="flex-1 text-[13px] font-medium border border-zinc-800 text-zinc-400 py-2 rounded-xl hover:bg-zinc-800/60 transition disabled:opacity-50"
                 >
                   Decline
                 </button>

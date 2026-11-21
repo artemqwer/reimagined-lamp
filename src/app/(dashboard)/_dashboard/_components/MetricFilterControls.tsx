@@ -18,9 +18,9 @@ export default function MetricFilterControls({
   options?: { key: string; label: string }[];
 }) {
   const selectCls =
-    "w-full appearance-none bg-zinc-900 border border-zinc-800 rounded-lg pl-3 pr-8 py-2 text-[13px] text-zinc-300 cursor-pointer hover:border-zinc-700 focus:outline-none focus:border-emerald-400 transition";
+    "w-full appearance-none glass rounded-lg pl-3 pr-8 py-2 text-[13px] text-zinc-300 cursor-pointer hover:border-zinc-700 focus:outline-none focus:border-emerald-400 transition";
   const inputCls =
-    "w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2 text-[13px] text-zinc-300 focus:outline-none focus:border-emerald-400 transition tabular-nums";
+    "w-full glass rounded-lg px-3 py-2 text-[13px] text-zinc-300 focus:outline-none focus:border-emerald-400 transition tabular-nums";
   const labelCls = "text-[11px] font-semibold text-zinc-500 uppercase tracking-wide mb-1.5";
 
   const chevron = (

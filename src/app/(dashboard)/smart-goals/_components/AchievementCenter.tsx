@@ -28,7 +28,7 @@ const BAND_STYLES: Record<
     border: "border-emerald-500/20",
     chip: "bg-emerald-500/10",
     title: "text-emerald-900",
-    text: "text-emerald-700",
+    text: "text-[var(--brand-fg)]",
   },
   mixed: {
     bg: "bg-amber-500/10",
@@ -240,7 +240,7 @@ function GoalCard({
         </span>
         <span className="text-[13px] sm:text-[16px] font-semibold text-[#F4F4F5]">{def.label}</span>
         {note && (
-          <span className="text-[9px] sm:text-[10px] font-semibold text-zinc-500 bg-zinc-900 border border-zinc-800 rounded px-1 py-0.5">
+          <span className="text-[9px] sm:text-[10px] font-semibold text-zinc-500 glass rounded px-1 py-0.5">
             {note}
           </span>
         )}
@@ -357,7 +357,7 @@ export default function AchievementCenter({
   );
 
   return (
-    <div className={bare ? "" : "bg-zinc-900 rounded-2xl border border-zinc-800 p-4 sm:p-5"}>
+    <div className={bare ? "" : "card-elevate rounded-2xl p-4 sm:p-5"}>
       <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
         <div className="min-w-0">
           <div className="flex items-center gap-1.5">

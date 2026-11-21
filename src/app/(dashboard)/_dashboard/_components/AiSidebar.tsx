@@ -31,7 +31,7 @@ function DateActionCard({ action }: { action: DateAction }) {
         <line x1="3" y1="10" x2="21" y2="10" />
       </svg>
       <div className="min-w-0">
-        <p className="text-[11px] font-semibold text-emerald-700">{action.label}</p>
+        <p className="text-[11px] font-semibold text-[var(--brand-fg)]">{action.label}</p>
         <p className="text-[10px] text-emerald-500">
           {fmt(action.start)} – {fmt(action.end)}
         </p>
@@ -63,10 +63,10 @@ function FilterActionCard({ action, onApply }: { action: FilterAction; onApply: 
         <line x1="6" y1="20" x2="6" y2="14" />
       </svg>
       <div className="min-w-0 flex-1">
-        <p className="text-[11px] font-semibold text-emerald-700 truncate">{action.label}</p>
+        <p className="text-[11px] font-semibold text-[var(--brand-fg)] truncate">{action.label}</p>
         <p className="text-[10px] text-emerald-500">Apply filters to the dashboard</p>
       </div>
-      <span className="ml-auto text-[11px] font-semibold text-emerald-600 group-hover:translate-x-0.5 transition-transform shrink-0">
+      <span className="ml-auto text-[11px] font-semibold text-[var(--brand-fg)] group-hover:translate-x-0.5 transition-transform shrink-0">
         Show →
       </span>
     </button>
@@ -164,7 +164,7 @@ function InsightCard({
       )}
       {ins.action?.length > 0 && (
         <div className="mt-2.5">
-          <p className="text-[11px] font-bold text-emerald-600 uppercase tracking-wide mb-1">
+          <p className="text-[11px] font-bold text-[var(--brand-fg)] uppercase tracking-wide mb-1">
             Recommended Action
           </p>
           <ul className="space-y-0.5">
@@ -733,7 +733,7 @@ export default function AiSidebar({
                         <button
                           key={q}
                           onClick={() => onSendMsg(q)}
-                          className="text-[12px] text-zinc-400 border border-zinc-800 rounded-full px-3 py-1 hover:bg-zinc-900 hover:border-violet-300 transition text-left"
+                          className="text-[12px] text-zinc-400 border border-zinc-800 rounded-full px-3 py-1 hover:bg-zinc-800/60 hover:border-violet-300 transition text-left"
                         >
                           {q}
                         </button>
@@ -761,7 +761,7 @@ export default function AiSidebar({
                           </div>
                         )}
                         <div
-                          className={`max-w-[78%] ${msg.role === "assistant" ? "bg-zinc-900 rounded-2xl rounded-tl-sm" : "bg-emerald-600 text-white rounded-2xl rounded-tr-sm"} px-4 py-3`}
+                          className={`max-w-[78%] ${msg.role === "assistant" ? "card-elevate rounded-2xl rounded-tl-sm" : "bg-emerald-600 text-white rounded-2xl rounded-tr-sm"} px-4 py-3`}
                         >
                           {msg.role === "assistant" ? (
                             <>
@@ -821,7 +821,7 @@ export default function AiSidebar({
                         <path d="M12 1.5C12.5 7.5 16.5 11.5 22.5 12C16.5 12.5 12.5 16.5 12 22.5C11.5 16.5 7.5 12.5 1.5 12C7.5 11.5 11.5 7.5 12 1.5Z" />
                       </svg>
                     </div>
-                    <div className="bg-zinc-900 rounded-2xl rounded-tl-sm px-4 py-3 flex items-center gap-1.5">
+                    <div className="card-elevate rounded-2xl rounded-tl-sm px-4 py-3 flex items-center gap-1.5">
                       {[0, 0.15, 0.3].map((delay, i) => (
                         <span
                           key={i}
@@ -883,7 +883,7 @@ export default function AiSidebar({
           onClick={() => setConfirmDelete(null)}
         >
           <div
-            className="bg-zinc-900 rounded-2xl shadow-xl w-full max-w-[320px] p-5 animate-in zoom-in-95 duration-150"
+            className="card-elevate rounded-2xl shadow-xl w-full max-w-[320px] p-5 animate-in zoom-in-95 duration-150"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-start gap-3 mb-4">
@@ -914,7 +914,7 @@ export default function AiSidebar({
             <div className="flex gap-2">
               <button
                 onClick={() => setConfirmDelete(null)}
-                className="flex-1 text-[13px] font-medium border border-zinc-800 text-zinc-400 py-2 rounded-xl hover:bg-zinc-900 transition"
+                className="flex-1 text-[13px] font-medium border border-zinc-800 text-zinc-400 py-2 rounded-xl hover:bg-zinc-800/60 transition"
               >
                 Cancel
               </button>

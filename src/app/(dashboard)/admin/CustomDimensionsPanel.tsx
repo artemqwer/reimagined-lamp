@@ -60,7 +60,7 @@ export default function CustomDimensionsPanel({
         <button
           onClick={loadWindsorFields}
           disabled={loadingFields}
-          className="text-[11px] font-semibold text-emerald-600 border border-emerald-500/20 rounded-lg px-2.5 py-1 hover:bg-emerald-500/10 transition disabled:opacity-50 whitespace-nowrap"
+          className="text-[11px] font-semibold text-[var(--brand-fg)] border border-emerald-500/20 rounded-lg px-2.5 py-1 hover:bg-emerald-500/10 transition disabled:opacity-50 whitespace-nowrap"
         >
           {loadingFields ? "Loading…" : `Load fields from Windsor (${windsorSource})`}
         </button>
@@ -99,7 +99,7 @@ export default function CustomDimensionsPanel({
         <button
           type="button"
           onClick={() => onChange([...dimensions, { ...emptyDim }])}
-          className="flex items-center gap-1.5 text-[12px] text-emerald-600 hover:text-emerald-700 border border-dashed border-emerald-500/20 rounded-lg px-3 py-1.5 w-full justify-center hover:bg-emerald-500/10 transition"
+          className="flex items-center gap-1.5 text-[12px] text-[var(--brand-fg)] hover:text-[var(--brand-fg)] border border-dashed border-emerald-500/20 rounded-lg px-3 py-1.5 w-full justify-center hover:bg-emerald-500/10 transition"
         >
           <svg
             width="12"

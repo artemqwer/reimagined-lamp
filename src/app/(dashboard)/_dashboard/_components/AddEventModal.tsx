@@ -274,7 +274,7 @@ export default function AddEventModal({
           )}
           <button
             onClick={onClose}
-            className="flex-1 py-2.5 rounded-xl border border-zinc-800 text-[14px] font-medium text-zinc-300 hover:bg-zinc-900 transition"
+            className="flex-1 py-2.5 rounded-xl border border-zinc-800 text-[14px] font-medium text-zinc-300 hover:bg-zinc-800/60 transition"
           >
             Cancel
           </button>
@@ -294,7 +294,7 @@ export default function AddEventModal({
               className="absolute inset-0 bg-black/40 animate-in fade-in duration-150"
               onClick={() => setConfirmDelete(false)}
             />
-            <div className="relative bg-zinc-900 rounded-2xl shadow-2xl w-full max-w-sm p-5 animate-in zoom-in-95 fade-in duration-200">
+            <div className="relative card-elevate rounded-2xl shadow-2xl w-full max-w-sm p-5 animate-in zoom-in-95 fade-in duration-200">
               <div className="flex items-center gap-2.5 mb-2">
                 <div className="w-9 h-9 rounded-xl bg-red-500/10 flex items-center justify-center shrink-0">
                   <svg
@@ -323,7 +323,7 @@ export default function AddEventModal({
               <div className="flex items-center gap-3">
                 <button
                   onClick={() => setConfirmDelete(false)}
-                  className="flex-1 py-2.5 rounded-xl border border-zinc-800 text-[14px] font-medium text-zinc-300 hover:bg-zinc-900 transition"
+                  className="flex-1 py-2.5 rounded-xl border border-zinc-800 text-[14px] font-medium text-zinc-300 hover:bg-zinc-800/60 transition"
                 >
                   Cancel
                 </button>

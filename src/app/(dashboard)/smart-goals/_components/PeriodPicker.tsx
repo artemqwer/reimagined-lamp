@@ -191,7 +191,7 @@ export default function PeriodPicker({
           ref={triggerRef}
           onClick={() => (open ? setOpen(false) : openPanel())}
           aria-expanded={open}
-          className="flex items-center gap-2 text-[14px] text-zinc-400 bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-1.5 cursor-pointer hover:bg-zinc-900 transition"
+          className="flex items-center gap-2 text-[14px] text-zinc-400 glass rounded-lg px-3 py-1.5 cursor-pointer hover:bg-zinc-800/60 transition"
         >
           <svg
             width="14"
@@ -244,7 +244,7 @@ export default function PeriodPicker({
           <div
             ref={panelRef}
             style={{ top: at.top, left: at.left }}
-            className="fixed z-[400] w-[min(520px,calc(100vw-2rem))] bg-zinc-900 border border-zinc-800 rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200 origin-top-left"
+            className="fixed z-[400] w-[min(520px,calc(100vw-2rem))] glass rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200 origin-top-left"
           >
             <div className="flex flex-col sm:flex-row">
               {/* Quick jumps */}
@@ -255,8 +255,8 @@ export default function PeriodPicker({
                     onClick={() => pick(p.period)}
                     className={`w-full whitespace-nowrap text-left px-3 py-2 text-[13px] rounded-lg transition-colors ${
                       p.period === period
-                        ? "bg-zinc-900 text-emerald-600 font-semibold"
-                        : "text-zinc-400 hover:bg-zinc-900 hover:text-emerald-600"
+                        ? "bg-zinc-900 text-[var(--brand-fg)] font-semibold"
+                        : "text-zinc-400 hover:bg-zinc-800/60 hover:text-[var(--brand-fg)]"
                     }`}
                   >
                     {p.label}
@@ -266,7 +266,7 @@ export default function PeriodPicker({
 
               <div className="flex-1 p-4">
                 {/* Which shape the period has — and so how the chart reads it. */}
-                <div className="flex items-center gap-1 bg-zinc-900 border border-zinc-800 rounded-lg p-0.5 mb-4">
+                <div className="flex items-center gap-1 glass rounded-lg p-0.5 mb-4">
                   {tab("month", "Month", "day by day")}
                   {tab("year", "Year", "month by month")}
                 </div>
@@ -320,7 +320,7 @@ export default function PeriodPicker({
                           className={`py-2 rounded-xl text-[13px] font-medium transition ${
                             p === period
                               ? "bg-emerald-600 text-white"
-                              : "text-zinc-300 hover:bg-emerald-500/10 hover:text-emerald-600"
+                              : "text-zinc-300 hover:bg-emerald-500/10 hover:text-[var(--brand-fg)]"
                           }`}
                         >
                           {mn}
@@ -337,7 +337,7 @@ export default function PeriodPicker({
                         className={`py-2 rounded-xl text-[13px] font-medium transition ${
                           String(y) === period
                             ? "bg-emerald-600 text-white"
-                            : "text-zinc-300 hover:bg-emerald-500/10 hover:text-emerald-600"
+                            : "text-zinc-300 hover:bg-emerald-500/10 hover:text-[var(--brand-fg)]"
                         }`}
                       >
                         {y}

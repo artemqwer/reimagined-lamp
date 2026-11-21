@@ -651,7 +651,7 @@ export default function SmartGoalsPage() {
                 button it pushed Edit goals onto a second line. The same
                 days-left figure is on the achievement badge below, so nothing
                 is lost. Kept from sm up, where there's room. */}
-            <span className="hidden sm:inline-flex items-center text-[12px] text-zinc-400 bg-zinc-900 border border-zinc-800 rounded-full px-2.5 py-1">
+            <span className="hidden sm:inline-flex items-center text-[12px] text-zinc-400 glass rounded-full px-2.5 py-1">
               {progress.completed
                 ? "Period complete"
                 : progress.future
@@ -659,7 +659,7 @@ export default function SmartGoalsPage() {
                   : daysLeftLabel}
             </span>
             {settings && GOAL_SOURCE_NOTE[goalSource] && (
-              <span className="inline-flex items-center gap-1 text-[12px] text-zinc-400 bg-zinc-900 border border-zinc-800 rounded-full px-2.5 py-1">
+              <span className="inline-flex items-center gap-1 text-[12px] text-zinc-400 glass rounded-full px-2.5 py-1">
                 {GOAL_SOURCE_NOTE[goalSource] ?? ""}
                 <HelpTip title="Where these targets came from">
                   {GOAL_SOURCE_HELP[goalSource] ?? ""} Editing them here saves a set of goals for
@@ -707,7 +707,7 @@ export default function SmartGoalsPage() {
       </PageSourceTabs>
 
       {loading && (
-        <div className="bg-zinc-900 rounded-2xl border border-zinc-800 p-10 flex items-center justify-center">
+        <div className="card-elevate rounded-2xl p-10 flex items-center justify-center">
           <div className="w-6 h-6 border-2 border-emerald-600 border-t-transparent rounded-full animate-spin" />
         </div>
       )}
@@ -715,7 +715,7 @@ export default function SmartGoalsPage() {
       {/* The load failed. Deliberately NOT the empty state: that would claim
           the goals don't exist and offer to replace them. */}
       {!loading && settingsError && (
-        <div className="bg-zinc-900 rounded-2xl border border-zinc-800 p-8 text-center">
+        <div className="card-elevate rounded-2xl p-8 text-center">
           <p className="text-[15px] font-bold text-zinc-100 mb-1">Couldn&apos;t load your goals</p>
           <p className="text-[13px] text-zinc-400 mb-4">{settingsError}</p>
           <button
@@ -730,7 +730,7 @@ export default function SmartGoalsPage() {
       {/* Empty state — no goals for this period. Nothing else can be shown
           without them: there is no progress to track and no basis for advice. */}
       {!loading && !settingsError && !settings && (
-        <div className="bg-zinc-900 rounded-2xl border border-zinc-800 px-5 py-8 sm:p-12 text-center">
+        <div className="card-elevate rounded-2xl px-5 py-8 sm:p-12 text-center">
           <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center mx-auto mb-4">
             <svg
               width="24"
@@ -778,7 +778,7 @@ export default function SmartGoalsPage() {
                 {metrics.slice(0, 8).map((m) => (
                   <span
                     key={m.key}
-                    className="text-[12px] text-zinc-400 bg-zinc-900 border border-zinc-800 rounded-full px-2.5 py-1"
+                    className="text-[12px] text-zinc-400 glass rounded-full px-2.5 py-1"
                   >
                     {m.label}
                   </span>
@@ -803,7 +803,7 @@ export default function SmartGoalsPage() {
           {/* The chart and the timeline share one card — the spec draws the
               collapsed timeline as the chart's own bottom row, not a separate
               block, so an event and the line it sits under read as one thing. */}
-          <div ref={chartRef} className="bg-zinc-900 rounded-2xl border border-zinc-800 p-4 sm:p-5">
+          <div ref={chartRef} className="card-elevate rounded-2xl p-4 sm:p-5">
             {chartedDef && (
               <GoalProgressChart
                 def={chartedDef}
@@ -894,7 +894,7 @@ export default function SmartGoalsPage() {
       {/* Goals exist but none can be evaluated — every enabled goal is on Auto
           with nothing to derive from. */}
       {!loading && !settingsError && settings && statuses.length === 0 && (
-        <div className="bg-zinc-900 rounded-2xl border border-zinc-800 p-8 text-center">
+        <div className="card-elevate rounded-2xl p-8 text-center">
           <p className="text-[13px] text-zinc-400 mb-3">
             The goals for {formatPeriod(period)} don&apos;t have usable targets yet.
           </p>

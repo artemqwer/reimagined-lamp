@@ -905,7 +905,7 @@ export const AI_METRICS = [
   { label: "Revenue", value: "$759.69K" },
   { label: "Cost", value: "$211.96K" },
   { label: "Profit (ads)", value: "$547.73K", hi: "text-green-600" },
-  { label: "ROAS", value: "3.58", hi: "text-emerald-600" },
+  { label: "ROAS", value: "3.58", hi: "text-[var(--brand-fg)]" },
 ];
 
 export const AI_QUICK = [

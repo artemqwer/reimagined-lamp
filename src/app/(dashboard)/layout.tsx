@@ -257,7 +257,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           {onDashboard && (
             <div
               onClick={() => window.dispatchEvent(new CustomEvent("open-date-picker"))}
-              className="flex items-center gap-1.5 text-[12px] text-zinc-400 bg-zinc-900 border border-zinc-800 rounded-lg px-2.5 py-1.5 cursor-pointer active:bg-zinc-900 transition-colors"
+              className="flex items-center gap-1.5 text-[12px] text-zinc-400 glass rounded-lg px-2.5 py-1.5 cursor-pointer active:bg-zinc-900 transition-colors"
             >
               <svg
                 width="13"
@@ -295,7 +295,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             </span>
             <button
               onClick={exitViewAs}
-              className="inline-flex items-center h-[26px] px-3 rounded-md bg-zinc-900/15 hover:bg-zinc-900/25 font-medium transition"
+              className="inline-flex items-center h-[26px] px-3 rounded-md bg-zinc-900/15 hover:bg-zinc-800/60/25 font-medium transition"
             >
               Exit
             </button>

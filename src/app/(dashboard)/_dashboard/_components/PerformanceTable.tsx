@@ -1140,7 +1140,7 @@ export default function PerformanceTable({
   };
 
   return (
-    <div className="bg-zinc-900 rounded-2xl border border-zinc-800 relative">
+    <div className="card-elevate rounded-2xl relative">
       {/* Header — title + meta on the left, dropdown / filters / clear on the right (single row) */}
       <div className="px-4 sm:px-5 py-3 sm:py-4 flex items-start sm:items-center justify-between flex-wrap gap-3 border-b border-zinc-800">
         <div className="min-w-0">
@@ -1172,8 +1172,8 @@ export default function PerformanceTable({
               }}
               className={`flex items-center gap-1.5 border rounded-lg px-2.5 py-1.5 text-[13px] transition whitespace-nowrap shrink-0 ${
                 dropdownFiltered
-                  ? "bg-emerald-500/10 border-emerald-300 text-emerald-700 font-medium"
-                  : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:bg-zinc-900"
+                  ? "bg-emerald-500/10 border-emerald-300 text-[var(--brand-fg)] font-medium"
+                  : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:bg-zinc-800/60"
               }`}
             >
               <svg
@@ -1221,7 +1221,7 @@ export default function PerformanceTable({
                 <>
                   <div
                     ref={dimDropdownRef}
-                    className="fixed w-70 bg-zinc-900 border border-zinc-800 rounded-xl shadow-xl z-130 flex flex-col animate-in fade-in zoom-in-95 duration-150 origin-top-left"
+                    className="fixed w-70 glass rounded-xl shadow-xl z-130 flex flex-col animate-in fade-in zoom-in-95 duration-150 origin-top-left"
                     style={{
                       top: dimDropdownPos.top,
                       left: dimDropdownPos.left,
@@ -1408,7 +1408,7 @@ export default function PerformanceTable({
                             {visibleNames.slice(0, dropdownRender).map((n) => (
                               <label
                                 key={n}
-                                className="flex items-center gap-2 px-2 py-1.5 hover:bg-zinc-900 cursor-pointer rounded-lg transition"
+                                className="flex items-center gap-2 px-2 py-1.5 hover:bg-zinc-800/60 cursor-pointer rounded-lg transition"
                               >
                                 <input
                                   type="checkbox"
@@ -1483,8 +1483,8 @@ export default function PerformanceTable({
               }}
               className={`flex items-center gap-1 border rounded-lg px-2.5 py-1.5 text-[13px] transition ${
                 statusFilter !== "All" || isMetricFilterActive(metricFilter)
-                  ? "bg-emerald-500/10 border-emerald-300 text-emerald-700 font-medium"
-                  : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:bg-zinc-900"
+                  ? "bg-emerald-500/10 border-emerald-300 text-[var(--brand-fg)] font-medium"
+                  : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:bg-zinc-800/60"
               }`}
             >
               <svg
@@ -1510,7 +1510,7 @@ export default function PerformanceTable({
                 <>
                   <div
                     ref={filterDropdownRef}
-                    className="fixed w-72 bg-zinc-900 border border-zinc-800 rounded-xl shadow-lg z-130 p-3 space-y-3 overflow-y-auto animate-in fade-in zoom-in-95 duration-150 origin-top-right"
+                    className="fixed w-72 glass rounded-xl shadow-lg z-130 p-3 space-y-3 overflow-y-auto animate-in fade-in zoom-in-95 duration-150 origin-top-right"
                     style={{
                       top: filterDropdownPos.top,
                       left: filterDropdownPos.left,
@@ -1582,7 +1582,7 @@ export default function PerformanceTable({
                 setSearch("");
                 setPage(1);
               }}
-              className="text-[13px] text-emerald-600 hover:text-emerald-800 whitespace-nowrap shrink-0 font-medium"
+              className="text-[13px] text-[var(--brand-fg)] hover:text-emerald-800 whitespace-nowrap shrink-0 font-medium"
             >
               Clear (
               {Math.max(selected.length, includeFilter.length) +
@@ -1638,7 +1638,7 @@ export default function PerformanceTable({
                 setError(null);
                 setPage(1);
               }}
-              className="text-[12px] text-emerald-600 hover:text-emerald-800 underline"
+              className="text-[12px] text-[var(--brand-fg)] hover:text-emerald-800 underline"
             >
               Retry
             </button>
@@ -1658,7 +1658,7 @@ export default function PerformanceTable({
               <span>No rows match the current filter selection.</span>
               <button
                 onClick={clearAll}
-                className="text-[13px] text-emerald-600 hover:text-emerald-700 underline"
+                className="text-[13px] text-[var(--brand-fg)] hover:text-[var(--brand-fg)] underline"
               >
                 Clear filters
               </button>
@@ -1680,7 +1680,7 @@ export default function PerformanceTable({
               the longer background cross-filter / period / dimension work (crossFilterBusy),
               so the indicator never disappears while the request is still running. */}
           {(loading || crossFilterBusy) && (
-            <div className="absolute top-2.5 right-3 z-30 flex items-center gap-1.5 text-[12px] font-medium text-emerald-600 bg-zinc-900/95 border border-emerald-500/20 px-2.5 py-1 rounded-lg shadow-sm">
+            <div className="absolute top-2.5 right-3 z-30 flex items-center gap-1.5 text-[12px] font-medium text-[var(--brand-fg)] bg-zinc-900/95 border border-emerald-500/20 px-2.5 py-1 rounded-lg shadow-sm">
               <div className="w-3 h-3 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin" />
               Updating…
             </div>
@@ -1723,7 +1723,7 @@ export default function PerformanceTable({
                       {namesCollapsed && (
                         <button
                           onClick={() => setNamesCollapsed(false)}
-                          className="flex items-center justify-center w-6 h-6 rounded-md bg-emerald-500/10 text-emerald-600 hover:bg-emerald-200 transition shrink-0 sm:hidden"
+                          className="flex items-center justify-center w-6 h-6 rounded-md bg-emerald-500/10 text-[var(--brand-fg)] hover:bg-emerald-200 transition shrink-0 sm:hidden"
                         >
                           <svg
                             width="14"

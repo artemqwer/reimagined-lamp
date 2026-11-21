@@ -66,7 +66,7 @@ function AxisTooltip({ active, payload }: { active?: boolean; payload?: TooltipD
   if (!d) return null;
   const band = bandFor(d.score);
   return (
-    <div className="bg-zinc-900 border border-zinc-800 rounded-xl shadow-lg px-3 py-2 max-w-[240px]">
+    <div className="glass rounded-xl shadow-lg px-3 py-2 max-w-[240px]">
       <div className="flex items-center justify-between gap-3">
         <span className="text-[12px] font-semibold text-zinc-200">{d.category}</span>
         <span className="text-[12px] font-bold" style={{ color: band.color }}>

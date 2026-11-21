@@ -81,7 +81,7 @@ export default function CalMonth({
           onMouseEnter={() => !disabled && onDayHover(ts)}
           className={`w-8 h-8 text-[12px] rounded-full flex items-center justify-center relative z-10 transition leading-none
             ${isStart || isEnd ? "bg-emerald-600 text-white font-semibold shadow-sm" : ""}
-            ${inRange && !isStart && !isEnd ? "text-emerald-700 hover:bg-emerald-500/10" : ""}
+            ${inRange && !isStart && !isEnd ? "text-[var(--brand-fg)] hover:bg-emerald-500/10" : ""}
             ${!inRange && !isStart && !isEnd ? (disabled ? "text-zinc-600 cursor-not-allowed" : isWknd ? "text-emerald-400 hover:bg-emerald-500/10 cursor-pointer" : "text-zinc-300 hover:bg-zinc-800 cursor-pointer") : ""}
           `}
         >
@@ -95,7 +95,7 @@ export default function CalMonth({
     <div className="w-full max-w-[300px] mx-auto">
       <div
         onClick={onHeaderClick}
-        className={`flex items-center justify-center gap-1 text-[13px] font-bold text-zinc-300 mb-2 pb-1 border-b border-zinc-800 uppercase tracking-wide ${onHeaderClick ? "cursor-pointer hover:text-emerald-600 transition-colors select-none" : ""}`}
+        className={`flex items-center justify-center gap-1 text-[13px] font-bold text-zinc-300 mb-2 pb-1 border-b border-zinc-800 uppercase tracking-wide ${onHeaderClick ? "cursor-pointer hover:text-[var(--brand-fg)] transition-colors select-none" : ""}`}
       >
         {MNAMES[month]} {year}
         {onHeaderClick && (

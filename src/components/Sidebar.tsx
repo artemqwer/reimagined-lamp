@@ -223,7 +223,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
       <button
         onClick={() => setCollapsed(!collapsed)}
         aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
-        className="hidden lg:flex absolute top-7 -right-3 z-20 w-6 h-6 items-center justify-center rounded-full bg-zinc-900 border border-zinc-800 shadow-sm text-zinc-400 hover:text-zinc-300 hover:border-zinc-700 transition"
+        className="hidden lg:flex absolute top-7 -right-3 z-20 w-6 h-6 items-center justify-center rounded-full glass shadow-sm text-zinc-400 hover:text-zinc-300 hover:border-zinc-700 transition"
       >
         <svg
           width="14"

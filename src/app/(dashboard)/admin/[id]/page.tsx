@@ -194,7 +194,7 @@ export default function AdminUserDetailPage() {
         >
           <ArrowLeft size={18} /> Back to User Management
         </button>
-        <div className="bg-zinc-900 border border-zinc-800 rounded-[10px] p-10 text-center text-zinc-500 text-[14px]">
+        <div className="glass rounded-[10px] p-10 text-center text-zinc-500 text-[14px]">
           {error || "User not found"}
         </div>
       </div>
@@ -268,7 +268,7 @@ export default function AdminUserDetailPage() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => router.push(`/admin?edit=${user.id}`)}
-              className="inline-flex items-center gap-2 h-[41px] px-4 rounded-[10px] border border-[#52525B] bg-zinc-900 text-[16px] text-[#A1A1AA] hover:bg-zinc-900 transition"
+              className="inline-flex items-center gap-2 h-[41px] px-4 rounded-[10px] border border-[#52525B] bg-zinc-900 text-[16px] text-[#A1A1AA] hover:bg-zinc-800/60 transition"
             >
               <Pencil size={16} /> Edit
             </button>

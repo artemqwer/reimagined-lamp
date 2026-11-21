@@ -125,7 +125,7 @@ function ExploreButton({ onClick }: { onClick: () => void }) {
   return (
     <button
       onClick={onClick}
-      className="mt-2.5 inline-flex items-center gap-1.5 text-[12px] font-medium text-[#A1A1AA] bg-zinc-900 border border-zinc-800 hover:bg-zinc-900 rounded-lg px-3 py-1.5 transition"
+      className="mt-2.5 inline-flex items-center gap-1.5 text-[12px] font-medium text-[#A1A1AA] glass hover:bg-zinc-800/60 rounded-lg px-3 py-1.5 transition"
     >
       <svg
         width="14"
@@ -370,7 +370,7 @@ export default function RecommendationCard({
       <div className="flex justify-end gap-2 mt-3">
         <button
           onClick={onDismiss}
-          className="px-3 py-1.5 rounded-lg border border-zinc-800 text-[12px] font-medium text-[#71717A] hover:bg-zinc-900 transition"
+          className="px-3 py-1.5 rounded-lg border border-zinc-800 text-[12px] font-medium text-[#71717A] hover:bg-zinc-800/60 transition"
         >
           Dismiss
         </button>

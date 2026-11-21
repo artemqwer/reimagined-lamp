@@ -158,7 +158,7 @@ export default function MobileDatePicker({
               <button
                 key={label}
                 onClick={() => handlePresetClick(label)}
-                className="whitespace-nowrap text-left px-4 py-2 text-[13px] transition-all text-zinc-400 hover:bg-zinc-900 hover:text-emerald-600"
+                className="whitespace-nowrap text-left px-4 py-2 text-[13px] transition-all text-zinc-400 hover:bg-zinc-800/60 hover:text-[var(--brand-fg)]"
               >
                 {label}
               </button>
@@ -225,7 +225,7 @@ export default function MobileDatePicker({
                             ? "bg-emerald-600 text-white shadow-md shadow-emerald-200"
                             : isFuture
                               ? "text-zinc-600 cursor-not-allowed"
-                              : "text-zinc-300 hover:bg-emerald-500/10 hover:text-emerald-600"
+                              : "text-zinc-300 hover:bg-emerald-500/10 hover:text-[var(--brand-fg)]"
                         }`}
                       >
                         {mn}
@@ -300,7 +300,7 @@ export default function MobileDatePicker({
         <div className="flex gap-3 px-6 py-4 border-t border-zinc-800 shrink-0 bg-zinc-900">
           <button
             onClick={() => setDatePickerOpen(false)}
-            className="flex-1 py-3 text-[14px] font-bold text-zinc-400 hover:bg-zinc-900 rounded-2xl transition-all border border-zinc-800"
+            className="flex-1 py-3 text-[14px] font-bold text-zinc-400 hover:card-elevate rounded-2xl transition-all border border-zinc-800"
           >
             Cancel
           </button>

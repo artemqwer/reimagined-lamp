@@ -120,7 +120,7 @@ function GoalRow({
             title="Pick color"
           />
           {pickerOpen && goal.enabled && (
-            <div className="absolute left-0 top-6 z-50 bg-zinc-900 border border-zinc-800 rounded-lg p-2 shadow-lg flex gap-1.5">
+            <div className="absolute left-0 top-6 z-50 glass rounded-lg p-2 shadow-lg flex gap-1.5">
               {COLOR_PALETTE.map((c) => (
                 <button
                   key={c}
@@ -149,7 +149,7 @@ function GoalRow({
         <div className="flex items-center gap-2 flex-1 min-w-0">
           {auto ? (
             <div className="flex items-center gap-2 min-w-0">
-              <span className="text-[11px] font-semibold text-emerald-600 bg-emerald-500/10 border border-emerald-500/20 rounded px-1.5 py-0.5 shrink-0">
+              <span className="text-[11px] font-semibold text-[var(--brand-fg)] bg-emerald-500/10 border border-emerald-500/20 rounded px-1.5 py-0.5 shrink-0">
                 Auto
               </span>
               <span className="text-[13px] text-zinc-400 tabular-nums truncate">
@@ -180,7 +180,7 @@ function GoalRow({
               type="button"
               disabled={!goal.enabled}
               onClick={() => patchGoal(goal.metric, { auto: !goal.auto })}
-              className="text-[11px] font-semibold text-emerald-600 hover:text-emerald-700 disabled:opacity-40 shrink-0"
+              className="text-[11px] font-semibold text-[var(--brand-fg)] hover:text-[var(--brand-fg)] disabled:opacity-40 shrink-0"
             >
               {auto ? "Set manually" : "Use Auto"}
             </button>
@@ -371,7 +371,7 @@ export default function GoalSettingsModal({
                   value={draft.marginPct}
 
                   onChange={(e) => setDraft((d) => ({ ...d, marginPct: Number(e.target.value) }))}
-                  className="w-24 bg-zinc-900 border border-zinc-800 rounded-lg px-2.5 py-1.5 text-[13px] tabular-nums focus:outline-none focus:border-emerald-400"
+                  className="w-24 glass rounded-lg px-2.5 py-1.5 text-[13px] tabular-nums focus:outline-none focus:border-emerald-400"
                 />
                 <span className="text-[13px] text-zinc-400">%</span>
               </div>

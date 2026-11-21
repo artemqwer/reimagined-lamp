@@ -55,7 +55,7 @@ export default function HelpTip({ title, children }: { title: string; children: 
           <>
             <div className="fixed inset-0 z-60" onClick={() => setOpen(false)} />
             <div
-              className="fixed z-61 bg-zinc-900 border border-zinc-800 rounded-xl shadow-lg p-3"
+              className="fixed z-61 glass rounded-xl shadow-lg p-3"
               style={{ top: pos.top, left: pos.left, width: pos.width }}
             >
               <span className="block text-[12px] font-bold text-zinc-100 mb-1">{title}</span>

@@ -306,7 +306,7 @@ export default function ResetPasswordPage() {
                   onChange={(e) => handleCodeChange(i, e.target.value)}
                   onKeyDown={(e) => handleCodeKeyDown(i, e)}
                   className={`w-9 h-10 sm:w-10 sm:h-11 text-center text-[16px] sm:text-[18px] font-semibold border rounded-xl outline-none transition
-                    ${digit ? "border-emerald-500 bg-emerald-500/10 text-emerald-700" : "border-zinc-800 text-zinc-300"}
+                    ${digit ? "border-emerald-500 bg-emerald-500/10 text-[var(--brand-fg)]" : "border-zinc-800 text-zinc-300"}
                     focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20`}
                 />
               ))}

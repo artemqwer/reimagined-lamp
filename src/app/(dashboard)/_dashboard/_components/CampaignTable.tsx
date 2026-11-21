@@ -289,7 +289,7 @@ export default function CampaignTable({
 
   return (
     <>
-      <div className="bg-zinc-900 rounded-2xl border border-zinc-800 relative">
+      <div className="card-elevate rounded-2xl relative">
         <div
           ref={headerRef}
           className="px-4 sm:px-5 py-4 flex items-start justify-between flex-wrap gap-2 sm:gap-3 border-b border-zinc-800 relative"
@@ -320,8 +320,8 @@ export default function CampaignTable({
                 }}
                 className={`flex items-center gap-1.5 text-[13px] border rounded-lg px-2.5 py-1.5 transition whitespace-nowrap ${
                   selected.length > 0 || campaignSearch
-                    ? "border-emerald-400 bg-emerald-500/10 text-emerald-700"
-                    : "border-zinc-800 text-zinc-400 hover:bg-zinc-900"
+                    ? "border-emerald-400 bg-emerald-500/10 text-[var(--brand-fg)]"
+                    : "border-zinc-800 text-zinc-400 hover:bg-zinc-800/60"
                 }`}
               >
                 <span className="sm:hidden">{primaryLabel}</span>
@@ -359,8 +359,8 @@ export default function CampaignTable({
                   typeFilter !== "All" ||
                   statusFilter !== "Status" ||
                   isMetricFilterActive(metricFilter)
-                    ? "border-emerald-400 bg-emerald-500/10 text-emerald-700 font-medium"
-                    : "border-zinc-800 text-zinc-400 hover:bg-zinc-900"
+                    ? "border-emerald-400 bg-emerald-500/10 text-[var(--brand-fg)] font-medium"
+                    : "border-zinc-800 text-zinc-400 hover:bg-zinc-800/60"
                 }`}
               >
                 <svg
@@ -399,7 +399,7 @@ export default function CampaignTable({
                   clearFilter("campaign_name");
                   clearFilter("campaign_selected");
                 }}
-                className="text-[13px] text-emerald-600 hover:text-emerald-800 transition whitespace-nowrap shrink-0 font-medium"
+                className="text-[13px] text-[var(--brand-fg)] hover:text-emerald-800 transition whitespace-nowrap shrink-0 font-medium"
               >
                 Clear (
                 {selected.length +
@@ -454,7 +454,7 @@ export default function CampaignTable({
                     {namesCollapsed && (
                       <button
                         onClick={() => onNamesCollapsedChange(false)}
-                        className="flex items-center justify-center w-6 h-6 rounded-md bg-emerald-500/10 text-emerald-600 hover:bg-emerald-200 transition shrink-0 sm:hidden"
+                        className="flex items-center justify-center w-6 h-6 rounded-md bg-emerald-500/10 text-[var(--brand-fg)] hover:bg-emerald-200 transition shrink-0 sm:hidden"
                       >
                         <svg
                           width="14"
@@ -628,7 +628,7 @@ export default function CampaignTable({
                       >
                         {/* Always wrap long names onto multiple lines (row grows as needed)
                         instead of truncating with an ellipsis. */}
-                        <span className="font-medium text-zinc-200 text-[12px] hover:text-emerald-600 transition block whitespace-normal wrap-break-word">
+                        <span className="font-medium text-zinc-200 text-[12px] hover:text-[var(--brand-fg)] transition block whitespace-normal wrap-break-word">
                           {row.name}
                         </span>
                       </div>
@@ -916,7 +916,7 @@ export default function CampaignTable({
                 }}
               />
               <div
-                className="fixed w-65 bg-zinc-900 border border-zinc-800 rounded-xl shadow-xl z-130 flex flex-col overflow-hidden"
+                className="fixed w-65 glass rounded-xl shadow-xl z-130 flex flex-col overflow-hidden"
                 style={{
                   top: campaignDropdownPos.top,
                   left: campaignDropdownPos.left,
@@ -1020,7 +1020,7 @@ export default function CampaignTable({
                         {visible.map((r) => (
                           <label
                             key={r.name}
-                            className="flex items-center gap-2 px-3 py-2 hover:bg-zinc-900 cursor-pointer"
+                            className="flex items-center gap-2 px-3 py-2 hover:bg-zinc-800/60 cursor-pointer"
                           >
                             <input
                               type="checkbox"
@@ -1051,7 +1051,7 @@ export default function CampaignTable({
             <>
               <div className="fixed inset-0 z-125" onClick={() => setFilterDropdownOpen(false)} />
               <div
-                className="fixed w-72 bg-zinc-900 border border-zinc-800 rounded-xl shadow-xl z-130 p-3 space-y-3 overflow-y-auto"
+                className="fixed w-72 glass rounded-xl shadow-xl z-130 p-3 space-y-3 overflow-y-auto"
                 style={{
                   top: filterDropdownPos.top,
                   left: filterDropdownPos.left,

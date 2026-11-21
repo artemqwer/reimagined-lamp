@@ -375,7 +375,7 @@ export default function ProfilePage() {
                 <button
                   type="button"
                   onClick={handleRemoveAvatar}
-                  className="text-[14px] px-4 h-[37px] border border-[#52525B] text-[#A1A1AA] hover:bg-zinc-900 rounded-[10px] transition"
+                  className="text-[14px] px-4 h-[37px] border border-[#52525B] text-[#A1A1AA] hover:bg-zinc-800/60 rounded-[10px] transition"
                 >
                   Remove
                 </button>
@@ -689,7 +689,7 @@ export default function ProfilePage() {
                 <button
                   type="button"
                   onClick={() => setMfaDisableConfirm(false)}
-                  className="text-[14px] px-3 h-9 border border-[#52525B] text-[#A1A1AA] hover:bg-zinc-900 rounded-[10px] transition"
+                  className="text-[14px] px-3 h-9 border border-[#52525B] text-[#A1A1AA] hover:bg-zinc-800/60 rounded-[10px] transition"
                 >
                   Cancel
                 </button>
@@ -744,7 +744,7 @@ export default function ProfilePage() {
           onClick={handleCancelMfaEnroll}
         >
           <div
-            className="bg-zinc-900 rounded-2xl shadow-xl w-full max-w-[400px] p-6"
+            className="card-elevate rounded-2xl shadow-xl w-full max-w-[400px] p-6"
             onClick={(e) => e.stopPropagation()}
           >
             <h2 className="text-[16px] font-bold text-zinc-100 mb-1">
@@ -772,7 +772,7 @@ export default function ProfilePage() {
             <p className="text-[11px] text-zinc-500 text-center mb-1">
               Can&apos;t scan? Enter this key manually:
             </p>
-            <p className="text-[12px] font-mono text-zinc-300 text-center bg-zinc-900 border border-zinc-800 rounded-lg py-1.5 mb-4 break-all select-all">
+            <p className="text-[12px] font-mono text-zinc-300 text-center glass rounded-lg py-1.5 mb-4 break-all select-all">
               {mfaEnrolling.secret}
             </p>
             <input
@@ -797,7 +797,7 @@ export default function ProfilePage() {
               <button
                 type="button"
                 onClick={handleCancelMfaEnroll}
-                className="flex-1 text-[13px] font-medium border border-zinc-800 text-zinc-400 py-2 rounded-xl hover:bg-zinc-900 transition"
+                className="flex-1 text-[13px] font-medium border border-zinc-800 text-zinc-400 py-2 rounded-xl hover:bg-zinc-800/60 transition"
               >
                 Cancel
               </button>
@@ -847,7 +847,7 @@ export default function ProfilePage() {
               <button
                 type="button"
                 onClick={() => setDeleteConfirm(false)}
-                className="text-[13px] font-medium px-4 py-2 border border-zinc-800 text-zinc-400 hover:bg-zinc-900 rounded-lg transition"
+                className="text-[13px] font-medium px-4 py-2 border border-zinc-800 text-zinc-400 hover:bg-zinc-800/60 rounded-lg transition"
               >
                 Cancel
               </button>

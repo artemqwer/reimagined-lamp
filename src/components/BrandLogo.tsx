@@ -20,7 +20,7 @@ export default function BrandLogo() {
           METRICFORGE
         </div>
         <div
-          className="text-[10.5px] text-gray-400 leading-tight mt-[1px]"
+          className="text-[10.5px] text-zinc-500 leading-tight mt-[1px]"
           style={{ letterSpacing: "0.03em" }}
         >
           E-commerce Intelligence

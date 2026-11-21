@@ -113,7 +113,7 @@ const PlusCircle = (p: IconProps) => (
 // Presentation only — the connected channels themselves come from the API
 // (AdminUser.channels), keyed by connector id. Colour + sub-label per platform.
 const CHANNEL_STYLE: Record<string, { grad: string; kind: string }> = {
-  google_ads: { grad: "linear-gradient(135deg,#2b7fff,#059669)", kind: "Advertising Platform" },
+  google_ads: { grad: "linear-gradient(135deg,#2b7fff,#10B981)", kind: "Advertising Platform" },
   meta_ads: { grad: "linear-gradient(135deg,#ad46ff,#9810fa)", kind: "Social Media Platform" },
   ga4: { grad: "linear-gradient(135deg,#f59e0b,#e8710a)", kind: "Web Analytics" },
   microsoft_ads: { grad: "linear-gradient(135deg,#ff6900,#f54900)", kind: "Advertising Platform" },
@@ -128,9 +128,9 @@ const channelStyle = (id: string) =>
 
 function StatusBadge({ status }: { status: AdminUser["status"] }) {
   const map = {
-    Active: { bg: "#dcfce7", fg: "#008236", icon: <CheckCircle size={16} /> },
+    Active: { bg: "#dcfce7", fg: "#10B981", icon: <CheckCircle size={16} /> },
     Trial: { bg: "#fef9c3", fg: "#a16207", icon: <Clock size={16} /> },
-    Expired: { bg: "#fee2e2", fg: "#dc2626", icon: <Clock size={16} /> },
+    Expired: { bg: "rgba(239,68,68,0.14)", fg: "#dc2626", icon: <Clock size={16} /> },
   } as const;
   const s = map[status] ?? map.Active;
   return (
@@ -190,11 +190,11 @@ export default function AdminUserDetailPage() {
       <div className="p-4 sm:p-6">
         <button
           onClick={() => router.push("/admin")}
-          className="inline-flex items-center gap-2 text-[14px] text-gray-600 hover:text-gray-900 mb-4"
+          className="inline-flex items-center gap-2 text-[14px] text-zinc-400 hover:text-zinc-100 mb-4"
         >
           <ArrowLeft size={18} /> Back to User Management
         </button>
-        <div className="bg-white border border-gray-100 rounded-[10px] p-10 text-center text-gray-400 text-[14px]">
+        <div className="bg-zinc-900 border border-zinc-800 rounded-[10px] p-10 text-center text-zinc-500 text-[14px]">
           {error || "User not found"}
         </div>
       </div>
@@ -207,7 +207,7 @@ export default function AdminUserDetailPage() {
       value: `${usd(user.revenueMonthly)}/mo`,
       label: "Monthly Revenue",
       bg: "#dcfce7",
-      fg: "#008236",
+      fg: "#10B981",
       icon: <DollarSign size={24} />,
     },
     {
@@ -220,8 +220,8 @@ export default function AdminUserDetailPage() {
     {
       value: String(user.channels.length),
       label: "Connected Channels",
-      bg: "#dbeafe",
-      fg: "#059669",
+      bg: "rgba(59,130,246,0.14)",
+      fg: "#10B981",
       icon: <Activity size={24} />,
     },
   ];
@@ -231,14 +231,14 @@ export default function AdminUserDetailPage() {
   const ACTIVITY = [
     {
       icon: <LogIn size={16} />,
-      fg: "#059669",
+      fg: "#10B981",
       title: "Last login",
       desc: user.lastLogin === "Never" ? "Has not signed in yet" : `Signed in ${user.lastLogin}`,
       time: user.lastLogin,
     },
     {
       icon: <PlusCircle size={16} />,
-      fg: "#008236",
+      fg: "#10B981",
       title: "Account created",
       desc: `Registered on ${user.registered}`,
       time: user.registered,
@@ -252,14 +252,14 @@ export default function AdminUserDetailPage() {
   ];
 
   return (
-    <div className="p-4 sm:p-6 flex flex-col gap-6 text-[#101828]">
+    <div className="p-4 sm:p-6 flex flex-col gap-6 text-[#F4F4F5]">
       {/* ── Header bar ── */}
-      <div className="bg-white border border-[#e5e7eb] rounded-[10px] p-6">
+      <div className="bg-zinc-900 border border-[#3F3F46] rounded-[10px] p-6">
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <div className="flex items-center gap-4">
             <button
               onClick={() => router.push("/admin")}
-              className="w-10 h-10 rounded-[10px] bg-[#f3f4f6] hover:bg-gray-200 flex items-center justify-center text-[#101828] transition shrink-0"
+              className="w-10 h-10 rounded-[10px] bg-[#27272A] hover:bg-zinc-800 flex items-center justify-center text-[#F4F4F5] transition shrink-0"
             >
               <ArrowLeft size={20} />
             </button>
@@ -268,7 +268,7 @@ export default function AdminUserDetailPage() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => router.push(`/admin?edit=${user.id}`)}
-              className="inline-flex items-center gap-2 h-[41px] px-4 rounded-[10px] border border-[#d1d5dc] bg-white text-[16px] text-[#364153] hover:bg-gray-50 transition"
+              className="inline-flex items-center gap-2 h-[41px] px-4 rounded-[10px] border border-[#52525B] bg-zinc-900 text-[16px] text-[#A1A1AA] hover:bg-zinc-900 transition"
             >
               <Pencil size={16} /> Edit
             </button>
@@ -288,7 +288,7 @@ export default function AdminUserDetailPage() {
                 }
                 router.push("/google-ads");
               }}
-              className="inline-flex items-center gap-2 h-[41px] px-4 rounded-[10px] bg-[#059669] hover:bg-emerald-700 text-white text-[16px] transition"
+              className="inline-flex items-center gap-2 h-[41px] px-4 rounded-[10px] bg-[#10B981] hover:bg-emerald-700 text-white text-[16px] transition"
             >
               <Eye size={16} /> View as Client
             </button>
@@ -297,7 +297,7 @@ export default function AdminUserDetailPage() {
       </div>
 
       {/* ── Identity card ── */}
-      <div className="bg-white border border-[#e5e7eb] rounded-[10px] overflow-hidden">
+      <div className="bg-zinc-900 border border-[#3F3F46] rounded-[10px] overflow-hidden">
         <div
           className="h-16 w-full"
           style={{ background: "linear-gradient(to right,#2b7fff,#ad46ff,#f6339a)" }}
@@ -323,8 +323,8 @@ export default function AdminUserDetailPage() {
               )}
             </div>
             <div className="ml-4 pb-1">
-              <p className="text-[24px] leading-[32px] font-bold text-[#101828]">{user.name}</p>
-              <p className="text-[16px] leading-[24px] text-[#4a5565]">{company}</p>
+              <p className="text-[24px] leading-[32px] font-bold text-[#F4F4F5]">{user.name}</p>
+              <p className="text-[16px] leading-[24px] text-[#A1A1AA]">{company}</p>
             </div>
           </div>
 
@@ -332,10 +332,10 @@ export default function AdminUserDetailPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-4">
             {FIELDS.map((f) => (
               <div key={f.label} className="flex items-center gap-3">
-                <span className="text-[#6a7282] shrink-0">{f.icon}</span>
+                <span className="text-[#71717A] shrink-0">{f.icon}</span>
                 <div className="min-w-0">
-                  <p className="text-[12px] leading-[16px] text-[#6a7282]">{f.label}</p>
-                  <p className="text-[14px] leading-[20px] text-[#101828] truncate">{f.value}</p>
+                  <p className="text-[12px] leading-[16px] text-[#71717A]">{f.label}</p>
+                  <p className="text-[14px] leading-[20px] text-[#F4F4F5] truncate">{f.value}</p>
                 </div>
               </div>
             ))}
@@ -357,7 +357,7 @@ export default function AdminUserDetailPage() {
       {/* ── Stat cards ── */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {STATS.map((s) => (
-          <div key={s.label} className="bg-white border border-[#e5e7eb] rounded-[10px] p-5">
+          <div key={s.label} className="bg-zinc-900 border border-[#3F3F46] rounded-[10px] p-5">
             <div className="flex items-center gap-4">
               <div
                 className="w-12 h-12 rounded-[10px] flex items-center justify-center shrink-0"
@@ -366,10 +366,10 @@ export default function AdminUserDetailPage() {
                 {s.icon}
               </div>
               <div className="min-w-0">
-                <p className="text-[24px] leading-[32px] font-bold text-[#101828] truncate">
+                <p className="text-[24px] leading-[32px] font-bold text-[#F4F4F5] truncate">
                   {s.value}
                 </p>
-                <p className="text-[14px] leading-[20px] text-[#4a5565]">{s.label}</p>
+                <p className="text-[14px] leading-[20px] text-[#A1A1AA]">{s.label}</p>
               </div>
             </div>
           </div>
@@ -377,9 +377,9 @@ export default function AdminUserDetailPage() {
       </div>
 
       {/* ── Tabbed content ── */}
-      <div className="bg-white border border-[#e5e7eb] rounded-[10px] overflow-hidden">
+      <div className="bg-zinc-900 border border-[#3F3F46] rounded-[10px] overflow-hidden">
         {/* tabs */}
-        <div className="flex border-b border-[#e5e7eb]">
+        <div className="flex border-b border-[#3F3F46]">
           {(
             [
               ["overview", "Overview"],
@@ -390,7 +390,7 @@ export default function AdminUserDetailPage() {
             <button
               key={key}
               onClick={() => setTab(key)}
-              className={`h-[54px] px-[22px] text-[14px] font-medium border-b-2 -mb-px transition ${tab === key ? "border-[#059669] text-[#059669]" : "border-transparent text-[#6a7282] hover:text-gray-700"}`}
+              className={`h-[54px] px-[22px] text-[14px] font-medium border-b-2 -mb-px transition ${tab === key ? "border-[#10B981] text-[#10B981]" : "border-transparent text-[#71717A] hover:text-zinc-300"}`}
             >
               {label}
             </button>
@@ -402,11 +402,11 @@ export default function AdminUserDetailPage() {
             <div className="flex flex-col gap-6">
               {/* Connected Channels */}
               <div className="flex flex-col gap-4">
-                <h3 className="text-[18px] leading-[28px] font-semibold text-[#101828]">
+                <h3 className="text-[18px] leading-[28px] font-semibold text-[#F4F4F5]">
                   Connected Channels
                 </h3>
                 {user.channels.length === 0 ? (
-                  <div className="bg-[#f9fafb] border border-[#e5e7eb] rounded-[14px] py-8 text-center text-[14px] text-[#6a7282]">
+                  <div className="bg-[#18181B] border border-[#3F3F46] rounded-[14px] py-8 text-center text-[14px] text-[#71717A]">
                     No data sources connected yet.
                   </div>
                 ) : (
@@ -416,7 +416,7 @@ export default function AdminUserDetailPage() {
                       return (
                         <div
                           key={ch.id}
-                          className="bg-white border border-[#e5e7eb] rounded-[14px] p-5 flex flex-col gap-4"
+                          className="bg-zinc-900 border border-[#3F3F46] rounded-[14px] p-5 flex flex-col gap-4"
                         >
                           <div className="flex items-start justify-between">
                             <div className="flex items-center gap-3 min-w-0">
@@ -427,23 +427,23 @@ export default function AdminUserDetailPage() {
                                 <Megaphone size={24} />
                               </div>
                               <div className="min-w-0">
-                                <p className="text-[16px] leading-[24px] font-semibold text-[#101828] truncate">
+                                <p className="text-[16px] leading-[24px] font-semibold text-[#F4F4F5] truncate">
                                   {ch.label}
                                 </p>
-                                <p className="text-[12px] leading-[16px] text-[#6a7282]">
+                                <p className="text-[12px] leading-[16px] text-[#71717A]">
                                   {st.kind}
                                 </p>
                               </div>
                             </div>
                             <span
                               className="inline-flex items-center gap-1.5 h-6 px-2 rounded-full text-[12px] font-medium shrink-0"
-                              style={{ background: "#dcfce7", color: "#008236" }}
+                              style={{ background: "#dcfce7", color: "#10B981" }}
                             >
                               <CheckCircle size={12} /> Active
                             </span>
                           </div>
-                          <div className="flex items-center gap-2 text-[#4a5565]">
-                            <span className="text-[#6a7282] shrink-0">
+                          <div className="flex items-center gap-2 text-[#A1A1AA]">
+                            <span className="text-[#71717A] shrink-0">
                               <Activity size={16} />
                             </span>
                             <span className="text-[14px] leading-[20px] truncate">
@@ -459,27 +459,27 @@ export default function AdminUserDetailPage() {
 
               {/* Recent Activity */}
               <div className="flex flex-col gap-4">
-                <h3 className="text-[18px] leading-[28px] font-semibold text-[#101828]">
+                <h3 className="text-[18px] leading-[28px] font-semibold text-[#F4F4F5]">
                   Recent Activity
                 </h3>
                 <div className="flex flex-col gap-3">
                   {ACTIVITY.map((a, i) => (
                     <div
                       key={i}
-                      className="bg-[#f9fafb] rounded-[10px] h-[62px] px-3 flex items-center gap-3"
+                      className="bg-[#18181B] rounded-[10px] h-[62px] px-3 flex items-center gap-3"
                     >
                       <span className="shrink-0 mt-0.5" style={{ color: a.fg }}>
                         {a.icon}
                       </span>
                       <div className="flex-1 min-w-0">
-                        <p className="text-[14px] leading-[20px] font-medium text-[#101828]">
+                        <p className="text-[14px] leading-[20px] font-medium text-[#F4F4F5]">
                           {a.title}
                         </p>
-                        <p className="text-[12px] leading-[16px] text-[#4a5565] truncate">
+                        <p className="text-[12px] leading-[16px] text-[#A1A1AA] truncate">
                           {a.desc}
                         </p>
                       </div>
-                      <span className="text-[12px] leading-[16px] text-[#6a7282] shrink-0 whitespace-nowrap">
+                      <span className="text-[12px] leading-[16px] text-[#71717A] shrink-0 whitespace-nowrap">
                         {a.time}
                       </span>
                     </div>
@@ -490,7 +490,7 @@ export default function AdminUserDetailPage() {
           )}
 
           {tab === "billing" && (
-            <div className="py-10 text-center text-[14px] text-gray-400">
+            <div className="py-10 text-center text-[14px] text-zinc-500">
               Billing history will appear here.
             </div>
           )}
@@ -499,18 +499,18 @@ export default function AdminUserDetailPage() {
               {ACTIVITY.map((a, i) => (
                 <div
                   key={i}
-                  className="bg-[#f9fafb] rounded-[10px] h-[62px] px-3 flex items-center gap-3"
+                  className="bg-[#18181B] rounded-[10px] h-[62px] px-3 flex items-center gap-3"
                 >
                   <span className="shrink-0 mt-0.5" style={{ color: a.fg }}>
                     {a.icon}
                   </span>
                   <div className="flex-1 min-w-0">
-                    <p className="text-[14px] leading-[20px] font-medium text-[#101828]">
+                    <p className="text-[14px] leading-[20px] font-medium text-[#F4F4F5]">
                       {a.title}
                     </p>
-                    <p className="text-[12px] leading-[16px] text-[#4a5565] truncate">{a.desc}</p>
+                    <p className="text-[12px] leading-[16px] text-[#A1A1AA] truncate">{a.desc}</p>
                   </div>
-                  <span className="text-[12px] leading-[16px] text-[#6a7282] shrink-0 whitespace-nowrap">
+                  <span className="text-[12px] leading-[16px] text-[#71717A] shrink-0 whitespace-nowrap">
                     {a.time}
                   </span>
                 </div>

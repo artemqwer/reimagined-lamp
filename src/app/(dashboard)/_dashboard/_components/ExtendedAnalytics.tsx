@@ -17,14 +17,14 @@ interface ExtendedAnalyticsProps {
 
 function ComingSoonTable({ title }: { title: string }) {
   return (
-    <div className="bg-white rounded-2xl border border-gray-200">
-      <div className="px-4 sm:px-5 py-4 border-b border-gray-100 flex items-center gap-3">
-        <h2 className="text-[15px] sm:text-[17px] font-bold text-gray-900">{title}</h2>
-        <span className="text-[11px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-medium">
+    <div className="bg-zinc-900 rounded-2xl border border-zinc-800">
+      <div className="px-4 sm:px-5 py-4 border-b border-zinc-800 flex items-center gap-3">
+        <h2 className="text-[15px] sm:text-[17px] font-bold text-zinc-100">{title}</h2>
+        <span className="text-[11px] bg-zinc-800 text-zinc-400 px-2 py-0.5 rounded-full font-medium">
           Coming soon
         </span>
       </div>
-      <div className="flex items-center justify-center py-10 gap-2 text-gray-400 text-[13px]">
+      <div className="flex items-center justify-center py-10 gap-2 text-zinc-500 text-[13px]">
         <svg
           width="16"
           height="16"
@@ -109,14 +109,14 @@ export default function ExtendedAnalytics({
     <div className="mt-4">
       {/* Toggle — a full bordered, clearly clickable card with an icon (Figma). */}
       <div
-        className={`bg-white border rounded-2xl transition mb-3 ${open ? "border-gray-200" : "border-gray-200 hover:border-emerald-300 hover:shadow-sm"}`}
+        className={`bg-zinc-900 border rounded-2xl transition mb-3 ${open ? "border-zinc-800" : "border-zinc-800 hover:border-emerald-300 hover:shadow-sm"}`}
       >
         <div className="flex items-center justify-between gap-3 px-4 sm:px-5 py-3.5">
           <button
             onClick={() => setOpen((v) => !v)}
             className="flex items-center gap-3 min-w-0 flex-1 text-left group"
           >
-            <div className="w-9 h-9 rounded-xl bg-emerald-50 flex items-center justify-center shrink-0">
+            <div className="w-9 h-9 rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0">
               <svg
                 width="18"
                 height="18"
@@ -132,10 +132,10 @@ export default function ExtendedAnalytics({
               </svg>
             </div>
             <div className="min-w-0">
-              <p className="text-[15px] font-bold text-gray-900 leading-tight">
+              <p className="text-[15px] font-bold text-zinc-100 leading-tight">
                 Extended Analytics
               </p>
-              <p className="text-[12px] text-gray-400 truncate">{subtitle}</p>
+              <p className="text-[12px] text-zinc-500 truncate">{subtitle}</p>
             </div>
           </button>
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">

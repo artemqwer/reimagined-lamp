@@ -111,20 +111,20 @@ export default function LoginPage() {
   };
 
   const fieldClass = (field: keyof Errors, extra = "") =>
-    `w-full py-2.5 text-[14px] border rounded-lg outline-none transition text-gray-700 placeholder-gray-400 ${extra} ${
+    `w-full py-2.5 text-[14px] border rounded-lg outline-none transition text-zinc-300 placeholder-zinc-600 ${extra} ${
       touched[field] && errors[field]
-        ? "border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-100"
-        : "border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
+        ? "border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-500/20"
+        : "border-zinc-800 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
     }`;
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-[#e8ecf5] px-4">
+    <div className="min-h-screen flex flex-col items-center justify-center px-4">
       <BrandLogo />
 
-      <h1 className="text-[20px] font-semibold text-gray-900 mb-1">
+      <h1 className="text-[20px] font-semibold text-zinc-100 mb-1">
         {mfaFactorId ? "Two-step verification" : "Welcome back"}
       </h1>
-      <p className="text-[14px] text-gray-500 mb-6">
+      <p className="text-[14px] text-zinc-400 mb-6">
         {mfaFactorId
           ? "Enter the 6-digit code from your authenticator app"
           : "Sign in to your account to continue"}
@@ -133,10 +133,10 @@ export default function LoginPage() {
       {mfaFactorId ? (
         <form
           onSubmit={handleVerifyMfa}
-          className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 sm:p-8 w-full max-w-[400px]"
+          className="card-elevate rounded-2xl p-5 sm:p-8 w-full max-w-[400px]"
         >
           {mfaError && (
-            <div className="mb-4 px-3 py-2.5 bg-red-50 border border-red-200 rounded-lg text-[13px] text-red-600 flex items-center gap-2">
+            <div className="mb-4 px-3 py-2.5 bg-red-500/10 border border-red-500/20 rounded-lg text-[13px] text-red-600 flex items-center gap-2">
               <svg
                 width="14"
                 height="14"
@@ -161,7 +161,7 @@ export default function LoginPage() {
             inputMode="numeric"
             autoFocus
             placeholder="000000"
-            className="w-full text-center tracking-[0.5em] text-[20px] font-semibold border border-gray-200 rounded-lg py-3 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 mb-4"
+            className="w-full text-center tracking-[0.5em] text-[20px] font-semibold border border-zinc-800 rounded-lg py-3 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 mb-4"
           />
           <button
             type="submit"
@@ -181,7 +181,7 @@ export default function LoginPage() {
               setMfaCode("");
               setMfaError("");
             }}
-            className="w-full text-[13px] text-gray-500 hover:text-gray-700 transition"
+            className="w-full text-[13px] text-zinc-400 hover:text-zinc-300 transition"
           >
             Back to sign in
           </button>
@@ -190,10 +190,10 @@ export default function LoginPage() {
         <form
           onSubmit={handleSubmit}
           noValidate
-          className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 sm:p-8 w-full max-w-[400px]"
+          className="card-elevate rounded-2xl p-5 sm:p-8 w-full max-w-[400px]"
         >
           {serverError && (
-            <div className="mb-4 px-3 py-2.5 bg-red-50 border border-red-200 rounded-lg text-[13px] text-red-600 flex items-center gap-2">
+            <div className="mb-4 px-3 py-2.5 bg-red-500/10 border border-red-500/20 rounded-lg text-[13px] text-red-600 flex items-center gap-2">
               <svg
                 width="14"
                 height="14"
@@ -212,11 +212,11 @@ export default function LoginPage() {
 
           {/* Email */}
           <div className="mb-4">
-            <label className="block text-[13px] font-medium text-gray-700 mb-1.5">
+            <label className="block text-[13px] font-medium text-zinc-300 mb-1.5">
               Email address
             </label>
             <div className="relative">
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500">
                 <svg
                   width="16"
                   height="16"
@@ -262,9 +262,9 @@ export default function LoginPage() {
 
           {/* Password */}
           <div className="mb-4">
-            <label className="block text-[13px] font-medium text-gray-700 mb-1.5">Password</label>
+            <label className="block text-[13px] font-medium text-zinc-300 mb-1.5">Password</label>
             <div className="relative">
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500">
                 <svg
                   width="15"
                   height="15"
@@ -291,7 +291,7 @@ export default function LoginPage() {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-400 transition"
               >
                 {showPassword ? (
                   <svg
@@ -346,7 +346,7 @@ export default function LoginPage() {
               <div
                 onClick={() => setRememberMe(!rememberMe)}
                 className={`w-4 h-4 border rounded flex items-center justify-center ${
-                  rememberMe ? "bg-emerald-600 border-emerald-600" : "border-gray-300 bg-white"
+                  rememberMe ? "bg-emerald-600 border-emerald-600" : "border-zinc-700 bg-zinc-900"
                 }`}
               >
                 {rememberMe && (
@@ -361,11 +361,11 @@ export default function LoginPage() {
                   </svg>
                 )}
               </div>
-              <span className="text-[13px] text-gray-600">Remember me</span>
+              <span className="text-[13px] text-zinc-400">Remember me</span>
             </label>
             <Link
               href="/reset-password"
-              className="text-[13px] text-emerald-600 hover:underline font-medium"
+              className="text-[13px] text-emerald-400 hover:underline font-medium"
             >
               Forgot password?
             </Link>
@@ -398,9 +398,9 @@ export default function LoginPage() {
           </button>
 
           {signupOpen && (
-            <p className="text-center text-[13px] text-gray-500">
+            <p className="text-center text-[13px] text-zinc-400">
               Don&apos;t have an account?{" "}
-              <Link href="/register" className="text-emerald-600 font-medium hover:underline">
+              <Link href="/register" className="text-emerald-400 font-medium hover:underline">
                 Sign up
               </Link>
             </p>

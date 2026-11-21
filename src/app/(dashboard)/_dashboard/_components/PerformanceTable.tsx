@@ -129,9 +129,9 @@ function calendarRank(dimensionKey: string, value: string): number {
 function roasStyle(c: PerfRow["roasColor"]) {
   const map = {
     green: { bg: "#DCFCE7", text: "#15803D" },
-    red: { bg: "#FEE2E2", text: "#DC2626" },
+    red: { bg: "rgba(239,68,68,0.14)", text: "#DC2626" },
     orange: { bg: "#FFEDD5", text: "#EA580C" },
-    gray: { bg: "#F3F4F6", text: "#9CA3AF" },
+    gray: { bg: "#27272A", text: "#71717A" },
   };
   return map[c];
 }
@@ -925,7 +925,7 @@ export default function PerformanceTable({
   const renderMetricTh = (m: TableMetricCol) => (
     <th
       key={m.key}
-      className="px-1.5 sm:px-2.5 py-2.5 text-right text-gray-500 font-medium text-[12px] sm:whitespace-nowrap cursor-pointer hover:text-gray-700 select-none"
+      className="px-1.5 sm:px-2.5 py-2.5 text-right text-zinc-400 font-medium text-[12px] sm:whitespace-nowrap cursor-pointer hover:text-zinc-300 select-none"
       onClick={() => handleSort(m.key as SortCol)}
     >
       {m.label} <SortIcon dir={sortCol === m.key ? sortDir : null} />
@@ -941,7 +941,7 @@ export default function PerformanceTable({
   ) => (
     <td
       key={key}
-      className={`px-1.5 sm:px-2.5 py-2.5 text-gray-700 text-right tabular-nums ${extra}`}
+      className={`px-1.5 sm:px-2.5 py-2.5 text-zinc-300 text-right tabular-nums ${extra}`}
       style={{ backgroundColor: heatmapBg(val, range.min, range.max, color) }}
     >
       {content}
@@ -971,7 +971,7 @@ export default function PerformanceTable({
                 {row.roas}
               </span>
             ) : (
-              <span className="text-gray-400 text-[12px]">—</span>
+              <span className="text-zinc-500 text-[12px]">—</span>
             )}
           </td>
         );
@@ -1048,7 +1048,7 @@ export default function PerformanceTable({
                   t.roasColor === "green"
                     ? "#DCFCE7"
                     : t.roasColor === "red"
-                      ? "#FEE2E2"
+                      ? "rgba(239,68,68,0.14)"
                       : "#FFEDD5",
                 color:
                   t.roasColor === "green"
@@ -1140,12 +1140,12 @@ export default function PerformanceTable({
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-gray-200 relative">
+    <div className="bg-zinc-900 rounded-2xl border border-zinc-800 relative">
       {/* Header — title + meta on the left, dropdown / filters / clear on the right (single row) */}
-      <div className="px-4 sm:px-5 py-3 sm:py-4 flex items-start sm:items-center justify-between flex-wrap gap-3 border-b border-gray-100">
+      <div className="px-4 sm:px-5 py-3 sm:py-4 flex items-start sm:items-center justify-between flex-wrap gap-3 border-b border-zinc-800">
         <div className="min-w-0">
-          <h2 className="text-[15px] sm:text-[17px] font-bold text-gray-900">{title}</h2>
-          <p className="text-[13px] text-gray-400 mt-0.5 hidden sm:block">
+          <h2 className="text-[15px] sm:text-[17px] font-bold text-zinc-100">{title}</h2>
+          <p className="text-[13px] text-zinc-500 mt-0.5 hidden sm:block">
             {loading
               ? "Loading…"
               : error
@@ -1172,8 +1172,8 @@ export default function PerformanceTable({
               }}
               className={`flex items-center gap-1.5 border rounded-lg px-2.5 py-1.5 text-[13px] transition whitespace-nowrap shrink-0 ${
                 dropdownFiltered
-                  ? "bg-emerald-50 border-emerald-300 text-emerald-700 font-medium"
-                  : "bg-white border-gray-200 text-gray-600 hover:bg-gray-50"
+                  ? "bg-emerald-500/10 border-emerald-300 text-emerald-700 font-medium"
+                  : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:bg-zinc-900"
               }`}
             >
               <svg
@@ -1221,15 +1221,15 @@ export default function PerformanceTable({
                 <>
                   <div
                     ref={dimDropdownRef}
-                    className="fixed w-70 bg-white border border-gray-200 rounded-xl shadow-xl z-130 flex flex-col animate-in fade-in zoom-in-95 duration-150 origin-top-left"
+                    className="fixed w-70 bg-zinc-900 border border-zinc-800 rounded-xl shadow-xl z-130 flex flex-col animate-in fade-in zoom-in-95 duration-150 origin-top-left"
                     style={{
                       top: dimDropdownPos.top,
                       left: dimDropdownPos.left,
                       maxHeight: dimDropdownPos.maxHeight,
                     }}
                   >
-                    <div className="p-2 border-b border-gray-100 shrink-0">
-                      <div className="flex items-center gap-1.5 border border-gray-200 rounded-lg px-2 py-1.5 bg-gray-50/50">
+                    <div className="p-2 border-b border-zinc-800 shrink-0">
+                      <div className="flex items-center gap-1.5 border border-zinc-800 rounded-lg px-2 py-1.5 bg-zinc-900/50">
                         <svg
                           width="12"
                           height="12"
@@ -1237,7 +1237,7 @@ export default function PerformanceTable({
                           fill="none"
                           stroke="currentColor"
                           strokeWidth="2"
-                          className="text-gray-400 shrink-0"
+                          className="text-zinc-500 shrink-0"
                         >
                           <circle cx="11" cy="11" r="8" />
                           <path d="m21 21-4.35-4.35" />
@@ -1252,7 +1252,7 @@ export default function PerformanceTable({
                         {dimDropdownSearch && (
                           <button
                             onClick={() => setDimDropdownSearch("")}
-                            className="text-gray-400 hover:text-gray-600 transition shrink-0"
+                            className="text-zinc-500 hover:text-zinc-400 transition shrink-0"
                           >
                             <svg
                               width="12"
@@ -1360,7 +1360,7 @@ export default function PerformanceTable({
 
                       return (
                         <>
-                          <div className="flex items-center justify-between px-3 py-2 border-b border-gray-100 shrink-0">
+                          <div className="flex items-center justify-between px-3 py-2 border-b border-zinc-800 shrink-0">
                             <label className="flex items-center gap-2 cursor-pointer">
                               <input
                                 type="checkbox"
@@ -1372,7 +1372,7 @@ export default function PerformanceTable({
                                 onChange={toggleSelectAll}
                                 className="rounded"
                               />
-                              <span className="text-[12px] font-medium text-gray-700">
+                              <span className="text-[12px] font-medium text-zinc-300">
                                 Select all
                               </span>
                             </label>
@@ -1384,7 +1384,7 @@ export default function PerformanceTable({
                                   clearFilter(dimensionKey);
                                   setPage(1);
                                 }}
-                                className="text-[11px] text-gray-400 hover:text-gray-700 transition"
+                                className="text-[11px] text-zinc-500 hover:text-zinc-300 transition"
                               >
                                 × Reset
                               </button>
@@ -1408,7 +1408,7 @@ export default function PerformanceTable({
                             {visibleNames.slice(0, dropdownRender).map((n) => (
                               <label
                                 key={n}
-                                className="flex items-center gap-2 px-2 py-1.5 hover:bg-gray-50 cursor-pointer rounded-lg transition"
+                                className="flex items-center gap-2 px-2 py-1.5 hover:bg-zinc-900 cursor-pointer rounded-lg transition"
                               >
                                 <input
                                   type="checkbox"
@@ -1416,16 +1416,16 @@ export default function PerformanceTable({
                                   onChange={() => toggleOne(n)}
                                   className="rounded"
                                 />
-                                <span className="text-[12px] text-gray-700 truncate">{n}</span>
+                                <span className="text-[12px] text-zinc-300 truncate">{n}</span>
                               </label>
                             ))}
                             {dropdownRender < visibleNames.length && (
-                              <div className="px-2 py-2 text-center text-[10px] text-gray-300">
+                              <div className="px-2 py-2 text-center text-[10px] text-zinc-600">
                                 Scroll for more…
                               </div>
                             )}
                             {namesLoading && (
-                              <div className="px-2 py-3 text-center text-[11px] text-gray-400 flex items-center justify-center gap-1.5">
+                              <div className="px-2 py-3 text-center text-[11px] text-zinc-500 flex items-center justify-center gap-1.5">
                                 <svg
                                   className="animate-spin w-3 h-3"
                                   viewBox="0 0 24 24"
@@ -1445,12 +1445,12 @@ export default function PerformanceTable({
                               </div>
                             )}
                             {allNames && visibleNames.length === 0 && !namesLoading && (
-                              <div className="px-2 py-4 text-center text-[12px] text-gray-400">
+                              <div className="px-2 py-4 text-center text-[12px] text-zinc-500">
                                 No results found
                               </div>
                             )}
                             {namesTruncated && !dimDropdownDebouncedSearch && (
-                              <div className="px-3 py-2 border-t border-gray-100 text-[10px] text-gray-400 text-center">
+                              <div className="px-3 py-2 border-t border-zinc-800 text-[10px] text-zinc-500 text-center">
                                 Showing top {allNames?.length ?? 0} of{" "}
                                 {totalNamesCount.toLocaleString()} — type to search all
                               </div>
@@ -1483,8 +1483,8 @@ export default function PerformanceTable({
               }}
               className={`flex items-center gap-1 border rounded-lg px-2.5 py-1.5 text-[13px] transition ${
                 statusFilter !== "All" || isMetricFilterActive(metricFilter)
-                  ? "bg-emerald-50 border-emerald-300 text-emerald-700 font-medium"
-                  : "bg-white border-gray-200 text-gray-600 hover:bg-gray-50"
+                  ? "bg-emerald-500/10 border-emerald-300 text-emerald-700 font-medium"
+                  : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:bg-zinc-900"
               }`}
             >
               <svg
@@ -1510,7 +1510,7 @@ export default function PerformanceTable({
                 <>
                   <div
                     ref={filterDropdownRef}
-                    className="fixed w-72 bg-white border border-gray-200 rounded-xl shadow-lg z-130 p-3 space-y-3 overflow-y-auto animate-in fade-in zoom-in-95 duration-150 origin-top-right"
+                    className="fixed w-72 bg-zinc-900 border border-zinc-800 rounded-xl shadow-lg z-130 p-3 space-y-3 overflow-y-auto animate-in fade-in zoom-in-95 duration-150 origin-top-right"
                     style={{
                       top: filterDropdownPos.top,
                       left: filterDropdownPos.left,
@@ -1528,7 +1528,7 @@ export default function PerformanceTable({
                         by it on a spend-free source returns every row or none. */}
                     {showStatus && (
                       <div>
-                        <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide mb-1.5">
+                        <p className="text-[11px] font-semibold text-zinc-500 uppercase tracking-wide mb-1.5">
                           Status
                         </p>
                         <div className="flex flex-wrap gap-1">
@@ -1542,7 +1542,7 @@ export default function PerformanceTable({
                               className={`px-2 py-0.5 rounded-full text-[12px] font-medium transition ${
                                 statusFilter === s
                                   ? "bg-emerald-600 text-white"
-                                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                                  : "bg-zinc-800 text-zinc-400 hover:bg-zinc-800"
                               }`}
                             >
                               {s}
@@ -1558,7 +1558,7 @@ export default function PerformanceTable({
                           setMetricFilter(METRIC_FILTER_NONE);
                           setPage(1);
                         }}
-                        className="w-full text-[12px] text-red-500 hover:text-red-700 transition text-center pt-1 border-t border-gray-100"
+                        className="w-full text-[12px] text-red-500 hover:text-red-700 transition text-center pt-1 border-t border-zinc-800"
                       >
                         Clear filters
                       </button>
@@ -1604,7 +1604,7 @@ export default function PerformanceTable({
           those refetches resolve almost instantly; blanking to a full spinner is
           what made them feel slow. */}
       {(loading || crossFilterBusy) && data.length === 0 && (
-        <div className="flex items-center justify-center py-12 gap-2 text-gray-400 text-[14px]">
+        <div className="flex items-center justify-center py-12 gap-2 text-zinc-500 text-[14px]">
           <div className="w-4 h-4 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin" />
           Loading data…
         </div>
@@ -1646,7 +1646,7 @@ export default function PerformanceTable({
         </div>
       )}
       {!loading && !crossFilterBusy && !error && total === 0 && everVisible && (
-        <div className="flex flex-col items-center justify-center gap-1 py-12 text-[14px] text-gray-400">
+        <div className="flex flex-col items-center justify-center gap-1 py-12 text-[14px] text-zinc-500">
           {/* An empty table means two very different things. Without a
               cross-filter it's genuinely no data for the period. WITH one, the
               rows exist — none of them just happen to overlap the current
@@ -1680,7 +1680,7 @@ export default function PerformanceTable({
               the longer background cross-filter / period / dimension work (crossFilterBusy),
               so the indicator never disappears while the request is still running. */}
           {(loading || crossFilterBusy) && (
-            <div className="absolute top-2.5 right-3 z-30 flex items-center gap-1.5 text-[12px] font-medium text-emerald-600 bg-white/95 border border-emerald-100 px-2.5 py-1 rounded-lg shadow-sm">
+            <div className="absolute top-2.5 right-3 z-30 flex items-center gap-1.5 text-[12px] font-medium text-emerald-600 bg-zinc-900/95 border border-emerald-500/20 px-2.5 py-1 rounded-lg shadow-sm">
               <div className="w-3 h-3 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin" />
               Updating…
             </div>
@@ -1693,8 +1693,8 @@ export default function PerformanceTable({
                 as far as the content actually needs. */}
             <table className="w-full text-[13px] border-collapse sm:min-w-275">
               <thead>
-                <tr className="bg-gray-50/80">
-                  <th className="px-2.5 py-2.5 w-8 sticky left-0 z-20 bg-gray-50">
+                <tr className="bg-zinc-900/80">
+                  <th className="px-2.5 py-2.5 w-8 sticky left-0 z-20 bg-zinc-900">
                     <div className="flex items-center gap-1.5">
                       <input
                         type="checkbox"
@@ -1723,7 +1723,7 @@ export default function PerformanceTable({
                       {namesCollapsed && (
                         <button
                           onClick={() => setNamesCollapsed(false)}
-                          className="flex items-center justify-center w-6 h-6 rounded-md bg-emerald-100 text-emerald-600 hover:bg-emerald-200 transition shrink-0 sm:hidden"
+                          className="flex items-center justify-center w-6 h-6 rounded-md bg-emerald-500/10 text-emerald-600 hover:bg-emerald-200 transition shrink-0 sm:hidden"
                         >
                           <svg
                             width="14"
@@ -1740,11 +1740,11 @@ export default function PerformanceTable({
                     </div>
                   </th>
                   {showStatus && (
-                    <th className="px-2 py-2.5 text-left text-gray-500 font-medium text-[12px] whitespace-nowrap hidden sm:table-cell">
+                    <th className="px-2 py-2.5 text-left text-zinc-400 font-medium text-[12px] whitespace-nowrap hidden sm:table-cell">
                       Status
                     </th>
                   )}
-                  <th className="sm:w-[184px] text-left text-gray-500 font-medium text-[12px] sticky left-8 z-20 bg-gray-50 overflow-hidden p-0 after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-gray-200">
+                  <th className="sm:w-[184px] text-left text-zinc-400 font-medium text-[12px] sticky left-8 z-20 bg-zinc-900 overflow-hidden p-0 after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-zinc-800">
                     <div
                       style={{
                         width: isMobile ? (namesCollapsed ? 0 : 120) : 160,
@@ -1760,7 +1760,7 @@ export default function PerformanceTable({
                       }}
                     >
                       <span
-                        className="flex items-center justify-between w-full cursor-pointer hover:text-gray-700 select-none"
+                        className="flex items-center justify-between w-full cursor-pointer hover:text-zinc-300 select-none"
                         onClick={() => handleSort("dimension")}
                       >
                         <span className="flex items-center gap-1">
@@ -1772,7 +1772,7 @@ export default function PerformanceTable({
                             e.stopPropagation();
                             setNamesCollapsed(true);
                           }}
-                          className="flex items-center justify-center w-5 h-5 rounded bg-gray-100 text-gray-500 hover:bg-gray-200 transition shrink-0 sm:hidden"
+                          className="flex items-center justify-center w-5 h-5 rounded bg-zinc-800 text-zinc-400 hover:bg-zinc-800 transition shrink-0 sm:hidden"
                         >
                           <svg
                             width="10"
@@ -1820,16 +1820,16 @@ export default function PerformanceTable({
                           if (isOnly) clearFilter(dimensionKey);
                           else selectSingle(dimensionKey, row.dimension);
                         }}
-                        className={`border-t border-gray-100 cursor-pointer group transition-colors duration-150 ${
+                        className={`border-t border-zinc-800 cursor-pointer group transition-colors duration-150 ${
                           isSelected
-                            ? "bg-emerald-50/40 [&_td]:font-bold"
+                            ? "bg-emerald-500/10/40 [&_td]:font-bold"
                             : anySelected
                               ? "opacity-50 hover:opacity-80"
-                              : "hover:bg-emerald-50/20"
+                              : "hover:bg-emerald-500/10/20"
                         }`}
                       >
                         <td
-                          className={`px-2.5 py-2.5 sticky left-0 z-10 isolate ${isSelected ? "bg-emerald-50" : "bg-white group-hover:bg-emerald-50/40"}`}
+                          className={`px-2.5 py-2.5 sticky left-0 z-10 isolate ${isSelected ? "bg-emerald-500/10" : "bg-zinc-900 group-hover:bg-emerald-500/10/40"}`}
                           onClick={(e) => e.stopPropagation()}
                         >
                           <input
@@ -1842,12 +1842,12 @@ export default function PerformanceTable({
                         {showStatus && (
                           <td className="hidden sm:table-cell px-2 py-2.5">
                             <span
-                              className={`w-2 h-2 rounded-full inline-block ${isActive ? "bg-green-500" : "bg-gray-300"}`}
+                              className={`w-2 h-2 rounded-full inline-block ${isActive ? "bg-green-500" : "bg-zinc-700"}`}
                             />
                           </td>
                         )}
                         <td
-                          className={`sticky left-8 z-10 isolate overflow-hidden after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-gray-100 p-0 ${isSelected ? "bg-emerald-50" : "bg-white group-hover:bg-emerald-50/40"}`}
+                          className={`sticky left-8 z-10 isolate overflow-hidden after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-zinc-800 p-0 ${isSelected ? "bg-emerald-500/10" : "bg-zinc-900 group-hover:bg-emerald-500/10/40"}`}
                         >
                           <div
                             style={{
@@ -1865,7 +1865,7 @@ export default function PerformanceTable({
                           >
                             {/* Always wrap long names onto multiple lines instead of truncating. */}
                             <span
-                              className="font-medium text-gray-800 text-[12px] whitespace-normal wrap-break-word max-w-40 block"
+                              className="font-medium text-zinc-200 text-[12px] whitespace-normal wrap-break-word max-w-40 block"
                               title={row.dimension}
                             >
                               {row.dimension}
@@ -1880,10 +1880,10 @@ export default function PerformanceTable({
               </tbody>
               {totals && (
                 <tfoot>
-                  <tr className="bg-gray-50 border-t-2 border-gray-200 font-semibold text-gray-800 text-[13px]">
-                    <td className="px-2.5 py-3 sticky left-0 z-10 bg-gray-50" />
-                    {showStatus && <td className="hidden sm:table-cell px-2 py-3 bg-gray-50" />}
-                    <td className="sticky left-8 z-10 bg-gray-50 overflow-hidden p-0">
+                  <tr className="bg-zinc-900 border-t-2 border-zinc-800 font-semibold text-zinc-200 text-[13px]">
+                    <td className="px-2.5 py-3 sticky left-0 z-10 bg-zinc-900" />
+                    {showStatus && <td className="hidden sm:table-cell px-2 py-3 bg-zinc-900" />}
+                    <td className="sticky left-8 z-10 bg-zinc-900 overflow-hidden p-0">
                       <div
                         style={{
                           width: isMobile ? (namesCollapsed ? 0 : 120) : 160,
@@ -1899,7 +1899,7 @@ export default function PerformanceTable({
                         }}
                       >
                         Total{" "}
-                        <span className="text-gray-400 font-normal text-[11px]">({total})</span>
+                        <span className="text-zinc-500 font-normal text-[11px]">({total})</span>
                       </div>
                     </td>
                     {metricCols.map((m) => renderMetricFootTd(m, totals))}
@@ -1910,8 +1910,8 @@ export default function PerformanceTable({
           </div>
 
           {/* Pagination */}
-          <div className="px-4 sm:px-5 py-3 flex items-center justify-between flex-wrap gap-2 border-t border-gray-100">
-            <p className="text-[13px] text-gray-500">
+          <div className="px-4 sm:px-5 py-3 flex items-center justify-between flex-wrap gap-2 border-t border-zinc-800">
+            <p className="text-[13px] text-zinc-400">
               <span className="hidden sm:inline">
                 Showing {(page - 1) * rowsPerPage + 1}–{Math.min(page * rowsPerPage, total)} of{" "}
                 {total} {dimensionLabel.toLowerCase()}s
@@ -1929,7 +1929,7 @@ export default function PerformanceTable({
                       setRowsPerPage(Number(e.target.value));
                       setPage(1);
                     }}
-                    className="ml-1.5 text-[13px] border border-gray-200 rounded px-1.5 py-0.5 bg-white outline-none cursor-pointer"
+                    className="ml-1.5 text-[13px] border border-zinc-800 rounded px-1.5 py-0.5 bg-zinc-900 outline-none cursor-pointer"
                   >
                     <option value={10}>10</option>
                     <option value={20}>20</option>
@@ -1941,7 +1941,7 @@ export default function PerformanceTable({
             <div className="flex items-center gap-1">
               <button
                 onClick={() => setPage((p) => Math.max(1, p - 1))}
-                className="w-7 h-7 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gray-100 transition"
+                className="w-7 h-7 rounded-lg flex items-center justify-center text-zinc-500 hover:bg-zinc-800 transition"
               >
                 <svg
                   width="14"
@@ -1967,7 +1967,7 @@ export default function PerformanceTable({
                   <button
                     key={p}
                     onClick={() => setPage(p)}
-                    className={`w-7 h-7 rounded-lg text-[13px] font-medium transition ${page === p ? "bg-emerald-600 text-white" : "text-gray-500 hover:bg-gray-100"}`}
+                    className={`w-7 h-7 rounded-lg text-[13px] font-medium transition ${page === p ? "bg-emerald-600 text-white" : "text-zinc-400 hover:bg-zinc-800"}`}
                   >
                     {p}
                   </button>
@@ -1975,7 +1975,7 @@ export default function PerformanceTable({
               })}
               <button
                 onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-                className="w-7 h-7 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gray-100 transition"
+                className="w-7 h-7 rounded-lg flex items-center justify-center text-zinc-500 hover:bg-zinc-800 transition"
               >
                 <svg
                   width="14"

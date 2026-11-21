@@ -83,10 +83,10 @@ export default function DatePickerPanel({
   }, [pickerViewYear, pickerViewMonth]);
 
   return (
-    <div className="hidden sm:block absolute right-0 top-full mt-2 w-[580px] bg-white border border-gray-100 rounded-2xl shadow-2xl z-[300] overflow-hidden animate-in fade-in zoom-in duration-200 origin-top-right">
+    <div className="hidden sm:block absolute right-0 top-full mt-2 w-[580px] bg-zinc-900 border border-zinc-800 rounded-2xl shadow-2xl z-[300] overflow-hidden animate-in fade-in zoom-in duration-200 origin-top-right">
       <div className="flex h-[580px]">
         {/* Sidebar */}
-        <div className="w-[190px] border-r border-gray-100 py-4 flex flex-col bg-gray-50/30">
+        <div className="w-[190px] border-r border-zinc-800 py-4 flex flex-col bg-zinc-900/30">
           <div className="flex-1 overflow-y-auto scrollbar-none px-2 space-y-0.5">
             {[
               "Today",
@@ -107,7 +107,7 @@ export default function DatePickerPanel({
                 <button
                   key={label}
                   onClick={() => handlePresetClick(label)}
-                  className="w-full text-left px-4 py-2 text-[13px] rounded-lg transition-colors text-gray-600 hover:bg-white hover:text-emerald-600"
+                  className="w-full text-left px-4 py-2 text-[13px] rounded-lg transition-colors text-zinc-400 hover:bg-zinc-900 hover:text-emerald-600"
                 >
                   {label}
                 </button>
@@ -117,11 +117,11 @@ export default function DatePickerPanel({
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 flex flex-col bg-white relative">
+        <div className="flex-1 flex flex-col bg-zinc-900 relative">
           {/* Date Inputs */}
           <div className="px-4 py-5 flex items-center gap-3">
             <div className="flex-1">
-              <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">
+              <label className="block text-[10px] font-bold text-zinc-500 uppercase tracking-wider mb-1">
                 Start date*
               </label>
               <input
@@ -140,12 +140,12 @@ export default function DatePickerPanel({
                   setPickerViewYear(() => y);
                   setPickerViewMonth(() => m - 1);
                 }}
-                className="w-full h-9 border border-gray-200 rounded-lg px-3 text-[13px] bg-white outline-none focus:border-emerald-400 cursor-text"
+                className="w-full h-9 border border-zinc-800 rounded-lg px-3 text-[13px] bg-zinc-900 outline-none focus:border-emerald-400 cursor-text"
               />
             </div>
-            <div className="pt-4 text-gray-300">—</div>
+            <div className="pt-4 text-zinc-600">—</div>
             <div className="flex-1">
-              <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">
+              <label className="block text-[10px] font-bold text-zinc-500 uppercase tracking-wider mb-1">
                 End date*
               </label>
               <input
@@ -163,13 +163,13 @@ export default function DatePickerPanel({
                   setPickerTempEnd(ts);
                   setPickerStep(0);
                 }}
-                className="w-full h-9 border border-gray-200 rounded-lg px-3 text-[13px] bg-white outline-none focus:border-emerald-400 cursor-text"
+                className="w-full h-9 border border-zinc-800 rounded-lg px-3 text-[13px] bg-zinc-900 outline-none focus:border-emerald-400 cursor-text"
               />
             </div>
           </div>
 
           {/* Navigation Controls */}
-          <div className="px-4 py-2 flex items-center justify-between border-y border-gray-100 bg-gray-50/50">
+          <div className="px-4 py-2 flex items-center justify-between border-y border-zinc-800 bg-zinc-900/50">
             <button
               onClick={(e) => {
                 e.preventDefault();
@@ -178,7 +178,7 @@ export default function DatePickerPanel({
                   setPickerViewYear((v) => v - 1);
                 } else setPickerViewMonth((v) => v - 1);
               }}
-              className="w-8 h-8 flex items-center justify-center rounded-lg border border-gray-200 bg-white hover:bg-gray-50 transition shadow-sm text-gray-500 group"
+              className="w-8 h-8 flex items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900 hover:bg-zinc-900 transition shadow-sm text-zinc-400 group"
               title="Previous Month"
             >
               <svg
@@ -199,7 +199,7 @@ export default function DatePickerPanel({
                 setPickerViewYear(() => NOW_YEAR);
                 setPickerViewMonth(() => NOW_MONTH);
               }}
-              className="text-[10px] font-bold text-gray-400 hover:text-emerald-600 uppercase tracking-widest transition"
+              className="text-[10px] font-bold text-zinc-500 hover:text-emerald-600 uppercase tracking-widest transition"
               title="Jump to current month"
             >
               Today
@@ -212,7 +212,7 @@ export default function DatePickerPanel({
                   setPickerViewYear((v) => v + 1);
                 } else setPickerViewMonth((v) => v + 1);
               }}
-              className="w-8 h-8 flex items-center justify-center rounded-lg border border-gray-200 bg-white hover:bg-gray-50 transition shadow-sm text-gray-500 group"
+              className="w-8 h-8 flex items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900 hover:bg-zinc-900 transition shadow-sm text-zinc-400 group"
               title="Next Month"
             >
               <svg
@@ -279,11 +279,11 @@ export default function DatePickerPanel({
 
           {/* Year-Month Picker Overlay */}
           {yMPickerOpen && (
-            <div className="absolute inset-0 z-20 bg-white flex flex-col p-5">
+            <div className="absolute inset-0 z-20 bg-zinc-900 flex flex-col p-5">
               <div className="flex items-center justify-between mb-5">
                 <button
                   onClick={() => setYMPickerYear((y) => Math.max(2000, y - 1))}
-                  className="w-8 h-8 flex items-center justify-center rounded-lg border border-gray-200 hover:bg-gray-50 transition text-gray-500"
+                  className="w-8 h-8 flex items-center justify-center rounded-lg border border-zinc-800 hover:bg-zinc-900 transition text-zinc-400"
                 >
                   <svg
                     width="14"
@@ -296,11 +296,11 @@ export default function DatePickerPanel({
                     <polyline points="15 18 9 12 15 6" />
                   </svg>
                 </button>
-                <span className="text-[16px] font-bold text-gray-800">{yMPickerYear}</span>
+                <span className="text-[16px] font-bold text-zinc-200">{yMPickerYear}</span>
                 <button
                   onClick={() => setYMPickerYear((y) => Math.min(NOW_YEAR, y + 1))}
                   disabled={yMPickerYear >= NOW_YEAR}
-                  className="w-8 h-8 flex items-center justify-center rounded-lg border border-gray-200 hover:bg-gray-50 transition text-gray-500 disabled:opacity-30"
+                  className="w-8 h-8 flex items-center justify-center rounded-lg border border-zinc-800 hover:bg-zinc-900 transition text-zinc-400 disabled:opacity-30"
                 >
                   <svg
                     width="14"
@@ -331,8 +331,8 @@ export default function DatePickerPanel({
                         isActive
                           ? "bg-emerald-600 text-white"
                           : isFuture
-                            ? "text-gray-200 cursor-not-allowed"
-                            : "text-gray-700 hover:bg-emerald-50 hover:text-emerald-600"
+                            ? "text-zinc-600 cursor-not-allowed"
+                            : "text-zinc-300 hover:bg-emerald-500/10 hover:text-emerald-600"
                       }`}
                     >
                       {mn}
@@ -342,7 +342,7 @@ export default function DatePickerPanel({
               </div>
               <button
                 onClick={() => setYMPickerOpen(false)}
-                className="mt-auto pt-5 text-[13px] text-gray-400 hover:text-gray-600 transition self-center"
+                className="mt-auto pt-5 text-[13px] text-zinc-500 hover:text-zinc-400 transition self-center"
               >
                 Cancel
               </button>
@@ -350,10 +350,10 @@ export default function DatePickerPanel({
           )}
 
           {/* Action Buttons */}
-          <div className="px-4 py-4 border-t border-gray-100 flex justify-end gap-3 bg-white">
+          <div className="px-4 py-4 border-t border-zinc-800 flex justify-end gap-3 bg-zinc-900">
             <button
               onClick={() => setDatePickerOpen(false)}
-              className="px-6 py-2 text-[14px] font-semibold text-gray-600 hover:bg-gray-50 rounded-xl transition"
+              className="px-6 py-2 text-[14px] font-semibold text-zinc-400 hover:bg-zinc-900 rounded-xl transition"
             >
               Cancel
             </button>
@@ -369,7 +369,7 @@ export default function DatePickerPanel({
                   // the dashboard rebuilds for the new range with the same selection.
                 }
               }}
-              className="px-8 py-2 bg-emerald-600 text-white rounded-xl font-bold hover:bg-emerald-700 disabled:bg-gray-100 disabled:text-gray-400 transition shadow-lg shadow-emerald-100"
+              className="px-8 py-2 bg-emerald-600 text-white rounded-xl font-bold hover:bg-emerald-700 disabled:bg-zinc-800 disabled:text-zinc-500 transition shadow-lg shadow-emerald-100"
             >
               Apply
             </button>

@@ -17,7 +17,7 @@ function Msg({ msg }: { msg: { type: "success" | "error"; text: string } | null 
   if (!msg) return null;
   return (
     <div
-      className={`mb-4 px-3 py-2.5 rounded-lg text-[13px] flex items-center gap-2 ${msg.type === "success" ? "bg-green-50 border border-green-200 text-green-700" : "bg-red-50 border border-red-200 text-red-600"}`}
+      className={`mb-4 px-3 py-2.5 rounded-lg text-[13px] flex items-center gap-2 ${msg.type === "success" ? "bg-green-500/10 border border-green-500/20 text-green-700" : "bg-red-500/10 border border-red-500/20 text-red-600"}`}
     >
       {msg.type === "success" ? (
         <svg
@@ -296,14 +296,14 @@ export default function ProfilePage() {
 
   return (
     <div className="p-4 sm:p-6 max-w-[896px] mx-auto">
-      <h1 className="text-[30px] leading-[36px] font-bold text-[#101828] mb-2">Profile Settings</h1>
-      <p className="text-[16px] text-[#4a5565] mb-8">
+      <h1 className="text-[30px] leading-[36px] font-bold text-[#F4F4F5] mb-2">Profile Settings</h1>
+      <p className="text-[16px] text-[#A1A1AA] mb-8">
         Manage your personal information and account security
       </p>
 
       {/* ── Profile Photo ── */}
-      <div className="bg-white rounded-[14px] border border-[#e5e7eb] p-6 mb-6">
-        <p className="text-[16px] font-semibold text-[#101828] mb-6">Profile Photo</p>
+      <div className="bg-zinc-900 rounded-[14px] border border-[#3F3F46] p-6 mb-6">
+        <p className="text-[16px] font-semibold text-[#F4F4F5] mb-6">Profile Photo</p>
         <div className="flex items-start gap-6">
           {/* Drop zone avatar */}
           <div
@@ -333,7 +333,7 @@ export default function ProfilePage() {
                 initials
               )}
             </div>
-            <div className="absolute bottom-0 right-0 w-8 h-8 bg-[#059669] rounded-full flex items-center justify-center shadow hover:bg-emerald-700 transition border-2 border-white">
+            <div className="absolute bottom-0 right-0 w-8 h-8 bg-[#10B981] rounded-full flex items-center justify-center shadow hover:bg-emerald-700 transition border-2 border-white">
               <svg
                 width="14"
                 height="14"
@@ -358,16 +358,16 @@ export default function ProfilePage() {
           </div>
 
           <div className="flex-1 min-w-0">
-            <p className="text-[16px] font-semibold text-[#101828] truncate">
+            <p className="text-[16px] font-semibold text-[#F4F4F5] truncate">
               {`${firstName} ${lastName}`.trim() || email}
             </p>
-            <p className="text-[14px] text-[#4a5565] mt-1">JPG, PNG or GIF. Max size of 2MB</p>
+            <p className="text-[14px] text-[#A1A1AA] mt-1">JPG, PNG or GIF. Max size of 2MB</p>
             <div className="flex items-center gap-3 mt-4 flex-wrap">
               <button
                 type="button"
                 onClick={() => fileInputRef.current?.click()}
                 disabled={avatarLoading}
-                className="text-[14px] px-4 h-[37px] bg-[#059669] hover:bg-emerald-700 disabled:bg-emerald-400 text-white rounded-[10px] transition"
+                className="text-[14px] px-4 h-[37px] bg-[#10B981] hover:bg-emerald-700 disabled:bg-emerald-400 text-white rounded-[10px] transition"
               >
                 Upload new photo
               </button>
@@ -375,7 +375,7 @@ export default function ProfilePage() {
                 <button
                   type="button"
                   onClick={handleRemoveAvatar}
-                  className="text-[14px] px-4 h-[37px] border border-[#d1d5dc] text-[#364153] hover:bg-gray-50 rounded-[10px] transition"
+                  className="text-[14px] px-4 h-[37px] border border-[#52525B] text-[#A1A1AA] hover:bg-zinc-900 rounded-[10px] transition"
                 >
                   Remove
                 </button>
@@ -393,14 +393,14 @@ export default function ProfilePage() {
       </div>
 
       {/* ── Personal Information ── */}
-      <div className="bg-white rounded-[14px] border border-[#e5e7eb] p-6 mb-6">
-        <p className="text-[16px] font-semibold text-[#101828] mb-6">Personal Information</p>
+      <div className="bg-zinc-900 rounded-[14px] border border-[#3F3F46] p-6 mb-6">
+        <p className="text-[16px] font-semibold text-[#F4F4F5] mb-6">Personal Information</p>
         <form onSubmit={handleSaveProfile}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
             <div>
-              <label className="block text-[14px] text-[#364153] mb-2">First Name</label>
+              <label className="block text-[14px] text-[#A1A1AA] mb-2">First Name</label>
               <div className="relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#9ca3af]">
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#71717A]">
                   <svg
                     width="20"
                     height="20"
@@ -418,14 +418,14 @@ export default function ProfilePage() {
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                   placeholder="John"
-                  className="w-full h-11 pl-10 pr-4 text-[16px] border border-[#d1d5dc] rounded-[10px] outline-none transition text-[#0a0a0a] placeholder-[#9ca3af] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
+                  className="w-full h-11 pl-10 pr-4 text-[16px] border border-[#52525B] rounded-[10px] outline-none transition text-[#0a0a0a] placeholder-[#71717A] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
                 />
               </div>
             </div>
             <div>
-              <label className="block text-[14px] text-[#364153] mb-2">Last Name</label>
+              <label className="block text-[14px] text-[#A1A1AA] mb-2">Last Name</label>
               <div className="relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#9ca3af]">
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#71717A]">
                   <svg
                     width="20"
                     height="20"
@@ -443,7 +443,7 @@ export default function ProfilePage() {
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   placeholder="Doe"
-                  className="w-full h-11 pl-10 pr-4 text-[16px] border border-[#d1d5dc] rounded-[10px] outline-none transition text-[#0a0a0a] placeholder-[#9ca3af] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
+                  className="w-full h-11 pl-10 pr-4 text-[16px] border border-[#52525B] rounded-[10px] outline-none transition text-[#0a0a0a] placeholder-[#71717A] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
                 />
               </div>
             </div>
@@ -451,9 +451,9 @@ export default function ProfilePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
             <div>
-              <label className="block text-[14px] text-[#364153] mb-2">Email</label>
+              <label className="block text-[14px] text-[#A1A1AA] mb-2">Email</label>
               <div className="relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#9ca3af]">
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#71717A]">
                   <svg
                     width="20"
                     height="20"
@@ -470,14 +470,14 @@ export default function ProfilePage() {
                   type="email"
                   value={email}
                   disabled
-                  className="w-full h-11 pl-10 pr-4 text-[16px] border border-[#e5e7eb] rounded-[10px] outline-none bg-gray-50 text-gray-400 cursor-not-allowed"
+                  className="w-full h-11 pl-10 pr-4 text-[16px] border border-[#3F3F46] rounded-[10px] outline-none bg-zinc-900 text-zinc-500 cursor-not-allowed"
                 />
               </div>
             </div>
             <div>
-              <label className="block text-[14px] text-[#364153] mb-2">Phone</label>
+              <label className="block text-[14px] text-[#A1A1AA] mb-2">Phone</label>
               <div className="relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#9ca3af]">
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#71717A]">
                   <svg
                     width="20"
                     height="20"
@@ -494,16 +494,16 @@ export default function ProfilePage() {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="+1 (555) 123-4567"
-                  className="w-full h-11 pl-10 pr-4 text-[16px] border border-[#d1d5dc] rounded-[10px] outline-none transition text-[#0a0a0a] placeholder-[#9ca3af] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
+                  className="w-full h-11 pl-10 pr-4 text-[16px] border border-[#52525B] rounded-[10px] outline-none transition text-[#0a0a0a] placeholder-[#71717A] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
                 />
               </div>
             </div>
           </div>
 
           <div className="mb-6">
-            <label className="block text-[14px] text-[#364153] mb-2">Location</label>
+            <label className="block text-[14px] text-[#A1A1AA] mb-2">Location</label>
             <div className="relative">
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#9ca3af]">
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#71717A]">
                 <svg
                   width="20"
                   height="20"
@@ -521,7 +521,7 @@ export default function ProfilePage() {
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
                 placeholder="New York, USA"
-                className="w-full h-11 pl-10 pr-4 text-[16px] border border-[#d1d5dc] rounded-[10px] outline-none transition text-[#0a0a0a] placeholder-[#9ca3af] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
+                className="w-full h-11 pl-10 pr-4 text-[16px] border border-[#52525B] rounded-[10px] outline-none transition text-[#0a0a0a] placeholder-[#71717A] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
               />
             </div>
           </div>
@@ -532,7 +532,7 @@ export default function ProfilePage() {
             <button
               type="submit"
               disabled={profileLoading}
-              className="bg-[#059669] hover:bg-emerald-700 disabled:bg-emerald-400 text-white text-[16px] px-5 h-11 rounded-[10px] flex items-center gap-2 transition"
+              className="bg-[#10B981] hover:bg-emerald-700 disabled:bg-emerald-400 text-white text-[16px] px-5 h-11 rounded-[10px] flex items-center gap-2 transition"
             >
               {profileLoading && (
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -544,8 +544,8 @@ export default function ProfilePage() {
       </div>
 
       {/* ── Security ── */}
-      <div className="bg-white rounded-[14px] border border-[#e5e7eb] p-6 mb-6">
-        <p className="text-[16px] font-semibold text-[#101828] mb-6">Security</p>
+      <div className="bg-zinc-900 rounded-[14px] border border-[#3F3F46] p-6 mb-6">
+        <p className="text-[16px] font-semibold text-[#F4F4F5] mb-6">Security</p>
         <form onSubmit={handleChangePassword}>
           {[
             {
@@ -574,9 +574,9 @@ export default function ProfilePage() {
             },
           ].map(({ label, placeholder, value, set, show, toggle }) => (
             <div key={label} className="mb-6 last:mb-0">
-              <label className="block text-[14px] text-[#364153] mb-2">{label}</label>
+              <label className="block text-[14px] text-[#A1A1AA] mb-2">{label}</label>
               <div className="relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#9ca3af]">
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#71717A]">
                   <svg
                     width="20"
                     height="20"
@@ -594,12 +594,12 @@ export default function ProfilePage() {
                   value={value}
                   onChange={(e) => set(e.target.value)}
                   placeholder={placeholder}
-                  className="w-full h-11 pl-10 pr-11 text-[16px] border border-[#d1d5dc] rounded-[10px] outline-none transition text-[#0a0a0a] placeholder-[#9ca3af] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
+                  className="w-full h-11 pl-10 pr-11 text-[16px] border border-[#52525B] rounded-[10px] outline-none transition text-[#0a0a0a] placeholder-[#71717A] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
                 />
                 <button
                   type="button"
                   onClick={toggle}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#9ca3af] hover:text-gray-500 transition"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#71717A] hover:text-zinc-400 transition"
                 >
                   {show ? (
                     <svg
@@ -638,7 +638,7 @@ export default function ProfilePage() {
             <button
               type="submit"
               disabled={passwordLoading}
-              className="bg-[#059669] hover:bg-emerald-700 disabled:bg-emerald-400 text-white text-[16px] px-5 h-11 rounded-[10px] flex items-center gap-2 transition"
+              className="bg-[#10B981] hover:bg-emerald-700 disabled:bg-emerald-400 text-white text-[16px] px-5 h-11 rounded-[10px] flex items-center gap-2 transition"
             >
               {passwordLoading && (
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -650,10 +650,10 @@ export default function ProfilePage() {
       </div>
 
       {/* ── Two-Factor Authentication ── */}
-      <div className="bg-white rounded-[14px] border border-[#e5e7eb] p-6 mb-6">
+      <div className="bg-zinc-900 rounded-[14px] border border-[#3F3F46] p-6 mb-6">
         <div className="flex items-center justify-between gap-4 flex-wrap">
           <div className="flex items-center gap-3 min-w-0">
-            <div className="w-10 h-10 rounded-[10px] bg-[#dbeafe] text-[#059669] flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-[10px] bg-[rgba(59,130,246,0.14)] text-[#10B981] flex items-center justify-center shrink-0">
               <svg
                 width="20"
                 height="20"
@@ -668,15 +668,15 @@ export default function ProfilePage() {
               </svg>
             </div>
             <div className="min-w-0">
-              <p className="text-[16px] font-semibold text-[#101828] flex items-center gap-2">
+              <p className="text-[16px] font-semibold text-[#F4F4F5] flex items-center gap-2">
                 Two-Factor Authentication
                 {mfaFactorId && (
-                  <span className="text-[11px] font-semibold text-green-700 bg-green-50 border border-green-200 rounded-full px-2 py-0.5">
+                  <span className="text-[11px] font-semibold text-green-700 bg-green-500/10 border border-green-500/20 rounded-full px-2 py-0.5">
                     Enabled
                   </span>
                 )}
               </p>
-              <p className="text-[14px] text-[#4a5565]">
+              <p className="text-[14px] text-[#A1A1AA]">
                 {mfaFactorId
                   ? "Your account is protected by an authenticator app"
                   : "Add an extra layer of security with an authenticator app"}
@@ -689,7 +689,7 @@ export default function ProfilePage() {
                 <button
                   type="button"
                   onClick={() => setMfaDisableConfirm(false)}
-                  className="text-[14px] px-3 h-9 border border-[#d1d5dc] text-[#364153] hover:bg-gray-50 rounded-[10px] transition"
+                  className="text-[14px] px-3 h-9 border border-[#52525B] text-[#A1A1AA] hover:bg-zinc-900 rounded-[10px] transition"
                 >
                   Cancel
                 </button>
@@ -709,7 +709,7 @@ export default function ProfilePage() {
               <button
                 type="button"
                 onClick={() => setMfaDisableConfirm(true)}
-                className="shrink-0 text-[14px] px-4 h-9 border border-red-200 text-red-600 hover:bg-red-50 rounded-[10px] transition"
+                className="shrink-0 text-[14px] px-4 h-9 border border-red-500/20 text-red-600 hover:bg-red-500/10 rounded-[10px] transition"
               >
                 Disable 2FA
               </button>
@@ -719,7 +719,7 @@ export default function ProfilePage() {
               type="button"
               onClick={handleStartMfa}
               disabled={mfaBusy}
-              className="shrink-0 text-[14px] px-4 h-9 bg-[#059669] hover:bg-emerald-700 disabled:opacity-50 text-white rounded-[10px] transition flex items-center gap-1.5"
+              className="shrink-0 text-[14px] px-4 h-9 bg-[#10B981] hover:bg-emerald-700 disabled:opacity-50 text-white rounded-[10px] transition flex items-center gap-1.5"
             >
               {mfaBusy && !mfaEnrolling && (
                 <div className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -744,13 +744,13 @@ export default function ProfilePage() {
           onClick={handleCancelMfaEnroll}
         >
           <div
-            className="bg-white rounded-2xl shadow-xl w-full max-w-[400px] p-6"
+            className="bg-zinc-900 rounded-2xl shadow-xl w-full max-w-[400px] p-6"
             onClick={(e) => e.stopPropagation()}
           >
-            <h2 className="text-[16px] font-bold text-gray-900 mb-1">
+            <h2 className="text-[16px] font-bold text-zinc-100 mb-1">
               Set up Two-Factor Authentication
             </h2>
-            <p className="text-[12px] text-gray-500 mb-4">
+            <p className="text-[12px] text-zinc-400 mb-4">
               Scan the QR code with an authenticator app (Google Authenticator, Authy, 1Password…),
               then enter the 6-digit code.
             </p>
@@ -758,21 +758,21 @@ export default function ProfilePage() {
               {/* Supabase returns the QR as an SVG (data URL or raw markup). */}
               {mfaEnrolling.qr.trim().startsWith("<svg") ? (
                 <div
-                  className="w-44 h-44 [&>svg]:w-full [&>svg]:h-full border border-gray-200 rounded-xl p-2"
+                  className="w-44 h-44 [&>svg]:w-full [&>svg]:h-full border border-zinc-800 rounded-xl p-2"
                   dangerouslySetInnerHTML={{ __html: mfaEnrolling.qr }}
                 />
               ) : (
                 <img
                   src={mfaEnrolling.qr}
                   alt="2FA QR code"
-                  className="w-44 h-44 border border-gray-200 rounded-xl p-2"
+                  className="w-44 h-44 border border-zinc-800 rounded-xl p-2"
                 />
               )}
             </div>
-            <p className="text-[11px] text-gray-400 text-center mb-1">
+            <p className="text-[11px] text-zinc-500 text-center mb-1">
               Can&apos;t scan? Enter this key manually:
             </p>
-            <p className="text-[12px] font-mono text-gray-700 text-center bg-gray-50 border border-gray-100 rounded-lg py-1.5 mb-4 break-all select-all">
+            <p className="text-[12px] font-mono text-zinc-300 text-center bg-zinc-900 border border-zinc-800 rounded-lg py-1.5 mb-4 break-all select-all">
               {mfaEnrolling.secret}
             </p>
             <input
@@ -784,7 +784,7 @@ export default function ProfilePage() {
               inputMode="numeric"
               placeholder="000000"
               autoFocus
-              className="w-full text-center tracking-[0.5em] text-[18px] font-semibold border border-gray-200 rounded-xl py-2.5 outline-none focus:border-emerald-400 mb-2"
+              className="w-full text-center tracking-[0.5em] text-[18px] font-semibold border border-zinc-800 rounded-xl py-2.5 outline-none focus:border-emerald-400 mb-2"
             />
             {mfaMsg && (
               <p
@@ -797,7 +797,7 @@ export default function ProfilePage() {
               <button
                 type="button"
                 onClick={handleCancelMfaEnroll}
-                className="flex-1 text-[13px] font-medium border border-gray-200 text-gray-600 py-2 rounded-xl hover:bg-gray-50 transition"
+                className="flex-1 text-[13px] font-medium border border-zinc-800 text-zinc-400 py-2 rounded-xl hover:bg-zinc-900 transition"
               >
                 Cancel
               </button>
@@ -818,21 +818,21 @@ export default function ProfilePage() {
       )}
 
       {/* ── Danger Zone ── */}
-      <div className="bg-white rounded-[14px] border border-red-100 p-6">
+      <div className="bg-zinc-900 rounded-[14px] border border-red-500/20 p-6">
         <p className="text-[14px] font-semibold text-red-600 mb-1">Danger Zone</p>
-        <p className="text-[12px] text-gray-400 mb-4">
+        <p className="text-[12px] text-zinc-500 mb-4">
           These actions are irreversible. Please be careful.
         </p>
         {!deleteConfirm ? (
           <button
             type="button"
             onClick={() => setDeleteConfirm(true)}
-            className="text-[13px] font-medium px-4 py-2 border border-red-200 text-red-600 hover:bg-red-50 rounded-lg transition"
+            className="text-[13px] font-medium px-4 py-2 border border-red-500/20 text-red-600 hover:bg-red-500/10 rounded-lg transition"
           >
             Delete account
           </button>
         ) : (
-          <div className="bg-red-50 border border-red-200 rounded-xl p-4">
+          <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
             <p className="text-[13px] font-medium text-red-700 mb-3">
               Are you sure? This will permanently delete your account and all data.
             </p>
@@ -847,7 +847,7 @@ export default function ProfilePage() {
               <button
                 type="button"
                 onClick={() => setDeleteConfirm(false)}
-                className="text-[13px] font-medium px-4 py-2 border border-gray-200 text-gray-600 hover:bg-gray-50 rounded-lg transition"
+                className="text-[13px] font-medium px-4 py-2 border border-zinc-800 text-zinc-400 hover:bg-zinc-900 rounded-lg transition"
               >
                 Cancel
               </button>

@@ -30,12 +30,24 @@ const BANDS = [
     from: 80,
     label: "80-100: Excellent",
     color: "#00BC7D",
-    pillBg: "#ECFDF5",
+    pillBg: "rgba(16,185,129,0.12)",
     pillText: "#00994D",
   },
-  { from: 60, label: "60-79: Good", color: "#FE9A00", pillBg: "#FFFBEB", pillText: "#E17100" },
+  {
+    from: 60,
+    label: "60-79: Good",
+    color: "#FE9A00",
+    pillBg: "rgba(245,158,11,0.12)",
+    pillText: "#E17100",
+  },
   { from: 40, label: "40-59: Fair", color: "#FF6900", pillBg: "#FFF7ED", pillText: "#C2410C" },
-  { from: 0, label: "0-39: Critical", color: "#FB2C36", pillBg: "#FEF2F2", pillText: "#C10007" },
+  {
+    from: 0,
+    label: "0-39: Critical",
+    color: "#FB2C36",
+    pillBg: "rgba(239,68,68,0.12)",
+    pillText: "#C10007",
+  },
 ];
 
 export function bandFor(score: number) {
@@ -54,14 +66,14 @@ function AxisTooltip({ active, payload }: { active?: boolean; payload?: TooltipD
   if (!d) return null;
   const band = bandFor(d.score);
   return (
-    <div className="bg-white border border-gray-200 rounded-xl shadow-lg px-3 py-2 max-w-[240px]">
+    <div className="bg-zinc-900 border border-zinc-800 rounded-xl shadow-lg px-3 py-2 max-w-[240px]">
       <div className="flex items-center justify-between gap-3">
-        <span className="text-[12px] font-semibold text-gray-800">{d.category}</span>
+        <span className="text-[12px] font-semibold text-zinc-200">{d.category}</span>
         <span className="text-[12px] font-bold" style={{ color: band.color }}>
           {d.score}
         </span>
       </div>
-      {d.note && <p className="text-[11px] text-gray-500 mt-1 leading-snug">{d.note}</p>}
+      {d.note && <p className="text-[11px] text-zinc-400 mt-1 leading-snug">{d.note}</p>}
     </div>
   );
 }
@@ -91,7 +103,7 @@ export default function HealthRadar({
   if (data.length < 3)
     return (
       <div className="h-[260px] flex items-center justify-center text-center px-6">
-        <p className="text-[13px] text-gray-400 max-w-xs">
+        <p className="text-[13px] text-zinc-500 max-w-xs">
           A shape needs at least three sides. This source has{" "}
           {data.length === 0 ? "no breakdowns" : `only ${data.length}`} with data in this period, so
           the scores are listed beside it instead.
@@ -104,14 +116,14 @@ export default function HealthRadar({
       <div className="h-[260px] sm:h-[300px]">
         <ResponsiveContainer width="100%" height="100%">
           <RadarChart data={data} outerRadius="72%">
-            <PolarGrid stroke="#E5E7EB" />
+            <PolarGrid stroke="#3F3F46" />
             <PolarAngleAxis
               dataKey="category"
-              tick={{ fontSize: 11, fill: "#6B7280" }}
+              tick={{ fontSize: 11, fill: "#71717A" }}
               // Recharts hands the tick its own props bag; the label just needs
               // to stay inside the card on a phone.
             />
-            <PolarRadiusAxis domain={[0, 100]} tick={{ fontSize: 9, fill: "#D1D5DB" }} />
+            <PolarRadiusAxis domain={[0, 100]} tick={{ fontSize: 9, fill: "#52525B" }} />
             <Radar dataKey="score" stroke="#7F22FE" fill="#AD46FF" fillOpacity={0.45} />
             <Tooltip content={<AxisTooltip />} />
           </RadarChart>
@@ -120,7 +132,7 @@ export default function HealthRadar({
       {legend && (
         <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 pb-1">
           {BANDS.map((b) => (
-            <span key={b.label} className="flex items-center gap-1.5 text-[11px] text-gray-500">
+            <span key={b.label} className="flex items-center gap-1.5 text-[11px] text-zinc-400">
               <span className="w-2 h-2 rounded-full" style={{ background: b.color }} />
               {b.label}
             </span>
@@ -128,7 +140,7 @@ export default function HealthRadar({
         </div>
       )}
       {unjudged.length > 0 && (
-        <p className="text-[11px] text-gray-400 text-center px-4 pb-1">
+        <p className="text-[11px] text-zinc-500 text-center px-4 pb-1">
           Not shown: {unjudged.map((a) => a.label).join(", ")} — this source did not report the
           settings behind {unjudged.length === 1 ? "it" : "them"}.
         </p>

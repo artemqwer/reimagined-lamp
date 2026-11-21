@@ -49,7 +49,7 @@ const comingSoon = [
     name: "TikTok Ads",
     description: "Track and optimize your TikTok advertising campaigns",
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="#9CA3AF">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="#71717A">
         <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z" />
       </svg>
     ),
@@ -59,7 +59,7 @@ const comingSoon = [
     name: "LinkedIn Ads",
     description: "Monitor your LinkedIn B2B advertising campaigns",
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="#9CA3AF">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="#71717A">
         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
       </svg>
     ),
@@ -70,10 +70,10 @@ const comingSoon = [
     description: "Connect Bing Ads and expand your reach",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-        <rect x="1" y="1" width="10" height="10" fill="#9CA3AF" />
-        <rect x="13" y="1" width="10" height="10" fill="#9CA3AF" opacity=".8" />
-        <rect x="1" y="13" width="10" height="10" fill="#9CA3AF" opacity=".6" />
-        <rect x="13" y="13" width="10" height="10" fill="#9CA3AF" opacity=".4" />
+        <rect x="1" y="1" width="10" height="10" fill="#71717A" />
+        <rect x="13" y="1" width="10" height="10" fill="#71717A" opacity=".8" />
+        <rect x="1" y="13" width="10" height="10" fill="#71717A" opacity=".6" />
+        <rect x="13" y="13" width="10" height="10" fill="#71717A" opacity=".4" />
       </svg>
     ),
   },
@@ -134,8 +134,8 @@ export default function DataSourcesPage() {
         <div
           className={`fixed top-5 right-5 z-500 flex items-center gap-2.5 px-4 py-3 rounded-xl shadow-lg text-[13px] font-medium transition-all ${
             toast.type === "success"
-              ? "bg-green-50 border border-green-200 text-green-700"
-              : "bg-red-50 border border-red-200 text-red-700"
+              ? "bg-green-500/10 border border-green-500/20 text-green-700"
+              : "bg-red-500/10 border border-red-500/20 text-red-700"
           }`}
         >
           {toast.type === "success" ? (
@@ -167,8 +167,8 @@ export default function DataSourcesPage() {
         </div>
       )}
 
-      <h1 className="text-[22px] font-bold text-gray-900 mb-1">Data Sources</h1>
-      <p className="text-[13px] text-gray-500 mb-8">
+      <h1 className="text-[22px] font-bold text-zinc-100 mb-1">Data Sources</h1>
+      <p className="text-[13px] text-zinc-400 mb-8">
         Connect your advertising platforms to start tracking performance
       </p>
 
@@ -176,7 +176,7 @@ export default function DataSourcesPage() {
           the same one-click co-user flow. Connecting authorizes the client's own
           account into the central Windsor workspace; the dashboard then rebuilds. */}
       <div className="mb-8">
-        <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-3">
+        <p className="text-[11px] font-bold text-zinc-500 uppercase tracking-widest mb-3">
           More sources
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -227,28 +227,28 @@ export default function DataSourcesPage() {
 
       {/* Coming Soon */}
       <div>
-        <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-3">
+        <p className="text-[11px] font-bold text-zinc-500 uppercase tracking-widest mb-3">
           Coming Soon
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {comingSoon.map((c) => (
             <div
               key={c.id}
-              className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 opacity-60"
+              className="bg-zinc-900 rounded-2xl border border-zinc-800 shadow-sm p-5 opacity-60"
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-zinc-900 flex items-center justify-center shrink-0">
                     {c.icon}
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <h3 className="text-[14px] font-semibold text-gray-500">{c.name}</h3>
-                      <span className="text-[10px] font-bold text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full uppercase tracking-wide">
+                      <h3 className="text-[14px] font-semibold text-zinc-400">{c.name}</h3>
+                      <span className="text-[10px] font-bold text-zinc-500 bg-zinc-800 px-2 py-0.5 rounded-full uppercase tracking-wide">
                         Coming soon
                       </span>
                     </div>
-                    <p className="text-[12px] text-gray-400 leading-snug mt-0.5">{c.description}</p>
+                    <p className="text-[12px] text-zinc-500 leading-snug mt-0.5">{c.description}</p>
                   </div>
                 </div>
               </div>

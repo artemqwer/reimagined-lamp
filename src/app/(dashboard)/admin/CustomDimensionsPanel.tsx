@@ -53,19 +53,19 @@ export default function CustomDimensionsPanel({
 
   return (
     <div>
-      <div className="px-5 pt-5 pb-1 border-t border-gray-100 flex items-center justify-between gap-3">
-        <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest">
+      <div className="px-5 pt-5 pb-1 border-t border-zinc-800 flex items-center justify-between gap-3">
+        <p className="text-[11px] font-bold text-zinc-500 uppercase tracking-widest">
           Custom dimensions
         </p>
         <button
           onClick={loadWindsorFields}
           disabled={loadingFields}
-          className="text-[11px] font-semibold text-emerald-600 border border-emerald-200 rounded-lg px-2.5 py-1 hover:bg-emerald-50 transition disabled:opacity-50 whitespace-nowrap"
+          className="text-[11px] font-semibold text-emerald-600 border border-emerald-500/20 rounded-lg px-2.5 py-1 hover:bg-emerald-500/10 transition disabled:opacity-50 whitespace-nowrap"
         >
           {loadingFields ? "Loading…" : `Load fields from Windsor (${windsorSource})`}
         </button>
       </div>
-      <p className="px-5 pb-2 text-[11px] text-gray-400">
+      <p className="px-5 pb-2 text-[11px] text-zinc-500">
         Extra breakdowns this source can group by — shown wherever this source&apos;s Table Widgets
         let you add a dimension tab.
       </p>
@@ -99,7 +99,7 @@ export default function CustomDimensionsPanel({
         <button
           type="button"
           onClick={() => onChange([...dimensions, { ...emptyDim }])}
-          className="flex items-center gap-1.5 text-[12px] text-emerald-600 hover:text-emerald-700 border border-dashed border-emerald-200 rounded-lg px-3 py-1.5 w-full justify-center hover:bg-emerald-50 transition"
+          className="flex items-center gap-1.5 text-[12px] text-emerald-600 hover:text-emerald-700 border border-dashed border-emerald-500/20 rounded-lg px-3 py-1.5 w-full justify-center hover:bg-emerald-500/10 transition"
         >
           <svg
             width="12"

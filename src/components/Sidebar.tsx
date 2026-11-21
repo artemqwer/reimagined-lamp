@@ -15,7 +15,7 @@ import {
 } from "@/lib/connectors";
 import ConnectorBrandIcon from "@/components/ConnectorBrandIcon";
 
-// Icons mirror the Figma sidebar exactly (Lucide, 16px viewBox, #364153 stroke).
+// Icons mirror the Figma sidebar exactly (Lucide, 16px viewBox, #A1A1AA stroke).
 const ICON_PROPS = {
   width: 16,
   height: 16,
@@ -155,7 +155,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
           title={collapsed ? CONNECTORS[id].label : undefined}
           className={`flex items-center rounded-[10px] text-[14px] transition mb-1 ${
             collapsed ? "justify-center px-0 py-2.5" : "gap-3 px-3 py-2"
-          } ${active ? "bg-[#eff6ff] text-[#047857]" : "text-[#364153] hover:bg-gray-50"}`}
+          } ${active ? "bg-emerald-500/10 text-[#34D399]" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
         >
           <span className="relative shrink-0">
             <ConnectorIcon id={id} />
@@ -173,7 +173,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
         title={collapsed ? "AI Optimizer" : undefined}
         className={`flex items-center rounded-[10px] text-[14px] transition mb-1 ${
           collapsed ? "justify-center px-0 py-2.5" : "gap-3 px-3 py-2"
-        } ${active ? "bg-[#eff6ff] text-[#047857]" : "text-[#364153] hover:bg-gray-50"}`}
+        } ${active ? "bg-emerald-500/10 text-[#34D399]" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
       >
         <span className="relative shrink-0">
           {/* The design's own icon, exported from Figma: one outlined
@@ -203,7 +203,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
         title={collapsed ? "Smart Goals" : undefined}
         className={`flex items-center rounded-[10px] text-[14px] transition mb-1 ${
           collapsed ? "justify-center px-0 py-2.5" : "gap-3 px-3 py-2"
-        } ${active ? "bg-[#eff6ff] text-[#047857]" : "text-[#364153] hover:bg-gray-50"}`}
+        } ${active ? "bg-emerald-500/10 text-[#34D399]" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
       >
         <span className="relative shrink-0">
           <svg {...ICON_PROPS}>
@@ -219,13 +219,13 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
 
   const content = (
     <aside
-      className={`relative h-full bg-white border-r border-gray-100 flex flex-col transition-[width] duration-200 ease-out ${collapsed ? "w-[72px]" : "w-[256px]"}`}
+      className={`relative h-full glass border-r flex flex-col transition-[width] duration-200 ease-out ${collapsed ? "w-[72px]" : "w-[256px]"}`}
     >
       {/* Desktop collapse toggle — floating circular button on the right edge (Figma) */}
       <button
         onClick={() => setCollapsed(!collapsed)}
         aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
-        className="hidden lg:flex absolute top-7 -right-3 z-20 w-6 h-6 items-center justify-center rounded-full bg-white border border-gray-200 shadow-sm text-gray-500 hover:text-gray-700 hover:border-gray-300 transition"
+        className="hidden lg:flex absolute top-7 -right-3 z-20 w-6 h-6 items-center justify-center rounded-full bg-zinc-900 border border-zinc-800 shadow-sm text-zinc-400 hover:text-zinc-300 hover:border-zinc-700 transition"
       >
         <svg
           width="14"
@@ -243,7 +243,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
       </button>
       {/* Logo */}
       <div
-        className={`flex pt-5 pb-4 border-b border-gray-100 ${collapsed ? "flex-col items-center gap-3 px-2" : "items-center px-4"}`}
+        className={`flex pt-5 pb-4 border-b border-zinc-800 ${collapsed ? "flex-col items-center gap-3 px-2" : "items-center px-4"}`}
       >
         <div className={`flex items-center gap-2 min-w-0 ${collapsed ? "" : "flex-1"}`}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -257,13 +257,14 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
           {!collapsed && (
             <div className="min-w-0">
               <div
-                className="text-[14px] font-black whitespace-nowrap" data-brand
+                className="text-[14px] font-black whitespace-nowrap"
+                data-brand
                 style={{ letterSpacing: "0.1em" }}
               >
                 METRICFORGE
               </div>
               <div
-                className="text-[11px] text-gray-400 whitespace-nowrap"
+                className="text-[11px] text-zinc-500 whitespace-nowrap"
                 style={{ letterSpacing: "0.03em" }}
               >
                 E-commerce Intelligence
@@ -274,7 +275,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
         {/* Mobile close button */}
         <button
           onClick={onMobileClose}
-          className="lg:hidden text-gray-400 hover:text-gray-600 transition ml-auto shrink-0"
+          className="lg:hidden text-zinc-500 hover:text-zinc-400 transition ml-auto shrink-0"
         >
           <svg
             width="18"
@@ -303,7 +304,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
         {platforms.length > 0 && (
           <div className="mb-4">
             {!collapsed && (
-              <p className="px-3 mb-2 text-[12px] text-[#6a7282] tracking-[0.6px] uppercase whitespace-nowrap">
+              <p className="px-3 mb-2 text-[12px] text-[#71717A] tracking-[0.6px] uppercase whitespace-nowrap">
                 PLATFORMS
               </p>
             )}
@@ -313,7 +314,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
         {SYSTEM_NAV.map(({ group, items }) => (
           <div key={group} className="mb-4">
             {!collapsed && (
-              <p className="px-3 mb-2 text-[12px] text-[#6a7282] tracking-[0.6px] uppercase whitespace-nowrap">
+              <p className="px-3 mb-2 text-[12px] text-[#71717A] tracking-[0.6px] uppercase whitespace-nowrap">
                 {group}
               </p>
             )}
@@ -329,10 +330,10 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
                   title={collapsed ? label : undefined}
                   className={`flex items-center rounded-[10px] text-[14px] transition mb-1 ${
                     collapsed ? "justify-center px-0 py-2.5" : "gap-3 px-3 py-2"
-                  } ${active ? "bg-[#eff6ff] text-[#047857]" : "text-[#364153] hover:bg-gray-50"}`}
+                  } ${active ? "bg-emerald-500/10 text-[#34D399]" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
                 >
                   <span
-                    className={`relative shrink-0 ${active ? "text-[#047857]" : "text-[#364153]"}`}
+                    className={`relative shrink-0 ${active ? "text-[#34D399]" : "text-[#A1A1AA]"}`}
                   >
                     {icon}
                   </span>
@@ -346,7 +347,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
 
       {/* User */}
       <div
-        className={`border-t border-gray-100 p-3 flex items-center ${collapsed ? "justify-center" : "gap-2.5"}`}
+        className={`border-t border-zinc-800 p-3 flex items-center ${collapsed ? "justify-center" : "gap-2.5"}`}
       >
         {session?.avatar ? (
           <img
@@ -356,17 +357,17 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
             referrerPolicy="no-referrer"
           />
         ) : (
-          <div className="w-8 h-8 rounded-full bg-[linear-gradient(135deg,#8e51ff,#9810fa)] flex items-center justify-center text-white text-[12px] font-bold shrink-0">
+          <div className="w-8 h-8 rounded-full bg-[linear-gradient(135deg,#059669,#34d399)] flex items-center justify-center text-white text-[12px] font-bold shrink-0">
             {session?.name ? session.name.slice(0, 2).toUpperCase() : "U"}
           </div>
         )}
         {!collapsed && (
           <>
             <div className="overflow-hidden flex-1 min-w-0">
-              <p className="text-[13px] font-semibold text-gray-800 truncate whitespace-nowrap">
+              <p className="text-[13px] font-semibold text-zinc-200 truncate whitespace-nowrap">
                 {session?.name ?? "User"}
               </p>
-              <p className="text-[11px] text-gray-400 truncate whitespace-nowrap">
+              <p className="text-[11px] text-zinc-500 truncate whitespace-nowrap">
                 {session?.email ?? ""}
               </p>
             </div>
@@ -375,7 +376,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
                 onClick={onLogout}
                 title="Sign out"
                 aria-label="Sign out"
-                className="shrink-0 -m-2 p-2 flex items-center justify-center text-gray-400 hover:text-red-500 transition"
+                className="shrink-0 -m-2 p-2 flex items-center justify-center text-zinc-500 hover:text-red-500 transition"
               >
                 <svg
                   width="15"
@@ -414,9 +415,9 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
           mobileOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <aside className="w-[260px] h-full bg-white border-r border-gray-100 flex flex-col">
+        <aside className="w-[260px] h-full glass border-r flex flex-col">
           {/* Logo + close */}
-          <div className="flex items-center justify-between px-4 pt-5 pb-4 border-b border-gray-100">
+          <div className="flex items-center justify-between px-4 pt-5 pb-4 border-b border-zinc-800">
             <div className="flex items-center gap-2">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -428,15 +429,16 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
               />
               <div>
                 <div
-                  className="text-[14px] font-black" data-brand
+                  className="text-[14px] font-black"
+                  data-brand
                   style={{ letterSpacing: "0.1em" }}
                 >
                   METRICFORGE
                 </div>
-                <div className="text-[11px] text-gray-400">E-commerce Intelligence</div>
+                <div className="text-[11px] text-zinc-500">E-commerce Intelligence</div>
               </div>
             </div>
-            <button onClick={onMobileClose} className="text-gray-400 hover:text-gray-600">
+            <button onClick={onMobileClose} className="text-zinc-500 hover:text-zinc-400">
               <svg
                 width="18"
                 height="18"
@@ -459,7 +461,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
             )}
             {platforms.length > 0 && (
               <div className="mb-4">
-                <p className="px-3 mb-2 text-[12px] text-[#6a7282] tracking-[0.6px] uppercase">
+                <p className="px-3 mb-2 text-[12px] text-[#71717A] tracking-[0.6px] uppercase">
                   PLATFORMS
                 </p>
                 {renderPlatforms(onMobileClose)}
@@ -467,7 +469,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
             )}
             {SYSTEM_NAV.map(({ group, items }) => (
               <div key={group} className="mb-4">
-                <p className="px-3 mb-2 text-[12px] text-[#6a7282] tracking-[0.6px] uppercase">
+                <p className="px-3 mb-2 text-[12px] text-[#71717A] tracking-[0.6px] uppercase">
                   {group}
                 </p>
                 {items.map(({ label, href, icon }) => {
@@ -479,10 +481,12 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
                       href={href}
                       onClick={onMobileClose}
                       className={`flex items-center gap-3 px-3 py-2 rounded-[10px] text-[14px] transition mb-1 ${
-                        active ? "bg-[#eff6ff] text-[#047857]" : "text-[#364153] hover:bg-gray-50"
+                        active
+                          ? "bg-emerald-500/10 text-[#34D399]"
+                          : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"
                       }`}
                     >
-                      <span className={active ? "text-[#047857]" : "text-[#364153]"}>{icon}</span>
+                      <span className={active ? "text-[#34D399]" : "text-[#A1A1AA]"}>{icon}</span>
                       {label}
                     </Link>
                   );
@@ -490,22 +494,22 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
               </div>
             ))}
           </nav>
-          <div className="border-t border-gray-100 p-3 flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-full bg-[linear-gradient(135deg,#8e51ff,#9810fa)] flex items-center justify-center text-white text-[12px] font-bold shrink-0">
+          <div className="border-t border-zinc-800 p-3 flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-full bg-[linear-gradient(135deg,#059669,#34d399)] flex items-center justify-center text-white text-[12px] font-bold shrink-0">
               {session?.name ? session.name.slice(0, 2).toUpperCase() : "U"}
             </div>
             <div className="overflow-hidden flex-1 min-w-0">
-              <p className="text-[13px] font-semibold text-gray-800 truncate">
+              <p className="text-[13px] font-semibold text-zinc-200 truncate">
                 {session?.name ?? "User"}
               </p>
-              <p className="text-[11px] text-gray-400 truncate">{session?.email ?? ""}</p>
+              <p className="text-[11px] text-zinc-500 truncate">{session?.email ?? ""}</p>
             </div>
             {onLogout && (
               <button
                 onClick={onLogout}
                 title="Sign out"
                 aria-label="Sign out"
-                className="shrink-0 -m-2 p-2 flex items-center justify-center text-gray-400 hover:text-red-500 transition"
+                className="shrink-0 -m-2 p-2 flex items-center justify-center text-zinc-500 hover:text-red-500 transition"
               >
                 <svg
                   width="15"

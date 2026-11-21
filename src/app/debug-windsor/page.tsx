@@ -110,7 +110,7 @@ export default function DebugWindsor() {
                         style={{
                           border: "1px solid #ddd",
                           padding: "4px 8px",
-                          background: "#f9fafb",
+                          background: "#18181B",
                           textAlign: "left",
                           whiteSpace: "nowrap",
                         }}
@@ -122,7 +122,7 @@ export default function DebugWindsor() {
                 </thead>
                 <tbody>
                   {rows.map((row, i) => (
-                    <tr key={i} style={{ background: i % 2 === 0 ? "#fff" : "#f9fafb" }}>
+                    <tr key={i} style={{ background: i % 2 === 0 ? "#fff" : "#18181B" }}>
                       {Object.values(row as object).map((v, j) => (
                         <td
                           key={j}

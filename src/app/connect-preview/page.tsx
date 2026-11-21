@@ -114,22 +114,22 @@ export default function ConnectPreviewPage() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#f9fafb] flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen w-full bg-[#18181B] flex flex-col items-center justify-center p-4">
       <div className="w-full max-w-md flex items-center justify-end gap-4 mb-3">
         <Link
           href="/login"
-          className="text-[13px] font-semibold text-[#059669] hover:text-[#1247c8] transition"
+          className="text-[13px] font-semibold text-[#10B981] hover:text-[#1247c8] transition"
         >
           Log in →
         </Link>
       </div>
 
       <div className="w-full max-w-md">
-        <div className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden">
+        <div className="bg-zinc-900 rounded-3xl border border-zinc-800 shadow-sm overflow-hidden">
           {/* Header */}
-          <div className="px-7 pt-7 pb-5 border-b border-gray-100">
+          <div className="px-7 pt-7 pb-5 border-b border-zinc-800">
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-2xl bg-white border border-gray-200 flex items-center justify-center shrink-0">
+              <div className="w-11 h-11 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center shrink-0">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                   <circle cx="7" cy="17" r="3.2" fill="#34A853" />
                   <rect
@@ -153,10 +153,10 @@ export default function ConnectPreviewPage() {
                 </svg>
               </div>
               <div className="min-w-0">
-                <h1 className="text-[18px] font-bold text-gray-900 leading-tight">
+                <h1 className="text-[18px] font-bold text-zinc-100 leading-tight">
                   Connect your Google Ads
                 </h1>
-                <p className="text-[13px] text-gray-500 mt-0.5">
+                <p className="text-[13px] text-zinc-400 mt-0.5">
                   Link your account in a few seconds
                 </p>
               </div>
@@ -170,9 +170,9 @@ export default function ConnectPreviewPage() {
                 {accounts.map((a) => (
                   <div
                     key={a.account_id}
-                    className="flex items-center gap-3 p-3.5 rounded-2xl border border-green-200 bg-green-50/60"
+                    className="flex items-center gap-3 p-3.5 rounded-2xl border border-green-500/20 bg-green-500/10/60"
                   >
-                    <div className="w-9 h-9 rounded-full bg-green-100 flex items-center justify-center shrink-0">
+                    <div className="w-9 h-9 rounded-full bg-green-500/10 flex items-center justify-center shrink-0">
                       <svg
                         width="18"
                         height="18"
@@ -187,21 +187,21 @@ export default function ConnectPreviewPage() {
                       </svg>
                     </div>
                     <div className="min-w-0 flex-1">
-                      <div className="text-[14px] font-semibold text-gray-900 truncate">
+                      <div className="text-[14px] font-semibold text-zinc-100 truncate">
                         {a.account_name}
                       </div>
-                      <div className="text-[12px] text-gray-500 tabular-nums">
+                      <div className="text-[12px] text-zinc-400 tabular-nums">
                         ID {a.account_id}
                       </div>
                     </div>
-                    <span className="text-[11px] font-semibold text-green-700 bg-green-100 border border-green-200 rounded-full px-2.5 py-1 shrink-0">
+                    <span className="text-[11px] font-semibold text-green-700 bg-green-500/10 border border-green-500/20 rounded-full px-2.5 py-1 shrink-0">
                       Connected
                     </span>
                   </div>
                 ))}
                 <Link
                   href="/login"
-                  className="w-full mt-2 flex items-center justify-center gap-2 bg-[#059669] hover:bg-[#1247c8] text-white text-[14px] font-semibold rounded-xl py-3 transition"
+                  className="w-full mt-2 flex items-center justify-center gap-2 bg-[#10B981] hover:bg-[#1247c8] text-white text-[14px] font-semibold rounded-xl py-3 transition"
                 >
                   Go to dashboard
                   <svg
@@ -220,7 +220,7 @@ export default function ConnectPreviewPage() {
                 </Link>
                 <button
                   onClick={reset}
-                  className="w-full text-[13px] font-medium text-gray-500 hover:text-gray-800 transition py-1.5"
+                  className="w-full text-[13px] font-medium text-zinc-400 hover:text-zinc-200 transition py-1.5"
                 >
                   Connect another / reset
                 </button>
@@ -229,7 +229,7 @@ export default function ConnectPreviewPage() {
               /* ── Idle / connecting ── */
               <div>
                 {/* Windsor API key */}
-                <label className="block text-[12px] font-semibold text-gray-600 mb-1.5">
+                <label className="block text-[12px] font-semibold text-zinc-400 mb-1.5">
                   Windsor API key
                 </label>
                 <input
@@ -237,7 +237,7 @@ export default function ConnectPreviewPage() {
                   value={apiKey}
                   onChange={(e) => setApiKey(e.target.value)}
                   placeholder="paste your Windsor workspace key (or set in env)"
-                  className="w-full text-[13px] border border-gray-200 rounded-lg px-3 py-2 outline-none focus:border-emerald-400 bg-white mb-4"
+                  className="w-full text-[13px] border border-zinc-800 rounded-lg px-3 py-2 outline-none focus:border-emerald-400 bg-zinc-900 mb-4"
                 />
 
                 <button
@@ -267,14 +267,14 @@ export default function ConnectPreviewPage() {
                 {status === "connecting" && (
                   <button
                     onClick={checkAccounts}
-                    className="w-full mt-2 text-[13px] font-semibold text-[#059669] hover:text-[#1247c8] transition py-1.5"
+                    className="w-full mt-2 text-[13px] font-semibold text-[#10B981] hover:text-[#1247c8] transition py-1.5"
                   >
                     I&apos;ve approved — check now
                   </button>
                 )}
 
                 {note && (
-                  <p className="text-[12px] text-gray-500 text-center mt-3 leading-snug animate-in fade-in">
+                  <p className="text-[12px] text-zinc-400 text-center mt-3 leading-snug animate-in fade-in">
                     {note}
                   </p>
                 )}
@@ -282,7 +282,7 @@ export default function ConnectPreviewPage() {
                   <p className="text-[12px] text-red-500 text-center mt-3 leading-snug">{error}</p>
                 )}
 
-                <div className="flex items-center gap-1.5 justify-center mt-5 text-[11.5px] text-gray-400">
+                <div className="flex items-center gap-1.5 justify-center mt-5 text-[11.5px] text-zinc-500">
                   <svg
                     width="13"
                     height="13"
@@ -301,7 +301,7 @@ export default function ConnectPreviewPage() {
           </div>
         </div>
 
-        <p className="text-center text-[11px] text-gray-400 mt-4">
+        <p className="text-center text-[11px] text-zinc-500 mt-4">
           Preview · /connect-preview · real Windsor Authorize-via-Link flow
         </p>
       </div>

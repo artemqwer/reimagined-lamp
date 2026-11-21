@@ -17,37 +17,37 @@ const BAND_STYLES: Record<
   { bg: string; border: string; chip: string; title: string; text: string }
 > = {
   excellent: {
-    bg: "bg-[#ECFDF5]",
+    bg: "bg-[rgba(16,185,129,0.12)]",
     border: "border-[#A4F4CF]",
     chip: "bg-[#D0FAE5]",
     title: "text-[#004F3B]",
     text: "text-[#007A55]",
   },
   good: {
-    bg: "bg-emerald-50",
-    border: "border-emerald-200",
-    chip: "bg-emerald-100",
+    bg: "bg-emerald-500/10",
+    border: "border-emerald-500/20",
+    chip: "bg-emerald-500/10",
     title: "text-emerald-900",
     text: "text-emerald-700",
   },
   mixed: {
-    bg: "bg-amber-50",
-    border: "border-amber-200",
-    chip: "bg-amber-100",
+    bg: "bg-amber-500/10",
+    border: "border-amber-500/20",
+    chip: "bg-amber-500/10",
     title: "text-amber-900",
     text: "text-amber-700",
   },
   poor: {
-    bg: "bg-orange-50",
+    bg: "bg-orange-500/10",
     border: "border-orange-200",
-    chip: "bg-orange-100",
+    chip: "bg-orange-500/10",
     title: "text-orange-900",
     text: "text-orange-700",
   },
   critical: {
-    bg: "bg-red-50",
-    border: "border-red-200",
-    chip: "bg-red-100",
+    bg: "bg-red-500/10",
+    border: "border-red-500/20",
+    chip: "bg-red-500/10",
     title: "text-red-900",
     text: "text-red-700",
   },
@@ -216,8 +216,8 @@ function GoalCard({
       onDragOver={onDragOver}
       onDrop={onDrop}
       style={selected ? { borderColor: barColor } : undefined}
-      className={`relative text-left bg-white rounded-[14px] border p-2.5 sm:p-3 transition w-full ${
-        selected ? "shadow-md" : "border-gray-200 shadow-sm hover:border-gray-300"
+      className={`relative text-left bg-zinc-900 rounded-[14px] border p-2.5 sm:p-3 transition w-full ${
+        selected ? "shadow-md" : "border-zinc-800 shadow-sm hover:border-zinc-700"
       }`}
     >
       {/* Pinned to the corner rather than sharing the header row — competing
@@ -238,16 +238,16 @@ function GoalCard({
         >
           {glyphFor(def)}
         </span>
-        <span className="text-[13px] sm:text-[16px] font-semibold text-[#101828]">{def.label}</span>
+        <span className="text-[13px] sm:text-[16px] font-semibold text-[#F4F4F5]">{def.label}</span>
         {note && (
-          <span className="text-[9px] sm:text-[10px] font-semibold text-gray-400 bg-gray-50 border border-gray-200 rounded px-1 py-0.5">
+          <span className="text-[9px] sm:text-[10px] font-semibold text-zinc-500 bg-zinc-900 border border-zinc-800 rounded px-1 py-0.5">
             {note}
           </span>
         )}
         {isFocus && (
           <span
             title="The AI builds its recommendations around this goal"
-            className="text-[9px] sm:text-[10px] font-bold text-violet-700 bg-violet-50 border border-violet-200 rounded px-1 sm:px-1.5 py-0.5"
+            className="text-[9px] sm:text-[10px] font-bold text-violet-700 bg-violet-500/10 border border-violet-500/20 rounded px-1 sm:px-1.5 py-0.5"
           >
             AI FOCUS
           </span>
@@ -255,16 +255,16 @@ function GoalCard({
       </div>
 
       <div className="flex items-baseline justify-between gap-1 sm:gap-2 mb-2 sm:mb-2.5">
-        <span className="text-[15px] sm:text-[20px] font-bold text-[#101828] tabular-nums">
+        <span className="text-[15px] sm:text-[20px] font-bold text-[#F4F4F5] tabular-nums">
           {formatMetric(status.actual, def)}
         </span>
-        <span className="text-[11px] sm:text-[14px] tabular-nums shrink-0 text-[#6A7282]">
+        <span className="text-[11px] sm:text-[14px] tabular-nums shrink-0 text-[#71717A]">
           of {formatMetric(status.target, def)}
         </span>
       </div>
 
       <div
-        className="relative h-2 sm:h-2.5 bg-gray-200 rounded-full mb-2 sm:mb-2.5"
+        className="relative h-2 sm:h-2.5 bg-zinc-800 rounded-full mb-2 sm:mb-2.5"
         style={{ boxShadow: "inset 0 2px 4px 0 rgba(0,0,0,.05)" }}
       >
         <div
@@ -282,7 +282,7 @@ function GoalCard({
         {expectedPct !== null && (
           <span
             title={`Should be around ${formatMetric(status.kind === "pace" ? status.expected : status.target, def)} by now`}
-            className="absolute -top-1 -bottom-1 w-0.5 rounded bg-[#101828]"
+            className="absolute -top-1 -bottom-1 w-0.5 rounded bg-zinc-500/60"
             style={{ left: `${expectedPct}%` }}
           />
         )}
@@ -357,11 +357,11 @@ export default function AchievementCenter({
   );
 
   return (
-    <div className={bare ? "" : "bg-white rounded-2xl border border-gray-200 p-4 sm:p-5"}>
+    <div className={bare ? "" : "bg-zinc-900 rounded-2xl border border-zinc-800 p-4 sm:p-5"}>
       <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
         <div className="min-w-0">
           <div className="flex items-center gap-1.5">
-            <h2 className="text-[20px] font-bold text-[#101828] tracking-[-0.0225em]">
+            <h2 className="text-[20px] font-bold text-[#F4F4F5] tracking-[-0.0225em]">
               Goals Achievement Center
             </h2>
             <HelpTip title="Track and hit your advertising goals">
@@ -372,7 +372,7 @@ export default function AchievementCenter({
           </div>
           {/* No inline "Edit Goals" link here: it duplicated the Edit goals
               button in the section header, which is the one way in. */}
-          <p className="text-[14px] text-[#4A5565] mt-0.5">{positionText}</p>
+          <p className="text-[14px] text-[#A1A1AA] mt-0.5">{positionText}</p>
         </div>
 
         <div

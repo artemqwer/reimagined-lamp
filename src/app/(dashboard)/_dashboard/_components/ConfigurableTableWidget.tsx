@@ -66,8 +66,8 @@ export default function ConfigurableTableWidget({
               onClick={() => setActiveDim(t.key)}
               className={`text-[12px] font-medium px-3 py-1.5 rounded-lg border transition ${
                 activeDim === t.key
-                  ? "border-emerald-300 bg-emerald-50 text-emerald-700"
-                  : "border-gray-200 text-gray-500 hover:bg-gray-50"
+                  ? "border-emerald-300 bg-emerald-500/10 text-emerald-700"
+                  : "border-zinc-800 text-zinc-400 hover:bg-zinc-900"
               }`}
             >
               {t.label}

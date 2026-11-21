@@ -15,9 +15,9 @@ export default function DashboardError({
   }, [error]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#f9fafb] p-6">
-      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 max-w-lg w-full text-center">
-        <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4">
+    <div className="min-h-screen flex items-center justify-center bg-[#18181B] p-6">
+      <div className="bg-zinc-900 rounded-2xl border border-zinc-800 shadow-sm p-8 max-w-lg w-full text-center">
+        <div className="w-12 h-12 bg-red-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
           <svg
             width="24"
             height="24"
@@ -31,9 +31,9 @@ export default function DashboardError({
             <line x1="12" y1="17" x2="12.01" y2="17" />
           </svg>
         </div>
-        <h2 className="text-[18px] font-bold text-gray-900 mb-2">Something went wrong</h2>
-        <p className="text-[13px] text-gray-500 mb-3">This page hit an error while rendering.</p>
-        <pre className="text-[11px] text-gray-500 bg-gray-50 border border-gray-100 rounded-lg p-3 mb-5 text-left overflow-auto max-h-40 whitespace-pre-wrap break-words">
+        <h2 className="text-[18px] font-bold text-zinc-100 mb-2">Something went wrong</h2>
+        <p className="text-[13px] text-zinc-400 mb-3">This page hit an error while rendering.</p>
+        <pre className="text-[11px] text-zinc-400 bg-zinc-900 border border-zinc-800 rounded-lg p-3 mb-5 text-left overflow-auto max-h-40 whitespace-pre-wrap break-words">
           {error.message}
           {error.digest ? `\n\ndigest: ${error.digest}` : ""}
         </pre>

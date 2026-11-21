@@ -289,16 +289,16 @@ export default function CampaignTable({
 
   return (
     <>
-      <div className="bg-white rounded-2xl border border-gray-200 relative">
+      <div className="bg-zinc-900 rounded-2xl border border-zinc-800 relative">
         <div
           ref={headerRef}
-          className="px-4 sm:px-5 py-4 flex items-start justify-between flex-wrap gap-2 sm:gap-3 border-b border-gray-100 relative"
+          className="px-4 sm:px-5 py-4 flex items-start justify-between flex-wrap gap-2 sm:gap-3 border-b border-zinc-800 relative"
         >
           <div className="min-w-0">
-            <h2 className="text-[15px] sm:text-[17px] font-bold text-gray-900">
+            <h2 className="text-[15px] sm:text-[17px] font-bold text-zinc-100">
               {primaryLabel} Performance
             </h2>
-            <p className="text-[13px] text-gray-400 mt-0.5 hidden sm:block">
+            <p className="text-[13px] text-zinc-500 mt-0.5 hidden sm:block">
               Detailed analytics for {currentRows.length} {primaryLabel.toLowerCase()}s •{" "}
               {fmtMs(rangeStart)} – {fmtMs(rangeEnd)}
             </p>
@@ -307,7 +307,7 @@ export default function CampaignTable({
             ref={filtersRef}
             className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto scrollbar-none w-full sm:w-auto"
           >
-            <span className="text-[13px] text-gray-500 hidden sm:inline shrink-0">Filters:</span>
+            <span className="text-[13px] text-zinc-400 hidden sm:inline shrink-0">Filters:</span>
 
             {/* Campaign Name multi-select dropdown */}
             <div className="shrink-0">
@@ -320,8 +320,8 @@ export default function CampaignTable({
                 }}
                 className={`flex items-center gap-1.5 text-[13px] border rounded-lg px-2.5 py-1.5 transition whitespace-nowrap ${
                   selected.length > 0 || campaignSearch
-                    ? "border-emerald-400 bg-emerald-50 text-emerald-700"
-                    : "border-gray-200 text-gray-600 hover:bg-gray-50"
+                    ? "border-emerald-400 bg-emerald-500/10 text-emerald-700"
+                    : "border-zinc-800 text-zinc-400 hover:bg-zinc-900"
                 }`}
               >
                 <span className="sm:hidden">{primaryLabel}</span>
@@ -359,8 +359,8 @@ export default function CampaignTable({
                   typeFilter !== "All" ||
                   statusFilter !== "Status" ||
                   isMetricFilterActive(metricFilter)
-                    ? "border-emerald-400 bg-emerald-50 text-emerald-700 font-medium"
-                    : "border-gray-200 text-gray-600 hover:bg-gray-50"
+                    ? "border-emerald-400 bg-emerald-500/10 text-emerald-700 font-medium"
+                    : "border-zinc-800 text-zinc-400 hover:bg-zinc-900"
                 }`}
               >
                 <svg
@@ -425,8 +425,8 @@ export default function CampaignTable({
             className={`w-full text-[13px] border-collapse ${hasCost ? "sm:min-w-[1280px]" : "sm:min-w-275"}`}
           >
             <thead>
-              <tr className="bg-gray-50/80">
-                <th className="px-2.5 py-2.5 w-8 sticky left-0 z-20 bg-gray-50">
+              <tr className="bg-zinc-900/80">
+                <th className="px-2.5 py-2.5 w-8 sticky left-0 z-20 bg-zinc-900">
                   <div className="flex items-center gap-1.5">
                     <input
                       type="checkbox"
@@ -454,7 +454,7 @@ export default function CampaignTable({
                     {namesCollapsed && (
                       <button
                         onClick={() => onNamesCollapsedChange(false)}
-                        className="flex items-center justify-center w-6 h-6 rounded-md bg-emerald-100 text-emerald-600 hover:bg-emerald-200 transition shrink-0 sm:hidden"
+                        className="flex items-center justify-center w-6 h-6 rounded-md bg-emerald-500/10 text-emerald-600 hover:bg-emerald-200 transition shrink-0 sm:hidden"
                       >
                         <svg
                           width="14"
@@ -475,7 +475,7 @@ export default function CampaignTable({
                 also lines this table's name column up with the other tables,
                 which have no Status column at all. */}
                 {hasCost && (
-                  <th className="px-2 py-2.5 text-left text-gray-500 font-medium text-[12px] w-16 sticky left-8 z-20 bg-gray-50 hidden sm:table-cell">
+                  <th className="px-2 py-2.5 text-left text-zinc-400 font-medium text-[12px] w-16 sticky left-8 z-20 bg-zinc-900 hidden sm:table-cell">
                     Status
                   </th>
                 )}
@@ -503,7 +503,7 @@ export default function CampaignTable({
                   <th
                     key={col}
                     onClick={() => onSort(col)}
-                    className={`text-${align} text-gray-500 font-medium sm:whitespace-nowrap cursor-pointer hover:text-gray-700 select-none text-[12px]${col === "name" ? ` sm:w-[184px] ${nameSticky} z-20 bg-gray-50 after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-gray-200 overflow-hidden p-0` : " px-1.5 sm:px-2.5 py-2.5"}${col === "type" ? " hidden sm:table-cell" : ""}`}
+                    className={`text-${align} text-zinc-400 font-medium sm:whitespace-nowrap cursor-pointer hover:text-zinc-300 select-none text-[12px]${col === "name" ? ` sm:w-[184px] ${nameSticky} z-20 bg-zinc-900 after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-zinc-800 overflow-hidden p-0` : " px-1.5 sm:px-2.5 py-2.5"}${col === "type" ? " hidden sm:table-cell" : ""}`}
                   >
                     {col === "name" ? (
                       <div
@@ -531,7 +531,7 @@ export default function CampaignTable({
                               onNamesCollapsedChange(true);
                               onExpandedNameIdxChange(null);
                             }}
-                            className="flex items-center justify-center w-5 h-5 rounded bg-gray-100 text-gray-500 hover:bg-gray-200 transition shrink-0 sm:hidden"
+                            className="flex items-center justify-center w-5 h-5 rounded bg-zinc-800 text-zinc-400 hover:bg-zinc-800 transition shrink-0 sm:hidden"
                           >
                             <svg
                               width="10"
@@ -571,16 +571,16 @@ export default function CampaignTable({
                       if (isSelected && rowSelected.length === 1) clearFilter("campaign_selected");
                       else selectSingle("campaign_selected", row.name);
                     }}
-                    className={`border-t border-gray-100 cursor-pointer group transition-colors duration-150 ${
+                    className={`border-t border-zinc-800 cursor-pointer group transition-colors duration-150 ${
                       isSelected
-                        ? "bg-emerald-50/40"
+                        ? "bg-emerald-500/10/40"
                         : isDimmed
                           ? "opacity-50 hover:opacity-80"
-                          : "hover:bg-emerald-50/20"
+                          : "hover:bg-emerald-500/10/20"
                     }`}
                   >
                     <td
-                      className={`px-2.5 py-2.5 sticky left-0 z-10 isolate ${isSelected ? "bg-emerald-50" : "bg-white group-hover:bg-emerald-50"}`}
+                      className={`px-2.5 py-2.5 sticky left-0 z-10 isolate ${isSelected ? "bg-emerald-500/10" : "bg-zinc-900 group-hover:bg-emerald-500/10"}`}
                       onClick={(e) => e.stopPropagation()}
                     >
                       <input
@@ -592,13 +592,13 @@ export default function CampaignTable({
                     </td>
                     {hasCost && (
                       <td
-                        className={`px-2 py-2.5 sticky left-8 z-10 isolate hidden sm:table-cell ${isSelected ? "bg-emerald-50" : "bg-white group-hover:bg-emerald-50"}`}
+                        className={`px-2 py-2.5 sticky left-8 z-10 isolate hidden sm:table-cell ${isSelected ? "bg-emerald-500/10" : "bg-zinc-900 group-hover:bg-emerald-500/10"}`}
                       >
                         <StatusIndicator status={row.status} />
                       </td>
                     )}
                     <td
-                      className={`${nameSticky} z-10 isolate overflow-hidden after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-gray-100 p-0 ${isSelected ? "bg-emerald-50" : "bg-white group-hover:bg-emerald-50"}`}
+                      className={`${nameSticky} z-10 isolate overflow-hidden after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-zinc-800 p-0 ${isSelected ? "bg-emerald-500/10" : "bg-zinc-900 group-hover:bg-emerald-500/10"}`}
                     >
                       <div
                         style={{
@@ -628,14 +628,14 @@ export default function CampaignTable({
                       >
                         {/* Always wrap long names onto multiple lines (row grows as needed)
                         instead of truncating with an ellipsis. */}
-                        <span className="font-medium text-gray-800 text-[12px] hover:text-emerald-600 transition block whitespace-normal wrap-break-word">
+                        <span className="font-medium text-zinc-200 text-[12px] hover:text-emerald-600 transition block whitespace-normal wrap-break-word">
                           {row.name}
                         </span>
                       </div>
                     </td>
                     {hasCost && (
                       <td className="px-2.5 py-2.5 hidden sm:table-cell">
-                        <span className="bg-gray-100 text-gray-600 px-2 py-0.5 rounded text-[10px] font-medium">
+                        <span className="bg-zinc-800 text-zinc-400 px-2 py-0.5 rounded text-[10px] font-medium">
                           {row.type}
                         </span>
                       </td>
@@ -652,10 +652,10 @@ export default function CampaignTable({
                                     row.roasColor === "green"
                                       ? "#DCFCE7"
                                       : row.roasColor === "red"
-                                        ? "#FEE2E2"
+                                        ? "rgba(239,68,68,0.14)"
                                         : row.roasColor === "orange"
                                           ? "#FFEDD5"
-                                          : "#F3F4F6",
+                                          : "#27272A",
                                   color:
                                     row.roasColor === "green"
                                       ? "#15803D"
@@ -663,13 +663,13 @@ export default function CampaignTable({
                                         ? "#DC2626"
                                         : row.roasColor === "orange"
                                           ? "#EA580C"
-                                          : "#9CA3AF",
+                                          : "#71717A",
                                 }}
                               >
                                 {row.roas}
                               </span>
                             ) : (
-                              <span className="text-gray-400 text-[12px]">—</span>
+                              <span className="text-zinc-500 text-[12px]">—</span>
                             )}
                           </td>
                         );
@@ -698,7 +698,7 @@ export default function CampaignTable({
                         return (
                           <td
                             key={m.key}
-                            className="px-1.5 sm:px-2.5 py-2.5 text-gray-700 text-right tabular-nums"
+                            className="px-1.5 sm:px-2.5 py-2.5 text-zinc-300 text-right tabular-nums"
                             style={
                               heatCols[m.key] ? cellStyle(m.key, customVal, "blue") : undefined
                             }
@@ -711,7 +711,7 @@ export default function CampaignTable({
                       return (
                         <td
                           key={m.key}
-                          className={`px-1.5 sm:px-2.5 py-2.5 text-gray-700 text-right tabular-nums${m.key === "revenue" ? " font-medium" : ""}`}
+                          className={`px-1.5 sm:px-2.5 py-2.5 text-zinc-300 text-right tabular-nums${m.key === "revenue" ? " font-medium" : ""}`}
                           style={cellStyle(m.key, v, cell.heat)}
                         >
                           {cell.fmt(v)}
@@ -723,13 +723,13 @@ export default function CampaignTable({
               })}
             </tbody>
             <tfoot>
-              <tr className="bg-gray-50 border-t-2 border-gray-200 font-semibold text-gray-800 text-[13px]">
-                <td className="px-2.5 py-3 sticky left-0 z-10 bg-gray-50" />
+              <tr className="bg-zinc-900 border-t-2 border-zinc-800 font-semibold text-zinc-200 text-[13px]">
+                <td className="px-2.5 py-3 sticky left-0 z-10 bg-zinc-900" />
                 {hasCost && (
-                  <td className="px-2 py-3 sticky left-8 z-10 bg-gray-50 hidden sm:table-cell" />
+                  <td className="px-2 py-3 sticky left-8 z-10 bg-zinc-900 hidden sm:table-cell" />
                 )}
                 <td
-                  className={`${nameSticky} z-10 bg-gray-50 overflow-hidden after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-gray-200 p-0`}
+                  className={`${nameSticky} z-10 bg-zinc-900 overflow-hidden after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-zinc-800 p-0`}
                 >
                   <div
                     style={{
@@ -746,7 +746,7 @@ export default function CampaignTable({
                     }}
                   >
                     Total{" "}
-                    <span className="text-gray-400 font-normal text-[11px]">
+                    <span className="text-zinc-500 font-normal text-[11px]">
                       ({filtered.length})
                     </span>
                   </div>
@@ -763,7 +763,7 @@ export default function CampaignTable({
                               tableTotals.totRoasColor === "green"
                                 ? "#DCFCE7"
                                 : tableTotals.totRoasColor === "red"
-                                  ? "#FEE2E2"
+                                  ? "rgba(239,68,68,0.14)"
                                   : "#FFEDD5",
                             color:
                               tableTotals.totRoasColor === "green"
@@ -817,8 +817,8 @@ export default function CampaignTable({
         </div>
 
         {/* Pagination */}
-        <div className="px-4 sm:px-5 py-3 flex items-center justify-between flex-wrap gap-2 border-t border-gray-100">
-          <p className="text-[13px] text-gray-500">
+        <div className="px-4 sm:px-5 py-3 flex items-center justify-between flex-wrap gap-2 border-t border-zinc-800">
+          <p className="text-[13px] text-zinc-400">
             <span className="hidden sm:inline">
               Showing {(page - 1) * rowsPerPage + 1} to{" "}
               {Math.min(page * rowsPerPage, filtered.length)} of {filtered.length}{" "}
@@ -838,7 +838,7 @@ export default function CampaignTable({
                     onRowsPerPageChange(Number(e.target.value));
                     onPageChange(1);
                   }}
-                  className="ml-1.5 text-[13px] border border-gray-200 rounded px-1.5 py-0.5 bg-white outline-none cursor-pointer"
+                  className="ml-1.5 text-[13px] border border-zinc-800 rounded px-1.5 py-0.5 bg-zinc-900 outline-none cursor-pointer"
                 >
                   <option value={10}>10</option>
                   <option value={20}>20</option>
@@ -850,7 +850,7 @@ export default function CampaignTable({
           <div className="flex items-center gap-1">
             <button
               onClick={() => onPageChange(Math.max(1, page - 1))}
-              className="w-7 h-7 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gray-100 transition"
+              className="w-7 h-7 rounded-lg flex items-center justify-center text-zinc-500 hover:bg-zinc-800 transition"
             >
               <svg
                 width="14"
@@ -877,7 +877,7 @@ export default function CampaignTable({
                   key={p}
                   onClick={() => onPageChange(p)}
                   className={`w-7 h-7 rounded-lg text-[13px] font-medium transition ${
-                    page === p ? "bg-emerald-600 text-white" : "text-gray-500 hover:bg-gray-100"
+                    page === p ? "bg-emerald-600 text-white" : "text-zinc-400 hover:bg-zinc-800"
                   }`}
                 >
                   {p}
@@ -886,7 +886,7 @@ export default function CampaignTable({
             })}
             <button
               onClick={() => onPageChange(Math.min(totalPages, page + 1))}
-              className="w-7 h-7 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gray-100 transition"
+              className="w-7 h-7 rounded-lg flex items-center justify-center text-zinc-500 hover:bg-zinc-800 transition"
             >
               <svg
                 width="14"
@@ -916,15 +916,15 @@ export default function CampaignTable({
                 }}
               />
               <div
-                className="fixed w-65 bg-white border border-gray-200 rounded-xl shadow-xl z-130 flex flex-col overflow-hidden"
+                className="fixed w-65 bg-zinc-900 border border-zinc-800 rounded-xl shadow-xl z-130 flex flex-col overflow-hidden"
                 style={{
                   top: campaignDropdownPos.top,
                   left: campaignDropdownPos.left,
                   maxHeight: campaignDropdownPos.maxHeight,
                 }}
               >
-                <div className="p-2 border-b border-gray-100 shrink-0">
-                  <div className="flex items-center gap-1.5 border border-gray-200 rounded-lg px-2 py-1.5 bg-gray-50/50">
+                <div className="p-2 border-b border-zinc-800 shrink-0">
+                  <div className="flex items-center gap-1.5 border border-zinc-800 rounded-lg px-2 py-1.5 bg-zinc-900/50">
                     <svg
                       width="12"
                       height="12"
@@ -932,7 +932,7 @@ export default function CampaignTable({
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
-                      className="text-gray-400 shrink-0"
+                      className="text-zinc-500 shrink-0"
                     >
                       <circle cx="11" cy="11" r="8" />
                       <path d="m21 21-4.35-4.35" />
@@ -947,7 +947,7 @@ export default function CampaignTable({
                     {campaignSearch && (
                       <button
                         onClick={() => onCampaignSearchChange("")}
-                        className="text-gray-400 hover:text-gray-600 transition shrink-0"
+                        className="text-zinc-500 hover:text-zinc-400 transition shrink-0"
                       >
                         <svg
                           width="12"
@@ -994,7 +994,7 @@ export default function CampaignTable({
                   };
                   return (
                     <>
-                      <div className="flex items-center justify-between px-3 py-2 border-b border-gray-100 shrink-0">
+                      <div className="flex items-center justify-between px-3 py-2 border-b border-zinc-800 shrink-0">
                         <label className="flex items-center gap-2 cursor-pointer">
                           <input
                             type="checkbox"
@@ -1005,12 +1005,12 @@ export default function CampaignTable({
                             onChange={toggleSelectAll}
                             className="rounded"
                           />
-                          <span className="text-[11px] text-gray-500">Select all</span>
+                          <span className="text-[11px] text-zinc-400">Select all</span>
                         </label>
                         {campSel !== null && (
                           <button
                             onClick={() => applyCampSel(null)}
-                            className="text-[11px] text-gray-400 hover:text-gray-700 transition"
+                            className="text-[11px] text-zinc-500 hover:text-zinc-300 transition"
                           >
                             × Reset
                           </button>
@@ -1020,7 +1020,7 @@ export default function CampaignTable({
                         {visible.map((r) => (
                           <label
                             key={r.name}
-                            className="flex items-center gap-2 px-3 py-2 hover:bg-gray-50 cursor-pointer"
+                            className="flex items-center gap-2 px-3 py-2 hover:bg-zinc-900 cursor-pointer"
                           >
                             <input
                               type="checkbox"
@@ -1028,11 +1028,11 @@ export default function CampaignTable({
                               onChange={() => toggleOne(r.name)}
                               className="rounded"
                             />
-                            <span className="text-[12px] text-gray-700 truncate">{r.name}</span>
+                            <span className="text-[12px] text-zinc-300 truncate">{r.name}</span>
                           </label>
                         ))}
                         {visible.length === 0 && (
-                          <div className="px-3 py-4 text-center text-[12px] text-gray-400">
+                          <div className="px-3 py-4 text-center text-[12px] text-zinc-500">
                             No results found
                           </div>
                         )}
@@ -1051,7 +1051,7 @@ export default function CampaignTable({
             <>
               <div className="fixed inset-0 z-125" onClick={() => setFilterDropdownOpen(false)} />
               <div
-                className="fixed w-72 bg-white border border-gray-200 rounded-xl shadow-xl z-130 p-3 space-y-3 overflow-y-auto"
+                className="fixed w-72 bg-zinc-900 border border-zinc-800 rounded-xl shadow-xl z-130 p-3 space-y-3 overflow-y-auto"
                 style={{
                   top: filterDropdownPos.top,
                   left: filterDropdownPos.left,
@@ -1066,7 +1066,7 @@ export default function CampaignTable({
                 />
                 {/* Type */}
                 <div>
-                  <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide mb-1.5">
+                  <p className="text-[11px] font-semibold text-zinc-500 uppercase tracking-wide mb-1.5">
                     Type
                   </p>
                   <div className="flex flex-wrap gap-1">
@@ -1080,7 +1080,7 @@ export default function CampaignTable({
                         className={`px-2 py-0.5 rounded-full text-[12px] font-medium transition ${
                           typeFilter === t
                             ? "bg-emerald-600 text-white"
-                            : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                            : "bg-zinc-800 text-zinc-400 hover:bg-zinc-800"
                         }`}
                       >
                         {t}
@@ -1090,7 +1090,7 @@ export default function CampaignTable({
                 </div>
                 {/* Status — below the numeric filter per spec */}
                 <div>
-                  <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide mb-1.5">
+                  <p className="text-[11px] font-semibold text-zinc-500 uppercase tracking-wide mb-1.5">
                     Status
                   </p>
                   <div className="flex flex-wrap gap-1">
@@ -1105,7 +1105,7 @@ export default function CampaignTable({
                         className={`px-2 py-0.5 rounded-full text-[12px] font-medium transition ${
                           statusFilter === v
                             ? "bg-emerald-600 text-white"
-                            : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                            : "bg-zinc-800 text-zinc-400 hover:bg-zinc-800"
                         }`}
                       >
                         {label}
@@ -1122,7 +1122,7 @@ export default function CampaignTable({
                       onStatusFilter("Status");
                       onMetricFilter(METRIC_FILTER_NONE);
                     }}
-                    className="w-full text-[12px] text-red-500 hover:text-red-700 transition text-center pt-1 border-t border-gray-100"
+                    className="w-full text-[12px] text-red-500 hover:text-red-700 transition text-center pt-1 border-t border-zinc-800"
                   >
                     Clear filters
                   </button>

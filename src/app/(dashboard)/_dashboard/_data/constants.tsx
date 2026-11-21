@@ -412,7 +412,7 @@ export const TYPE_COLORS_MAP: Record<string, string> = {
   App: "#22D3EE",
   Smart: "#FBBF24",
   Local: "#A3E635",
-  Other: "#9CA3AF",
+  Other: "#71717A",
 };
 
 // Map a Google Ads advertising_channel_type enum (or Windsor string) to a short
@@ -490,43 +490,43 @@ export const TYPE_TO_GROUPS: Record<string, string[]> = {
 // ─── Timeline data (static — event log independent of period) ────────────────
 
 export const tlEventItems = [
-  { date: "Mar 30", bg: "bg-orange-100", icon: "🎉" },
-  { date: "Apr 1", bg: "bg-emerald-100", icon: "📅" },
-  { date: "Apr 2", bg: "bg-red-100", icon: "🎂" },
-  { date: "Apr 4", bg: "bg-green-100", icon: "🛍️" },
-  { date: "Apr 5", bg: "bg-purple-100", icon: "⭐" },
-  { date: "Apr 8", bg: "bg-pink-100", icon: "🎂" },
-  { date: "Apr 10", bg: "bg-emerald-100", icon: "📅" },
-  { date: "Apr 11", bg: "bg-orange-100", icon: "🎉" },
+  { date: "Mar 30", bg: "bg-orange-500/10", icon: "🎉" },
+  { date: "Apr 1", bg: "bg-emerald-500/10", icon: "📅" },
+  { date: "Apr 2", bg: "bg-red-500/10", icon: "🎂" },
+  { date: "Apr 4", bg: "bg-green-500/10", icon: "🛍️" },
+  { date: "Apr 5", bg: "bg-purple-500/10", icon: "⭐" },
+  { date: "Apr 8", bg: "bg-pink-500/10", icon: "🎂" },
+  { date: "Apr 10", bg: "bg-emerald-500/10", icon: "📅" },
+  { date: "Apr 11", bg: "bg-orange-500/10", icon: "🎉" },
 ];
 
 export const tlAdItems = [
-  { date: "Mar 30", bg: "bg-emerald-100", count: 5 },
-  { date: "Mar 31", bg: "bg-orange-100", count: 5 },
-  { date: "Apr 1", bg: "bg-green-100", count: 6 },
-  { date: "Apr 2", bg: "bg-red-100", count: 5 },
-  { date: "Apr 3", bg: "bg-purple-100", count: 5 },
-  { date: "Apr 4", bg: "bg-emerald-100", count: 8 },
-  { date: "Apr 5", bg: "bg-orange-100", count: 5 },
-  { date: "Apr 6", bg: "bg-green-100", count: 6 },
-  { date: "Apr 7", bg: "bg-red-100", count: 3 },
-  { date: "Apr 8", bg: "bg-purple-100", count: 3 },
-  { date: "Apr 9", bg: "bg-emerald-100", count: 5 },
-  { date: "Apr 10", bg: "bg-orange-100", count: 6 },
-  { date: "Apr 11", bg: "bg-red-100", count: 3 },
-  { date: "Apr 12", bg: "bg-green-100", count: 4 },
+  { date: "Mar 30", bg: "bg-emerald-500/10", count: 5 },
+  { date: "Mar 31", bg: "bg-orange-500/10", count: 5 },
+  { date: "Apr 1", bg: "bg-green-500/10", count: 6 },
+  { date: "Apr 2", bg: "bg-red-500/10", count: 5 },
+  { date: "Apr 3", bg: "bg-purple-500/10", count: 5 },
+  { date: "Apr 4", bg: "bg-emerald-500/10", count: 8 },
+  { date: "Apr 5", bg: "bg-orange-500/10", count: 5 },
+  { date: "Apr 6", bg: "bg-green-500/10", count: 6 },
+  { date: "Apr 7", bg: "bg-red-500/10", count: 3 },
+  { date: "Apr 8", bg: "bg-purple-500/10", count: 3 },
+  { date: "Apr 9", bg: "bg-emerald-500/10", count: 5 },
+  { date: "Apr 10", bg: "bg-orange-500/10", count: 6 },
+  { date: "Apr 11", bg: "bg-red-500/10", count: 3 },
+  { date: "Apr 12", bg: "bg-green-500/10", count: 4 },
 ];
 
 export const tlWebItems = [
-  { date: "Mar 31", bg: "bg-teal-100", icon: "🌐" },
-  { date: "Apr 1", bg: "bg-emerald-100", icon: "🔧" },
-  { date: "Apr 3", bg: "bg-orange-100", icon: "💻" },
-  { date: "Apr 5", bg: "bg-teal-100", icon: "🌐" },
-  { date: "Apr 7", bg: "bg-sky-100", icon: "🌐" },
-  { date: "Apr 9", bg: "bg-pink-100", icon: "🔗" },
-  { date: "Apr 10", bg: "bg-teal-100", icon: "💻" },
-  { date: "Apr 11", bg: "bg-red-100", icon: "🌐" },
-  { date: "Apr 12", bg: "bg-purple-100", icon: "📊" },
+  { date: "Mar 31", bg: "bg-teal-500/10", icon: "🌐" },
+  { date: "Apr 1", bg: "bg-emerald-500/10", icon: "🔧" },
+  { date: "Apr 3", bg: "bg-orange-500/10", icon: "💻" },
+  { date: "Apr 5", bg: "bg-teal-500/10", icon: "🌐" },
+  { date: "Apr 7", bg: "bg-sky-500/10", icon: "🌐" },
+  { date: "Apr 9", bg: "bg-pink-500/10", icon: "🔗" },
+  { date: "Apr 10", bg: "bg-teal-500/10", icon: "💻" },
+  { date: "Apr 11", bg: "bg-red-500/10", icon: "🌐" },
+  { date: "Apr 12", bg: "bg-purple-500/10", icon: "📊" },
 ];
 
 // ─── Segments data ───────────────────────────────────────────────────────────

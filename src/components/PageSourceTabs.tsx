@@ -85,15 +85,15 @@ export default function PageSourceTabs({
       <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3 mb-3 px-1 empty:mb-0">
         {/* Hidden on a phone: the top bar already names the section there, so
             the page heading would just repeat it. Kept from sm up. */}
-        <h1 className="hidden sm:block text-[22px] sm:text-[26px] font-bold text-[#101828] leading-tight">
+        <h1 className="hidden sm:block text-[22px] sm:text-[26px] font-bold text-[#F4F4F5] leading-tight">
           {title}
         </h1>
         {actions && <div className="flex items-center gap-2 flex-wrap">{actions}</div>}
       </div>
 
-      <div className="bg-white rounded-2xl border border-gray-200 px-4 sm:px-5 pt-1 pb-4 sm:pb-5 mb-4">
+      <div className="bg-zinc-900 rounded-2xl border border-zinc-800 px-4 sm:px-5 pt-1 pb-4 sm:pb-5 mb-4">
         {tabs.length === 0 ? (
-          <p className="text-[13px] text-gray-500 py-3">
+          <p className="text-[13px] text-zinc-400 py-3">
             No connected platform has {title} switched on. An admin can enable it under Data source
             configuration.
           </p>
@@ -105,7 +105,7 @@ export default function PageSourceTabs({
             // Scrolls sideways only. overflow-y-hidden matters: with overflow-x
             // set to auto, CSS computes overflow-y to auto as well, which let the
             // strip be dragged VERTICALLY a few pixels on a phone — the bug.
-            <div className="flex gap-1 overflow-x-auto overflow-y-hidden scrollbar-none border-b border-gray-100 mb-4">
+            <div className="flex gap-1 overflow-x-auto overflow-y-hidden scrollbar-none border-b border-zinc-800 mb-4">
               {tabs.map((id) => {
                 const on = id === activeConnector;
                 return (
@@ -114,8 +114,8 @@ export default function PageSourceTabs({
                     onClick={() => setActiveConnector(id)}
                     className={`flex items-center gap-2 text-[13.5px] font-medium px-3 py-2.5 -mb-px border-b-2 whitespace-nowrap transition ${
                       on
-                        ? "border-[#047857] text-[#047857]"
-                        : "border-transparent text-[#6a7282] hover:text-[#364153]"
+                        ? "border-[#34D399] text-[#34D399]"
+                        : "border-transparent text-[#71717A] hover:text-[#A1A1AA]"
                     }`}
                   >
                     <ConnectorBrandIcon id={id} size={15} />

@@ -10,7 +10,7 @@ import {
 } from "@/lib/connectors";
 
 const inputCls =
-  "w-full border border-gray-200 rounded-lg px-3 py-2 text-[13px] text-gray-700 outline-none focus:border-emerald-400";
+  "w-full border border-zinc-800 rounded-lg px-3 py-2 text-[13px] text-zinc-300 outline-none focus:border-emerald-400";
 
 let nextId = 0;
 const makeId = () => `tbl_${Date.now()}_${nextId++}`;
@@ -85,10 +85,10 @@ function TableEditor({
   const hiddenMetricRows = metricRows.filter((r) => !r.visible);
 
   return (
-    <div className="px-5 py-4 space-y-3.5 bg-gray-50/50 border-t border-gray-100">
+    <div className="px-5 py-4 space-y-3.5 bg-zinc-900/50 border-t border-zinc-800">
       <div className="grid grid-cols-2 gap-3">
         <div>
-          <label className="text-[12px] font-medium text-gray-500 block mb-1">Table Name</label>
+          <label className="text-[12px] font-medium text-zinc-400 block mb-1">Table Name</label>
           <input
             value={table.name}
             onChange={(e) => onChange({ ...table, name: e.target.value })}
@@ -96,13 +96,13 @@ function TableEditor({
           />
         </div>
         <div>
-          <label className="text-[12px] font-medium text-gray-500 block mb-1">
+          <label className="text-[12px] font-medium text-zinc-400 block mb-1">
             Primary Dimension
           </label>
           <select
             value={table.primaryDimension}
             onChange={(e) => onChange({ ...table, primaryDimension: e.target.value })}
-            className={inputCls + " bg-white cursor-pointer"}
+            className={inputCls + " bg-zinc-900 cursor-pointer"}
           >
             {dims.map((d) => (
               <option key={d.key} value={d.key}>
@@ -114,9 +114,9 @@ function TableEditor({
       </div>
 
       <div>
-        <label className="text-[12px] font-medium text-gray-500 block mb-1">
+        <label className="text-[12px] font-medium text-zinc-400 block mb-1">
           Additional Dimensions{" "}
-          <span className="text-gray-400 font-normal">(shown as tabs above the table)</span>
+          <span className="text-zinc-500 font-normal">(shown as tabs above the table)</span>
         </label>
         <div className="flex flex-wrap gap-1.5">
           {table.additionalDimensions.map((key) => {
@@ -124,7 +124,7 @@ function TableEditor({
             return (
               <span
                 key={key}
-                className="flex items-center gap-1 text-[12px] bg-white border border-gray-200 rounded-lg px-2 py-1"
+                className="flex items-center gap-1 text-[12px] bg-zinc-900 border border-zinc-800 rounded-lg px-2 py-1"
               >
                 {d?.singular ?? key}
                 <button
@@ -134,7 +134,7 @@ function TableEditor({
                       additionalDimensions: table.additionalDimensions.filter((k) => k !== key),
                     })
                   }
-                  className="text-gray-300 hover:text-red-400"
+                  className="text-zinc-600 hover:text-red-400"
                 >
                   <svg
                     width="10"
@@ -161,7 +161,7 @@ function TableEditor({
                     additionalDimensions: [...table.additionalDimensions, e.target.value],
                   });
               }}
-              className="text-[12px] border border-dashed border-emerald-200 text-emerald-600 rounded-lg px-2 py-1 bg-white cursor-pointer"
+              className="text-[12px] border border-dashed border-emerald-500/20 text-emerald-600 rounded-lg px-2 py-1 bg-zinc-900 cursor-pointer"
             >
               <option value="">+ Add dimension</option>
               {availableDims.map((d) => (
@@ -175,10 +175,10 @@ function TableEditor({
       </div>
 
       <div>
-        <label className="text-[12px] font-medium text-gray-500 block mb-1.5">Metric Columns</label>
-        <div className="bg-white rounded-lg border border-gray-200 divide-y divide-gray-50">
+        <label className="text-[12px] font-medium text-zinc-400 block mb-1.5">Metric Columns</label>
+        <div className="bg-zinc-900 rounded-lg border border-zinc-800 divide-y divide-gray-50">
           {visibleMetricRows.length === 0 && (
-            <p className="px-3 py-3 text-[12px] text-gray-400">No columns yet — add one below.</p>
+            <p className="px-3 py-3 text-[12px] text-zinc-500">No columns yet — add one below.</p>
           )}
           {visibleMetricRows.map((r, i) => (
             <div key={r.key} className="flex items-center gap-2 px-3 py-2">
@@ -186,7 +186,7 @@ function TableEditor({
                 <button
                   onClick={() => moveMetric(i, -1)}
                   disabled={i === 0}
-                  className="text-gray-300 hover:text-gray-600 disabled:opacity-30 leading-none"
+                  className="text-zinc-600 hover:text-zinc-400 disabled:opacity-30 leading-none"
                 >
                   <svg
                     width="12"
@@ -202,7 +202,7 @@ function TableEditor({
                 <button
                   onClick={() => moveMetric(i, 1)}
                   disabled={i === visibleMetricRows.length - 1}
-                  className="text-gray-300 hover:text-gray-600 disabled:opacity-30 leading-none"
+                  className="text-zinc-600 hover:text-zinc-400 disabled:opacity-30 leading-none"
                 >
                   <svg
                     width="12"
@@ -216,10 +216,10 @@ function TableEditor({
                   </svg>
                 </button>
               </div>
-              <span className="flex-1 text-[13px] text-gray-700">{r.label}</span>
+              <span className="flex-1 text-[13px] text-zinc-300">{r.label}</span>
               <button
                 onClick={() => toggleMetric(r.key)}
-                className="text-[11px] text-gray-400 hover:text-red-500"
+                className="text-[11px] text-zinc-500 hover:text-red-500"
               >
                 Remove
               </button>
@@ -231,7 +231,7 @@ function TableEditor({
                 <button
                   key={r.key}
                   onClick={() => toggleMetric(r.key)}
-                  className="text-[11px] font-medium text-emerald-600 border border-dashed border-emerald-200 rounded-lg px-2 py-1 hover:bg-emerald-50"
+                  className="text-[11px] font-medium text-emerald-600 border border-dashed border-emerald-500/20 rounded-lg px-2 py-1 hover:bg-emerald-500/10"
                 >
                   + {r.label}
                 </button>
@@ -245,19 +245,19 @@ function TableEditor({
         <button
           type="button"
           onClick={() => onChange({ ...table, crossFiltering: !table.crossFiltering })}
-          className="flex items-center justify-between gap-3 border border-gray-200 rounded-lg px-3 py-2 hover:bg-white transition bg-white"
+          className="flex items-center justify-between gap-3 border border-zinc-800 rounded-lg px-3 py-2 hover:bg-zinc-900 transition bg-zinc-900"
         >
-          <span className="text-[13px] font-medium text-gray-700">Cross-filtering</span>
+          <span className="text-[13px] font-medium text-zinc-300">Cross-filtering</span>
           <span
-            className={`w-9 h-5 rounded-full p-0.5 transition shrink-0 ${table.crossFiltering ? "bg-emerald-600" : "bg-gray-200"}`}
+            className={`w-9 h-5 rounded-full p-0.5 transition shrink-0 ${table.crossFiltering ? "bg-emerald-600" : "bg-zinc-800"}`}
           >
             <span
-              className={`block w-4 h-4 rounded-full bg-white transition-transform ${table.crossFiltering ? "translate-x-4" : ""}`}
+              className={`block w-4 h-4 rounded-full bg-zinc-900 transition-transform ${table.crossFiltering ? "translate-x-4" : ""}`}
             />
           </span>
         </button>
         <div>
-          <label className="text-[12px] font-medium text-gray-500 block mb-1">Default Sort</label>
+          <label className="text-[12px] font-medium text-zinc-400 block mb-1">Default Sort</label>
           <div className="flex gap-1.5">
             <select
               value={table.defaultSort?.key ?? ""}
@@ -270,7 +270,7 @@ function TableEditor({
                     : null,
                 });
               }}
-              className={inputCls + " bg-white cursor-pointer flex-1"}
+              className={inputCls + " bg-zinc-900 cursor-pointer flex-1"}
             >
               <option value="">Table default</option>
               {visibleMetricRows.map((r) => (
@@ -290,7 +290,7 @@ function TableEditor({
                     : null,
                 })
               }
-              className={inputCls + " bg-white cursor-pointer w-28 disabled:opacity-40"}
+              className={inputCls + " bg-zinc-900 cursor-pointer w-28 disabled:opacity-40"}
             >
               <option value="desc">Descending</option>
               <option value="asc">Ascending</option>
@@ -339,17 +339,17 @@ export default function TableWidgetsPanel({
 
   return (
     <div>
-      <p className="px-5 pt-5 pb-1 text-[11px] font-bold text-gray-400 uppercase tracking-widest border-t border-gray-100">
+      <p className="px-5 pt-5 pb-1 text-[11px] font-bold text-zinc-500 uppercase tracking-widest border-t border-zinc-800">
         Table Widgets
       </p>
-      <p className="px-5 pb-2 text-[11px] text-gray-400">
+      <p className="px-5 pb-2 text-[11px] text-zinc-500">
         Independent tables with their own dimension tabs, metric columns, cross-filtering and
         default sort. When any exist for this source, they replace the built-in Extended Analytics
         list above on the user dashboard.
       </p>
       <div className="divide-y divide-gray-50">
         {sorted.length === 0 && (
-          <p className="px-5 py-4 text-[12px] text-gray-400">
+          <p className="px-5 py-4 text-[12px] text-zinc-500">
             No table widgets yet — the dashboard uses the built-in Tables list above.
           </p>
         )}
@@ -360,7 +360,7 @@ export default function TableWidgetsPanel({
                 <button
                   onClick={() => move(i, -1)}
                   disabled={i === 0}
-                  className="text-gray-300 hover:text-gray-600 disabled:opacity-30 leading-none"
+                  className="text-zinc-600 hover:text-zinc-400 disabled:opacity-30 leading-none"
                 >
                   <svg
                     width="14"
@@ -376,7 +376,7 @@ export default function TableWidgetsPanel({
                 <button
                   onClick={() => move(i, 1)}
                   disabled={i === sorted.length - 1}
-                  className="text-gray-300 hover:text-gray-600 disabled:opacity-30 leading-none"
+                  className="text-zinc-600 hover:text-zinc-400 disabled:opacity-30 leading-none"
                 >
                   <svg
                     width="14"
@@ -404,7 +404,7 @@ export default function TableWidgetsPanel({
                   value={t.name}
                   onClick={(e) => e.stopPropagation()}
                   onChange={(e) => rename(t.id, e.target.value)}
-                  className={`w-full text-[13px] border border-transparent hover:border-gray-200 focus:border-emerald-400 rounded-lg px-2 py-1 outline-none ${t.enabled ? "text-gray-800" : "text-gray-400 line-through"}`}
+                  className={`w-full text-[13px] border border-transparent hover:border-zinc-800 focus:border-emerald-400 rounded-lg px-2 py-1 outline-none ${t.enabled ? "text-zinc-200" : "text-zinc-500 line-through"}`}
                 />
               </button>
               <button
@@ -415,7 +415,7 @@ export default function TableWidgetsPanel({
               </button>
               <button
                 onClick={() => remove(t.id)}
-                className="text-gray-300 hover:text-red-400 shrink-0"
+                className="text-zinc-600 hover:text-red-400 shrink-0"
               >
                 <svg
                   width="14"
@@ -444,7 +444,7 @@ export default function TableWidgetsPanel({
       <div className="px-5 py-3.5">
         <button
           onClick={add}
-          className="flex items-center gap-1.5 text-[12px] font-semibold text-emerald-600 border border-dashed border-emerald-200 rounded-lg px-3 py-1.5 hover:bg-emerald-50 transition"
+          className="flex items-center gap-1.5 text-[12px] font-semibold text-emerald-600 border border-dashed border-emerald-500/20 rounded-lg px-3 py-1.5 hover:bg-emerald-500/10 transition"
         >
           <svg
             width="12"

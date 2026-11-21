@@ -29,12 +29,12 @@ function PasswordStrength({ password }: { password: string }) {
         {[0, 1, 2, 3].map((i) => (
           <div
             key={i}
-            className={`h-1 flex-1 rounded-full transition-all ${i < score ? colors[score - 1] : "bg-gray-200"}`}
+            className={`h-1 flex-1 rounded-full transition-all ${i < score ? colors[score - 1] : "bg-zinc-800"}`}
           />
         ))}
       </div>
       <p
-        className={`text-[11px] font-medium ${["text-red-500", "text-orange-500", "text-yellow-600", "text-green-600"][score - 1] ?? "text-gray-400"}`}
+        className={`text-[11px] font-medium ${["text-red-500", "text-orange-500", "text-yellow-600", "text-green-600"][score - 1] ?? "text-zinc-500"}`}
       >
         {score > 0 ? labels[score - 1] : ""}
       </p>
@@ -138,18 +138,18 @@ export default function RegisterPage() {
   };
 
   const fieldClass = (field: keyof Errors, extra = "") =>
-    `w-full py-2.5 text-[14px] border rounded-lg outline-none transition text-gray-700 placeholder-gray-400 ${extra} ${
+    `w-full py-2.5 text-[14px] border rounded-lg outline-none transition text-zinc-300 placeholder-zinc-600 ${extra} ${
       touched[field] && errors[field]
-        ? "border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-100"
-        : "border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
+        ? "border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-500/20"
+        : "border-zinc-800 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
     }`;
 
   if (success) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-[#e8ecf5] px-4">
+      <div className="min-h-screen flex flex-col items-center justify-center px-4">
         <BrandLogo />
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 w-full max-w-[400px] text-center">
-          <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <div className="card-elevate rounded-2xl p-8 w-full max-w-[400px] text-center">
+          <div className="w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
             <svg
               width="24"
               height="24"
@@ -163,29 +163,29 @@ export default function RegisterPage() {
               <polyline points="20 6 9 17 4 12" />
             </svg>
           </div>
-          <h2 className="text-[18px] font-semibold text-gray-900 mb-2">Account created!</h2>
-          <p className="text-[14px] text-gray-500">Redirecting you to the dashboard…</p>
+          <h2 className="text-[18px] font-semibold text-zinc-100 mb-2">Account created!</h2>
+          <p className="text-[14px] text-zinc-400">Redirecting you to the dashboard…</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-[#e8ecf5] px-4 py-10">
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-10">
       <BrandLogo />
 
-      <h1 className="text-[20px] font-semibold text-gray-900 mb-1">Create your account</h1>
-      <p className="text-[14px] text-gray-500 mb-6 text-center">
+      <h1 className="text-[20px] font-semibold text-zinc-100 mb-1">Create your account</h1>
+      <p className="text-[14px] text-zinc-400 mb-6 text-center">
         Transform data chaos into confident growth decisions
       </p>
 
       <form
         onSubmit={handleSubmit}
         noValidate
-        className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 sm:p-8 w-full max-w-[400px]"
+        className="card-elevate rounded-2xl p-5 sm:p-8 w-full max-w-[400px]"
       >
         {serverError && (
-          <div className="mb-4 px-3 py-2.5 bg-red-50 border border-red-200 rounded-lg text-[13px] text-red-600 flex items-center gap-2">
+          <div className="mb-4 px-3 py-2.5 bg-red-500/10 border border-red-500/20 rounded-lg text-[13px] text-red-600 flex items-center gap-2">
             <svg
               width="14"
               height="14"
@@ -205,7 +205,7 @@ export default function RegisterPage() {
         {/* Full Name */}
         <div className="mb-4">
           <div className="relative">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500">
               <svg
                 width="16"
                 height="16"
@@ -233,7 +233,7 @@ export default function RegisterPage() {
         {/* Email */}
         <div className="mb-4">
           <div className="relative">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500">
               <svg
                 width="16"
                 height="16"
@@ -261,7 +261,7 @@ export default function RegisterPage() {
         {/* Password */}
         <div className="mb-4">
           <div className="relative">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500">
               <svg
                 width="15"
                 height="15"
@@ -285,7 +285,7 @@ export default function RegisterPage() {
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-400 transition"
             >
               {showPassword ? (
                 <svg
@@ -319,7 +319,6 @@ export default function RegisterPage() {
           <ErrorMsg message={touched.password ? errors.password : undefined} />
         </div>
 
-
         <button
           type="submit"
           disabled={loading}
@@ -346,9 +345,9 @@ export default function RegisterPage() {
           )}
         </button>
 
-        <p className="text-center text-[13px] text-gray-500">
+        <p className="text-center text-[13px] text-zinc-400">
           Already have an account?{" "}
-          <Link href="/login" className="text-emerald-600 font-medium hover:underline">
+          <Link href="/login" className="text-emerald-400 font-medium hover:underline">
             Sign in
           </Link>
         </p>

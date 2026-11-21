@@ -19,8 +19,8 @@ interface TypeMeta {
 export const EVENT_TYPES: Record<EventType, TypeMeta> = {
   holidays: {
     label: "Holidays",
-    color: "#059669",
-    bg: "#EFF6FF",
+    color: "#10B981",
+    bg: "rgba(59,130,246,0.12)",
     auto: true,
     icon: (
       <svg
@@ -61,7 +61,7 @@ export const EVENT_TYPES: Record<EventType, TypeMeta> = {
   website: {
     label: "Website",
     color: "#E60076",
-    bg: "#FDF2F8",
+    bg: "rgba(236,72,153,0.12)",
     auto: false,
     icon: (
       <svg
@@ -81,7 +81,7 @@ export const EVENT_TYPES: Record<EventType, TypeMeta> = {
   products: {
     label: "Products",
     color: "#0084D1",
-    bg: "#F0F9FF",
+    bg: "rgba(14,165,233,0.12)",
     auto: false,
     icon: (
       <svg
@@ -101,7 +101,7 @@ export const EVENT_TYPES: Record<EventType, TypeMeta> = {
   ads: {
     label: "Ads",
     color: "#7F22FE",
-    bg: "#F5F3FF",
+    bg: "rgba(139,92,246,0.12)",
     auto: true,
     // Exclamation-in-circle, the same alert glyph the timeline uses for anomalies
     // (ANOMALY_META) — not the old star and not a megaphone: this marks changes /
@@ -317,7 +317,7 @@ function toMarker(ev: CustomEvent, autoSourceLabel?: string): TimelineMarker {
 const ANOMALY_META: TypeMeta = {
   label: "Anomaly",
   color: "#D97706",
-  bg: "#FFFBEB",
+  bg: "rgba(245,158,11,0.12)",
   auto: true,
   icon: (
     <svg
@@ -489,7 +489,7 @@ function Popover({
       <div
         ref={ref}
         style={{ left: pos.left, top: pos.top }}
-        className="fixed z-[999] w-64 max-h-[60vh] overflow-y-auto bg-gray-900 text-white rounded-xl shadow-2xl p-2.5"
+        className="fixed z-[999] w-64 max-h-[60vh] overflow-y-auto bg-zinc-950 text-white rounded-xl shadow-2xl p-2.5"
         onClick={(e) => e.stopPropagation()}
       >
         {state.markers.map((m) => {
@@ -511,22 +511,22 @@ function Popover({
                     {meta.label}
                   </p>
                   <p className="text-[12px] font-semibold leading-tight">{m.title}</p>
-                  <p className="text-[10px] text-gray-400 mt-0.5">
+                  <p className="text-[10px] text-zinc-500 mt-0.5">
                     {range}
                     {m.ongoing && (
                       <span className="ml-1 text-emerald-400 font-medium">• Ongoing</span>
                     )}
                   </p>
                   {m.desc && (
-                    <p className="text-[11px] text-gray-200 mt-1 leading-snug">{m.desc}</p>
+                    <p className="text-[11px] text-zinc-600 mt-1 leading-snug">{m.desc}</p>
                   )}
-                  <p className="text-[10px] text-gray-500 mt-1">Created by: {m.createdBy}</p>
+                  <p className="text-[10px] text-zinc-400 mt-1">Created by: {m.createdBy}</p>
                 </div>
                 {m.deletable && state.pinned && onEdit && (
                   <button
                     onClick={() => onEdit(m)}
                     title="Edit event"
-                    className="shrink-0 w-6 h-6 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition"
+                    className="shrink-0 w-6 h-6 rounded-lg flex items-center justify-center text-zinc-500 hover:text-white hover:bg-zinc-900/10 transition"
                   >
                     <svg
                       width="13"
@@ -602,7 +602,7 @@ export default function Timeline({
   const compact = isMobile;
   if (isMobile && dates.length > 31) {
     return (
-      <div className="mt-1 border-t border-gray-100 pt-3 pb-2 flex items-center justify-center gap-2 text-gray-400">
+      <div className="mt-1 border-t border-zinc-800 pt-3 pb-2 flex items-center justify-center gap-2 text-zinc-500">
         <svg
           width="15"
           height="15"
@@ -639,8 +639,8 @@ export default function Timeline({
   };
 
   return (
-    <div className="mt-3 border-t border-gray-100 pt-4 pb-3">
-      {/* Header — Figma spec: title 14px/Regular #101828, subtitle 12px #6a7282,
+    <div className="mt-3 border-t border-zinc-800 pt-4 pb-3">
+      {/* Header — Figma spec: title 14px/Regular #F4F4F5, subtitle 12px #71717A,
           gradient count pill, 28px squircle category icons, a vertical divider,
           then the Add Event button. */}
       <div
@@ -659,7 +659,7 @@ export default function Timeline({
           }}
           className="flex items-start gap-2 cursor-pointer select-none group"
         >
-          <span className="text-gray-400 group-hover:text-gray-600 mt-0.5 transition-colors">
+          <span className="text-zinc-500 group-hover:text-zinc-400 mt-0.5 transition-colors">
             <svg
               width="14"
               height="14"
@@ -674,7 +674,7 @@ export default function Timeline({
           </span>
           <div>
             <div className="flex items-center gap-1.5">
-              <span className="text-[14px] font-normal text-[#101828] leading-[20px] tracking-[-0.15px]">
+              <span className="text-[14px] font-normal text-[#F4F4F5] leading-[20px] tracking-[-0.15px]">
                 Event Timeline
               </span>
               {/* Count badge ALWAYS shown — including 0 — so the user immediately sees
@@ -682,15 +682,15 @@ export default function Timeline({
               <span
                 className={`text-[12px] font-semibold rounded-lg px-2 h-[22px] inline-flex items-center leading-none ${
                   total > 0
-                    ? "text-[#047857] bg-linear-to-r from-[#eff6ff] to-[#eef2ff] border border-[#bedbff]"
-                    : "text-gray-400 bg-gray-50 border border-gray-200"
+                    ? "text-[#34D399] bg-linear-to-r from-[rgba(59,130,246,0.12)] to-[rgba(99,102,241,0.12)] border border-blue-500/25"
+                    : "text-zinc-500 bg-zinc-900 border border-zinc-800"
                 }`}
               >
                 {total}
               </span>
               {!compact && (
                 <span
-                  className="text-gray-400"
+                  className="text-zinc-500"
                   title="Holidays & Ads are automatic; add promotions, website, product & custom events yourself"
                 >
                   <svg
@@ -708,9 +708,9 @@ export default function Timeline({
                 </span>
               )}
             </div>
-            {/* Subtitle hidden on mobile (#2) — Figma: 12px #6a7282 */}
+            {/* Subtitle hidden on mobile (#2) — Figma: 12px #71717A */}
             {!compact && (
-              <p className="text-[12px] text-[#6a7282] mt-0.5">
+              <p className="text-[12px] text-[#71717A] mt-0.5">
                 Holidays, promotions, website, products, and Ads changes
               </p>
             )}
@@ -741,7 +741,7 @@ export default function Timeline({
                       {meta.icon}
                       {c > 0 && (
                         <span
-                          className="absolute -top-1 -right-1 min-w-[15px] h-[15px] px-1 rounded-full bg-white text-[9px] font-bold flex items-center justify-center ring-1"
+                          className="absolute -top-1 -right-1 min-w-[15px] h-[15px] px-1 rounded-full bg-zinc-900 text-[9px] font-bold flex items-center justify-center ring-1"
                           style={{ color: meta.color, borderColor: meta.color }}
                         >
                           {c}
@@ -754,10 +754,10 @@ export default function Timeline({
             </div>
           )}
           {/* Vertical divider between the category icons and Add Event (Figma) */}
-          {!compact && <div className="bg-[#d1d5dc] h-6 w-px shrink-0" />}
+          {!compact && <div className="bg-[#52525B] h-6 w-px shrink-0" />}
           <button
             onClick={onAddEvent}
-            className="text-[12px] font-medium text-[#364153] border border-[#d1d5dc] rounded-lg px-[11px] py-[7px] hover:bg-gray-50 flex items-center gap-1.5 whitespace-nowrap"
+            className="text-[12px] font-medium text-[#A1A1AA] border border-[#52525B] rounded-lg px-[11px] py-[7px] hover:bg-zinc-900 flex items-center gap-1.5 whitespace-nowrap"
           >
             <svg
               width="14"
@@ -801,7 +801,7 @@ export default function Timeline({
                     {dates.map((d, i) => (
                       <div
                         key={i}
-                        className={`absolute top-0 text-[10px] whitespace-nowrap -translate-x-1/2 ${cols[i]?.markers.length ? "text-gray-700 font-semibold" : "text-gray-300"}`}
+                        className={`absolute top-0 text-[10px] whitespace-nowrap -translate-x-1/2 ${cols[i]?.markers.length ? "text-zinc-300 font-semibold" : "text-zinc-600"}`}
                         style={{
                           left: `${dates.length > 1 ? (i / (dates.length - 1)) * 100 : 50}%`,
                         }}
@@ -819,7 +819,7 @@ export default function Timeline({
                     return (
                       <div
                         key={i}
-                        className={`flex-1 text-center text-[10px] min-w-0 px-0.5 whitespace-nowrap ${cols[i]?.markers.length ? "text-gray-700 font-semibold" : "text-gray-300"}`}
+                        className={`flex-1 text-center text-[10px] min-w-0 px-0.5 whitespace-nowrap ${cols[i]?.markers.length ? "text-zinc-300 font-semibold" : "text-zinc-600"}`}
                       >
                         {show ? formatTimelineDateLabel(d) : ""}
                       </div>
@@ -831,7 +831,7 @@ export default function Timeline({
 
           <div className="flex items-start py-1.5 relative">
             <div
-              className={`absolute right-0 top-[19px] border-t border-dashed border-gray-100 z-0 ${chartAlign ? "left-0" : "left-[45px]"}`}
+              className={`absolute right-0 top-[19px] border-t border-dashed border-zinc-800 z-0 ${chartAlign ? "left-0" : "left-[45px]"}`}
             />
             <div
               className={`flex-1 relative z-10 min-w-0 ${chartAlign ? "min-h-[34px]" : "flex justify-between items-start"}`}
@@ -856,7 +856,7 @@ export default function Timeline({
                       style={chartAlign ? { left: `${at}%` } : undefined}
                     >
                       {n === 0 ? (
-                        <span className="w-[3px] h-[3px] rounded-full bg-gray-100 mt-[17px]" />
+                        <span className="w-[3px] h-[3px] rounded-full bg-zinc-800 mt-[17px]" />
                       ) : (
                         <button
                           onClick={(e) => openPopover(e, col.markers)}
@@ -899,7 +899,7 @@ export default function Timeline({
                               })}
                               {n > (compact ? 2 : 3) && (
                                 <span
-                                  className={`rounded-full flex items-center justify-center font-bold text-white ring-2 ring-white shadow-sm bg-gray-500 ${compact ? "w-[22px] h-[22px] text-[10px]" : "w-[28px] h-[28px] text-[11px]"}`}
+                                  className={`rounded-full flex items-center justify-center font-bold text-white ring-2 ring-white shadow-sm bg-zinc-600 ${compact ? "w-[22px] h-[22px] text-[10px]" : "w-[28px] h-[28px] text-[11px]"}`}
                                 >
                                   +{n - (compact ? 2 : 3)}
                                 </span>
@@ -930,9 +930,9 @@ export default function Timeline({
           </div>
 
           {total === 0 && (
-            <p className="text-[11px] text-gray-400 text-center mt-1">
+            <p className="text-[11px] text-zinc-500 text-center mt-1">
               No events in this period. Click{" "}
-              <span className="font-medium text-gray-500">Add Event</span> to mark a change.
+              <span className="font-medium text-zinc-400">Add Event</span> to mark a change.
               Holidays are added automatically.
             </p>
           )}
@@ -970,13 +970,13 @@ export default function Timeline({
                 className="fixed z-[200] -translate-x-1/2 pointer-events-none"
                 style={{ left: catTip.x, top: catTip.y }}
               >
-                <div className="bg-gray-900 text-white rounded-lg px-2.5 py-1.5 shadow-lg whitespace-nowrap">
+                <div className="bg-zinc-950 text-white rounded-lg px-2.5 py-1.5 shadow-lg whitespace-nowrap">
                   <div className="text-[11px] font-semibold flex items-center gap-1.5">
                     <span style={{ color: meta.color }}>{meta.icon}</span>
                     {meta.label}
-                    <span className="text-gray-400 font-bold">{c}</span>
+                    <span className="text-zinc-500 font-bold">{c}</span>
                   </div>
-                  <div className="text-[10px] text-gray-400 leading-tight">
+                  <div className="text-[10px] text-zinc-500 leading-tight">
                     {off ? "Click to show" : "Click to hide"} · {c} {c === 1 ? "event" : "events"}
                   </div>
                 </div>

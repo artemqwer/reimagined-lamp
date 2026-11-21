@@ -187,7 +187,7 @@ export default function TabContent({
                   onChartMetricOpenChange(!chartMetricOpen);
                   onChartGroupByOpenChange(false);
                 }}
-                className="flex w-full items-center justify-start gap-1 min-w-0 text-[15px] sm:text-[16px] font-medium text-[#101828] tracking-[-0.3px] overflow-hidden cursor-pointer hover:opacity-80 transition"
+                className="flex w-full items-center justify-start gap-1 min-w-0 text-[15px] sm:text-[16px] font-medium text-[#F4F4F5] tracking-[-0.3px] overflow-hidden cursor-pointer hover:opacity-80 transition"
               >
                 <span className="truncate min-w-0">{chartMetricLabel}</span>
                 <svg
@@ -195,7 +195,7 @@ export default function TabContent({
                   height="14"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#6a7282"
+                  stroke="#71717A"
                   strokeWidth="2"
                   className={`shrink-0 transition-transform ${chartMetricOpen ? "rotate-180" : ""}`}
                 >
@@ -208,7 +208,7 @@ export default function TabContent({
                     className="fixed inset-0 z-40"
                     onClick={() => onChartMetricOpenChange(false)}
                   />
-                  <div className="absolute left-0 top-full mt-1.5 w-[155px] bg-white border border-gray-200 rounded-xl shadow-lg z-50 py-1 overflow-hidden animate-in fade-in zoom-in-95 duration-150 origin-top">
+                  <div className="absolute left-0 top-full mt-1.5 w-[155px] bg-zinc-900 border border-zinc-800 rounded-xl shadow-lg z-50 py-1 overflow-hidden animate-in fade-in zoom-in-95 duration-150 origin-top">
                     {CHART_METRICS.map((m) => (
                       <button
                         key={m.key}
@@ -216,7 +216,7 @@ export default function TabContent({
                           onChartMetricChange(m.key);
                           onChartMetricOpenChange(false);
                         }}
-                        className={`w-full text-left px-3 py-2 text-[13px] hover:bg-gray-50 flex items-center gap-2.5 transition ${chartMetric === m.key ? "text-emerald-600 font-semibold bg-emerald-50/60" : "text-gray-700"}`}
+                        className={`w-full text-left px-3 py-2 text-[13px] hover:bg-zinc-900 flex items-center gap-2.5 transition ${chartMetric === m.key ? "text-emerald-600 font-semibold bg-emerald-500/10/60" : "text-zinc-300"}`}
                       >
                         {m.label}
                         {chartMetric === m.key && (
@@ -238,7 +238,7 @@ export default function TabContent({
                 </>
               )}
             </div>
-            <span className="text-[#6a7282] text-[15px] sm:text-[16px] shrink-0">by</span>
+            <span className="text-[#71717A] text-[15px] sm:text-[16px] shrink-0">by</span>
             {/* GroupBy dropdown — same as the metric: min-w-0 + w-full button so it
                 stays compact when short and truncates (never overlaps) when long. */}
             <div className="relative min-w-0">
@@ -247,7 +247,7 @@ export default function TabContent({
                   onChartGroupByOpenChange(!chartGroupByOpen);
                   onChartMetricOpenChange(false);
                 }}
-                className="flex w-full items-center justify-start gap-1 min-w-0 text-[15px] sm:text-[16px] font-medium text-[#101828] tracking-[-0.3px] overflow-hidden cursor-pointer hover:opacity-80 transition"
+                className="flex w-full items-center justify-start gap-1 min-w-0 text-[15px] sm:text-[16px] font-medium text-[#F4F4F5] tracking-[-0.3px] overflow-hidden cursor-pointer hover:opacity-80 transition"
               >
                 <span className="truncate min-w-0">{groupByLabel(chartGroupBy)}</span>
                 <svg
@@ -255,7 +255,7 @@ export default function TabContent({
                   height="14"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#6a7282"
+                  stroke="#71717A"
                   strokeWidth="2"
                   className={`shrink-0 transition-transform ${chartGroupByOpen ? "rotate-180" : ""}`}
                 >
@@ -268,7 +268,7 @@ export default function TabContent({
                     className="fixed inset-0 z-40"
                     onClick={() => onChartGroupByOpenChange(false)}
                   />
-                  <div className="absolute left-0 top-full mt-1.5 w-[175px] bg-white border border-gray-200 rounded-xl shadow-lg z-50 py-1 overflow-hidden animate-in fade-in zoom-in-95 duration-150 origin-top">
+                  <div className="absolute left-0 top-full mt-1.5 w-[175px] bg-zinc-900 border border-zinc-800 rounded-xl shadow-lg z-50 py-1 overflow-hidden animate-in fade-in zoom-in-95 duration-150 origin-top">
                     {CHART_GROUPBY.map((g) => (
                       <button
                         key={g}
@@ -276,7 +276,7 @@ export default function TabContent({
                           onChartGroupByChange(g);
                           onChartGroupByOpenChange(false);
                         }}
-                        className={`w-full text-left px-3 py-2 text-[13px] hover:bg-gray-50 flex items-center gap-2.5 transition ${chartGroupBy === g ? "text-emerald-600 font-semibold bg-emerald-50/60" : "text-gray-700"}`}
+                        className={`w-full text-left px-3 py-2 text-[13px] hover:bg-zinc-900 flex items-center gap-2.5 transition ${chartGroupBy === g ? "text-emerald-600 font-semibold bg-emerald-500/10/60" : "text-zinc-300"}`}
                       >
                         {groupByLabel(g)}
                         {chartGroupBy === g && (
@@ -301,7 +301,7 @@ export default function TabContent({
           </div>
         )}
         {activeTab === 1 && (
-          <p className="text-[13px] text-gray-400 flex-1 min-w-0 truncate">
+          <p className="text-[13px] text-zinc-500 flex-1 min-w-0 truncate">
             Conversion value, profit, cost, clicks &amp; ROAS over time
           </p>
         )}
@@ -318,7 +318,7 @@ export default function TabContent({
             const totalPL = aggregatedPlData[aggregatedPlData.length - 1]?.cumulative || 0;
             return (
               <div className="flex items-center gap-3 flex-wrap text-[13px] flex-1 min-w-0">
-                <span className="text-gray-600">
+                <span className="text-zinc-400">
                   Total:{" "}
                   {/* The colour follows the actual result — profit green, loss red
                       — so Total never reads as "good" when it isn't. */}
@@ -326,8 +326,8 @@ export default function TabContent({
                     {fmtChartMoney(totalPL)}
                   </span>
                 </span>
-                <span className="text-gray-400">|</span>
-                <span className="text-gray-600">
+                <span className="text-zinc-500">|</span>
+                <span className="text-zinc-400">
                   {avgLabel}:{" "}
                   <span className="font-bold">
                     {fmtChartMoney(
@@ -336,11 +336,11 @@ export default function TabContent({
                     )}
                   </span>
                 </span>
-                <span className="text-gray-400">|</span>
+                <span className="text-zinc-500">|</span>
                 <span className="text-green-600 font-semibold">
                   ↗ {aggregatedPlData.filter((d) => d.dailyProfit > 0).length} {periodWord}
                 </span>
-                <span className="text-gray-400">|</span>
+                <span className="text-zinc-500">|</span>
                 <span className="text-red-500 font-semibold">
                   ↘ {aggregatedPlData.filter((d) => d.dailyProfit <= 0).length} {periodWord}
                 </span>
@@ -348,7 +348,7 @@ export default function TabContent({
             );
           })()}
         {activeTab === 4 && (
-          <p className="text-[13px] text-gray-400 flex-1 min-w-0 truncate">
+          <p className="text-[13px] text-zinc-500 flex-1 min-w-0 truncate">
             Total sales, orders &amp; average order value over time
           </p>
         )}
@@ -359,7 +359,7 @@ export default function TabContent({
           <div className="relative shrink-0">
             <button
               onClick={() => onGranularityOpenChange(!granularityOpen)}
-              className="flex items-center gap-2 bg-white border border-[#d1d5dc] rounded-[10px] px-4 py-2 cursor-pointer hover:bg-gray-50 whitespace-nowrap text-[14px] font-medium text-[#364153]"
+              className="flex items-center gap-2 bg-zinc-900 border border-[#52525B] rounded-[10px] px-4 py-2 cursor-pointer hover:bg-zinc-900 whitespace-nowrap text-[14px] font-medium text-[#A1A1AA]"
             >
               {granularity.charAt(0).toUpperCase() + granularity.slice(1)}
               <svg
@@ -367,7 +367,7 @@ export default function TabContent({
                 height="16"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#6a7282"
+                stroke="#71717A"
                 strokeWidth="2"
                 className={`transition-transform ${granularityOpen ? "rotate-180" : ""}`}
               >
@@ -380,7 +380,7 @@ export default function TabContent({
                   className="fixed inset-0 z-40"
                   onClick={() => onGranularityOpenChange(false)}
                 />
-                <div className="absolute right-0 top-full mt-1.5 w-[120px] bg-white border border-gray-200 rounded-xl shadow-lg z-50 py-1 overflow-hidden animate-in fade-in zoom-in-95 duration-150 origin-top-right">
+                <div className="absolute right-0 top-full mt-1.5 w-[120px] bg-zinc-900 border border-zinc-800 rounded-xl shadow-lg z-50 py-1 overflow-hidden animate-in fade-in zoom-in-95 duration-150 origin-top-right">
                   {(["days", "weeks", "months"] as const).map((g) => (
                     <button
                       key={g}
@@ -388,7 +388,7 @@ export default function TabContent({
                         onGranularityChange(g);
                         onGranularityOpenChange(false);
                       }}
-                      className={`w-full text-left px-3.5 py-2 text-[13px] hover:bg-gray-50 flex items-center justify-between transition ${granularity === g ? "text-emerald-600 font-semibold bg-emerald-50/60" : "text-gray-700"}`}
+                      className={`w-full text-left px-3.5 py-2 text-[13px] hover:bg-zinc-900 flex items-center justify-between transition ${granularity === g ? "text-emerald-600 font-semibold bg-emerald-500/10/60" : "text-zinc-300"}`}
                     >
                       {g.charAt(0).toUpperCase() + g.slice(1)}
                       {granularity === g && (
@@ -438,16 +438,16 @@ export default function TabContent({
                       ) : hasRecords ? (
                         // Records exist, but every value of this metric is zero.
                         <div className="text-center max-w-xs">
-                          <p className="text-[14px] sm:text-[15px] font-semibold text-gray-700">
+                          <p className="text-[14px] sm:text-[15px] font-semibold text-zinc-300">
                             {`No ${chartMetricLabel.toLowerCase()} during the selected period.`}
                           </p>
                         </div>
                       ) : (
                         <div className="text-center max-w-xs">
-                          <p className="text-[14px] sm:text-[15px] font-semibold text-gray-700 mb-1">
+                          <p className="text-[14px] sm:text-[15px] font-semibold text-zinc-300 mb-1">
                             No data available
                           </p>
-                          <p className="text-[12px] sm:text-[13px] text-gray-400">
+                          <p className="text-[12px] sm:text-[13px] text-zinc-500">
                             Try adjusting the date range, changing the metric, or clearing filters.
                           </p>
                         </div>
@@ -460,7 +460,7 @@ export default function TabContent({
                       barCategoryGap="18%"
                       margin={{ top: 28, right: 10, left: -10, bottom: isMobile ? 0 : 4 }}
                     >
-                      <CartesianGrid vertical={false} strokeDasharray="4 3" stroke="#F3F4F6" />
+                      <CartesianGrid vertical={false} strokeDasharray="4 3" stroke="#27272A" />
                       <XAxis
                         dataKey="date"
                         tick={
@@ -468,14 +468,14 @@ export default function TabContent({
                             ? false
                             : (p) => <BarXTick {...p} data={aggregatedBarData} />
                         }
-                        axisLine={{ stroke: "#E5E7EB", strokeWidth: 1 }}
+                        axisLine={{ stroke: "#3F3F46", strokeWidth: 1 }}
                         tickLine={false}
                         height={isMobile && aggregatedBarData.length > 8 ? 4 : 30}
                       />
                       <YAxis
                         domain={[0, "auto"]}
-                        tick={{ fontSize: 12, fill: "#9CA3AF" }}
-                        axisLine={{ stroke: "#E5E7EB", strokeWidth: 1 }}
+                        tick={{ fontSize: 12, fill: "#71717A" }}
+                        axisLine={{ stroke: "#3F3F46", strokeWidth: 1 }}
                         tickLine={false}
                         tickFormatter={(v) =>
                           chartMetricIsMoney ? fmtChartMoney(v) : fmtChartNum(v)
@@ -595,10 +595,10 @@ export default function TabContent({
                             >
                               <div
                                 className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-sm shrink-0 transition-all"
-                                style={{ background: hidden ? "#9CA3AF" : color }}
+                                style={{ background: hidden ? "#71717A" : color }}
                               />
                               <span
-                                className={`transition-all ${hidden ? "line-through text-gray-400" : "text-gray-500"}`}
+                                className={`transition-all ${hidden ? "line-through text-zinc-500" : "text-zinc-400"}`}
                               >
                                 {name}
                               </span>
@@ -621,7 +621,7 @@ export default function TabContent({
                               clearFilter("campaign_selected");
                               onClearRowFilter();
                             }}
-                            className="flex items-center gap-1 text-[11px] text-red-500 font-medium select-none bg-red-50 px-2 py-0.5 rounded-md"
+                            className="flex items-center gap-1 text-[11px] text-red-500 font-medium select-none bg-red-500/10 px-2 py-0.5 rounded-md"
                           >
                             <svg
                               width="10"
@@ -660,15 +660,15 @@ export default function TabContent({
                             <button
                               key={name}
                               onClick={() => onToggleSeries(name)}
-                              className="flex items-center gap-1 sm:gap-1.5 text-[11px] sm:text-[13px] cursor-pointer select-none transition-opacity hover:opacity-80 bg-white/80 backdrop-blur-sm px-1.5 py-0.5 rounded-md"
+                              className="flex items-center gap-1 sm:gap-1.5 text-[11px] sm:text-[13px] cursor-pointer select-none transition-opacity hover:opacity-80 bg-zinc-900/80 backdrop-blur-sm px-1.5 py-0.5 rounded-md"
                               style={{ opacity: hidden ? 0.38 : 1 }}
                             >
                               <div
                                 className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-sm shrink-0 transition-all"
-                                style={{ background: hidden ? "#9CA3AF" : color }}
+                                style={{ background: hidden ? "#71717A" : color }}
                               />
                               <span
-                                className={`transition-all ${hidden ? "line-through text-gray-400" : "text-gray-500"}`}
+                                className={`transition-all ${hidden ? "line-through text-zinc-500" : "text-zinc-400"}`}
                               >
                                 {name}
                               </span>
@@ -678,7 +678,7 @@ export default function TabContent({
                         {legendSeries.length > LEGEND_LIMIT && (
                           <button
                             onClick={() => setLegendExpanded((v) => !v)}
-                            className="flex items-center gap-1 text-[11px] sm:text-[13px] text-emerald-500 hover:text-emerald-700 font-medium transition-colors select-none bg-white/80 backdrop-blur-sm px-1.5 py-0.5 rounded-md"
+                            className="flex items-center gap-1 text-[11px] sm:text-[13px] text-emerald-500 hover:text-emerald-700 font-medium transition-colors select-none bg-zinc-900/80 backdrop-blur-sm px-1.5 py-0.5 rounded-md"
                           >
                             {legendExpanded
                               ? "↑ Show less"
@@ -691,7 +691,7 @@ export default function TabContent({
                               clearFilter("campaign_selected");
                               onClearRowFilter();
                             }}
-                            className="flex items-center gap-1 text-[11px] sm:text-[13px] text-red-500 hover:text-red-700 font-medium transition-colors select-none bg-red-50 px-2 py-0.5 rounded-md cursor-pointer"
+                            className="flex items-center gap-1 text-[11px] sm:text-[13px] text-red-500 hover:text-red-700 font-medium transition-colors select-none bg-red-500/10 px-2 py-0.5 rounded-md cursor-pointer"
                           >
                             <svg
                               width="11"
@@ -746,7 +746,7 @@ export default function TabContent({
                   <CartesianGrid
                     vertical={false}
                     strokeDasharray="4 3"
-                    stroke="#F3F4F6"
+                    stroke="#27272A"
                     yAxisId="left"
                   />
                   <XAxis
@@ -756,7 +756,7 @@ export default function TabContent({
                         ? false
                         : (p) => <AdXTick {...p} data={aggregatedAdPerfData} />
                     }
-                    axisLine={{ stroke: "#E5E7EB", strokeWidth: 1 }}
+                    axisLine={{ stroke: "#3F3F46", strokeWidth: 1 }}
                     tickLine={false}
                     height={isMobile && aggregatedAdPerfData.length > 8 ? 4 : 30}
                   />
@@ -768,8 +768,8 @@ export default function TabContent({
                       (dataMin: number) => (dataMin < 0 ? Math.floor(dataMin * 1.1) : 0),
                       "auto",
                     ]}
-                    tick={{ fontSize: 12, fill: "#9CA3AF" }}
-                    axisLine={{ stroke: "#E5E7EB", strokeWidth: 1 }}
+                    tick={{ fontSize: 12, fill: "#71717A" }}
+                    axisLine={{ stroke: "#3F3F46", strokeWidth: 1 }}
                     tickLine={false}
                     tickFormatter={(v) => fmtChartMoney(v)}
                   />
@@ -783,7 +783,7 @@ export default function TabContent({
                     tickFormatter={(v) => fmtChartNum(v)}
                     domain={[0, (max: number) => Math.max(1, Math.ceil(max * 1.2))]}
                   />
-                  <ReferenceLine yAxisId="left" y={0} stroke="#E5E7EB" strokeWidth={1} />
+                  <ReferenceLine yAxisId="left" y={0} stroke="#3F3F46" strokeWidth={1} />
                   <Tooltip
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     content={(p: any) => <AdTooltip {...p} data={aggregatedAdPerfData} />}
@@ -843,11 +843,11 @@ export default function TabContent({
                     yAxisId="clicks"
                     type="monotone"
                     dataKey="clicks"
-                    stroke="#1F2937"
+                    stroke="#D4D4D8"
                     strokeWidth={1.5}
                     strokeDasharray="4 3"
                     dot={false}
-                    activeDot={{ r: 4, fill: "#1F2937" }}
+                    activeDot={{ r: 4, fill: "#D4D4D8" }}
                     hide={hiddenAdPerf.has("clicks")}
                     isAnimationActive={true}
                     animationDuration={700}
@@ -878,7 +878,7 @@ export default function TabContent({
                   { key: "profit", label: "Profit", color: "#4ADE80" },
                   { key: "cost", label: "Cost", color: "#F87171" },
                   { key: "loss", label: "Loss", color: "#B91C1C" },
-                  { key: "clicks", label: "Clicks", color: "#1F2937", line: true },
+                  { key: "clicks", label: "Clicks", color: "#D4D4D8", line: true },
                 ] as {
                   key: string;
                   label: string;
@@ -906,11 +906,11 @@ export default function TabContent({
                       <span className="flex items-center gap-0.5 shrink-0">
                         <span
                           className="w-2 h-2 rounded-full transition-all"
-                          style={{ background: hidden ? "#9CA3AF" : "#22C55E" }}
+                          style={{ background: hidden ? "#71717A" : "#22C55E" }}
                         />
                         <span
                           className="w-2 h-2 rounded-full transition-all"
-                          style={{ background: hidden ? "#9CA3AF" : "#EF4444" }}
+                          style={{ background: hidden ? "#71717A" : "#EF4444" }}
                         />
                       </span>
                     ) : line ? (
@@ -920,7 +920,7 @@ export default function TabContent({
                           y1="2"
                           x2="16"
                           y2="2"
-                          stroke={hidden ? "#9CA3AF" : color}
+                          stroke={hidden ? "#71717A" : color}
                           strokeWidth="1.5"
                           strokeDasharray="4 2"
                         />
@@ -928,16 +928,16 @@ export default function TabContent({
                     ) : dot ? (
                       <div
                         className="w-2 h-2 rounded-full shrink-0 transition-all"
-                        style={{ background: hidden ? "#9CA3AF" : color }}
+                        style={{ background: hidden ? "#71717A" : color }}
                       />
                     ) : (
                       <div
                         className="w-2 h-2 rounded-sm shrink-0 transition-all"
-                        style={{ background: hidden ? "#9CA3AF" : color }}
+                        style={{ background: hidden ? "#71717A" : color }}
                       />
                     )}
                     <span
-                      className={`transition-all ${hidden ? "line-through text-gray-400" : "text-gray-500"}`}
+                      className={`transition-all ${hidden ? "line-through text-zinc-500" : "text-zinc-400"}`}
                     >
                       {label}
                     </span>
@@ -952,7 +952,7 @@ export default function TabContent({
                   { key: "profit", label: "Profit", color: "#4ADE80" },
                   { key: "cost", label: "Cost", color: "#F87171" },
                   { key: "loss", label: "Loss", color: "#B91C1C" },
-                  { key: "clicks", label: "Clicks", color: "#1F2937", line: true },
+                  { key: "clicks", label: "Clicks", color: "#D4D4D8", line: true },
                 ] as {
                   key: string;
                   label: string;
@@ -971,7 +971,7 @@ export default function TabContent({
                       n.has(key) ? n.delete(key) : n.add(key);
                       onHiddenAdPerfChange(n);
                     }}
-                    className="flex items-center gap-1 sm:gap-1.5 text-[11px] sm:text-[13px] cursor-pointer select-none transition-opacity hover:opacity-80 bg-white/80 backdrop-blur-sm px-1.5 py-0.5 rounded-md"
+                    className="flex items-center gap-1 sm:gap-1.5 text-[11px] sm:text-[13px] cursor-pointer select-none transition-opacity hover:opacity-80 bg-zinc-900/80 backdrop-blur-sm px-1.5 py-0.5 rounded-md"
                     style={{ opacity: hidden ? 0.38 : 1 }}
                   >
                     {dual ? (
@@ -980,11 +980,11 @@ export default function TabContent({
                       <span className="flex items-center gap-0.5 shrink-0">
                         <span
                           className="w-2 h-2 rounded-full transition-all"
-                          style={{ background: hidden ? "#9CA3AF" : "#22C55E" }}
+                          style={{ background: hidden ? "#71717A" : "#22C55E" }}
                         />
                         <span
                           className="w-2 h-2 rounded-full transition-all"
-                          style={{ background: hidden ? "#9CA3AF" : "#EF4444" }}
+                          style={{ background: hidden ? "#71717A" : "#EF4444" }}
                         />
                       </span>
                     ) : line ? (
@@ -994,7 +994,7 @@ export default function TabContent({
                           y1="2"
                           x2="16"
                           y2="2"
-                          stroke={hidden ? "#9CA3AF" : color}
+                          stroke={hidden ? "#71717A" : color}
                           strokeWidth="1.5"
                           strokeDasharray="4 2"
                         />
@@ -1002,16 +1002,16 @@ export default function TabContent({
                     ) : dot ? (
                       <div
                         className="w-2 h-2 rounded-full shrink-0 transition-all"
-                        style={{ background: hidden ? "#9CA3AF" : color }}
+                        style={{ background: hidden ? "#71717A" : color }}
                       />
                     ) : (
                       <div
                         className="w-2 h-2 rounded-sm shrink-0 transition-all"
-                        style={{ background: hidden ? "#9CA3AF" : color }}
+                        style={{ background: hidden ? "#71717A" : color }}
                       />
                     )}
                     <span
-                      className={`transition-all ${hidden ? "line-through text-gray-400" : "text-gray-500"}`}
+                      className={`transition-all ${hidden ? "line-through text-zinc-500" : "text-zinc-400"}`}
                     >
                       {label}
                     </span>
@@ -1053,7 +1053,7 @@ export default function TabContent({
                   <CartesianGrid
                     vertical={false}
                     strokeDasharray="4 3"
-                    stroke="#F3F4F6"
+                    stroke="#27272A"
                     yAxisId="left"
                   />
                   <XAxis
@@ -1065,7 +1065,7 @@ export default function TabContent({
                           (p: any) => <PlXTick {...p} data={aggregatedPlData} />
                     }
                     height={isMobile && aggregatedPlData.length > 8 ? 4 : undefined}
-                    axisLine={{ stroke: "#E5E7EB", strokeWidth: 1 }}
+                    axisLine={{ stroke: "#3F3F46", strokeWidth: 1 }}
                     tickLine={false}
                   />
                   {/* Single shared axis for bars + line. Domain hugs the ACTUAL data:
@@ -1078,8 +1078,8 @@ export default function TabContent({
                       (dataMin: number) => (dataMin < 0 ? Math.floor(dataMin * 1.05) : 0),
                       (dataMax: number) => Math.ceil(dataMax * 1.02),
                     ]}
-                    tick={{ fontSize: 12, fill: "#9CA3AF" }}
-                    axisLine={{ stroke: "#E5E7EB", strokeWidth: 1 }}
+                    tick={{ fontSize: 12, fill: "#71717A" }}
+                    axisLine={{ stroke: "#3F3F46", strokeWidth: 1 }}
                     tickLine={false}
                     tickFormatter={(v) => fmtChartMoney(v)}
                   />
@@ -1106,7 +1106,7 @@ export default function TabContent({
                     yAxisId="left"
                     type="monotone"
                     dataKey="dailyProfit"
-                    stroke="#1F2937"
+                    stroke="#D4D4D8"
                     strokeWidth={1.5}
                     strokeDasharray="4 3"
                     hide={hiddenPL.has("daily")}
@@ -1122,7 +1122,7 @@ export default function TabContent({
                           cx={p.cx}
                           cy={p.cy}
                           r={3}
-                          fill={item && item.dailyProfit < 0 ? "#EF4444" : "#1F2937"}
+                          fill={item && item.dailyProfit < 0 ? "#EF4444" : "#D4D4D8"}
                           stroke="none"
                         />
                       );
@@ -1157,7 +1157,7 @@ export default function TabContent({
                     color: "#22C55E",
                     dual: true,
                   },
-                  { key: "daily", label: "Daily Profit / Loss", color: "#1F2937", line: true },
+                  { key: "daily", label: "Daily Profit / Loss", color: "#D4D4D8", line: true },
                 ] as {
                   key: string;
                   label: string;
@@ -1186,11 +1186,11 @@ export default function TabContent({
                       <span className="flex items-center gap-0.5 shrink-0">
                         <span
                           className="w-2 h-2 rounded-full transition-all"
-                          style={{ background: hidden ? "#9CA3AF" : "#22C55E" }}
+                          style={{ background: hidden ? "#71717A" : "#22C55E" }}
                         />
                         <span
                           className="w-2 h-2 rounded-full transition-all"
-                          style={{ background: hidden ? "#9CA3AF" : "#EF4444" }}
+                          style={{ background: hidden ? "#71717A" : "#EF4444" }}
                         />
                       </span>
                     ) : line ? (
@@ -1200,7 +1200,7 @@ export default function TabContent({
                           y1="2"
                           x2="16"
                           y2="2"
-                          stroke={hidden ? "#9CA3AF" : color}
+                          stroke={hidden ? "#71717A" : color}
                           strokeWidth="1.5"
                           strokeDasharray="4 2"
                         />
@@ -1208,16 +1208,16 @@ export default function TabContent({
                     ) : dot ? (
                       <div
                         className="w-2 h-2 rounded-full shrink-0 transition-all"
-                        style={{ background: hidden ? "#9CA3AF" : color }}
+                        style={{ background: hidden ? "#71717A" : color }}
                       />
                     ) : (
                       <div
                         className="w-2 h-2 rounded-sm shrink-0 transition-all"
-                        style={{ background: hidden ? "#9CA3AF" : color }}
+                        style={{ background: hidden ? "#71717A" : color }}
                       />
                     )}
                     <span
-                      className={`transition-all ${hidden ? "line-through text-gray-400" : "text-gray-500"}`}
+                      className={`transition-all ${hidden ? "line-through text-zinc-500" : "text-zinc-400"}`}
                     >
                       {label}
                     </span>
@@ -1235,7 +1235,7 @@ export default function TabContent({
                     color: "#22C55E",
                     dual: true,
                   },
-                  { key: "daily", label: "Daily Profit / Loss", color: "#1F2937", line: true },
+                  { key: "daily", label: "Daily Profit / Loss", color: "#D4D4D8", line: true },
                 ] as {
                   key: string;
                   label: string;
@@ -1255,7 +1255,7 @@ export default function TabContent({
                       n.has(toggleKey) ? n.delete(toggleKey) : n.add(toggleKey);
                       onHiddenPLChange(n);
                     }}
-                    className="flex items-center gap-1 sm:gap-1.5 text-[11px] sm:text-[13px] cursor-pointer select-none transition-opacity hover:opacity-80 bg-white/80 backdrop-blur-sm px-1.5 py-0.5 rounded-md"
+                    className="flex items-center gap-1 sm:gap-1.5 text-[11px] sm:text-[13px] cursor-pointer select-none transition-opacity hover:opacity-80 bg-zinc-900/80 backdrop-blur-sm px-1.5 py-0.5 rounded-md"
                     style={{ opacity: hidden ? 0.38 : 1 }}
                   >
                     {dual ? (
@@ -1264,11 +1264,11 @@ export default function TabContent({
                       <span className="flex items-center gap-0.5 shrink-0">
                         <span
                           className="w-2 h-2 rounded-full transition-all"
-                          style={{ background: hidden ? "#9CA3AF" : "#22C55E" }}
+                          style={{ background: hidden ? "#71717A" : "#22C55E" }}
                         />
                         <span
                           className="w-2 h-2 rounded-full transition-all"
-                          style={{ background: hidden ? "#9CA3AF" : "#EF4444" }}
+                          style={{ background: hidden ? "#71717A" : "#EF4444" }}
                         />
                       </span>
                     ) : line ? (
@@ -1278,7 +1278,7 @@ export default function TabContent({
                           y1="2"
                           x2="16"
                           y2="2"
-                          stroke={hidden ? "#9CA3AF" : color}
+                          stroke={hidden ? "#71717A" : color}
                           strokeWidth="1.5"
                           strokeDasharray="4 2"
                         />
@@ -1286,16 +1286,16 @@ export default function TabContent({
                     ) : dot ? (
                       <div
                         className="w-2 h-2 rounded-full shrink-0 transition-all"
-                        style={{ background: hidden ? "#9CA3AF" : color }}
+                        style={{ background: hidden ? "#71717A" : color }}
                       />
                     ) : (
                       <div
                         className="w-2 h-2 rounded-sm shrink-0 transition-all"
-                        style={{ background: hidden ? "#9CA3AF" : color }}
+                        style={{ background: hidden ? "#71717A" : color }}
                       />
                     )}
                     <span
-                      className={`transition-all ${hidden ? "line-through text-gray-400" : "text-gray-500"}`}
+                      className={`transition-all ${hidden ? "line-through text-zinc-500" : "text-zinc-400"}`}
                     >
                       {label}
                     </span>
@@ -1381,7 +1381,7 @@ export default function TabContent({
                   <CartesianGrid
                     vertical={false}
                     strokeDasharray="4 3"
-                    stroke="#F3F4F6"
+                    stroke="#27272A"
                     yAxisId="left"
                   />
                   <XAxis
@@ -1391,15 +1391,15 @@ export default function TabContent({
                         ? false
                         : (p) => <AdXTick {...p} data={aggregatedAdPerfData} />
                     }
-                    axisLine={{ stroke: "#E5E7EB", strokeWidth: 1 }}
+                    axisLine={{ stroke: "#3F3F46", strokeWidth: 1 }}
                     tickLine={false}
                     height={isMobile && aggregatedAdPerfData.length > 8 ? 4 : 30}
                   />
                   <YAxis
                     yAxisId="left"
                     domain={[0, "auto"]}
-                    tick={{ fontSize: 12, fill: "#9CA3AF" }}
-                    axisLine={{ stroke: "#E5E7EB", strokeWidth: 1 }}
+                    tick={{ fontSize: 12, fill: "#71717A" }}
+                    axisLine={{ stroke: "#3F3F46", strokeWidth: 1 }}
                     tickLine={false}
                     tickFormatter={(v) => fmtChartMoney(v)}
                   />
@@ -1419,23 +1419,23 @@ export default function TabContent({
                       const d = payload[0].payload as { convValue: number; conv: number };
                       const aov = d.conv > 0 ? d.convValue / d.conv : 0;
                       return (
-                        <div className="bg-white border border-gray-200 rounded-xl shadow-lg px-3 py-2 text-[12px]">
-                          <p className="font-semibold text-gray-800 mb-1">{label}</p>
-                          <p className="text-gray-600">
+                        <div className="bg-zinc-900 border border-zinc-800 rounded-xl shadow-lg px-3 py-2 text-[12px]">
+                          <p className="font-semibold text-zinc-200 mb-1">{label}</p>
+                          <p className="text-zinc-400">
                             Total sales:{" "}
-                            <span className="font-semibold text-gray-900">
+                            <span className="font-semibold text-zinc-100">
                               {fmtChartMoney(d.convValue)}
                             </span>
                           </p>
-                          <p className="text-gray-600">
+                          <p className="text-zinc-400">
                             Orders:{" "}
-                            <span className="font-semibold text-gray-900">
+                            <span className="font-semibold text-zinc-100">
                               {fmtChartNum(d.conv)}
                             </span>
                           </p>
-                          <p className="text-gray-600">
+                          <p className="text-zinc-400">
                             AOV:{" "}
-                            <span className="font-semibold text-gray-900">
+                            <span className="font-semibold text-zinc-100">
                               {fmtChartMoney(aov)}
                             </span>
                           </p>
@@ -1456,11 +1456,11 @@ export default function TabContent({
                     yAxisId="orders"
                     type="monotone"
                     dataKey="conv"
-                    stroke="#1F2937"
+                    stroke="#D4D4D8"
                     strokeWidth={1.5}
                     strokeDasharray="4 3"
                     dot={false}
-                    activeDot={{ r: 4, fill: "#1F2937" }}
+                    activeDot={{ r: 4, fill: "#D4D4D8" }}
                     isAnimationActive={true}
                     animationDuration={700}
                     animationEasing="ease-out"
@@ -1469,13 +1469,13 @@ export default function TabContent({
               </ResponsiveContainer>
             </div>
           </div>
-          <div className="flex items-center justify-center gap-5 pb-4 sm:pb-5 text-[12px] text-gray-500">
+          <div className="flex items-center justify-center gap-5 pb-4 sm:pb-5 text-[12px] text-zinc-400">
             <span className="flex items-center gap-1.5">
               <span className="w-2.5 h-2.5 rounded-sm bg-[#4ADE80]" />
               Total sales
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-4 border-t-2 border-dashed border-[#1F2937]" />
+              <span className="w-4 border-t-2 border-dashed border-[#D4D4D8]" />
               Orders
             </span>
           </div>

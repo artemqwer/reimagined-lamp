@@ -48,7 +48,7 @@ export function StatusIndicator({
       </span>
     );
   }
-  const bg = status === "green" ? "bg-green-500" : "bg-gray-300";
+  const bg = status === "green" ? "bg-green-500" : "bg-zinc-700";
   return (
     <span
       title={label}

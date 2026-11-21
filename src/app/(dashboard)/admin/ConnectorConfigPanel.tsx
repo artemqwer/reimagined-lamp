@@ -239,7 +239,7 @@ function ConfigList({
   return (
     <div className="divide-y divide-gray-50">
       {hint && (
-        <p className="px-5 pb-2 text-[11px] text-gray-400">
+        <p className="px-5 pb-2 text-[11px] text-zinc-500">
           {hint}
           {hiddenCount > 0 && (
             <>
@@ -258,7 +258,7 @@ function ConfigList({
             <button
               onClick={() => move(i, -1)}
               disabled={i === 0 || r.primary || rows[i - 1]?.primary}
-              className="text-gray-300 hover:text-gray-600 disabled:opacity-30 transition leading-none"
+              className="text-zinc-600 hover:text-zinc-400 disabled:opacity-30 transition leading-none"
             >
               <svg
                 width="14"
@@ -274,7 +274,7 @@ function ConfigList({
             <button
               onClick={() => move(i, 1)}
               disabled={i === rows.length - 1 || r.primary}
-              className="text-gray-300 hover:text-gray-600 disabled:opacity-30 transition leading-none"
+              className="text-zinc-600 hover:text-zinc-400 disabled:opacity-30 transition leading-none"
             >
               <svg
                 width="14"
@@ -289,11 +289,11 @@ function ConfigList({
             </button>
           </div>
           {r.primary ? (
-            <span className="shrink-0 text-[10px] font-bold text-[#047857] bg-[#DBEAFE] rounded px-1.5 py-0.5 uppercase tracking-wide">
+            <span className="shrink-0 text-[10px] font-bold text-[#34D399] bg-[rgba(59,130,246,0.14)] rounded px-1.5 py-0.5 uppercase tracking-wide">
               Primary
             </span>
           ) : r.optimizerOnly ? (
-            <span className="shrink-0 text-[10px] font-bold text-[#8200DB] bg-[#FAF5FF] rounded px-1.5 py-0.5 uppercase tracking-wide">
+            <span className="shrink-0 text-[10px] font-bold text-violet-400 bg-violet-500/10 rounded px-1.5 py-0.5 uppercase tracking-wide">
               AI only
             </span>
           ) : (
@@ -307,7 +307,7 @@ function ConfigList({
           <input
             value={r.label}
             onChange={(e) => rename(i, e.target.value)}
-            className={`flex-1 min-w-[8rem] text-[13px] border border-gray-200 rounded-lg px-2.5 py-1.5 outline-none focus:border-emerald-400 ${r.visible ? "text-gray-800" : "text-gray-400 line-through"}`}
+            className={`flex-1 min-w-[8rem] text-[13px] border border-zinc-800 rounded-lg px-2.5 py-1.5 outline-none focus:border-emerald-400 ${r.visible ? "text-zinc-200" : "text-zinc-500 line-through"}`}
           />
           <div className="flex items-center gap-2 sm:gap-3 ml-auto shrink-0">
             {!r.primary &&
@@ -323,7 +323,7 @@ function ConfigList({
                         ? chartsToggleTitle
                         : "The chart has no series for this metric, so it can't be plotted"
                     }
-                    className={`flex items-center gap-1.5 text-[11px] shrink-0 ${on || (eligible && r.visible) ? "cursor-pointer" : "cursor-not-allowed"} ${r.visible && eligible ? "text-gray-500" : "text-gray-300"}`}
+                    className={`flex items-center gap-1.5 text-[11px] shrink-0 ${on || (eligible && r.visible) ? "cursor-pointer" : "cursor-not-allowed"} ${r.visible && eligible ? "text-zinc-400" : "text-zinc-600"}`}
                   >
                     <input
                       type="checkbox"
@@ -339,7 +339,7 @@ function ConfigList({
             {!r.primary && showOptimizerToggle && (
               <label
                 title="Include this table in the AI Optimizer's analysis"
-                className={`flex items-center gap-1.5 text-[11px] shrink-0 ${r.visible ? "cursor-pointer text-gray-500" : "cursor-not-allowed text-gray-300"}`}
+                className={`flex items-center gap-1.5 text-[11px] shrink-0 ${r.visible ? "cursor-pointer text-zinc-400" : "cursor-not-allowed text-zinc-600"}`}
               >
                 <input
                   type="checkbox"
@@ -355,7 +355,7 @@ function ConfigList({
               <select
                 value={r.format ?? ""}
                 onChange={(e) => setFormat(i, e.target.value as ValueFormat)}
-                className="text-[11px] border border-gray-200 rounded-lg px-2 py-1.5 outline-none bg-white text-gray-600 cursor-pointer shrink-0"
+                className="text-[11px] border border-zinc-800 rounded-lg px-2 py-1.5 outline-none bg-zinc-900 text-zinc-400 cursor-pointer shrink-0"
               >
                 <option value="">Default format</option>
                 {VALUE_FORMATS.map((f) => (
@@ -374,7 +374,7 @@ function ConfigList({
               </button>
             )}
             <span
-              className={`text-[11px] text-gray-300 font-mono shrink-0 truncate text-right ${keyWidth ?? "w-24"}`}
+              className={`text-[11px] text-zinc-600 font-mono shrink-0 truncate text-right ${keyWidth ?? "w-24"}`}
             >
               {r.key}
             </span>
@@ -549,10 +549,10 @@ export default function ConnectorConfigPanel({
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden">
-      <div className="px-5 py-3.5 border-b border-gray-100">
-        <p className="text-[14px] font-bold text-gray-800">Data source configuration</p>
-        <p className="text-[12px] text-gray-400">
+    <div className="bg-zinc-900 rounded-2xl border border-zinc-800 overflow-hidden">
+      <div className="px-5 py-3.5 border-b border-zinc-800">
+        <p className="text-[14px] font-bold text-zinc-200">Data source configuration</p>
+        <p className="text-[12px] text-zinc-500">
           Choose which KPI cards, tables &amp; metric columns appear in each data source, their
           order and labels — applied to every user&apos;s dashboard. Unchecked entries are hidden;
           check one to add it.
@@ -560,7 +560,7 @@ export default function ConnectorConfigPanel({
       </div>
 
       {/* Connector picker */}
-      <div className="flex items-center gap-2 flex-wrap px-5 py-3 border-b border-gray-50">
+      <div className="flex items-center gap-2 flex-wrap px-5 py-3 border-b border-zinc-800">
         {CONNECTOR_IDS.map((id) => {
           const c = CONNECTORS[id];
           const isSel = id === selected;
@@ -569,12 +569,12 @@ export default function ConnectorConfigPanel({
             <div key={id} className="flex items-center gap-0.5">
               <button
                 onClick={() => setSelected(id)}
-                className={`flex items-center gap-2 text-[13px] font-medium px-3 py-1.5 rounded-lg border transition ${isSel ? "border-emerald-300 bg-emerald-50 text-emerald-700" : "border-gray-200 text-gray-600 hover:bg-gray-50"}`}
+                className={`flex items-center gap-2 text-[13px] font-medium px-3 py-1.5 rounded-lg border transition ${isSel ? "border-emerald-300 bg-emerald-500/10 text-emerald-700" : "border-zinc-800 text-zinc-400 hover:bg-zinc-900"}`}
               >
                 <span className="w-2.5 h-2.5 rounded-full" style={{ background: c.color }} />
                 {c.label}
                 {customRow && (
-                  <span className="text-[9px] font-semibold text-gray-400 bg-gray-100 rounded px-1 py-0.5">
+                  <span className="text-[9px] font-semibold text-zinc-500 bg-zinc-800 rounded px-1 py-0.5">
                     Custom
                   </span>
                 )}
@@ -583,7 +583,7 @@ export default function ConnectorConfigPanel({
                 <button
                   onClick={() => setEditingCustom(customRow)}
                   title="Edit data source"
-                  className="w-6 h-6 flex items-center justify-center text-gray-300 hover:text-gray-600 transition shrink-0"
+                  className="w-6 h-6 flex items-center justify-center text-zinc-600 hover:text-zinc-400 transition shrink-0"
                 >
                   <svg
                     width="12"
@@ -602,7 +602,7 @@ export default function ConnectorConfigPanel({
         })}
         <button
           onClick={() => setEditingCustom("new")}
-          className="flex items-center gap-1.5 text-[12px] font-semibold text-emerald-600 border border-dashed border-emerald-200 rounded-lg px-3 py-1.5 hover:bg-emerald-50 transition"
+          className="flex items-center gap-1.5 text-[12px] font-semibold text-emerald-600 border border-dashed border-emerald-500/20 rounded-lg px-3 py-1.5 hover:bg-emerald-500/10 transition"
         >
           <svg
             width="12"
@@ -629,24 +629,24 @@ export default function ConnectorConfigPanel({
       )}
 
       {loading ? (
-        <div className="flex items-center justify-center py-16 gap-2 text-gray-400 text-[14px]">
+        <div className="flex items-center justify-center py-16 gap-2 text-zinc-500 text-[14px]">
           <div className="w-4 h-4 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin" />
           Loading…
         </div>
       ) : (
         <>
           {setupError && (
-            <div className="mx-5 mt-4 rounded-xl bg-amber-50 border border-amber-200 px-4 py-3 text-[12px] text-amber-700">
-              The <code className="bg-amber-100 px-1 rounded">connector_config</code> table
+            <div className="mx-5 mt-4 rounded-xl bg-amber-500/10 border border-amber-500/20 px-4 py-3 text-[12px] text-amber-700">
+              The <code className="bg-amber-500/10 px-1 rounded">connector_config</code> table
               isn&apos;t set up yet. Create it in Supabase:
-              <code className="block mt-1 bg-white/70 rounded p-2 text-[11px]">
+              <code className="block mt-1 bg-zinc-900/70 rounded p-2 text-[11px]">
                 create table connector_config (connector text primary key, config jsonb, updated_at
                 timestamptz default now());
               </code>
             </div>
           )}
 
-          <p className="px-5 pt-4 pb-1 text-[11px] font-bold text-gray-400 uppercase tracking-widest">
+          <p className="px-5 pt-4 pb-1 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">
             KPI cards (top of dashboard)
           </p>
           <ConfigList
@@ -657,11 +657,11 @@ export default function ConnectorConfigPanel({
             showFormat
           />
 
-          <p className="px-5 pt-5 pb-1 text-[11px] font-bold text-gray-400 uppercase tracking-widest border-t border-gray-100">
+          <p className="px-5 pt-5 pb-1 text-[11px] font-bold text-zinc-500 uppercase tracking-widest border-t border-zinc-800">
             Pages this source carries
           </p>
           <div className="px-5 pb-3">
-            <p className="text-[11px] text-gray-400 mb-2">
+            <p className="text-[11px] text-zinc-500 mb-2">
               Goals and optimization advice suit an ad platform and much less a source with no
               budget to pace or bid to change. Unticking one hides it from the sidebar for this
               source; the page itself says so if anyone reaches it by URL.
@@ -673,7 +673,7 @@ export default function ConnectorConfigPanel({
                   ["optimizer", "AI Optimizer"],
                 ] as const
               ).map(([key, label]) => (
-                <label key={key} className="flex items-center gap-2 text-[13px] text-gray-700">
+                <label key={key} className="flex items-center gap-2 text-[13px] text-zinc-300">
                   <input
                     type="checkbox"
                     checked={features?.[key] !== false}
@@ -689,11 +689,11 @@ export default function ConnectorConfigPanel({
 
           {features?.optimizer !== false && (
             <>
-              <p className="px-5 pt-5 pb-1 text-[11px] font-bold text-gray-400 uppercase tracking-widest border-t border-gray-100">
+              <p className="px-5 pt-5 pb-1 text-[11px] font-bold text-zinc-500 uppercase tracking-widest border-t border-zinc-800">
                 AI Optimizer instructions
               </p>
               <div className="px-5 pb-3">
-                <p className="text-[11px] text-gray-400 mb-2">
+                <p className="text-[11px] text-zinc-500 mb-2">
                   Extra guidance for how this source&apos;s recommendations are worded — what to
                   emphasise, the tone, what to call out first. The findings and every number stay
                   computed; this only shapes the phrasing. Leave blank for the default.
@@ -703,13 +703,13 @@ export default function ConnectorConfigPanel({
                   onChange={(e) => setOptimizerInstructions(e.target.value)}
                   rows={4}
                   placeholder="e.g. Lead with wasted spend on search terms and suggest negative keywords. Be direct and concise."
-                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-[13px] text-gray-700 outline-none focus:border-emerald-400 bg-white resize-y"
+                  className="w-full border border-zinc-800 rounded-lg px-3 py-2 text-[13px] text-zinc-300 outline-none focus:border-emerald-400 bg-zinc-900 resize-y"
                 />
 
-                <p className="text-[11px] font-semibold text-gray-500 mt-4 mb-1">
+                <p className="text-[11px] font-semibold text-zinc-400 mt-4 mb-1">
                   AI Optimization Thresholds
                 </p>
-                <p className="text-[11px] text-gray-400 mb-2">
+                <p className="text-[11px] text-zinc-500 mb-2">
                   A row (campaign, ad group, search term, device…) is analysed only when it meets{" "}
                   <span className="font-semibold">every</span> rule below. Rows that fail any rule
                   never produce a recommendation. Default: Clicks ≥ 200
@@ -725,7 +725,7 @@ export default function ConnectorConfigPanel({
                             rs.map((r, j) => (j === i ? { ...r, metric: e.target.value } : r)),
                           )
                         }
-                        className="flex-1 min-w-0 border border-gray-200 rounded-lg px-2 py-1.5 text-[12px] text-gray-700 bg-white outline-none focus:border-emerald-400 cursor-pointer"
+                        className="flex-1 min-w-0 border border-zinc-800 rounded-lg px-2 py-1.5 text-[12px] text-zinc-300 bg-zinc-900 outline-none focus:border-emerald-400 cursor-pointer"
                       >
                         {THRESHOLD_METRIC_KEYS.map((k) => (
                           <option key={k} value={k}>
@@ -742,7 +742,7 @@ export default function ConnectorConfigPanel({
                             ),
                           )
                         }
-                        className="w-14 border border-gray-200 rounded-lg px-2 py-1.5 text-[13px] text-gray-700 bg-white outline-none focus:border-emerald-400 cursor-pointer text-center"
+                        className="w-14 border border-zinc-800 rounded-lg px-2 py-1.5 text-[13px] text-zinc-300 bg-zinc-900 outline-none focus:border-emerald-400 cursor-pointer text-center"
                       >
                         {THRESHOLD_OPS.map((o) => (
                           <option key={o.id} value={o.id}>
@@ -760,13 +760,13 @@ export default function ConnectorConfigPanel({
                             ),
                           )
                         }
-                        className="w-24 border border-gray-200 rounded-lg px-2 py-1.5 text-[13px] text-gray-700 bg-white outline-none focus:border-emerald-400"
+                        className="w-24 border border-zinc-800 rounded-lg px-2 py-1.5 text-[13px] text-zinc-300 bg-zinc-900 outline-none focus:border-emerald-400"
                       />
                       <button
                         type="button"
                         onClick={() => setOptimizerThresholds((rs) => rs.filter((_, j) => j !== i))}
                         title="Remove rule"
-                        className="shrink-0 text-gray-400 hover:text-red-500 px-1.5 py-1"
+                        className="shrink-0 text-zinc-500 hover:text-red-500 px-1.5 py-1"
                       >
                         ✕
                       </button>
@@ -789,11 +789,11 @@ export default function ConnectorConfigPanel({
             </>
           )}
 
-          <p className="px-5 pt-5 pb-1 text-[11px] font-bold text-gray-400 uppercase tracking-widest border-t border-gray-100">
+          <p className="px-5 pt-5 pb-1 text-[11px] font-bold text-zinc-500 uppercase tracking-widest border-t border-zinc-800">
             Primary table (top of dashboard)
           </p>
           <div className="px-5 pb-3">
-            <p className="text-[11px] text-gray-400 mb-1.5">
+            <p className="text-[11px] text-zinc-500 mb-1.5">
               Which table renders first, above Extended Analytics. Purely visual — cross-filtering
               still works the same way underneath regardless of what&apos;s shown here.
             </p>
@@ -813,7 +813,7 @@ export default function ConnectorConfigPanel({
                 else if (v.startsWith("widget:"))
                   setPrimaryTableSource({ type: "widget", widgetId: v.slice(7) });
               }}
-              className="w-full border border-gray-200 rounded-lg px-3 py-2 text-[13px] text-gray-700 outline-none focus:border-emerald-400 bg-white cursor-pointer"
+              className="w-full border border-zinc-800 rounded-lg px-3 py-2 text-[13px] text-zinc-300 outline-none focus:border-emerald-400 bg-zinc-900 cursor-pointer"
             >
               <option value="">Default ({CONNECTORS[selected].primaryLabel} Performance)</option>
               {CONNECTORS[selected].dimensions
@@ -831,7 +831,7 @@ export default function ConnectorConfigPanel({
             </select>
           </div>
 
-          <p className="px-5 pt-5 pb-1 text-[11px] font-bold text-gray-400 uppercase tracking-widest border-t border-gray-100">
+          <p className="px-5 pt-5 pb-1 text-[11px] font-bold text-zinc-500 uppercase tracking-widest border-t border-zinc-800">
             Tables
           </p>
           <ConfigList
@@ -842,7 +842,7 @@ export default function ConnectorConfigPanel({
             showOptimizerToggle
           />
 
-          <p className="px-5 pt-5 pb-1 text-[11px] font-bold text-gray-400 uppercase tracking-widest border-t border-gray-100">
+          <p className="px-5 pt-5 pb-1 text-[11px] font-bold text-zinc-500 uppercase tracking-widest border-t border-zinc-800">
             Metric columns
           </p>
           <ConfigList
@@ -873,10 +873,10 @@ export default function ConnectorConfigPanel({
             onChange={setCustomDimensions}
           />
 
-          <div className="flex items-center justify-between gap-3 px-5 py-3.5 border-t border-gray-100">
+          <div className="flex items-center justify-between gap-3 px-5 py-3.5 border-t border-zinc-800">
             <button
               onClick={resetDefaults}
-              className="text-[12px] text-gray-400 hover:text-gray-700 transition"
+              className="text-[12px] text-zinc-500 hover:text-zinc-300 transition"
             >
               Reset to defaults
             </button>

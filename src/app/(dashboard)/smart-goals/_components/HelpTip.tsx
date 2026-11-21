@@ -44,7 +44,7 @@ export default function HelpTip({ title, children }: { title: string; children: 
         type="button"
         aria-label={`Help: ${title}`}
         onClick={() => setOpen((v) => !v)}
-        className="w-4 h-4 rounded-full border border-gray-300 text-gray-400 hover:text-gray-600 hover:border-gray-400 text-[10px] leading-none flex items-center justify-center transition"
+        className="w-4 h-4 rounded-full border border-zinc-700 text-zinc-500 hover:text-zinc-400 hover:border-zinc-600 text-[10px] leading-none flex items-center justify-center transition"
       >
         ?
       </button>
@@ -55,11 +55,11 @@ export default function HelpTip({ title, children }: { title: string; children: 
           <>
             <div className="fixed inset-0 z-60" onClick={() => setOpen(false)} />
             <div
-              className="fixed z-61 bg-white border border-gray-200 rounded-xl shadow-lg p-3"
+              className="fixed z-61 bg-zinc-900 border border-zinc-800 rounded-xl shadow-lg p-3"
               style={{ top: pos.top, left: pos.left, width: pos.width }}
             >
-              <span className="block text-[12px] font-bold text-gray-900 mb-1">{title}</span>
-              <span className="block text-[12px] text-gray-600 leading-relaxed">{children}</span>
+              <span className="block text-[12px] font-bold text-zinc-100 mb-1">{title}</span>
+              <span className="block text-[12px] text-zinc-400 leading-relaxed">{children}</span>
             </div>
           </>,
           document.body,

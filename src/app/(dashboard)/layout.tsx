@@ -152,7 +152,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
   if (checking) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#f9fafb]">
+      <div className="min-h-screen flex items-center justify-center bg-[#18181B]">
         <div className="w-6 h-6 border-2 border-emerald-600 border-t-transparent rounded-full animate-spin" />
       </div>
     );
@@ -195,7 +195,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         : null;
 
   return (
-    <div className="flex w-full min-h-screen bg-[#f9fafb]">
+    <div className="flex w-full min-h-screen bg-[#18181B]">
       <Sidebar
         mobileOpen={mobileOpen}
         onMobileClose={() => setMobileOpen(false)}
@@ -205,11 +205,11 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
       <div className="flex-1 flex flex-col min-w-0">
         {/* Mobile top bar */}
-        <header className="lg:hidden flex items-center justify-between px-4 py-3 bg-white border-b border-gray-100 shrink-0">
+        <header className="lg:hidden flex items-center justify-between px-4 py-3 bg-zinc-900 border-b border-zinc-800 shrink-0">
           <div className="flex items-center gap-3">
             <button
               onClick={() => setMobileOpen(true)}
-              className="text-gray-500 hover:text-gray-700"
+              className="text-zinc-400 hover:text-zinc-300"
             >
               <svg
                 width="22"
@@ -231,8 +231,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             ) : section ? (
               // Smart Goals / AI Optimizer name themselves; their platform tabs
               // inside the page do the source switching.
-              <div className="flex items-center gap-2 text-[#101828]">
-                <span className="text-[#059669]">{section.icon}</span>
+              <div className="flex items-center gap-2 text-[#F4F4F5]">
+                <span className="text-[#10B981]">{section.icon}</span>
                 <span className="text-[15px] font-bold">{section.name}</span>
               </div>
             ) : (
@@ -246,7 +246,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                   className="object-contain"
                 />
                 <span
-                  className="text-[14px] font-black" data-brand
+                  className="text-[14px] font-black"
+                  data-brand
                   style={{ letterSpacing: "0.1em" }}
                 >
                   METRICFORGE
@@ -257,7 +258,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           {onDashboard && (
             <div
               onClick={() => window.dispatchEvent(new CustomEvent("open-date-picker"))}
-              className="flex items-center gap-1.5 text-[12px] text-gray-600 bg-white border border-gray-200 rounded-lg px-2.5 py-1.5 cursor-pointer active:bg-gray-50 transition-colors"
+              className="flex items-center gap-1.5 text-[12px] text-zinc-400 bg-zinc-900 border border-zinc-800 rounded-lg px-2.5 py-1.5 cursor-pointer active:bg-zinc-900 transition-colors"
             >
               <svg
                 width="13"
@@ -288,14 +289,14 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         </header>
 
         {viewAsName && (
-          <div className="flex items-center justify-center gap-3 flex-wrap bg-[#059669] text-white text-[13px] px-4 py-2 text-center">
+          <div className="flex items-center justify-center gap-3 flex-wrap bg-[#10B981] text-white text-[13px] px-4 py-2 text-center">
             <span>
               Viewing as <span className="font-semibold">{viewAsName}</span> — you are seeing this
               client&rsquo;s live data.
             </span>
             <button
               onClick={exitViewAs}
-              className="inline-flex items-center h-[26px] px-3 rounded-md bg-white/15 hover:bg-white/25 font-medium transition"
+              className="inline-flex items-center h-[26px] px-3 rounded-md bg-zinc-900/15 hover:bg-zinc-900/25 font-medium transition"
             >
               Exit
             </button>

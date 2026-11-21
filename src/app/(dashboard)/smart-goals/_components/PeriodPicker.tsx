@@ -146,7 +146,7 @@ export default function PeriodPicker({
   };
 
   const arrow =
-    "w-7 h-7 flex items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-500 hover:text-gray-700 hover:border-gray-300 transition";
+    "w-7 h-7 flex items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900 text-zinc-400 hover:text-zinc-300 hover:border-zinc-700 transition";
   const years = yearOptions(period);
   // yearOptions is ascending now, so the ends flipped.
   const minYear = years[0];
@@ -159,11 +159,11 @@ export default function PeriodPicker({
       // last looked at within it.
       onClick={() => pick(switchPeriodKind(to, String(viewYear), rememberedMonth))}
       className={`flex-1 rounded-lg px-3 py-1.5 text-[12px] font-medium transition ${
-        kind === to ? "bg-white shadow-sm text-gray-900" : "text-gray-500 hover:text-gray-700"
+        kind === to ? "bg-zinc-900 shadow-sm text-zinc-100" : "text-zinc-400 hover:text-zinc-300"
       }`}
     >
       {label}
-      <span className="block text-[10px] font-normal text-gray-400">{hint}</span>
+      <span className="block text-[10px] font-normal text-zinc-500">{hint}</span>
     </button>
   );
 
@@ -191,7 +191,7 @@ export default function PeriodPicker({
           ref={triggerRef}
           onClick={() => (open ? setOpen(false) : openPanel())}
           aria-expanded={open}
-          className="flex items-center gap-2 text-[14px] text-gray-600 bg-white border border-gray-200 rounded-lg px-3 py-1.5 cursor-pointer hover:bg-gray-50 transition"
+          className="flex items-center gap-2 text-[14px] text-zinc-400 bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-1.5 cursor-pointer hover:bg-zinc-900 transition"
         >
           <svg
             width="14"
@@ -244,19 +244,19 @@ export default function PeriodPicker({
           <div
             ref={panelRef}
             style={{ top: at.top, left: at.left }}
-            className="fixed z-[400] w-[min(520px,calc(100vw-2rem))] bg-white border border-gray-100 rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200 origin-top-left"
+            className="fixed z-[400] w-[min(520px,calc(100vw-2rem))] bg-zinc-900 border border-zinc-800 rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200 origin-top-left"
           >
             <div className="flex flex-col sm:flex-row">
               {/* Quick jumps */}
-              <div className="sm:w-[170px] border-b sm:border-b-0 sm:border-r border-gray-100 p-2 bg-gray-50/30 flex sm:block gap-1 overflow-x-auto">
+              <div className="sm:w-[170px] border-b sm:border-b-0 sm:border-r border-zinc-800 p-2 bg-zinc-900/30 flex sm:block gap-1 overflow-x-auto">
                 {presets().map((p) => (
                   <button
                     key={p.label}
                     onClick={() => pick(p.period)}
                     className={`w-full whitespace-nowrap text-left px-3 py-2 text-[13px] rounded-lg transition-colors ${
                       p.period === period
-                        ? "bg-white text-emerald-600 font-semibold"
-                        : "text-gray-600 hover:bg-white hover:text-emerald-600"
+                        ? "bg-zinc-900 text-emerald-600 font-semibold"
+                        : "text-zinc-400 hover:bg-zinc-900 hover:text-emerald-600"
                     }`}
                   >
                     {p.label}
@@ -266,7 +266,7 @@ export default function PeriodPicker({
 
               <div className="flex-1 p-4">
                 {/* Which shape the period has — and so how the chart reads it. */}
-                <div className="flex items-center gap-1 bg-gray-50 border border-gray-200 rounded-lg p-0.5 mb-4">
+                <div className="flex items-center gap-1 bg-zinc-900 border border-zinc-800 rounded-lg p-0.5 mb-4">
                   {tab("month", "Month", "day by day")}
                   {tab("year", "Year", "month by month")}
                 </div>
@@ -289,7 +289,7 @@ export default function PeriodPicker({
                       <polyline points="15 18 9 12 15 6" />
                     </svg>
                   </button>
-                  <span className="text-[15px] font-bold text-gray-800">{viewYear}</span>
+                  <span className="text-[15px] font-bold text-zinc-200">{viewYear}</span>
                   <button
                     onClick={() => setViewYear((y) => Math.min(maxYear, y + 1))}
                     disabled={viewYear >= maxYear}
@@ -320,7 +320,7 @@ export default function PeriodPicker({
                           className={`py-2 rounded-xl text-[13px] font-medium transition ${
                             p === period
                               ? "bg-emerald-600 text-white"
-                              : "text-gray-700 hover:bg-emerald-50 hover:text-emerald-600"
+                              : "text-zinc-300 hover:bg-emerald-500/10 hover:text-emerald-600"
                           }`}
                         >
                           {mn}
@@ -337,7 +337,7 @@ export default function PeriodPicker({
                         className={`py-2 rounded-xl text-[13px] font-medium transition ${
                           String(y) === period
                             ? "bg-emerald-600 text-white"
-                            : "text-gray-700 hover:bg-emerald-50 hover:text-emerald-600"
+                            : "text-zinc-300 hover:bg-emerald-500/10 hover:text-emerald-600"
                         }`}
                       >
                         {y}

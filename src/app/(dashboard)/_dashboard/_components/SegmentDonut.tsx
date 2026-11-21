@@ -166,10 +166,10 @@ export default function SegmentDonut({
 
   const bgCls =
     colorScheme === "green"
-      ? "bg-green-50 border-green-100"
+      ? "bg-green-500/10 border-green-500/20"
       : colorScheme === "violet"
-        ? "bg-violet-50 border-violet-100"
-        : "bg-emerald-50 border-emerald-100";
+        ? "bg-violet-500/10 border-violet-500/20"
+        : "bg-emerald-500/10 border-emerald-500/20";
 
   return (
     <div className={`rounded-2xl border p-4 flex flex-col ${bgCls}`}>
@@ -181,7 +181,7 @@ export default function SegmentDonut({
               setMetricOpen((v) => !v);
               setSegByOpen(false);
             }}
-            className="flex items-center gap-1 bg-white border border-gray-200 rounded-lg px-2.5 py-1 text-[12px] font-medium cursor-pointer hover:bg-gray-50 transition"
+            className="flex items-center gap-1 bg-zinc-900 border border-zinc-800 rounded-lg px-2.5 py-1 text-[12px] font-medium cursor-pointer hover:bg-zinc-900 transition"
           >
             {metricLabel}
             <svg
@@ -199,7 +199,7 @@ export default function SegmentDonut({
           {metricOpen && (
             <>
               <div className="fixed inset-0 z-40" onClick={() => setMetricOpen(false)} />
-              <div className="absolute left-0 top-full mt-1.5 w-[140px] bg-white border border-gray-200 rounded-xl shadow-lg z-50 py-1 overflow-hidden animate-in fade-in zoom-in-95 duration-150 origin-top">
+              <div className="absolute left-0 top-full mt-1.5 w-[140px] bg-zinc-900 border border-zinc-800 rounded-xl shadow-lg z-50 py-1 overflow-hidden animate-in fade-in zoom-in-95 duration-150 origin-top">
                 {metricOptions.map((m) => (
                   <button
                     key={m.key}
@@ -207,7 +207,7 @@ export default function SegmentDonut({
                       setMetric(m.key);
                       setMetricOpen(false);
                     }}
-                    className={`w-full text-left px-3 py-1.5 text-[12px] hover:bg-gray-50 flex items-center justify-between transition ${metric === m.key ? "text-emerald-600 font-semibold bg-emerald-50/60" : "text-gray-700"}`}
+                    className={`w-full text-left px-3 py-1.5 text-[12px] hover:bg-zinc-900 flex items-center justify-between transition ${metric === m.key ? "text-emerald-600 font-semibold bg-emerald-500/10/60" : "text-zinc-300"}`}
                   >
                     {m.label}
                     {metric === m.key && (
@@ -228,7 +228,7 @@ export default function SegmentDonut({
             </>
           )}
         </div>
-        <span className="text-[12px] text-gray-400">by</span>
+        <span className="text-[12px] text-zinc-500">by</span>
         {/* SegBy dropdown */}
         <div className="relative">
           <button
@@ -236,7 +236,7 @@ export default function SegmentDonut({
               setSegByOpen((v) => !v);
               setMetricOpen(false);
             }}
-            className="flex items-center gap-1 bg-white border border-gray-200 rounded-lg px-2.5 py-1 text-[12px] font-medium cursor-pointer hover:bg-gray-50 transition"
+            className="flex items-center gap-1 bg-zinc-900 border border-zinc-800 rounded-lg px-2.5 py-1 text-[12px] font-medium cursor-pointer hover:bg-zinc-900 transition"
           >
             {segBy}
             <svg
@@ -254,7 +254,7 @@ export default function SegmentDonut({
           {segByOpen && (
             <>
               <div className="fixed inset-0 z-40" onClick={() => setSegByOpen(false)} />
-              <div className="absolute left-0 top-full mt-1.5 w-[150px] bg-white border border-gray-200 rounded-xl shadow-lg z-50 py-1 overflow-hidden animate-in fade-in zoom-in-95 duration-150 origin-top">
+              <div className="absolute left-0 top-full mt-1.5 w-[150px] bg-zinc-900 border border-zinc-800 rounded-xl shadow-lg z-50 py-1 overflow-hidden animate-in fade-in zoom-in-95 duration-150 origin-top">
                 {segByOptions.map((s) => (
                   <button
                     key={s}
@@ -262,7 +262,7 @@ export default function SegmentDonut({
                       setSegBy(s);
                       setSegByOpen(false);
                     }}
-                    className={`w-full text-left px-3 py-1.5 text-[12px] hover:bg-gray-50 flex items-center justify-between transition ${segBy === s ? "text-emerald-600 font-semibold bg-emerald-50/60" : "text-gray-700"}`}
+                    className={`w-full text-left px-3 py-1.5 text-[12px] hover:bg-zinc-900 flex items-center justify-between transition ${segBy === s ? "text-emerald-600 font-semibold bg-emerald-500/10/60" : "text-zinc-300"}`}
                   >
                     {s}
                     {segBy === s && (
@@ -316,8 +316,8 @@ export default function SegmentDonut({
           </PieChart>
         </ResponsiveContainer>
         <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-          <span className="text-[11px] text-gray-400 mb-0.5">Total</span>
-          <span className="text-[20px] font-extrabold text-gray-900 leading-none">
+          <span className="text-[11px] text-zinc-500 mb-0.5">Total</span>
+          <span className="text-[20px] font-extrabold text-zinc-100 leading-none">
             {fmtSegVal(total, isMoney)}
           </span>
         </div>
@@ -331,9 +331,9 @@ export default function SegmentDonut({
                 className="w-2 h-2 rounded-full shrink-0"
                 style={{ background: SEG_COLORS[i % SEG_COLORS.length] }}
               />
-              <span className="text-gray-600 truncate">{item.name}</span>
+              <span className="text-zinc-400 truncate">{item.name}</span>
             </div>
-            <span className="font-semibold text-gray-800 ml-2 shrink-0">
+            <span className="font-semibold text-zinc-200 ml-2 shrink-0">
               {fmtSegVal(item.value, isMoney)}
             </span>
           </div>

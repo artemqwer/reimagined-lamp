@@ -38,8 +38,8 @@ export default function TimePerformanceTable({ dateFrom, dateTo, rangeLabel, isV
         rangeLabel={rangeLabel}
         isVisible={isVisible}
         headerRight={
-          <div className="flex items-center gap-1 bg-gray-50 border border-gray-200 rounded-lg p-0.5 overflow-x-auto scrollbar-none">
-            <span className="text-[11px] text-gray-400 px-2 hidden lg:inline whitespace-nowrap shrink-0">
+          <div className="flex items-center gap-1 bg-zinc-900 border border-zinc-800 rounded-lg p-0.5 overflow-x-auto scrollbar-none">
+            <span className="text-[11px] text-zinc-500 px-2 hidden lg:inline whitespace-nowrap shrink-0">
               Time by:
             </span>
             {OPTIONS.map((o) => (
@@ -48,8 +48,8 @@ export default function TimePerformanceTable({ dateFrom, dateTo, rangeLabel, isV
                 onClick={() => setTimeframe(o.value)}
                 className={`px-2 py-0.5 text-[11px] sm:text-[12px] rounded-md transition whitespace-nowrap shrink-0 ${
                   timeframe === o.value
-                    ? "bg-white border border-gray-200 shadow-sm text-emerald-600 font-semibold"
-                    : "text-gray-500 hover:text-gray-700"
+                    ? "bg-zinc-900 border border-zinc-800 shadow-sm text-emerald-600 font-semibold"
+                    : "text-zinc-400 hover:text-zinc-300"
                 }`}
               >
                 {o.label}

@@ -18,14 +18,14 @@ export default function MetricFilterControls({
   options?: { key: string; label: string }[];
 }) {
   const selectCls =
-    "w-full appearance-none bg-white border border-gray-200 rounded-lg pl-3 pr-8 py-2 text-[13px] text-gray-700 cursor-pointer hover:border-gray-300 focus:outline-none focus:border-emerald-400 transition";
+    "w-full appearance-none bg-zinc-900 border border-zinc-800 rounded-lg pl-3 pr-8 py-2 text-[13px] text-zinc-300 cursor-pointer hover:border-zinc-700 focus:outline-none focus:border-emerald-400 transition";
   const inputCls =
-    "w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-[13px] text-gray-700 focus:outline-none focus:border-emerald-400 transition tabular-nums";
-  const labelCls = "text-[11px] font-semibold text-gray-400 uppercase tracking-wide mb-1.5";
+    "w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2 text-[13px] text-zinc-300 focus:outline-none focus:border-emerald-400 transition tabular-nums";
+  const labelCls = "text-[11px] font-semibold text-zinc-500 uppercase tracking-wide mb-1.5";
 
   const chevron = (
     <svg
-      className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400"
+      className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-zinc-500"
       width="12"
       height="12"
       viewBox="0 0 24 24"
@@ -93,7 +93,7 @@ export default function MetricFilterControls({
               placeholder="2.0"
               className={`${inputCls} ${!value.metric ? "opacity-50" : ""}`}
             />
-            <span className="text-gray-400 shrink-0">—</span>
+            <span className="text-zinc-500 shrink-0">—</span>
             <input
               type="number"
               inputMode="decimal"

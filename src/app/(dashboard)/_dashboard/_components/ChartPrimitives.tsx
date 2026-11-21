@@ -74,20 +74,20 @@ export const ChartTooltip = ({
   const heading = dow ? `${label} (${dow})` : label;
   const fmtV = (v: number) => (isMoney ? fmtChartMoney(v) : fmtChartNum(v));
   return (
-    <div className="bg-white border border-gray-200 rounded-lg shadow-md px-2.5 py-2 text-[11px] max-w-50 sm:max-w-70">
-      <p className="font-semibold text-gray-700 mb-1.5">{heading}</p>
+    <div className="bg-zinc-900 border border-zinc-800 rounded-lg shadow-md px-2.5 py-2 text-[11px] max-w-50 sm:max-w-70">
+      <p className="font-semibold text-zinc-300 mb-1.5">{heading}</p>
       <div className="max-h-40 sm:max-h-none overflow-y-auto space-y-0.5">
         {nonZero.map((p) => (
           <div key={p.name} className="flex items-center justify-between gap-2">
             <span className="flex items-center gap-1 min-w-0">
               <div className="w-1.5 h-1.5 rounded-sm shrink-0" style={{ background: p.color }} />
-              <span className="text-gray-500 truncate">{p.name}</span>
+              <span className="text-zinc-400 truncate">{p.name}</span>
             </span>
-            <span className="font-medium text-gray-700 shrink-0">{fmtV(p.value)}</span>
+            <span className="font-medium text-zinc-300 shrink-0">{fmtV(p.value)}</span>
           </div>
         ))}
       </div>
-      <div className="border-t border-gray-100 mt-1.5 pt-1 flex justify-between font-semibold text-gray-800">
+      <div className="border-t border-zinc-800 mt-1.5 pt-1 flex justify-between font-semibold text-zinc-200">
         <span>Total</span>
         <span>{fmtV(total)}</span>
       </div>
@@ -97,7 +97,7 @@ export const ChartTooltip = ({
 
 export function SortIcon({ dir }: { dir: "asc" | "desc" | null }) {
   return (
-    <span className="ml-1 text-gray-300 text-[10px]">
+    <span className="ml-1 text-zinc-600 text-[10px]">
       {dir === "asc" ? "↑" : dir === "desc" ? "↓" : "↕"}
     </span>
   );
@@ -112,7 +112,7 @@ export const BarXTick = ({ x, y, payload, data }: any) => {
         x={0}
         y={0}
         dy={12}
-        fill={weekend ? "#3B82F6" : "#9CA3AF"}
+        fill={weekend ? "#3B82F6" : "#71717A"}
         fontSize={13}
         textAnchor="middle"
         fontWeight={400}
@@ -133,7 +133,7 @@ export const AdXTick = ({ x, y, payload, data }: any) => {
         x={0}
         y={0}
         dy={12}
-        fill={weekend ? "#3B82F6" : "#9CA3AF"}
+        fill={weekend ? "#3B82F6" : "#71717A"}
         fontSize={12}
         textAnchor="middle"
         fontWeight={400}
@@ -153,7 +153,7 @@ export const PlXTick = ({ x, y, payload, data }: any) => {
         x={0}
         y={0}
         dy={12}
-        fill={weekend ? "#3B82F6" : "#9CA3AF"}
+        fill={weekend ? "#3B82F6" : "#71717A"}
         fontSize={12}
         textAnchor="middle"
         fontWeight={400}
@@ -170,11 +170,11 @@ export const AdTooltip = ({ active, payload, label, data }: any) => {
   const item = data.find((d: AdPerfItem) => d.date === label);
   if (!item) return null;
   return (
-    <div className="bg-white border border-gray-200 rounded-lg shadow-md px-3 py-2.5 text-[11px]">
-      <p className="font-semibold text-gray-700 mb-1.5">{label}</p>
+    <div className="bg-zinc-900 border border-zinc-800 rounded-lg shadow-md px-3 py-2.5 text-[11px]">
+      <p className="font-semibold text-zinc-300 mb-1.5">{label}</p>
       <div className="flex justify-between gap-4">
-        <span className="text-gray-500">Conv. Value</span>
-        <span className="font-semibold text-gray-800">{fmtChartMoney(item.convValue)}</span>
+        <span className="text-zinc-400">Conv. Value</span>
+        <span className="font-semibold text-zinc-200">{fmtChartMoney(item.convValue)}</span>
       </div>
       <div className="flex justify-between gap-4">
         <span className="text-green-600">Profit</span>
@@ -184,15 +184,15 @@ export const AdTooltip = ({ active, payload, label, data }: any) => {
       </div>
       <div className="flex justify-between gap-4">
         <span className="text-red-400">Cost</span>
-        <span className="font-semibold text-gray-800">{fmtChartMoney(item.cost)}</span>
+        <span className="font-semibold text-zinc-200">{fmtChartMoney(item.cost)}</span>
       </div>
-      <div className="flex justify-between gap-4 border-t border-gray-100 mt-1.5 pt-1">
+      <div className="flex justify-between gap-4 border-t border-zinc-800 mt-1.5 pt-1">
         <span className="text-purple-500">ROAS</span>
-        <span className="font-semibold text-gray-800">{item.roas.toFixed(2)}x</span>
+        <span className="font-semibold text-zinc-200">{item.roas.toFixed(2)}x</span>
       </div>
       <div className="flex justify-between gap-4">
-        <span className="text-gray-400">Clicks</span>
-        <span className="font-semibold text-gray-800">{fmtChartNum(item.clicks)}</span>
+        <span className="text-zinc-500">Clicks</span>
+        <span className="font-semibold text-zinc-200">{fmtChartNum(item.clicks)}</span>
       </div>
     </div>
   );
@@ -204,14 +204,14 @@ export const PlTooltip = ({ active, payload, label, data }: any) => {
   const item = data.find((d: PlItem) => d.date === label);
   if (!item) return null;
   return (
-    <div className="bg-white border border-gray-200 rounded-lg shadow-md px-3 py-2.5 text-[11px]">
-      <p className="font-semibold text-gray-700 mb-1.5">{label}</p>
+    <div className="bg-zinc-900 border border-zinc-800 rounded-lg shadow-md px-3 py-2.5 text-[11px]">
+      <p className="font-semibold text-zinc-300 mb-1.5">{label}</p>
       <div className="flex justify-between gap-4">
         <span className="text-green-600">Cumulative</span>
         <span className="font-semibold text-green-700">{fmtChartMoney(item.cumulative)}</span>
       </div>
       <div className="flex justify-between gap-4">
-        <span className={item.dailyProfit < 0 ? "text-red-400" : "text-gray-500"}>Daily</span>
+        <span className={item.dailyProfit < 0 ? "text-red-400" : "text-zinc-400"}>Daily</span>
         <span
           className={`font-semibold ${item.dailyProfit < 0 ? "text-red-600" : "text-green-700"}`}
         >
@@ -301,7 +301,7 @@ export const renderPlLabel = ({ x = 0, y = 0, width: w = 0, value: val = 0 }: an
       className="hidden sm:block"
       x={x + w / 2}
       y={y - 5}
-      fill="#374151"
+      fill="#A1A1AA"
       fontSize={12}
       fontWeight={700}
       textAnchor="middle"
@@ -376,7 +376,7 @@ export const makeRenderTotalLabel = (isMoney: boolean) =>
         className="hidden sm:block"
         x={x + width / 2}
         y={y - 6}
-        fill="#374151"
+        fill="#A1A1AA"
         fontSize={12}
         fontWeight={600}
         textAnchor="middle"

@@ -868,7 +868,7 @@ export default function DashboardView() {
         label: def?.label ?? key,
         shortLabel: def?.label ?? key,
         icon: I.bar,
-        iconColor: "#6b7280",
+        iconColor: "#71717A",
         desc: `${def?.label ?? key} in the selected period`,
         hoverFmt: (v: number) => formatCustomMetricValue(v, def?.format),
         format: def?.format,
@@ -1831,7 +1831,7 @@ export default function DashboardView() {
       const campaignAvgs = allEntries.map((item) => ({
         name: item.name,
         avg: item.total / sourceBarData.length,
-        color: item.name === "Others" ? "#9CA3AF" : COLORS[colorIdx++ % COLORS.length],
+        color: item.name === "Others" ? "#71717A" : COLORS[colorIdx++ % COLORS.length],
       }));
 
       return {
@@ -2823,7 +2823,7 @@ export default function DashboardView() {
 
   const chartSeries = useMemo(() => {
     if (chartGroupBy === "Campaign Type") {
-      return presentTypes.map((name) => ({ name, color: TYPE_COLORS_MAP[name] ?? "#9CA3AF" }));
+      return presentTypes.map((name) => ({ name, color: TYPE_COLORS_MAP[name] ?? "#71717A" }));
     }
     return campaignAvgs.map(({ name, color }) => ({ name, color }));
   }, [chartGroupBy, campaignAvgs, presentTypes]);
@@ -4645,7 +4645,7 @@ export default function DashboardView() {
   return (
     <>
       {(isWindsorLoading || dimensionBarLoading || crossFilterLoading || tableLoadingCount > 0) && (
-        <div className="fixed top-0 inset-x-0 z-[100] h-[3px] overflow-hidden bg-emerald-100">
+        <div className="fixed top-0 inset-x-0 z-[100] h-[3px] overflow-hidden bg-emerald-500/10">
           <div
             className="absolute h-full w-[35%] bg-emerald-500"
             style={{ animation: "loading-bar 1.2s ease-in-out infinite" }}
@@ -4653,7 +4653,7 @@ export default function DashboardView() {
         </div>
       )}
       <div
-        className={`w-full px-4 sm:px-6 pt-6 pb-6 bg-[#f9fafb] ${isMobile ? "" : "transition-[padding] duration-300 ease-out"} ${aiOpen ? "lg:pr-[456px]" : ""}`}
+        className={`w-full px-4 sm:px-6 pt-6 pb-6 bg-[#18181B] ${isMobile ? "" : "transition-[padding] duration-300 ease-out"} ${aiOpen ? "lg:pr-[456px]" : ""}`}
       >
         <div className="max-w-[1600px] @container">
           {/* Header — desktop only; below lg the dashboard layout's mobile top bar
@@ -4668,7 +4668,7 @@ export default function DashboardView() {
                     if (datePickerOpen) setDatePickerOpen(false);
                     else openDatePicker();
                   }}
-                  className="flex items-center gap-2 text-[14px] text-gray-600 bg-white border border-gray-200 rounded-lg px-3 py-1.5 cursor-pointer hover:bg-gray-50 transition"
+                  className="flex items-center gap-2 text-[14px] text-zinc-400 bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-1.5 cursor-pointer hover:bg-zinc-900 transition"
                 >
                   <svg
                     width="14"
@@ -4743,7 +4743,7 @@ export default function DashboardView() {
               const toggleBtn = (
                 <button
                   onClick={() => setFiltersExpandedOverride(!expanded)}
-                  className="flex items-center gap-1 text-[12px] font-medium text-gray-500 hover:text-gray-700 transition shrink-0"
+                  className="flex items-center gap-1 text-[12px] font-medium text-zinc-400 hover:text-zinc-300 transition shrink-0"
                 >
                   {expanded ? "Hide" : "Show"}
                   <svg
@@ -4762,7 +4762,7 @@ export default function DashboardView() {
               const clearBtn = (
                 <button
                   onClick={clearAll}
-                  className="flex items-center gap-1 text-[12px] font-semibold text-red-500 hover:text-red-600 border border-red-200 rounded-lg px-2.5 py-1 hover:bg-red-50 transition shrink-0"
+                  className="flex items-center gap-1 text-[12px] font-semibold text-red-500 hover:text-red-600 border border-red-500/20 rounded-lg px-2.5 py-1 hover:bg-red-500/10 transition shrink-0"
                 >
                   <svg
                     width="12"
@@ -4784,8 +4784,8 @@ export default function DashboardView() {
                   key={`${c.key}|${c.value}`}
                   className={`inline-flex items-center gap-1 border text-[12px] rounded-full pl-2.5 pr-1 py-0.5 max-w-full ${
                     c.aggregated
-                      ? "bg-emerald-100 border-emerald-300 text-emerald-800 font-semibold"
-                      : "bg-emerald-50 border-emerald-200 text-emerald-700 font-medium"
+                      ? "bg-emerald-500/10 border-emerald-300 text-emerald-800 font-semibold"
+                      : "bg-emerald-500/10 border-emerald-500/20 text-emerald-700 font-medium"
                   }`}
                 >
                   <span
@@ -4830,7 +4830,7 @@ export default function DashboardView() {
 
               return (
                 <div className="sticky top-0 z-30 -mx-1 mb-3">
-                  <div className="relative overflow-x-clip bg-white/95 backdrop-blur border border-gray-200 rounded-xl shadow-sm px-3 py-2">
+                  <div className="relative overflow-x-clip bg-zinc-900/95 backdrop-blur border border-zinc-800 rounded-xl shadow-sm px-3 py-2">
                     {/* Hidden single-line mirror used only to measure the natural one-row
                 width (header + toggle + all chips at full width + Clear All). If it
                 is wider than the bar, the chips would wrap → compact layout. */}
@@ -4883,10 +4883,10 @@ export default function DashboardView() {
                       >
                         <polyline points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
                       </svg>
-                      <span className="text-[13px] font-bold text-gray-800 shrink-0">
+                      <span className="text-[13px] font-bold text-zinc-200 shrink-0">
                         Active Filters
                       </span>
-                      <span className="text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-100 rounded-full px-2 py-0.5 shrink-0">
+                      <span className="text-[11px] font-semibold text-emerald-700 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-2 py-0.5 shrink-0">
                         {activeFilterChips.length}
                       </span>
                       {/* Toggle next to "Active Filters" — except in inline-expanded mode,
@@ -4972,7 +4972,7 @@ export default function DashboardView() {
 
           {/* Chart card. Desktop padding per the Figma spec: 16px top, 24px sides,
           ~0 bottom (the inner blocks carry their own bottom spacing). */}
-          <div className="bg-white rounded-2xl border border-gray-200 p-3 sm:px-6 sm:pt-4 sm:pb-0 mb-5 min-w-0">
+          <div className="bg-zinc-900 rounded-2xl border border-zinc-800 p-3 sm:px-6 sm:pt-4 sm:pb-0 mb-5 min-w-0">
             {/* Tabs row. Two things must hold at once:
               1) the active tab's 2px underline merges with the bottom divider, and
               2) the AI Analytics button is vertically CENTRED in the row.
@@ -4982,7 +4982,7 @@ export default function DashboardView() {
             of the AI button height or overflow-x-auto). The AI button is `self-center`.
             `py-3` keeps the row compact (the card already supplies the 16px top space
             from the Figma spec) while the AI pill still reads as centred. */}
-            <div className="flex items-center justify-between gap-3 mb-2 sm:mb-5 min-w-0 border-b border-gray-200 pt-0 pb-0">
+            <div className="flex items-center justify-between gap-3 mb-2 sm:mb-5 min-w-0 border-b border-zinc-800 pt-0 pb-0">
               {/* Tab buttons on ALL devices. The buttons fill the row height
               (items-stretch) so their border-b-2 -mb-px underline lands exactly on
               the divider and the label sits vertically centred.
@@ -5003,8 +5003,8 @@ export default function DashboardView() {
                       onClick={() => setActiveTab(i)}
                       className={`flex items-center gap-1.5 sm:gap-2 px-0.5 sm:px-0 pt-2.5 pb-2.5 sm:pt-0 sm:pb-4.5 sm:h-10.5 border-b-2 -mb-px text-[13px] sm:text-[16px] leading-none sm:leading-6 font-medium transition whitespace-nowrap tracking-[-0.2px] cursor-pointer ${
                         active
-                          ? "border-[#059669] text-[#047857]"
-                          : "border-transparent text-[#4a5565] hover:text-gray-700 hover:border-gray-300"
+                          ? "border-[#10B981] text-[#34D399]"
+                          : "border-transparent text-[#A1A1AA] hover:text-zinc-300 hover:border-zinc-700"
                       }`}
                     >
                       <span className="shrink-0 flex items-center [&>svg]:size-4 sm:[&>svg]:size-5">
@@ -5031,13 +5031,13 @@ export default function DashboardView() {
                 {/* AI button plate — sizes/paddings/radii/gradient transferred 1:1 from
               Figma (node 3:245/3:247): 2px gradient border (rounded-11), 32px-tall
               white button, 12px side / 6px vertical padding, 8px gap, rounded-9,
-              14px icon, 14px #364153 text. Raised 8px on desktop to match the Figma
+              14px icon, 14px #A1A1AA text. Raised 8px on desktop to match the Figma
               offset (no raise on mobile, where it sits beside the dropdown). */}
                 <div
                   className="p-[2px] rounded-[11px] transition sm:-translate-y-[8px]"
                   style={{
                     background: aiOpen
-                      ? "#e5e7eb"
+                      ? "#3F3F46"
                       : "linear-gradient(90deg, #2b7fff, #ad46ff, #f6339a)",
                   }}
                 >
@@ -5047,8 +5047,8 @@ export default function DashboardView() {
                     disabled={aiOpen}
                     className={`flex items-center gap-2 h-8 px-3 leading-none text-[14px] font-medium rounded-[9px] transition whitespace-nowrap ${
                       aiOpen
-                        ? "text-gray-400 bg-gray-50 cursor-default"
-                        : "text-[#364153] bg-white hover:bg-gray-50/80"
+                        ? "text-zinc-500 bg-zinc-900 cursor-default"
+                        : "text-[#A1A1AA] bg-zinc-900 hover:bg-zinc-900/80"
                     }`}
                   >
                     <svg
@@ -5065,9 +5065,9 @@ export default function DashboardView() {
                       </defs>
                       <path
                         d="M12 1.5C12.5 7.5 16.5 11.5 22.5 12C16.5 12.5 12.5 16.5 12 22.5C11.5 16.5 7.5 12.5 1.5 12C7.5 11.5 11.5 7.5 12 1.5Z"
-                        fill={aiOpen ? "#9ca3af" : "url(#ai-grad)"}
+                        fill={aiOpen ? "#71717A" : "url(#ai-grad)"}
                       />
-                      <circle cx="18" cy="6" r="1.5" fill={aiOpen ? "#9ca3af" : "url(#ai-grad)"} />
+                      <circle cx="18" cy="6" r="1.5" fill={aiOpen ? "#71717A" : "url(#ai-grad)"} />
                     </svg>
                     <span>AI Analytics</span>
                     {aiSelectionChips.length > 0 && (

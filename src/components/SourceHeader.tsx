@@ -22,7 +22,7 @@ export default function SourceHeader({ children }: { children?: React.ReactNode 
     // nothing else to carry — two headers, one saying METRICFORGE and one
     // saying Google Ads, was the thing to fix.
     <div
-      className={`bg-white/80 border border-gray-200/70 rounded-2xl px-4 sm:px-5 py-3 mb-4 ${
+      className={`bg-zinc-900/80 border border-zinc-800/70 rounded-2xl px-4 sm:px-5 py-3 mb-4 ${
         children ? "" : "hidden sm:block"
       }`}
     >

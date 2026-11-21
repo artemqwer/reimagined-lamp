@@ -119,17 +119,17 @@ export default function MobileDatePicker({
     // white ground, and the page behind is scroll-locked (see the effect above)
     // so nothing shows through or scrolls under it.
     <div
-      className="sm:hidden fixed inset-0 z-[200] flex flex-col bg-white"
+      className="sm:hidden fixed inset-0 z-[200] flex flex-col bg-zinc-900"
       onMouseLeave={() => setPickerHover(null)}
     >
       <div className="flex flex-col flex-1 min-h-0 w-full">
         {/* Header — title + close, so a full-screen sheet has a clear way out. */}
-        <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100 shrink-0">
-          <span className="text-[15px] font-semibold text-gray-800">Select dates</span>
+        <div className="flex items-center justify-between px-4 py-3 border-b border-zinc-800 shrink-0">
+          <span className="text-[15px] font-semibold text-zinc-200">Select dates</span>
           <button
             onClick={() => setDatePickerOpen(false)}
             aria-label="Close"
-            className="w-9 h-9 -mr-1.5 flex items-center justify-center rounded-full text-gray-500 hover:bg-gray-100 transition"
+            className="w-9 h-9 -mr-1.5 flex items-center justify-center rounded-full text-zinc-400 hover:bg-zinc-800 transition"
           >
             <svg
               width="20"
@@ -152,13 +152,13 @@ export default function MobileDatePicker({
         {/* Heading dropped on mobile — even trimmed it clipped against the sheet
             edge and read as a defect. Instead the preset row sits vertically
             centred with even padding top and bottom, so it reads as deliberate. */}
-        <div className="w-full border-b border-gray-100 bg-gray-50/50 shrink-0 overflow-hidden flex items-center min-h-[52px]">
+        <div className="w-full border-b border-zinc-800 bg-zinc-900/50 shrink-0 overflow-hidden flex items-center min-h-[52px]">
           <div className="flex overflow-x-auto scrollbar-none px-2 w-full">
             {MOBILE_PRESETS.map((label) => (
               <button
                 key={label}
                 onClick={() => handlePresetClick(label)}
-                className="whitespace-nowrap text-left px-4 py-2 text-[13px] transition-all text-gray-600 hover:bg-white hover:text-emerald-600"
+                className="whitespace-nowrap text-left px-4 py-2 text-[13px] transition-all text-zinc-400 hover:bg-zinc-900 hover:text-emerald-600"
               >
                 {label}
               </button>
@@ -176,7 +176,7 @@ export default function MobileDatePicker({
                 <div className="flex items-center justify-between mb-6">
                   <button
                     onClick={() => setYMPickerYear((y) => Math.max(2000, y - 1))}
-                    className="w-10 h-10 flex items-center justify-center rounded-xl border border-gray-200 hover:bg-gray-100 transition text-gray-500"
+                    className="w-10 h-10 flex items-center justify-center rounded-xl border border-zinc-800 hover:bg-zinc-800 transition text-zinc-400"
                   >
                     <svg
                       width="18"
@@ -189,11 +189,11 @@ export default function MobileDatePicker({
                       <polyline points="15 18 9 12 15 6" />
                     </svg>
                   </button>
-                  <span className="text-[18px] font-bold text-gray-800">{yMPickerYear}</span>
+                  <span className="text-[18px] font-bold text-zinc-200">{yMPickerYear}</span>
                   <button
                     onClick={() => setYMPickerYear((y) => Math.min(NOW_YEAR, y + 1))}
                     disabled={yMPickerYear >= NOW_YEAR}
-                    className="w-10 h-10 flex items-center justify-center rounded-xl border border-gray-200 hover:bg-gray-100 transition text-gray-500 disabled:opacity-30"
+                    className="w-10 h-10 flex items-center justify-center rounded-xl border border-zinc-800 hover:bg-zinc-800 transition text-zinc-400 disabled:opacity-30"
                   >
                     <svg
                       width="18"
@@ -224,8 +224,8 @@ export default function MobileDatePicker({
                           isActive
                             ? "bg-emerald-600 text-white shadow-md shadow-emerald-200"
                             : isFuture
-                              ? "text-gray-200 cursor-not-allowed"
-                              : "text-gray-700 hover:bg-emerald-50 hover:text-emerald-600"
+                              ? "text-zinc-600 cursor-not-allowed"
+                              : "text-zinc-300 hover:bg-emerald-500/10 hover:text-emerald-600"
                         }`}
                       >
                         {mn}
@@ -235,7 +235,7 @@ export default function MobileDatePicker({
                 </div>
                 <button
                   onClick={() => setYMPickerOpen(false)}
-                  className="mt-6 text-[14px] text-gray-400 hover:text-gray-600 transition self-center"
+                  className="mt-6 text-[14px] text-zinc-500 hover:text-zinc-400 transition self-center"
                 >
                   Cancel
                 </button>
@@ -297,10 +297,10 @@ export default function MobileDatePicker({
         </div>
 
         {/* Footer — завжди зафіксований знизу */}
-        <div className="flex gap-3 px-6 py-4 border-t border-gray-100 shrink-0 bg-white">
+        <div className="flex gap-3 px-6 py-4 border-t border-zinc-800 shrink-0 bg-zinc-900">
           <button
             onClick={() => setDatePickerOpen(false)}
-            className="flex-1 py-3 text-[14px] font-bold text-gray-600 hover:bg-gray-50 rounded-2xl transition-all border border-gray-200"
+            className="flex-1 py-3 text-[14px] font-bold text-zinc-400 hover:bg-zinc-900 rounded-2xl transition-all border border-zinc-800"
           >
             Cancel
           </button>
@@ -315,7 +315,7 @@ export default function MobileDatePicker({
                 // Keep active cross-filters when only the period changes.
               }
             }}
-            className="flex-1 py-3 text-[14px] bg-emerald-600 text-white rounded-2xl font-bold hover:bg-emerald-700 disabled:bg-gray-100 disabled:text-gray-400 transition-all"
+            className="flex-1 py-3 text-[14px] bg-emerald-600 text-white rounded-2xl font-bold hover:bg-emerald-700 disabled:bg-zinc-800 disabled:text-zinc-500 transition-all"
           >
             Apply Period
           </button>

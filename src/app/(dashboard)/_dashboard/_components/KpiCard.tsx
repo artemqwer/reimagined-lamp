@@ -32,22 +32,22 @@ export default function KpiCard({
   const gradId = `kg-${label.replace(/[^a-zA-Z0-9]/g, "")}`;
 
   return (
-    <div className="bg-white rounded-2xl border border-gray-200 px-2 sm:px-4 pt-2.5 sm:pt-3 pb-0 min-w-0 flex-1 flex flex-col transition-colors duration-200">
+    <div className="bg-zinc-900 rounded-2xl border border-zinc-800 px-2 sm:px-4 pt-2.5 sm:pt-3 pb-0 min-w-0 flex-1 flex flex-col transition-colors duration-200">
       <div className="flex items-center justify-between mb-1">
         <div className="flex items-center gap-1.5 min-w-0">
           <span className="shrink-0" style={{ color: iconColor ?? (up ? "#22C55E" : "#EF4444") }}>
             {icon}
           </span>
-          <span className="sm:hidden text-[13px] font-medium text-gray-600 truncate">
+          <span className="sm:hidden text-[13px] font-medium text-zinc-400 truncate">
             {shortLabel ?? label}
           </span>
-          <span className="hidden sm:inline text-[13px] text-gray-500 truncate">{label}</span>
+          <span className="hidden sm:inline text-[13px] text-zinc-400 truncate">{label}</span>
         </div>
         <div className="relative group shrink-0 ml-1 hidden sm:block">
-          <span className="w-3 h-3 sm:w-4 sm:h-4 rounded-full border border-gray-200 flex items-center justify-center text-[7px] sm:text-[8px] text-gray-400 cursor-help select-none">
+          <span className="w-3 h-3 sm:w-4 sm:h-4 rounded-full border border-zinc-800 flex items-center justify-center text-[7px] sm:text-[8px] text-zinc-500 cursor-help select-none">
             i
           </span>
-          <div className="absolute right-0 top-5 w-[170px] bg-gray-900 text-white text-[11px] rounded-lg px-2.5 py-1.5 opacity-0 group-hover:opacity-100 transition-opacity z-50 pointer-events-none shadow-lg leading-snug">
+          <div className="absolute right-0 top-5 w-[170px] bg-zinc-950 text-white text-[11px] rounded-lg px-2.5 py-1.5 opacity-0 group-hover:opacity-100 transition-opacity z-50 pointer-events-none shadow-lg leading-snug">
             {desc}
           </div>
         </div>
@@ -60,7 +60,7 @@ export default function KpiCard({
         <div className="flex flex-col gap-y-0 sm:hidden">
           <span
             key={`v-${value}`}
-            className="text-[15px] font-bold text-gray-900 leading-tight truncate animate-in fade-in slide-in-from-bottom-1 duration-300"
+            className="text-[15px] font-bold text-zinc-100 leading-tight truncate animate-in fade-in slide-in-from-bottom-1 duration-300"
           >
             {value}
           </span>
@@ -80,13 +80,13 @@ export default function KpiCard({
         <div className="hidden sm:flex items-center justify-between gap-x-1.5 flex-nowrap">
           <span
             key={`v-${value}`}
-            className="text-[18px] font-bold text-gray-900 leading-tight whitespace-nowrap truncate min-w-0 animate-in fade-in slide-in-from-bottom-1 duration-300"
+            className="text-[18px] font-bold text-zinc-100 leading-tight whitespace-nowrap truncate min-w-0 animate-in fade-in slide-in-from-bottom-1 duration-300"
           >
             {value}
           </span>
           <span
             key={`d-${delta}`}
-            className={`shrink-0 text-[11px] font-semibold leading-none px-1.5 py-1 rounded-md animate-in fade-in duration-300 ${up ? "text-emerald-700 bg-emerald-50" : "text-red-600 bg-red-50"}`}
+            className={`shrink-0 text-[11px] font-semibold leading-none px-1.5 py-1 rounded-md animate-in fade-in duration-300 ${up ? "text-emerald-700 bg-emerald-500/10" : "text-red-600 bg-red-500/10"}`}
           >
             {delta}
           </span>
@@ -131,7 +131,7 @@ export default function KpiCard({
                   <div
                     style={{
                       background: "#fff",
-                      border: "1px solid #E5E7EB",
+                      border: "1px solid #3F3F46",
                       borderRadius: 8,
                       padding: "3px 8px",
                       boxShadow: "0 2px 8px rgba(0,0,0,0.10)",
@@ -139,7 +139,7 @@ export default function KpiCard({
                     }}
                   >
                     <div
-                      style={{ fontSize: 9, color: "#9CA3AF", fontWeight: 500, lineHeight: 1.4 }}
+                      style={{ fontSize: 9, color: "#71717A", fontWeight: 500, lineHeight: 1.4 }}
                     >
                       {lbl}
                     </div>

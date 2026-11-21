@@ -142,22 +142,22 @@ export default function ResetPasswordPage() {
   const isCodeComplete = code.every((d) => d !== "");
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-[#e8ecf5] px-4">
+    <div className="min-h-screen flex flex-col items-center justify-center px-4">
       <BrandLogo />
 
       {step === "email" ? (
         <>
-          <h1 className="text-[20px] font-semibold text-gray-900 mb-1">Reset your password</h1>
-          <p className="text-[14px] text-gray-500 mb-6 text-center">
+          <h1 className="text-[20px] font-semibold text-zinc-100 mb-1">Reset your password</h1>
+          <p className="text-[14px] text-zinc-400 mb-6 text-center">
             Enter your email and we&apos;ll send you a reset code
           </p>
 
           <form
             onSubmit={handleSendCode}
-            className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 sm:p-8 w-full max-w-100"
+            className="card-elevate rounded-2xl p-5 sm:p-8 w-full max-w-100"
           >
             {serverError && (
-              <div className="mb-4 px-3 py-2.5 bg-red-50 border border-red-200 rounded-lg text-[13px] text-red-600 flex items-center gap-2">
+              <div className="mb-4 px-3 py-2.5 bg-red-500/10 border border-red-500/20 rounded-lg text-[13px] text-red-600 flex items-center gap-2">
                 <svg
                   width="14"
                   height="14"
@@ -174,11 +174,11 @@ export default function ResetPasswordPage() {
               </div>
             )}
             <div className="mb-5">
-              <label className="block text-[13px] font-medium text-gray-700 mb-1.5">
+              <label className="block text-[13px] font-medium text-zinc-300 mb-1.5">
                 Email address
               </label>
               <div className="relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500">
                   <svg
                     width="16"
                     height="16"
@@ -204,10 +204,10 @@ export default function ResetPasswordPage() {
                     setEmailError(validateEmail(email));
                   }}
                   placeholder="john@company.com"
-                  className={`w-full pl-9 pr-4 py-2.5 text-[14px] border rounded-lg outline-none transition text-gray-700 placeholder-gray-400 ${
+                  className={`w-full pl-9 pr-4 py-2.5 text-[14px] border rounded-lg outline-none transition text-zinc-300 placeholder-zinc-600 ${
                     emailTouched && emailError
-                      ? "border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-100"
-                      : "border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
+                      ? "border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-500/20"
+                      : "border-zinc-800 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
                   }`}
                 />
               </div>
@@ -256,9 +256,9 @@ export default function ResetPasswordPage() {
               )}
             </button>
 
-            <p className="text-center text-[13px] text-gray-500">
+            <p className="text-center text-[13px] text-zinc-400">
               Remembered your password?{" "}
-              <Link href="/login" className="text-emerald-600 font-medium hover:underline">
+              <Link href="/login" className="text-emerald-400 font-medium hover:underline">
                 Sign in
               </Link>
             </p>
@@ -266,13 +266,13 @@ export default function ResetPasswordPage() {
         </>
       ) : (
         <>
-          <h1 className="text-[20px] font-semibold text-gray-900 mb-1">Check your email</h1>
-          <p className="text-[14px] text-gray-500 mb-1 text-center">We sent a 6-digit code to</p>
-          <p className="text-[14px] font-medium text-gray-800 mb-6">{email}</p>
+          <h1 className="text-[20px] font-semibold text-zinc-100 mb-1">Check your email</h1>
+          <p className="text-[14px] text-zinc-400 mb-1 text-center">We sent a 6-digit code to</p>
+          <p className="text-[14px] font-medium text-zinc-200 mb-6">{email}</p>
 
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 sm:p-8 w-full max-w-100">
+          <div className="card-elevate rounded-2xl p-5 sm:p-8 w-full max-w-100">
             {(serverError || codeError) && (
-              <div className="mb-4 px-3 py-2.5 bg-red-50 border border-red-200 rounded-lg text-[13px] text-red-600 flex items-center gap-2">
+              <div className="mb-4 px-3 py-2.5 bg-red-500/10 border border-red-500/20 rounded-lg text-[13px] text-red-600 flex items-center gap-2">
                 <svg
                   width="14"
                   height="14"
@@ -303,28 +303,28 @@ export default function ResetPasswordPage() {
                   onChange={(e) => handleCodeChange(i, e.target.value)}
                   onKeyDown={(e) => handleCodeKeyDown(i, e)}
                   className={`w-9 h-10 sm:w-10 sm:h-11 text-center text-[16px] sm:text-[18px] font-semibold border rounded-xl outline-none transition
-                    ${digit ? "border-emerald-500 bg-emerald-50 text-emerald-700" : "border-gray-200 text-gray-700"}
-                    focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100`}
+                    ${digit ? "border-emerald-500 bg-emerald-500/10 text-emerald-700" : "border-zinc-800 text-zinc-300"}
+                    focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20`}
                 />
               ))}
             </div>
 
             <div className="flex items-center justify-between mb-5 flex-wrap gap-1">
-              <span className="text-[13px] text-gray-500">Didn&apos;t receive the code?</span>
+              <span className="text-[13px] text-zinc-400">Didn&apos;t receive the code?</span>
               <div className="flex items-center gap-1.5">
                 <button
                   onClick={handleResend}
                   disabled={!canResend}
                   className={`text-[13px] font-medium transition ${
                     canResend
-                      ? "text-emerald-600 hover:underline cursor-pointer"
-                      : "text-gray-400 cursor-not-allowed"
+                      ? "text-emerald-400 hover:underline cursor-pointer"
+                      : "text-zinc-500 cursor-not-allowed"
                   }`}
                 >
                   Resend
                 </button>
                 {!canResend && (
-                  <span className="text-[13px] text-gray-400 tabular-nums">
+                  <span className="text-[13px] text-zinc-500 tabular-nums">
                     ({formatTime(countdown)})
                   </span>
                 )}
@@ -337,11 +337,11 @@ export default function ResetPasswordPage() {
               className={`w-full font-medium text-[15px] py-2.5 rounded-lg flex items-center justify-center gap-2 transition mb-5 ${
                 isCodeComplete && !verifying
                   ? "bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white"
-                  : "bg-gray-100 text-gray-400 cursor-not-allowed"
+                  : "bg-zinc-800 text-zinc-500 cursor-not-allowed"
               }`}
             >
               {verifying ? (
-                <div className="w-5 h-5 border-2 border-gray-400 border-t-transparent rounded-full animate-spin" />
+                <div className="w-5 h-5 border-2 border-zinc-600 border-t-transparent rounded-full animate-spin" />
               ) : (
                 <>
                   Confirm code
@@ -361,7 +361,7 @@ export default function ResetPasswordPage() {
               )}
             </button>
 
-            <p className="text-center text-[13px] text-gray-500">
+            <p className="text-center text-[13px] text-zinc-400">
               Wrong email?{" "}
               <button
                 onClick={() => {
@@ -370,7 +370,7 @@ export default function ResetPasswordPage() {
                   setCodeError("");
                   setServerError("");
                 }}
-                className="text-emerald-600 font-medium hover:underline"
+                className="text-emerald-400 font-medium hover:underline"
               >
                 Change it
               </button>

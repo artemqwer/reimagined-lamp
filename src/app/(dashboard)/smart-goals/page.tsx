@@ -651,7 +651,7 @@ export default function SmartGoalsPage() {
                 button it pushed Edit goals onto a second line. The same
                 days-left figure is on the achievement badge below, so nothing
                 is lost. Kept from sm up, where there's room. */}
-            <span className="hidden sm:inline-flex items-center text-[12px] text-gray-500 bg-gray-50 border border-gray-200 rounded-full px-2.5 py-1">
+            <span className="hidden sm:inline-flex items-center text-[12px] text-zinc-400 bg-zinc-900 border border-zinc-800 rounded-full px-2.5 py-1">
               {progress.completed
                 ? "Period complete"
                 : progress.future
@@ -659,7 +659,7 @@ export default function SmartGoalsPage() {
                   : daysLeftLabel}
             </span>
             {settings && GOAL_SOURCE_NOTE[goalSource] && (
-              <span className="inline-flex items-center gap-1 text-[12px] text-gray-500 bg-gray-50 border border-gray-200 rounded-full px-2.5 py-1">
+              <span className="inline-flex items-center gap-1 text-[12px] text-zinc-400 bg-zinc-900 border border-zinc-800 rounded-full px-2.5 py-1">
                 {GOAL_SOURCE_NOTE[goalSource] ?? ""}
                 <HelpTip title="Where these targets came from">
                   {GOAL_SOURCE_HELP[goalSource] ?? ""} Editing them here saves a set of goals for
@@ -676,7 +676,7 @@ export default function SmartGoalsPage() {
                     ? undefined
                     : "Goals cannot be changed for completed periods. Only the current active period can be edited."
                 }
-                className="px-3.5 py-2 rounded-lg bg-emerald-600 text-white text-[13px] font-semibold hover:bg-emerald-700 transition disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed disabled:hover:bg-gray-200"
+                className="px-3.5 py-2 rounded-lg bg-emerald-600 text-white text-[13px] font-semibold hover:bg-emerald-700 transition disabled:bg-zinc-800 disabled:text-zinc-500 disabled:cursor-not-allowed disabled:hover:bg-zinc-800"
               >
                 Edit goals
               </button>
@@ -707,7 +707,7 @@ export default function SmartGoalsPage() {
       </PageSourceTabs>
 
       {loading && (
-        <div className="bg-white rounded-2xl border border-gray-200 p-10 flex items-center justify-center">
+        <div className="bg-zinc-900 rounded-2xl border border-zinc-800 p-10 flex items-center justify-center">
           <div className="w-6 h-6 border-2 border-emerald-600 border-t-transparent rounded-full animate-spin" />
         </div>
       )}
@@ -715,9 +715,9 @@ export default function SmartGoalsPage() {
       {/* The load failed. Deliberately NOT the empty state: that would claim
           the goals don't exist and offer to replace them. */}
       {!loading && settingsError && (
-        <div className="bg-white rounded-2xl border border-gray-200 p-8 text-center">
-          <p className="text-[15px] font-bold text-gray-900 mb-1">Couldn&apos;t load your goals</p>
-          <p className="text-[13px] text-gray-500 mb-4">{settingsError}</p>
+        <div className="bg-zinc-900 rounded-2xl border border-zinc-800 p-8 text-center">
+          <p className="text-[15px] font-bold text-zinc-100 mb-1">Couldn&apos;t load your goals</p>
+          <p className="text-[13px] text-zinc-400 mb-4">{settingsError}</p>
           <button
             onClick={loadSettings}
             className="px-4 py-2 rounded-lg bg-emerald-600 text-white text-[13px] font-semibold hover:bg-emerald-700 transition"
@@ -730,8 +730,8 @@ export default function SmartGoalsPage() {
       {/* Empty state — no goals for this period. Nothing else can be shown
           without them: there is no progress to track and no basis for advice. */}
       {!loading && !settingsError && !settings && (
-        <div className="bg-white rounded-2xl border border-gray-200 px-5 py-8 sm:p-12 text-center">
-          <div className="w-12 h-12 rounded-2xl bg-emerald-50 flex items-center justify-center mx-auto mb-4">
+        <div className="bg-zinc-900 rounded-2xl border border-zinc-800 px-5 py-8 sm:p-12 text-center">
+          <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center mx-auto mb-4">
             <svg
               width="24"
               height="24"
@@ -745,8 +745,8 @@ export default function SmartGoalsPage() {
               <circle cx="12" cy="12" r="2" />
             </svg>
           </div>
-          <h2 className="text-[17px] font-bold text-gray-900 mb-1">No goals set</h2>
-          <p className="text-[13px] text-gray-500 max-w-md mx-auto mb-4">
+          <h2 className="text-[17px] font-bold text-zinc-100 mb-1">No goals set</h2>
+          <p className="text-[13px] text-zinc-400 max-w-md mx-auto mb-4">
             Set your targets for {formatPeriod(period)} to start tracking progress and get
             recommendations.
           </p>
@@ -758,7 +758,7 @@ export default function SmartGoalsPage() {
               Set goals for {formatPeriod(period)}
             </button>
           ) : (
-            <p className="text-[13px] text-gray-400">
+            <p className="text-[13px] text-zinc-500">
               {formatPeriod(period)} is over, so its goals can no longer be set.
             </p>
           )}
@@ -771,27 +771,27 @@ export default function SmartGoalsPage() {
               can be set on. */}
           {metrics.length > 0 ? (
             <div className="mt-5">
-              <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide mb-2">
+              <p className="text-[11px] font-semibold text-zinc-500 uppercase tracking-wide mb-2">
                 {CONNECTORS[activeConnector]?.label ?? activeConnector} can track
               </p>
               <div className="flex flex-wrap justify-center gap-1.5">
                 {metrics.slice(0, 8).map((m) => (
                   <span
                     key={m.key}
-                    className="text-[12px] text-gray-600 bg-gray-50 border border-gray-200 rounded-full px-2.5 py-1"
+                    className="text-[12px] text-zinc-400 bg-zinc-900 border border-zinc-800 rounded-full px-2.5 py-1"
                   >
                     {m.label}
                   </span>
                 ))}
                 {metrics.length > 8 && (
-                  <span className="text-[12px] text-gray-400 px-1 py-1">
+                  <span className="text-[12px] text-zinc-500 px-1 py-1">
                     +{metrics.length - 8} more
                   </span>
                 )}
               </div>
             </div>
           ) : (
-            <p className="text-[12px] text-gray-400 mt-3">
+            <p className="text-[12px] text-zinc-500 mt-3">
               This source has no metrics to set goals on yet.
             </p>
           )}
@@ -803,7 +803,7 @@ export default function SmartGoalsPage() {
           {/* The chart and the timeline share one card — the spec draws the
               collapsed timeline as the chart's own bottom row, not a separate
               block, so an event and the line it sits under read as one thing. */}
-          <div ref={chartRef} className="bg-white rounded-2xl border border-gray-200 p-4 sm:p-5">
+          <div ref={chartRef} className="bg-zinc-900 rounded-2xl border border-zinc-800 p-4 sm:p-5">
             {chartedDef && (
               <GoalProgressChart
                 def={chartedDef}
@@ -825,7 +825,7 @@ export default function SmartGoalsPage() {
                 different arrangement of the SAME row, not a smaller version of
                 the wide one — squeezed into a phone width, the wide one wraps
                 and the Add Event button drifts off onto its own line. */}
-            <div className="mt-4 pt-4 border-t border-gray-100">
+            <div className="mt-4 pt-4 border-t border-zinc-800">
               <div className="sm:hidden">
                 <Timeline
                   dates={days}
@@ -892,8 +892,8 @@ export default function SmartGoalsPage() {
       {/* Goals exist but none can be evaluated — every enabled goal is on Auto
           with nothing to derive from. */}
       {!loading && !settingsError && settings && statuses.length === 0 && (
-        <div className="bg-white rounded-2xl border border-gray-200 p-8 text-center">
-          <p className="text-[13px] text-gray-500 mb-3">
+        <div className="bg-zinc-900 rounded-2xl border border-zinc-800 p-8 text-center">
+          <p className="text-[13px] text-zinc-400 mb-3">
             The goals for {formatPeriod(period)} don&apos;t have usable targets yet.
           </p>
           {editable && (

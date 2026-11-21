@@ -96,11 +96,11 @@ function statusOf(raw: string | undefined): { label: string; fg: string; bg: str
   const s = (raw ?? "").trim().toUpperCase();
   if (!s) return null;
   // Same scheme as the dashboard tables: active green, paused grey, removed red.
-  if (s === "ENABLED" || s === "ACTIVE") return { label: "Active", fg: "#008236", bg: "#DCFCE7" };
-  if (s === "PAUSED") return { label: "Paused", fg: "#4A5565", bg: "#F3F4F6" };
-  if (s === "REMOVED") return { label: "Removed", fg: "#DC2626", bg: "#FEE2E2" };
+  if (s === "ENABLED" || s === "ACTIVE") return { label: "Active", fg: "#10B981", bg: "#DCFCE7" };
+  if (s === "PAUSED") return { label: "Paused", fg: "#A1A1AA", bg: "#27272A" };
+  if (s === "REMOVED") return { label: "Removed", fg: "#DC2626", bg: "rgba(239,68,68,0.14)" };
   // A word this app hasn't seen — show it rather than swallow it.
-  return { label: s.charAt(0) + s.slice(1).toLowerCase(), fg: "#6A7282", bg: "#F3F4F6" };
+  return { label: s.charAt(0) + s.slice(1).toLowerCase(), fg: "#71717A", bg: "#27272A" };
 }
 
 type StatusDot = "green" | "yellow" | "red" | "gray";
@@ -123,16 +123,16 @@ function statusDotFor(status: unknown, spend: number): StatusDot {
 /** The text badge for a resolved status-dot colour, so the open-entity header
  *  reads the SAME status as its row in the list (both off statusColors). */
 function statusBadgeFor(c: StatusDot): { label: string; fg: string; bg: string } | null {
-  if (c === "green") return { label: "Active", fg: "#008236", bg: "#DCFCE7" };
-  if (c === "yellow") return { label: "Paused", fg: "#4A5565", bg: "#F3F4F6" };
-  if (c === "red") return { label: "Removed", fg: "#DC2626", bg: "#FEE2E2" };
+  if (c === "green") return { label: "Active", fg: "#10B981", bg: "#DCFCE7" };
+  if (c === "yellow") return { label: "Paused", fg: "#A1A1AA", bg: "#27272A" };
+  if (c === "red") return { label: "Removed", fg: "#DC2626", bg: "rgba(239,68,68,0.14)" };
   return null;
 }
 
 const PRIORITY_PILL: Record<Priority, string> = {
-  high: "bg-red-50 text-red-600 border-red-100",
-  medium: "bg-amber-50 text-amber-600 border-amber-100",
-  low: "bg-gray-50 text-gray-400 border-gray-200",
+  high: "bg-red-500/10 text-red-600 border-red-500/20",
+  medium: "bg-amber-500/10 text-amber-600 border-amber-500/20",
+  low: "bg-zinc-900 text-zinc-500 border-zinc-800",
 };
 
 export default function AiOptimizerPage() {
@@ -983,13 +983,13 @@ export default function AiOptimizerPage() {
   // tables are agreed when a source is set up, so this one stands on them.
   const radarPair = (
     <div>
-      <p className="text-[14px] font-semibold text-[#101828] mb-3">
+      <p className="text-[14px] font-semibold text-[#F4F4F5] mb-3">
         {openEntity ? "Campaign health by area" : "Account health by area"}
       </p>
       {analysis ? (
         <HealthRadar categories={analysis.categories} />
       ) : (
-        <div className="h-[260px] bg-gray-50 rounded-xl animate-pulse" />
+        <div className="h-[260px] bg-zinc-900 rounded-xl animate-pulse" />
       )}
     </div>
   );
@@ -1004,7 +1004,7 @@ export default function AiOptimizerPage() {
           are loading or the deep per-campaign pass is still refining the
           numbers, so it's clear the analysis is still running. */}
       {(loading || deepLoading) && (
-        <div className="fixed top-0 inset-x-0 z-[100] h-[3px] overflow-hidden bg-violet-100">
+        <div className="fixed top-0 inset-x-0 z-[100] h-[3px] overflow-hidden bg-violet-500/10">
           <div
             className="absolute h-full w-[35%] bg-[#8200DB]"
             style={{ animation: "loading-bar 1.2s ease-in-out infinite" }}
@@ -1023,7 +1023,7 @@ export default function AiOptimizerPage() {
           // refresh throws away.
           <a
             href={`/ai-optimizer${periodQS}`}
-            className="inline-flex items-center gap-1.5 text-[13px] text-gray-500 hover:text-gray-700 transition mb-3"
+            className="inline-flex items-center gap-1.5 text-[13px] text-zinc-400 hover:text-zinc-300 transition mb-3"
           >
             <svg
               width="14"
@@ -1041,10 +1041,10 @@ export default function AiOptimizerPage() {
         {/* What is being analysed, and how healthy it looks overall. No card of
             its own — it is a row of the section, divided from the radar under
             it rather than floating beside it. */}
-        <div className="py-1 pb-4 mb-4 border-b border-gray-100 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div className="py-1 pb-4 mb-4 border-b border-zinc-800 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-2.5">
-              <h1 className="text-[22px] sm:text-[24px] font-bold text-[#101828] truncate">
+              <h1 className="text-[22px] sm:text-[24px] font-bold text-[#F4F4F5] truncate">
                 {openEntity ?? sourceLabel}
               </h1>
               {(() => {
@@ -1069,7 +1069,7 @@ export default function AiOptimizerPage() {
                   the old "Campaign" badge there is replaced by Potential Impact
                   below — so the type badge only shows for an open entity. */}
               {openEntity && entityTypes[openEntity] && (
-                <span className="text-[12px] font-semibold text-[#047857] bg-[#DBEAFE] rounded-lg px-2.5 py-0.5">
+                <span className="text-[12px] font-semibold text-[#34D399] bg-[rgba(59,130,246,0.14)] rounded-lg px-2.5 py-0.5">
                   {entityTypes[openEntity]}
                 </span>
               )}
@@ -1078,7 +1078,7 @@ export default function AiOptimizerPage() {
                   overview, one entity when opened), so the headline potential is
                   visible at a glance. */}
               {analysis && monthlyImpact > 0 && (
-                <span className="inline-flex items-center gap-1 text-[12px] font-semibold text-[#008236] bg-[#F0FDF4] border border-[#B9F8CF] rounded-lg px-2.5 py-0.5">
+                <span className="inline-flex items-center gap-1 text-[12px] font-semibold text-[#10B981] bg-emerald-500/10 border border-emerald-500/25 rounded-lg px-2.5 py-0.5">
                   +{formatImpact(monthlyImpact, analysis.impactMetric)}{" "}
                   {analysis.impactMetricLabel.toLowerCase()}
                   {impactIsCumulative ? " / month" : ""}
@@ -1090,12 +1090,12 @@ export default function AiOptimizerPage() {
                 </span>
               )}
             </div>
-            <p className="text-[13px] text-[#8200DB] font-semibold mt-2">
+            <p className="text-[13px] text-violet-400 font-semibold mt-2">
               {openCount} optimizations available —{" "}
               <span className="text-[#C10007]">{analysis?.counts.high ?? 0} High</span>,{" "}
-              <span className="text-[#059669]">{analysis?.counts.medium ?? 0} Medium</span>,{" "}
-              <span className="text-[#4A5565]">{analysis?.counts.low ?? 0} Low</span> priority.{" "}
-              <span className="text-[#6A7282] font-normal">
+              <span className="text-[#10B981]">{analysis?.counts.medium ?? 0} Medium</span>,{" "}
+              <span className="text-[#A1A1AA]">{analysis?.counts.low ?? 0} Low</span> priority.{" "}
+              <span className="text-[#71717A] font-normal">
                 Analysis period: {dateFrom} to {dateTo}
               </span>
             </p>
@@ -1103,12 +1103,12 @@ export default function AiOptimizerPage() {
                 findings themselves are always current; only their AI phrasing is
                 produced once a day by the refresh job, so opening the page never
                 triggers a new AI run. */}
-            <p className="text-[12px] text-[#6A7282] mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-0.5">
+            <p className="text-[12px] text-[#71717A] mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-0.5">
               <span>
                 {analyzedAt ? (
                   <>
                     Last analyzed:{" "}
-                    <span className="font-semibold text-[#4A5565]">{whenLabel(analyzedAt)}</span>
+                    <span className="font-semibold text-[#A1A1AA]">{whenLabel(analyzedAt)}</span>
                   </>
                 ) : analysisPending ? (
                   "AI recommendations refresh overnight — showing the latest computed results."
@@ -1116,7 +1116,7 @@ export default function AiOptimizerPage() {
                   "Showing the latest computed results."
                 )}
               </span>
-              <span className="text-[#99A1AF]">
+              <span className="text-[#71717A]">
                 AI recommendations are automatically updated once per day.
               </span>
             </p>
@@ -1124,15 +1124,17 @@ export default function AiOptimizerPage() {
 
           <div
             className={`shrink-0 rounded-xl border p-3.5 min-w-[240px] ${
-              score >= 80 ? "bg-[#ECFDF5] border-[#A4F4CF]" : "bg-[#FEF2F2] border-[#FFC9C9]"
+              score >= 80
+                ? "bg-[rgba(16,185,129,0.12)] border-[#A4F4CF]"
+                : "bg-[rgba(239,68,68,0.12)] border-[#FFC9C9]"
             }`}
           >
             <div className="flex items-center justify-between gap-3">
               <div>
-                <p className="text-[12px] font-semibold text-[#4A5565]">
+                <p className="text-[12px] font-semibold text-[#A1A1AA]">
                   Overall Optimization Score
                 </p>
-                <p className="text-[12px] text-[#6A7282]">Campaign health status</p>
+                <p className="text-[12px] text-[#71717A]">Campaign health status</p>
               </div>
               <div className="text-right">
                 <span
@@ -1149,7 +1151,7 @@ export default function AiOptimizerPage() {
                 </span>
               </div>
             </div>
-            <div className="h-2 bg-gray-200 rounded-full mt-2.5 overflow-hidden">
+            <div className="h-2 bg-zinc-800 rounded-full mt-2.5 overflow-hidden">
               <div
                 className="h-full rounded-full transition-all"
                 style={{ width: `${score}%`, background: band.color }}
@@ -1166,21 +1168,21 @@ export default function AiOptimizerPage() {
           number can say which that is. */}
       {!openEntity && (
         <div className="space-y-4">
-          <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden">
-            <div className="flex flex-wrap items-center justify-between gap-3 px-4 sm:px-5 py-3 border-b border-gray-100">
-              <p className="text-[16px] font-semibold text-[#101828]">
+          <div className="bg-zinc-900 rounded-2xl border border-zinc-800 overflow-hidden">
+            <div className="flex flex-wrap items-center justify-between gap-3 px-4 sm:px-5 py-3 border-b border-zinc-800">
+              <p className="text-[16px] font-semibold text-[#F4F4F5]">
                 {primaryLabel} ({entityList?.entities.length ?? 0})
               </p>
               <input
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder={`Search ${primaryNoun}…`}
-                className="w-full sm:w-64 border border-gray-200 rounded-lg px-3 py-1.5 text-[13px] outline-none focus:border-emerald-400"
+                className="w-full sm:w-64 border border-zinc-800 rounded-lg px-3 py-1.5 text-[13px] outline-none focus:border-emerald-400"
               />
             </div>
 
             {/* Table Header */}
-            <div className="hidden sm:grid grid-cols-[1fr_130px_120px_160px_24px] gap-4 px-5 py-2.5 bg-gray-50 border-b border-gray-100 text-[11px] font-semibold uppercase tracking-wider text-[#99A1AF]">
+            <div className="hidden sm:grid grid-cols-[1fr_130px_120px_160px_24px] gap-4 px-5 py-2.5 bg-zinc-900 border-b border-zinc-800 text-[11px] font-semibold uppercase tracking-wider text-[#71717A]">
               <div>{primaryNoun.toUpperCase()}</div>
               <div className="text-center">SCORE</div>
               <div className="text-center">OPTIMIZATIONS</div>
@@ -1194,7 +1196,7 @@ export default function AiOptimizerPage() {
               </div>
             )}
             {!loading && loadError && (
-              <p className="px-5 py-8 text-[13px] text-gray-500 text-center">{loadError}</p>
+              <p className="px-5 py-8 text-[13px] text-zinc-400 text-center">{loadError}</p>
             )}
 
             {!loading &&
@@ -1230,25 +1232,25 @@ export default function AiOptimizerPage() {
                     statusOf(statuses[e.name])?.label ??
                     (statusColor === "green" ? "Active" : "Status not reported");
                   const notEnoughBadge = (
-                    <span className="inline-block text-[11px] font-semibold text-[#A16207] bg-[#FEF9C3] border border-[#FEF08A] rounded-md px-2 py-0.5">
+                    <span className="inline-block text-[11px] font-semibold text-amber-400 bg-amber-500/12 border border-amber-500/30 rounded-md px-2 py-0.5">
                       Not enough data
                     </span>
                   );
                   const optBadge = notEnough ? (
-                    <span className="text-[12px] text-gray-400">0</span>
+                    <span className="text-[12px] text-zinc-500">0</span>
                   ) : eff.count > 0 ? (
-                    <span className="inline-flex items-center gap-1 text-[12px] font-semibold text-[#8200DB] bg-[#FAF5FF] border border-[#E9D4FF] rounded-lg px-2 py-0.5">
+                    <span className="inline-flex items-center gap-1 text-[12px] font-semibold text-violet-400 bg-violet-500/10 border border-violet-500/25 rounded-lg px-2 py-0.5">
                       ✨ {eff.count}
                     </span>
                   ) : (
-                    <span className="text-[12px] text-gray-400">—</span>
+                    <span className="text-[12px] text-zinc-500">—</span>
                   );
-                  const pending = <span className="text-[12px] text-gray-400 italic">Pending</span>;
+                  const pending = <span className="text-[12px] text-zinc-500 italic">Pending</span>;
                   return (
                     <Link
                       key={e.name}
                       href={`/ai-optimizer?${periodQS ? `period=${encodeURIComponent(periodParam!)}&` : ""}entity=${encodeURIComponent(e.name)}`}
-                      className="block px-4 sm:px-5 py-2.5 sm:py-3.5 border-t border-gray-100 hover:bg-gray-50/80 transition"
+                      className="block px-4 sm:px-5 py-2.5 sm:py-3.5 border-t border-zinc-800 hover:bg-zinc-900/80 transition"
                     >
                       {/* Mobile: one compact card — name + arrow, then a single
                           stats line. No progress bar, no separate Profit block. */}
@@ -1256,7 +1258,7 @@ export default function AiOptimizerPage() {
                         <div className="flex items-center justify-between gap-2">
                           <div className="flex items-center gap-2 min-w-0">
                             <StatusIndicator status={statusColor} title={statusLabel} />
-                            <span className="text-[14px] font-semibold text-[#101828] truncate">
+                            <span className="text-[14px] font-semibold text-[#F4F4F5] truncate">
                               {e.name}
                             </span>
                           </div>
@@ -1267,12 +1269,12 @@ export default function AiOptimizerPage() {
                             fill="none"
                             stroke="currentColor"
                             strokeWidth="2.5"
-                            className="text-gray-300 shrink-0"
+                            className="text-zinc-600 shrink-0"
                           >
                             <polyline points="9 18 15 12 9 6" />
                           </svg>
                         </div>
-                        <div className="flex items-center gap-x-4 gap-y-1 flex-wrap mt-1.5 text-[12px] text-[#99A1AF]">
+                        <div className="flex items-center gap-x-4 gap-y-1 flex-wrap mt-1.5 text-[12px] text-[#71717A]">
                           <span className="flex items-center gap-1">
                             Score:{" "}
                             {notEnough ? (
@@ -1293,7 +1295,7 @@ export default function AiOptimizerPage() {
                                 {impactPerMonth(eff.impact)}
                               </b>
                             ) : (
-                              <span className="text-gray-400">—</span>
+                              <span className="text-zinc-500">—</span>
                             )}
                           </span>
                         </div>
@@ -1304,10 +1306,10 @@ export default function AiOptimizerPage() {
                         <div className="flex items-center gap-2.5 min-w-0">
                           <StatusIndicator status={statusColor} title={statusLabel} />
                           <div className="min-w-0 flex-1">
-                            <span className="block text-[14px] font-medium text-[#101828] truncate">
+                            <span className="block text-[14px] font-medium text-[#F4F4F5] truncate">
                               {e.name}
                             </span>
-                            <span className="block text-[12px] text-[#99A1AF]">
+                            <span className="block text-[12px] text-[#71717A]">
                               {entityTypes[e.name] ?? `${Math.round(e.share * 100)}% of account`}
                             </span>
                           </div>
@@ -1324,7 +1326,7 @@ export default function AiOptimizerPage() {
                               >
                                 {eff.score}%
                               </span>
-                              <div className="h-1.5 bg-gray-100 rounded-full mt-1 overflow-hidden">
+                              <div className="h-1.5 bg-zinc-800 rounded-full mt-1 overflow-hidden">
                                 <div
                                   className="h-full rounded-full"
                                   style={{
@@ -1347,11 +1349,11 @@ export default function AiOptimizerPage() {
                               {impactPerMonth(eff.impact)}
                             </span>
                           ) : (
-                            <span className="text-[12px] text-gray-400">—</span>
+                            <span className="text-[12px] text-zinc-500">—</span>
                           )}
                         </div>
 
-                        <div className="flex justify-end text-gray-300">
+                        <div className="flex justify-end text-zinc-600">
                           <svg
                             width="14"
                             height="14"
@@ -1371,16 +1373,16 @@ export default function AiOptimizerPage() {
             {/* What the "Not enough data" state means, and the exact threshold in
                 force — read from the source's settings, never hardcoded. */}
             {!loading && (entityList?.entities.length ?? 0) > 0 && (
-              <div className="px-4 sm:px-5 py-3 border-t border-gray-100 text-[11px] text-gray-400 leading-relaxed space-y-0.5">
+              <div className="px-4 sm:px-5 py-3 border-t border-zinc-800 text-[11px] text-zinc-500 leading-relaxed space-y-0.5">
                 <p>
                   {primaryLabel} marked{" "}
-                  <span className="font-semibold text-[#A16207]">Not enough data</span>
+                  <span className="font-semibold text-amber-400">Not enough data</span>
                   {" don’t yet meet the current AI Optimization Threshold."}
                 </p>
                 {thresholds.length > 0 && (
                   <p>
                     Current threshold (last 90 days):{" "}
-                    <span className="text-gray-500">{describeThresholds(thresholds)}</span>.
+                    <span className="text-zinc-400">{describeThresholds(thresholds)}</span>.
                   </p>
                 )}
                 <p>{primaryLabel} with no data during the last 90 days are not displayed.</p>
@@ -1395,22 +1397,22 @@ export default function AiOptimizerPage() {
         <div className="flex flex-col lg:flex-row gap-4">
           {/* Categories — the full list matching Figma */}
           <aside className="lg:w-[270px] shrink-0">
-            <div className="bg-white rounded-2xl border border-gray-200 p-3 lg:sticky lg:top-4">
-              <p className="px-2.5 py-1.5 text-[11px] font-semibold text-[#6A7282] uppercase tracking-wider">
+            <div className="bg-zinc-900 rounded-2xl border border-zinc-800 p-3 lg:sticky lg:top-4">
+              <p className="px-2.5 py-1.5 text-[11px] font-semibold text-[#71717A] uppercase tracking-wider">
                 OPTIMIZATION CATEGORIES
               </p>
               <button
                 onClick={() => selectCategory(null)}
                 className={`w-full flex items-center justify-between gap-2 px-3 py-2 rounded-xl text-[13px] transition ${
                   selectedCategory === null
-                    ? "bg-[#FAF5FF] text-[#8200DB] font-semibold border border-[#AD46FF]"
-                    : "text-[#101828] hover:bg-gray-50 border border-transparent"
+                    ? "bg-violet-500/10 text-violet-400 font-semibold border border-violet-500/40"
+                    : "text-[#F4F4F5] hover:bg-zinc-900 border border-transparent"
                 }`}
               >
                 <span className="flex items-center gap-2 font-medium">
                   <span>✨</span> All Recommendations
                 </span>
-                <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-[#F3E8FF] text-[#8200DB]">
+                <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-violet-500/14 text-violet-400">
                   {openCount}
                 </span>
               </button>
@@ -1435,7 +1437,7 @@ export default function AiOptimizerPage() {
                   {
                     group: "growth" as const,
                     heading: "⚙️ SETTINGS & IMPROVEMENTS",
-                    headingColor: "text-[#059669]",
+                    headingColor: "text-[#10B981]",
                     hint: "Optimize setup and configuration",
                   },
                 ].map((sec) => {
@@ -1450,7 +1452,7 @@ export default function AiOptimizerPage() {
                       >
                         {sec.heading}
                       </p>
-                      <p className="px-2.5 pb-1 text-[10px] text-[#6A7282]">{sec.hint}</p>
+                      <p className="px-2.5 pb-1 text-[10px] text-[#71717A]">{sec.hint}</p>
                       <div className="space-y-0.5">
                         {cats.map((c) => {
                           const isSel = selectedCategory === c.key;
@@ -1460,8 +1462,8 @@ export default function AiOptimizerPage() {
                               onClick={() => selectCategory(c.key)}
                               className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-[10px] border transition ${
                                 isSel
-                                  ? "bg-[#FAF5FF] border-[#AD46FF]"
-                                  : "bg-[#F9FAFB] border-[#F3F4F6] hover:bg-gray-100/70"
+                                  ? "bg-violet-500/10 border-violet-500/40"
+                                  : "bg-[#18181B] border-[#27272A] hover:bg-zinc-800/70"
                               }`}
                             >
                               <span aria-hidden className="text-[16px] leading-6 shrink-0">
@@ -1470,8 +1472,8 @@ export default function AiOptimizerPage() {
                               <span
                                 className={`flex-1 truncate text-left text-[14px] ${
                                   isSel
-                                    ? "text-[#8200DB] font-semibold"
-                                    : "text-[#101828] font-medium"
+                                    ? "text-violet-400 font-semibold"
+                                    : "text-[#F4F4F5] font-medium"
                                 }`}
                               >
                                 {c.label}
@@ -1483,7 +1485,7 @@ export default function AiOptimizerPage() {
                                   >
                                     {c.priority}
                                   </span>
-                                  <span className="text-[11px] text-gray-500 font-semibold">
+                                  <span className="text-[11px] text-zinc-400 font-semibold">
                                     {c.count}
                                   </span>
                                 </span>
@@ -1504,11 +1506,11 @@ export default function AiOptimizerPage() {
           </aside>
 
           <div ref={recsRef} className="flex-1 min-w-0 space-y-4 scroll-mt-4">
-            <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden">
+            <div className="bg-zinc-900 rounded-2xl border border-zinc-800 overflow-hidden">
               {/* overflow-y-hidden: iOS Safari computes overflow-y to auto once
                   overflow-x is auto, which let the strip scroll vertically inside
                   too. Pinning it to hidden keeps the scroll sideways only. */}
-              <div className="flex items-center gap-6 px-4 sm:px-5 border-b border-gray-200 overflow-x-auto overflow-y-hidden scrollbar-none">
+              <div className="flex items-center gap-6 px-4 sm:px-5 border-b border-zinc-800 overflow-x-auto overflow-y-hidden scrollbar-none">
                 {(
                   [
                     ["open", "Recommendations", openCount],
@@ -1521,14 +1523,16 @@ export default function AiOptimizerPage() {
                     onClick={() => setTab(id)}
                     className={`shrink-0 flex items-center gap-2 py-3 text-[14px] font-semibold border-b-2 -mb-px whitespace-nowrap transition ${
                       tab === id
-                        ? "border-[#8200DB] text-[#8200DB]"
-                        : "border-transparent text-gray-400 hover:text-gray-600"
+                        ? "border-[#8200DB] text-violet-400"
+                        : "border-transparent text-zinc-500 hover:text-zinc-400"
                     }`}
                   >
                     {label}
                     <span
                       className={`text-[12px] font-semibold rounded-full px-2 py-0.5 ${
-                        tab === id ? "bg-[#F3E8FF] text-[#8200DB]" : "bg-gray-100 text-gray-500"
+                        tab === id
+                          ? "bg-violet-500/14 text-violet-400"
+                          : "bg-zinc-800 text-zinc-400"
                       }`}
                     >
                       {n}
@@ -1536,7 +1540,7 @@ export default function AiOptimizerPage() {
                   </button>
                 ))}
                 {phrasing && (
-                  <span className="ml-auto py-2.5 text-[11px] text-gray-400 whitespace-nowrap">
+                  <span className="ml-auto py-2.5 text-[11px] text-zinc-500 whitespace-nowrap">
                     Writing them up…
                   </span>
                 )}
@@ -1549,11 +1553,11 @@ export default function AiOptimizerPage() {
               )}
 
               {!loading && loadError && (
-                <p className="px-5 py-8 text-[13px] text-gray-500 text-center">{loadError}</p>
+                <p className="px-5 py-8 text-[13px] text-zinc-400 text-center">{loadError}</p>
               )}
 
               {!marksStored && (
-                <p className="px-4 sm:px-5 py-2 text-[12px] text-amber-700 bg-amber-50 border-b border-amber-100">
+                <p className="px-4 sm:px-5 py-2 text-[12px] text-amber-700 bg-amber-500/10 border-b border-amber-500/20">
                   Dismissed and completed items are only remembered for this visit — run
                   supabase/optimizer_marks.sql to keep them.
                 </p>
@@ -1562,7 +1566,7 @@ export default function AiOptimizerPage() {
               {!loading &&
                 !loadError &&
                 (tab === "open" ? shown.length === 0 : history.length === 0) && (
-                  <p className="px-5 py-8 text-[13px] text-gray-500 text-center">
+                  <p className="px-5 py-8 text-[13px] text-zinc-400 text-center">
                     {tab === "open"
                       ? "Nothing left to act on here."
                       : `Nothing ${tab} yet — the buttons on each recommendation put them here.`}
@@ -1571,7 +1575,7 @@ export default function AiOptimizerPage() {
 
               {tab !== "open" && history.length > 0 && (
                 <div className="px-4 sm:px-5 pt-4 pb-1">
-                  <h3 className="text-[16px] font-semibold text-[#101828]">
+                  <h3 className="text-[16px] font-semibold text-[#F4F4F5]">
                     {tab === "completed"
                       ? "Completed Recommendations"
                       : "Dismissed Recommendations"}

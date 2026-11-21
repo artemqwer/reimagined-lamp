@@ -33,7 +33,7 @@ export default function AuthCallbackPage() {
   }, []);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#f9fafb]">
+    <div className="min-h-screen flex items-center justify-center bg-[#18181B]">
       <div className="w-6 h-6 border-2 border-emerald-600 border-t-transparent rounded-full animate-spin" />
     </div>
   );

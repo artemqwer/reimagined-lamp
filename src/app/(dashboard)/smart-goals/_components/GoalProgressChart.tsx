@@ -79,7 +79,7 @@ function AxisTick({ x, y, payload, daily }: any) {
   if (!key) return null;
   // Weekends are blue, weekdays grey — it makes a weekly rhythm readable at a
   // glance without another legend.
-  const fill = daily && isWeekend(key) ? "#2563eb" : "#9CA3AF";
+  const fill = daily && isWeekend(key) ? "#2563eb" : "#71717A";
   const label = daily ? key.slice(8).replace(/^0/, "") : formatBucket(key);
   return (
     <text
@@ -150,11 +150,11 @@ export default function GoalProgressChart({
   const hasData = points.some((p) => p.value !== null && p.value !== 0);
 
   return (
-    <div className={bare ? "" : "bg-white rounded-2xl border border-gray-200 p-4 sm:p-5"}>
+    <div className={bare ? "" : "bg-zinc-900 rounded-2xl border border-zinc-800 p-4 sm:p-5"}>
       <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
         <div className="min-w-0">
           <div className="flex items-center gap-1.5">
-            <h2 className="text-[20px] font-bold text-[#101828] tracking-[-0.0225em]">
+            <h2 className="text-[20px] font-bold text-[#F4F4F5] tracking-[-0.0225em]">
               {def.label} Progress Chart
             </h2>
             <HelpTip title="Goal progress over time">
@@ -162,7 +162,7 @@ export default function GoalProgressChart({
               needs to be to finish on target.
             </HelpTip>
           </div>
-          <p className="text-[14px] text-[#4A5565] tracking-[-0.0195em] mt-0.5">
+          <p className="text-[14px] text-[#A1A1AA] tracking-[-0.0195em] mt-0.5">
             Click on any goal above to switch the chart view.
           </p>
         </div>
@@ -171,7 +171,7 @@ export default function GoalProgressChart({
       <div className="h-[300px] sm:h-[420px] relative">
         {!hasData && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-            <p className="text-[13px] text-gray-400">
+            <p className="text-[13px] text-zinc-500">
               No {def.label.toLowerCase()} in this period yet.
             </p>
           </div>
@@ -195,12 +195,12 @@ export default function GoalProgressChart({
             }}
             onMouseLeave={() => onHoverKey(null)}
           >
-            <CartesianGrid vertical={false} strokeDasharray="4 3" stroke="#F3F4F6" />
+            <CartesianGrid vertical={false} strokeDasharray="4 3" stroke="#27272A" />
             <XAxis
               dataKey="key"
               interval={tickInterval}
               tick={(p) => <AxisTick {...p} daily={daily} />}
-              axisLine={{ stroke: "#E5E7EB" }}
+              axisLine={{ stroke: "#3F3F46" }}
               tickLine={false}
               height={26}
             />
@@ -209,8 +209,8 @@ export default function GoalProgressChart({
               // A phone can't spare 62px of gutter for axis labels — that's a
               // fifth of the screen spent on five numbers. Four, closer in.
               tickCount={narrow ? 4 : 5}
-              tick={{ fontSize: narrow ? 10 : 11, fill: "#9CA3AF" }}
-              axisLine={{ stroke: "#E5E7EB" }}
+              tick={{ fontSize: narrow ? 10 : 11, fill: "#71717A" }}
+              axisLine={{ stroke: "#3F3F46" }}
               tickLine={false}
               tickFormatter={(v: number) => formatMetric(v, def)}
               width={narrow ? 50 : 62}
@@ -221,14 +221,14 @@ export default function GoalProgressChart({
                 if (!active || !payload?.length) return null;
                 const p = payload[0].payload as SeriesPoint;
                 return (
-                  <div className="bg-white border border-gray-200 rounded-lg shadow-md px-2.5 py-2 text-[11px]">
-                    <p className="font-semibold text-gray-700 mb-1">{formatBucket(p.key)}</p>
-                    <p className="text-gray-600">
+                  <div className="bg-zinc-900 border border-zinc-800 rounded-lg shadow-md px-2.5 py-2 text-[11px]">
+                    <p className="font-semibold text-zinc-300 mb-1">{formatBucket(p.key)}</p>
+                    <p className="text-zinc-400">
                       {def.label}:{" "}
                       <span className="font-semibold">{formatMetric(p.value, def)}</span>
                     </p>
                     {p.pace !== null && cumulative && (
-                      <p className="text-gray-400">Pace: {formatMetric(p.pace, def)}</p>
+                      <p className="text-zinc-500">Pace: {formatMetric(p.pace, def)}</p>
                     )}
                   </div>
                 );
@@ -240,9 +240,9 @@ export default function GoalProgressChart({
               <ReferenceLine
                 key={m.index}
                 x={points[m.index]?.key}
-                stroke="#E5E7EB"
+                stroke="#3F3F46"
                 strokeDasharray="3 3"
-                label={{ value: m.label, position: "top", fontSize: 10, fill: "#9CA3AF" }}
+                label={{ value: m.label, position: "top", fontSize: 10, fill: "#71717A" }}
               />
             ))}
 
@@ -286,7 +286,7 @@ export default function GoalProgressChart({
               <Line
                 type="linear"
                 dataKey="pace"
-                stroke="#99A1AF"
+                stroke="#71717A"
                 strokeWidth={1.5}
                 strokeDasharray="5 4"
                 dot={false}
@@ -303,21 +303,21 @@ export default function GoalProgressChart({
       {/* Named as the spec names them. Three marks on one chart, two of them
           broken lines, was one guess too many without a key. */}
       <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1.5 pt-2">
-        <span className="flex items-center gap-2 text-[12px] text-gray-500">
+        <span className="flex items-center gap-2 text-[12px] text-zinc-400">
           <svg width="20" height="6" aria-hidden>
             <line
               x1="0"
               y1="3"
               x2="20"
               y2="3"
-              stroke="#99A1AF"
+              stroke="#71717A"
               strokeWidth="1.5"
               strokeDasharray="5 4"
             />
           </svg>
           Target
         </span>
-        <span className="flex items-center gap-2 text-[12px] text-gray-600 font-medium">
+        <span className="flex items-center gap-2 text-[12px] text-zinc-400 font-medium">
           <svg width="20" height="6" aria-hidden>
             {/* The colour picked for this goal in settings, so the key matches
                 the line actually drawn — it was hardcoded green while the line
@@ -330,7 +330,7 @@ export default function GoalProgressChart({
           {cumulative ? "Cumulative Progress" : `${def.label} per ${daily ? "day" : "month"}`}
         </span>
         {target !== null && (
-          <span className="flex items-center gap-2 text-[12px] text-gray-500">
+          <span className="flex items-center gap-2 text-[12px] text-zinc-400">
             <svg width="20" height="6" aria-hidden>
               <line
                 x1="0"

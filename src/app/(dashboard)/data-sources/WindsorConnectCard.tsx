@@ -181,25 +181,25 @@ export default function WindsorConnectCard({
 
   return (
     <div
-      className={`bg-white rounded-2xl border shadow-sm p-5 transition ${saved ? "border-green-200" : "border-gray-100"}`}
+      className={`bg-zinc-900 rounded-2xl border shadow-sm p-5 transition ${saved ? "border-green-500/20" : "border-zinc-800"}`}
     >
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-3 min-w-0">
-          <div className="w-11 h-11 rounded-xl bg-gray-50 flex items-center justify-center shrink-0">
+          <div className="w-11 h-11 rounded-xl bg-zinc-900 flex items-center justify-center shrink-0">
             {icon}
           </div>
           <div className="min-w-0">
             <div className="flex items-center gap-2">
-              <h3 className="text-[14px] font-semibold text-gray-900">{name}</h3>
+              <h3 className="text-[14px] font-semibold text-zinc-100">{name}</h3>
               {saved && (
-                <span className="flex items-center gap-1 text-[11px] font-medium text-green-600 bg-green-50 px-2 py-0.5 rounded-full">
+                <span className="flex items-center gap-1 text-[11px] font-medium text-green-600 bg-green-500/10 px-2 py-0.5 rounded-full">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-500 inline-block" />
                   Connected
                 </span>
               )}
             </div>
-            <p className="text-[12px] text-gray-400 leading-snug mt-0.5">{description}</p>
-            <p className="text-[11px] text-gray-300 mt-1">{tables} tables · via Windsor</p>
+            <p className="text-[12px] text-zinc-500 leading-snug mt-0.5">{description}</p>
+            <p className="text-[11px] text-zinc-600 mt-1">{tables} tables · via Windsor</p>
           </div>
         </div>
         {!saved && accounts.length === 0 && (
@@ -222,16 +222,16 @@ export default function WindsorConnectCard({
 
       {/* Connected account */}
       {saved && (
-        <div className="mt-4 pt-4 border-t border-gray-50 flex items-center gap-3">
+        <div className="mt-4 pt-4 border-t border-zinc-800 flex items-center gap-3">
           <div className="min-w-0 flex-1">
-            <div className="text-[13px] font-semibold text-gray-900 truncate">
+            <div className="text-[13px] font-semibold text-zinc-100 truncate">
               {saved.account_name}
             </div>
-            <div className="text-[12px] text-gray-400 tabular-nums">ID {saved.account_id}</div>
+            <div className="text-[12px] text-zinc-500 tabular-nums">ID {saved.account_id}</div>
           </div>
           <button
             onClick={disconnect}
-            className="text-[12px] font-medium border border-gray-200 hover:bg-gray-50 text-gray-600 px-3 py-2 rounded-xl transition shrink-0"
+            className="text-[12px] font-medium border border-zinc-800 hover:bg-zinc-900 text-zinc-400 px-3 py-2 rounded-xl transition shrink-0"
           >
             Disconnect
           </button>
@@ -240,22 +240,24 @@ export default function WindsorConnectCard({
 
       {/* Account picker (after authorizing several of your own) */}
       {!saved && accounts.length > 0 && (
-        <div className="mt-4 pt-4 border-t border-gray-50">
-          <p className="text-[12px] font-semibold text-gray-600 mb-2">Select your account</p>
+        <div className="mt-4 pt-4 border-t border-zinc-800">
+          <p className="text-[12px] font-semibold text-zinc-400 mb-2">Select your account</p>
           <div className="space-y-2">
             {accounts.map((a) => (
               <button
                 key={a.account_id}
                 onClick={() => selectAccount(a)}
-                className="w-full flex items-center gap-3 text-left p-3 rounded-xl border border-gray-200 hover:border-emerald-300 hover:bg-emerald-50/40 transition"
+                className="w-full flex items-center gap-3 text-left p-3 rounded-xl border border-zinc-800 hover:border-emerald-300 hover:bg-emerald-500/10/40 transition"
               >
                 <div className="min-w-0 flex-1">
-                  <div className="text-[13.5px] font-semibold text-gray-800 truncate">
+                  <div className="text-[13.5px] font-semibold text-zinc-200 truncate">
                     {a.account_name}
                   </div>
-                  <div className="text-[12px] text-gray-400 tabular-nums">ID {a.account_id}</div>
+                  <div className="text-[12px] text-zinc-500 tabular-nums">ID {a.account_id}</div>
                 </div>
-                <span className="text-[12px] font-semibold text-emerald-600 shrink-0">Use this →</span>
+                <span className="text-[12px] font-semibold text-emerald-600 shrink-0">
+                  Use this →
+                </span>
               </button>
             ))}
           </div>
@@ -264,13 +266,13 @@ export default function WindsorConnectCard({
 
       {connecting && (
         <div className="mt-4 flex items-center justify-between gap-3 flex-wrap">
-          <p className="text-[12px] text-gray-500 leading-snug">
+          <p className="text-[12px] text-zinc-400 leading-snug">
             A Windsor window opened — approve there, then come back. We&apos;ll detect it
             automatically.
           </p>
           <button
             onClick={checkAccounts}
-            className="text-[12px] font-semibold text-[#059669] hover:text-[#1247c8] transition shrink-0"
+            className="text-[12px] font-semibold text-[#10B981] hover:text-[#1247c8] transition shrink-0"
           >
             Check now
           </button>
@@ -280,15 +282,15 @@ export default function WindsorConnectCard({
 
       {/* Admin-only: assign any workspace account directly */}
       {isAdmin && !saved && (
-        <div className="mt-4 pt-4 border-t border-gray-50">
+        <div className="mt-4 pt-4 border-t border-zinc-800">
           <div className="flex items-center justify-between gap-2">
-            <span className="text-[11px] font-bold text-gray-400 uppercase tracking-widest">
+            <span className="text-[11px] font-bold text-zinc-500 uppercase tracking-widest">
               Admin · assign account
             </span>
             <button
               onClick={loadAdminAccounts}
               disabled={adminLoading}
-              className="text-[12px] font-semibold text-[#059669] hover:text-[#1247c8] transition disabled:opacity-50"
+              className="text-[12px] font-semibold text-[#10B981] hover:text-[#1247c8] transition disabled:opacity-50"
             >
               {adminLoading ? "Loading…" : adminAccounts ? "Refresh" : "Show workspace accounts"}
             </button>
@@ -296,19 +298,19 @@ export default function WindsorConnectCard({
           {adminAccounts && (
             <div className="space-y-2 mt-3">
               {adminAccounts.length === 0 && (
-                <p className="text-[12px] text-gray-400">No accounts in the workspace.</p>
+                <p className="text-[12px] text-zinc-500">No accounts in the workspace.</p>
               )}
               {adminAccounts.map((a) => (
                 <button
                   key={a.account_id}
                   onClick={() => adminAssign(a)}
-                  className="w-full flex items-center gap-3 text-left p-3 rounded-xl border border-gray-200 hover:border-purple-300 hover:bg-purple-50/40 transition"
+                  className="w-full flex items-center gap-3 text-left p-3 rounded-xl border border-zinc-800 hover:border-purple-300 hover:bg-purple-500/10/40 transition"
                 >
                   <div className="min-w-0 flex-1">
-                    <div className="text-[13.5px] font-semibold text-gray-800 truncate">
+                    <div className="text-[13.5px] font-semibold text-zinc-200 truncate">
                       {a.account_name}
                     </div>
-                    <div className="text-[12px] text-gray-400 tabular-nums">ID {a.account_id}</div>
+                    <div className="text-[12px] text-zinc-500 tabular-nums">ID {a.account_id}</div>
                   </div>
                   <span className="text-[12px] font-semibold text-purple-600 shrink-0">
                     Assign →

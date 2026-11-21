@@ -61,7 +61,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${geistMono.variable} antialiased`}>
-      <body className="bg-[#f9fafb]">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

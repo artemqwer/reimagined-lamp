@@ -56,11 +56,11 @@ export default function BigQuerySyncPanel({
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-gray-200 p-5 mb-4">
+    <div className="bg-zinc-900 rounded-2xl border border-zinc-800 p-5 mb-4">
       <div className="flex items-start justify-between gap-4 flex-wrap">
         <div>
-          <h3 className="text-[14px] font-bold text-gray-800">BigQuery cache</h3>
-          <p className="text-[12.5px] text-gray-500 mt-1 max-w-xl">
+          <h3 className="text-[14px] font-bold text-zinc-200">BigQuery cache</h3>
+          <p className="text-[12.5px] text-zinc-400 mt-1 max-w-xl">
             The dashboard reads from a BigQuery store instead of pulling Windsor live.{" "}
             <span className="font-medium">Test connection</span> is a read-only check;{" "}
             <span className="font-medium">Run sync now</span> pulls every connected account into
@@ -71,7 +71,7 @@ export default function BigQuerySyncPanel({
           <button
             onClick={() => run("test")}
             disabled={busy !== null}
-            className="px-3.5 py-2 rounded-lg text-[13px] font-medium border border-gray-200 text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+            className="px-3.5 py-2 rounded-lg text-[13px] font-medium border border-zinc-800 text-zinc-300 hover:bg-zinc-900 disabled:opacity-50"
           >
             {busy === "test" ? "Testing…" : "Test connection"}
           </button>
@@ -102,7 +102,7 @@ export default function BigQuerySyncPanel({
                       ? `Accounts: ${result.accounts} · Synced: ${result.synced} · Errors: ${result.errors}`
                       : "Done"}
           </div>
-          <pre className="mt-2 text-[11.5px] text-gray-500 bg-gray-50 border border-gray-100 rounded-lg p-3 overflow-x-auto">
+          <pre className="mt-2 text-[11.5px] text-zinc-400 bg-zinc-900 border border-zinc-800 rounded-lg p-3 overflow-x-auto">
             {JSON.stringify(result, null, 2)}
           </pre>
         </div>

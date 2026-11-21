@@ -10,11 +10,11 @@ import type {
 } from "@/lib/connectors";
 
 const inputCls =
-  "w-full border border-gray-200 rounded-lg px-3 py-2 text-[13px] text-gray-700 outline-none focus:border-emerald-400";
+  "w-full border border-zinc-800 rounded-lg px-3 py-2 text-[13px] text-zinc-300 outline-none focus:border-emerald-400";
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
-      <label className="text-[12px] font-medium text-gray-500 block mb-1">{label}</label>
+      <label className="text-[12px] font-medium text-zinc-400 block mb-1">{label}</label>
       {children}
     </div>
   );
@@ -113,7 +113,7 @@ export function DimensionRow({
         onChange={(e) => onChange({ ...d, key: slugify(e.target.value) })}
         placeholder="key"
         disabled={keyLocked}
-        className={inputCls + " font-mono text-[11px] disabled:bg-gray-50 disabled:text-gray-400"}
+        className={inputCls + " font-mono text-[11px] disabled:bg-zinc-900 disabled:text-zinc-500"}
       />
       <input
         value={d.label}
@@ -137,7 +137,7 @@ export function DimensionRow({
         <button
           type="button"
           onClick={onRemove}
-          className="w-7 h-7 flex items-center justify-center text-gray-300 hover:text-red-400 transition shrink-0"
+          className="w-7 h-7 flex items-center justify-center text-zinc-600 hover:text-red-400 transition shrink-0"
         >
           <svg
             width="13"
@@ -192,7 +192,7 @@ export function MetricRow({
       <select
         value={m.format}
         onChange={(e) => onChange({ ...m, format: e.target.value as MetricFormat })}
-        className={inputCls + " bg-white cursor-pointer text-[12px]"}
+        className={inputCls + " bg-zinc-900 cursor-pointer text-[12px]"}
       >
         {FORMATS.map((f) => (
           <option key={f.id} value={f.id}>
@@ -204,7 +204,7 @@ export function MetricRow({
         title="How this metric combines across rows and days"
         value={m.aggregation ?? (m.format === "percent" || m.format === "ratio" ? "avg" : "sum")}
         onChange={(e) => onChange({ ...m, aggregation: e.target.value as "sum" | "avg" })}
-        className={inputCls + " bg-white cursor-pointer text-[12px]"}
+        className={inputCls + " bg-zinc-900 cursor-pointer text-[12px]"}
       >
         {AGGREGATIONS.map((a) => (
           <option key={a.id} value={a.id}>
@@ -215,7 +215,7 @@ export function MetricRow({
       <button
         type="button"
         onClick={onRemove}
-        className="w-7 h-7 flex items-center justify-center text-gray-300 hover:text-red-400 transition shrink-0"
+        className="w-7 h-7 flex items-center justify-center text-zinc-600 hover:text-red-400 transition shrink-0"
       >
         <svg
           width="13"
@@ -255,20 +255,20 @@ export function WindsorFieldPicker({
         o.key.toLowerCase().includes(search.toLowerCase())),
   );
   return (
-    <div className="border border-gray-200 rounded-lg overflow-hidden">
-      <div className="px-2.5 py-1.5 bg-gray-50 border-b border-gray-100 flex items-center gap-2">
-        <span className="text-[11px] font-semibold text-gray-500 shrink-0">{title}</span>
+    <div className="border border-zinc-800 rounded-lg overflow-hidden">
+      <div className="px-2.5 py-1.5 bg-zinc-900 border-b border-zinc-800 flex items-center gap-2">
+        <span className="text-[11px] font-semibold text-zinc-400 shrink-0">{title}</span>
         <input
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search…"
-          className="flex-1 text-[11px] bg-white border border-gray-200 rounded px-2 py-1 outline-none focus:border-emerald-400"
+          className="flex-1 text-[11px] bg-zinc-900 border border-zinc-800 rounded px-2 py-1 outline-none focus:border-emerald-400"
         />
-        <span className="text-[10px] text-gray-400 shrink-0">{filtered.length}</span>
+        <span className="text-[10px] text-zinc-500 shrink-0">{filtered.length}</span>
       </div>
       <div className="max-h-40 overflow-y-auto divide-y divide-gray-50">
         {filtered.length === 0 && (
-          <p className="px-2.5 py-3 text-[11px] text-gray-400 text-center">
+          <p className="px-2.5 py-3 text-[11px] text-zinc-500 text-center">
             {options.length === 0 ? "Load fields to see options" : "No matches"}
           </p>
         )}
@@ -277,11 +277,11 @@ export function WindsorFieldPicker({
             key={o.key}
             type="button"
             onClick={() => onAdd(o)}
-            className="w-full flex items-center justify-between gap-2 px-2.5 py-1.5 hover:bg-emerald-50/50 text-left"
+            className="w-full flex items-center justify-between gap-2 px-2.5 py-1.5 hover:bg-emerald-500/10/50 text-left"
           >
             <span className="min-w-0">
-              <span className="text-[12px] text-gray-700 truncate block">{o.label}</span>
-              <span className="text-[10px] text-gray-400 font-mono truncate block">{o.key}</span>
+              <span className="text-[12px] text-zinc-300 truncate block">{o.label}</span>
+              <span className="text-[10px] text-zinc-500 font-mono truncate block">{o.key}</span>
             </span>
             <span className="text-[11px] font-semibold text-emerald-600 shrink-0">+</span>
           </button>
@@ -416,16 +416,16 @@ export default function CustomConnectorModal({
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-2xl shadow-xl w-full max-w-3xl p-6 max-h-[92vh] overflow-y-auto"
+        className="bg-zinc-900 rounded-2xl shadow-xl w-full max-w-3xl p-6 max-h-[92vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between mb-5">
-          <h2 className="text-[16px] font-bold text-gray-900">
+          <h2 className="text-[16px] font-bold text-zinc-100">
             {isNew ? "New Data Source" : `Edit ${initial!.label}`}
           </h2>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gray-100 transition"
+            className="w-8 h-8 rounded-lg flex items-center justify-center text-zinc-500 hover:bg-zinc-800 transition"
           >
             <svg
               width="14"
@@ -459,7 +459,7 @@ export default function CustomConnectorModal({
                   setId(slugify(e.target.value));
                 }}
                 disabled={!isNew}
-                className={inputCls + " font-mono disabled:bg-gray-50 disabled:text-gray-400"}
+                className={inputCls + " font-mono disabled:bg-zinc-900 disabled:text-zinc-500"}
               />
             </Field>
           </div>
@@ -471,7 +471,7 @@ export default function CustomConnectorModal({
                   key={c}
                   type="button"
                   onClick={() => setColor(c)}
-                  className={`w-6 h-6 rounded-full border-2 transition ${color === c ? "border-gray-800" : "border-transparent"}`}
+                  className={`w-6 h-6 rounded-full border-2 transition ${color === c ? "border-zinc-700" : "border-transparent"}`}
                   style={{ background: c }}
                 />
               ))}
@@ -484,7 +484,7 @@ export default function CustomConnectorModal({
           </Field>
 
           <Field label="Metric schema">
-            <p className="text-[11px] text-gray-400 mb-1.5">
+            <p className="text-[11px] text-zinc-500 mb-1.5">
               Starting point only — decides which built-in KPI cards/tabs (Cost, ROAS…) this source
               gets. It doesn&apos;t limit which metrics you can add below.
             </p>
@@ -494,10 +494,10 @@ export default function CustomConnectorModal({
                   key={s.id}
                   type="button"
                   onClick={() => setMetricSchema(s.id)}
-                  className={`text-left border rounded-lg px-3 py-2 transition ${metricSchema === s.id ? "border-emerald-300 bg-emerald-50" : "border-gray-200 hover:bg-gray-50"}`}
+                  className={`text-left border rounded-lg px-3 py-2 transition ${metricSchema === s.id ? "border-emerald-300 bg-emerald-500/10" : "border-zinc-800 hover:bg-zinc-900"}`}
                 >
-                  <p className="text-[13px] font-semibold text-gray-800">{s.label}</p>
-                  <p className="text-[11px] text-gray-400 mt-0.5 leading-snug">{s.hint}</p>
+                  <p className="text-[13px] font-semibold text-zinc-200">{s.label}</p>
+                  <p className="text-[11px] text-zinc-500 mt-0.5 leading-snug">{s.hint}</p>
                 </button>
               ))}
             </div>
@@ -515,12 +515,12 @@ export default function CustomConnectorModal({
                 type="button"
                 onClick={loadWindsorFields}
                 disabled={loadingFields}
-                className="shrink-0 text-[12px] font-semibold text-emerald-600 border border-emerald-200 rounded-lg px-3 py-2 hover:bg-emerald-50 transition disabled:opacity-50 whitespace-nowrap"
+                className="shrink-0 text-[12px] font-semibold text-emerald-600 border border-emerald-500/20 rounded-lg px-3 py-2 hover:bg-emerald-500/10 transition disabled:opacity-50 whitespace-nowrap"
               >
                 {loadingFields ? "Loading…" : "Load fields from Windsor"}
               </button>
             </div>
-            <p className="text-[11px] text-gray-400 mt-1">
+            <p className="text-[11px] text-zinc-500 mt-1">
               The platform slug from connectors.windsor.ai/&lt;slug&gt;. &ldquo;Load fields&rdquo;
               pulls the real list of dimensions/metrics that platform exposes — pick from it below
               instead of typing field names blind.
@@ -563,7 +563,7 @@ export default function CustomConnectorModal({
           )}
 
           <Field label="Primary dimension">
-            <p className="text-[11px] text-gray-400 mb-1.5">
+            <p className="text-[11px] text-zinc-500 mb-1.5">
               The main table this source&apos;s dashboard is built around (e.g. Campaign, Product).
             </p>
             <DimensionRow d={primary} onChange={setPrimary} />
@@ -582,7 +582,7 @@ export default function CustomConnectorModal({
               <button
                 type="button"
                 onClick={() => setDimensions((rs) => [...rs, { ...emptyDim }])}
-                className="flex items-center gap-1.5 text-[12px] text-emerald-600 hover:text-emerald-700 border border-dashed border-emerald-200 rounded-lg px-3 py-1.5 w-full justify-center hover:bg-emerald-50 transition"
+                className="flex items-center gap-1.5 text-[12px] text-emerald-600 hover:text-emerald-700 border border-dashed border-emerald-500/20 rounded-lg px-3 py-1.5 w-full justify-center hover:bg-emerald-500/10 transition"
               >
                 <svg
                   width="12"
@@ -601,7 +601,7 @@ export default function CustomConnectorModal({
           </Field>
 
           <Field label="Custom metrics (optional)">
-            <p className="text-[11px] text-gray-400 mb-1.5">
+            <p className="text-[11px] text-zinc-500 mb-1.5">
               Raw Windsor fields with no formula (e.g. GA4&apos;s bounceRate) — read straight from
               the response and shown wherever this source&apos;s Table Widgets let you pick a metric
               column.
@@ -620,7 +620,7 @@ export default function CustomConnectorModal({
               <button
                 type="button"
                 onClick={() => setCustomMetrics((rs) => [...rs, { ...emptyMetric }])}
-                className="flex items-center gap-1.5 text-[12px] text-emerald-600 hover:text-emerald-700 border border-dashed border-emerald-200 rounded-lg px-3 py-1.5 w-full justify-center hover:bg-emerald-50 transition"
+                className="flex items-center gap-1.5 text-[12px] text-emerald-600 hover:text-emerald-700 border border-dashed border-emerald-500/20 rounded-lg px-3 py-1.5 w-full justify-center hover:bg-emerald-500/10 transition"
               >
                 <svg
                   width="12"
@@ -654,14 +654,14 @@ export default function CustomConnectorModal({
             ) : (
               <button
                 onClick={() => setConfirmDel(true)}
-                className="text-[13px] font-medium border border-red-200 text-red-600 px-3 py-2 rounded-xl hover:bg-red-50 transition"
+                className="text-[13px] font-medium border border-red-500/20 text-red-600 px-3 py-2 rounded-xl hover:bg-red-500/10 transition"
               >
                 Delete
               </button>
             ))}
           <button
             onClick={onClose}
-            className="flex-1 text-[13px] font-medium border border-gray-200 text-gray-600 py-2 rounded-xl hover:bg-gray-50 transition"
+            className="flex-1 text-[13px] font-medium border border-zinc-800 text-zinc-400 py-2 rounded-xl hover:bg-zinc-900 transition"
           >
             Cancel
           </button>

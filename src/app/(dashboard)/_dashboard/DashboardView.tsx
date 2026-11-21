@@ -5003,7 +5003,7 @@ export default function DashboardView() {
                       onClick={() => setActiveTab(i)}
                       className={`flex items-center gap-1.5 sm:gap-2 px-0.5 sm:px-0 pt-2.5 pb-2.5 sm:pt-0 sm:pb-4.5 sm:h-10.5 border-b-2 -mb-px text-[13px] sm:text-[16px] leading-none sm:leading-6 font-medium transition whitespace-nowrap tracking-[-0.2px] cursor-pointer ${
                         active
-                          ? "border-[#10B981] text-[#34D399]"
+                          ? "border-[var(--brand)] text-[var(--brand-fg)]"
                           : "border-transparent text-[#A1A1AA] hover:text-zinc-300 hover:border-zinc-700"
                       }`}
                     >

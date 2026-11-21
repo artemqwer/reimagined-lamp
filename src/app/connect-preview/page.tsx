@@ -118,7 +118,7 @@ export default function ConnectPreviewPage() {
       <div className="w-full max-w-md flex items-center justify-end gap-4 mb-3">
         <Link
           href="/login"
-          className="text-[13px] font-semibold text-[#10B981] hover:text-[#1247c8] transition"
+          className="text-[13px] font-semibold text-[var(--brand)] hover:text-[#1247c8] transition"
         >
           Log in →
         </Link>
@@ -201,7 +201,7 @@ export default function ConnectPreviewPage() {
                 ))}
                 <Link
                   href="/login"
-                  className="w-full mt-2 flex items-center justify-center gap-2 bg-[#10B981] hover:bg-[#1247c8] text-white text-[14px] font-semibold rounded-xl py-3 transition"
+                  className="w-full mt-2 flex items-center justify-center gap-2 bg-[var(--brand)] hover:bg-[#1247c8] text-white text-[14px] font-semibold rounded-xl py-3 transition"
                 >
                   Go to dashboard
                   <svg
@@ -267,7 +267,7 @@ export default function ConnectPreviewPage() {
                 {status === "connecting" && (
                   <button
                     onClick={checkAccounts}
-                    className="w-full mt-2 text-[13px] font-semibold text-[#10B981] hover:text-[#1247c8] transition py-1.5"
+                    className="w-full mt-2 text-[13px] font-semibold text-[var(--brand)] hover:text-[#1247c8] transition py-1.5"
                   >
                     I&apos;ve approved — check now
                   </button>

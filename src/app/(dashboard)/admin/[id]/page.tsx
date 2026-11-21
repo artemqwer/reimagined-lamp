@@ -128,7 +128,7 @@ const channelStyle = (id: string) =>
 
 function StatusBadge({ status }: { status: AdminUser["status"] }) {
   const map = {
-    Active: { bg: "#dcfce7", fg: "#10B981", icon: <CheckCircle size={16} /> },
+    Active: { bg: "#dcfce7", fg: "var(--brand)", icon: <CheckCircle size={16} /> },
     Trial: { bg: "#fef9c3", fg: "#a16207", icon: <Clock size={16} /> },
     Expired: { bg: "rgba(239,68,68,0.14)", fg: "#dc2626", icon: <Clock size={16} /> },
   } as const;
@@ -207,7 +207,7 @@ export default function AdminUserDetailPage() {
       value: `${usd(user.revenueMonthly)}/mo`,
       label: "Monthly Revenue",
       bg: "#dcfce7",
-      fg: "#10B981",
+      fg: "var(--brand)",
       icon: <DollarSign size={24} />,
     },
     {
@@ -221,7 +221,7 @@ export default function AdminUserDetailPage() {
       value: String(user.channels.length),
       label: "Connected Channels",
       bg: "rgba(59,130,246,0.14)",
-      fg: "#10B981",
+      fg: "var(--brand)",
       icon: <Activity size={24} />,
     },
   ];
@@ -231,14 +231,14 @@ export default function AdminUserDetailPage() {
   const ACTIVITY = [
     {
       icon: <LogIn size={16} />,
-      fg: "#10B981",
+      fg: "var(--brand)",
       title: "Last login",
       desc: user.lastLogin === "Never" ? "Has not signed in yet" : `Signed in ${user.lastLogin}`,
       time: user.lastLogin,
     },
     {
       icon: <PlusCircle size={16} />,
-      fg: "#10B981",
+      fg: "var(--brand)",
       title: "Account created",
       desc: `Registered on ${user.registered}`,
       time: user.registered,
@@ -288,7 +288,7 @@ export default function AdminUserDetailPage() {
                 }
                 router.push("/google-ads");
               }}
-              className="inline-flex items-center gap-2 h-[41px] px-4 rounded-[10px] bg-[#10B981] hover:bg-emerald-700 text-white text-[16px] transition"
+              className="inline-flex items-center gap-2 h-[41px] px-4 rounded-[10px] bg-[var(--brand)] hover:bg-emerald-700 text-white text-[16px] transition"
             >
               <Eye size={16} /> View as Client
             </button>
@@ -390,7 +390,7 @@ export default function AdminUserDetailPage() {
             <button
               key={key}
               onClick={() => setTab(key)}
-              className={`h-[54px] px-[22px] text-[14px] font-medium border-b-2 -mb-px transition ${tab === key ? "border-[#10B981] text-[#10B981]" : "border-transparent text-[#71717A] hover:text-zinc-300"}`}
+              className={`h-[54px] px-[22px] text-[14px] font-medium border-b-2 -mb-px transition ${tab === key ? "border-[var(--brand)] text-[var(--brand)]" : "border-transparent text-[#71717A] hover:text-zinc-300"}`}
             >
               {label}
             </button>
@@ -437,7 +437,7 @@ export default function AdminUserDetailPage() {
                             </div>
                             <span
                               className="inline-flex items-center gap-1.5 h-6 px-2 rounded-full text-[12px] font-medium shrink-0"
-                              style={{ background: "#dcfce7", color: "#10B981" }}
+                              style={{ background: "#dcfce7", color: "var(--brand)" }}
                             >
                               <CheckCircle size={12} /> Active
                             </span>

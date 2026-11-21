@@ -272,7 +272,7 @@ export default function WindsorConnectCard({
           </p>
           <button
             onClick={checkAccounts}
-            className="text-[12px] font-semibold text-[#10B981] hover:text-[#1247c8] transition shrink-0"
+            className="text-[12px] font-semibold text-[var(--brand)] hover:text-[#1247c8] transition shrink-0"
           >
             Check now
           </button>
@@ -290,7 +290,7 @@ export default function WindsorConnectCard({
             <button
               onClick={loadAdminAccounts}
               disabled={adminLoading}
-              className="text-[12px] font-semibold text-[#10B981] hover:text-[#1247c8] transition disabled:opacity-50"
+              className="text-[12px] font-semibold text-[var(--brand)] hover:text-[#1247c8] transition disabled:opacity-50"
             >
               {adminLoading ? "Loading…" : adminAccounts ? "Refresh" : "Show workspace accounts"}
             </button>

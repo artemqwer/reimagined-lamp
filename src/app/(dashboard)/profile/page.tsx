@@ -333,7 +333,7 @@ export default function ProfilePage() {
                 initials
               )}
             </div>
-            <div className="absolute bottom-0 right-0 w-8 h-8 bg-[#10B981] rounded-full flex items-center justify-center shadow hover:bg-emerald-700 transition border-2 border-white">
+            <div className="absolute bottom-0 right-0 w-8 h-8 bg-[var(--brand)] rounded-full flex items-center justify-center shadow hover:bg-emerald-700 transition border-2 border-white">
               <svg
                 width="14"
                 height="14"
@@ -367,7 +367,7 @@ export default function ProfilePage() {
                 type="button"
                 onClick={() => fileInputRef.current?.click()}
                 disabled={avatarLoading}
-                className="text-[14px] px-4 h-[37px] bg-[#10B981] hover:bg-emerald-700 disabled:bg-emerald-400 text-white rounded-[10px] transition"
+                className="text-[14px] px-4 h-[37px] bg-[var(--brand)] hover:bg-emerald-700 disabled:bg-emerald-400 text-white rounded-[10px] transition"
               >
                 Upload new photo
               </button>
@@ -532,7 +532,7 @@ export default function ProfilePage() {
             <button
               type="submit"
               disabled={profileLoading}
-              className="bg-[#10B981] hover:bg-emerald-700 disabled:bg-emerald-400 text-white text-[16px] px-5 h-11 rounded-[10px] flex items-center gap-2 transition"
+              className="bg-[var(--brand)] hover:bg-emerald-700 disabled:bg-emerald-400 text-white text-[16px] px-5 h-11 rounded-[10px] flex items-center gap-2 transition"
             >
               {profileLoading && (
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -638,7 +638,7 @@ export default function ProfilePage() {
             <button
               type="submit"
               disabled={passwordLoading}
-              className="bg-[#10B981] hover:bg-emerald-700 disabled:bg-emerald-400 text-white text-[16px] px-5 h-11 rounded-[10px] flex items-center gap-2 transition"
+              className="bg-[var(--brand)] hover:bg-emerald-700 disabled:bg-emerald-400 text-white text-[16px] px-5 h-11 rounded-[10px] flex items-center gap-2 transition"
             >
               {passwordLoading && (
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -653,7 +653,7 @@ export default function ProfilePage() {
       <div className="bg-zinc-900 rounded-[14px] border border-[#3F3F46] p-6 mb-6">
         <div className="flex items-center justify-between gap-4 flex-wrap">
           <div className="flex items-center gap-3 min-w-0">
-            <div className="w-10 h-10 rounded-[10px] bg-[rgba(59,130,246,0.14)] text-[#10B981] flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-[10px] bg-[rgba(59,130,246,0.14)] text-[var(--brand)] flex items-center justify-center shrink-0">
               <svg
                 width="20"
                 height="20"
@@ -719,7 +719,7 @@ export default function ProfilePage() {
               type="button"
               onClick={handleStartMfa}
               disabled={mfaBusy}
-              className="shrink-0 text-[14px] px-4 h-9 bg-[#10B981] hover:bg-emerald-700 disabled:opacity-50 text-white rounded-[10px] transition flex items-center gap-1.5"
+              className="shrink-0 text-[14px] px-4 h-9 bg-[var(--brand)] hover:bg-emerald-700 disabled:opacity-50 text-white rounded-[10px] transition flex items-center gap-1.5"
             >
               {mfaBusy && !mfaEnrolling && (
                 <div className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin" />

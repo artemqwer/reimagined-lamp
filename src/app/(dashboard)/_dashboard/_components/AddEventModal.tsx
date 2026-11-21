@@ -71,7 +71,7 @@ export default function AddEventModal({
                 height="18"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#10b981"
+                stroke="var(--brand)"
                 strokeWidth="2.5"
               >
                 <rect x="3" y="4" width="18" height="18" rx="2" />

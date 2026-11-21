@@ -812,7 +812,9 @@ export default function SmartGoalsPage() {
                 daily={granularity === "daily"}
                 hoverKey={hoverKey}
                 onHoverKey={setHoverKey}
-                accent={settings.goals.find((g) => g.metric === chartedDef.key)?.color ?? "#10b981"}
+                accent={
+                  settings.goals.find((g) => g.metric === chartedDef.key)?.color ?? "var(--brand)"
+                }
                 bare
               />
             )}

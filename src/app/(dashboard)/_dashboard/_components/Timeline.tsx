@@ -19,7 +19,7 @@ interface TypeMeta {
 export const EVENT_TYPES: Record<EventType, TypeMeta> = {
   holidays: {
     label: "Holidays",
-    color: "#10B981",
+    color: "var(--brand)",
     bg: "rgba(59,130,246,0.12)",
     auto: true,
     icon: (
@@ -682,7 +682,7 @@ export default function Timeline({
               <span
                 className={`text-[12px] font-semibold rounded-lg px-2 h-[22px] inline-flex items-center leading-none ${
                   total > 0
-                    ? "text-[#34D399] bg-linear-to-r from-[rgba(59,130,246,0.12)] to-[rgba(99,102,241,0.12)] border border-blue-500/25"
+                    ? "text-[var(--brand-fg)] bg-linear-to-r from-[rgba(59,130,246,0.12)] to-[rgba(99,102,241,0.12)] border border-blue-500/25"
                     : "text-zinc-500 bg-zinc-900 border border-zinc-800"
                 }`}
               >

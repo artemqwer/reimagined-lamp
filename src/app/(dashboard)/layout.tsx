@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
+import CommandPalette from "@/components/CommandPalette";
 import { getSupabaseSession, logoutUser, pendingMfaFactor, type Session } from "@/lib/auth";
 import { createClient } from "@/lib/supabase";
 import { connectorFromSlug, setCustomConnectors, type CustomConnectorRow } from "@/lib/connectors";
@@ -202,6 +203,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         session={session}
         onLogout={handleLogout}
       />
+      <CommandPalette />
 
       <div className="flex-1 flex flex-col min-w-0">
         {/* Mobile top bar */}
@@ -232,7 +234,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               // Smart Goals / AI Optimizer name themselves; their platform tabs
               // inside the page do the source switching.
               <div className="flex items-center gap-2 text-[#F4F4F5]">
-                <span className="text-[#10B981]">{section.icon}</span>
+                <span className="text-[var(--brand)]">{section.icon}</span>
                 <span className="text-[15px] font-bold">{section.name}</span>
               </div>
             ) : (
@@ -289,7 +291,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         </header>
 
         {viewAsName && (
-          <div className="flex items-center justify-center gap-3 flex-wrap bg-[#10B981] text-white text-[13px] px-4 py-2 text-center">
+          <div className="flex items-center justify-center gap-3 flex-wrap bg-[var(--brand)] text-white text-[13px] px-4 py-2 text-center">
             <span>
               Viewing as <span className="font-semibold">{viewAsName}</span> — you are seeing this
               client&rsquo;s live data.

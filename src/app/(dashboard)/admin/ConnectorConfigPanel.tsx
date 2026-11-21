@@ -289,7 +289,7 @@ function ConfigList({
             </button>
           </div>
           {r.primary ? (
-            <span className="shrink-0 text-[10px] font-bold text-[#34D399] bg-[rgba(59,130,246,0.14)] rounded px-1.5 py-0.5 uppercase tracking-wide">
+            <span className="shrink-0 text-[10px] font-bold text-[var(--brand-fg)] bg-[rgba(59,130,246,0.14)] rounded px-1.5 py-0.5 uppercase tracking-wide">
               Primary
             </span>
           ) : r.optimizerOnly ? (

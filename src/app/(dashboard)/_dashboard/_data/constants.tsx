@@ -372,8 +372,8 @@ export const COLORS = [
   "#4ADE80",
   "#A78BFA",
   "#60A5FA",
-  "#10b981",
-  "#10b981",
+  "var(--brand)",
+  "var(--brand)",
   "#f59e0b",
   "#6366f1",
 ];
@@ -408,7 +408,7 @@ export const TYPE_COLORS_MAP: Record<string, string> = {
   PMax: "#A78BFA",
   Display: "#F472B6",
   Video: "#FB7185",
-  "Demand Gen": "#34D399",
+  "Demand Gen": "var(--brand-fg)",
   App: "#22D3EE",
   Smart: "#FBBF24",
   Local: "#A3E635",
@@ -532,8 +532,8 @@ export const tlWebItems = [
 // ─── Segments data ───────────────────────────────────────────────────────────
 
 export const SEG_COLORS = [
-  "#10b981",
-  "#10b981",
+  "var(--brand)",
+  "var(--brand)",
   "#f59e0b",
   "#6366f1",
   "#f43f5e",

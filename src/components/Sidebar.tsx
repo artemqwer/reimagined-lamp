@@ -14,6 +14,7 @@ import {
   type ConnectorId,
 } from "@/lib/connectors";
 import ConnectorBrandIcon from "@/components/ConnectorBrandIcon";
+import AccentPicker from "@/components/AccentPicker";
 
 // Icons mirror the Figma sidebar exactly (Lucide, 16px viewBox, #A1A1AA stroke).
 const ICON_PROPS = {
@@ -155,7 +156,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
           title={collapsed ? CONNECTORS[id].label : undefined}
           className={`flex items-center rounded-[10px] text-[14px] transition mb-1 ${
             collapsed ? "justify-center px-0 py-2.5" : "gap-3 px-3 py-2"
-          } ${active ? "bg-emerald-500/10 text-[#34D399] ring-1 ring-emerald-500/25" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
+          } ${active ? "bg-emerald-500/10 text-[var(--brand-fg)] ring-1 ring-emerald-500/25" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
         >
           <span className="relative shrink-0">
             <ConnectorIcon id={id} />
@@ -173,7 +174,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
         title={collapsed ? "AI Optimizer" : undefined}
         className={`flex items-center rounded-[10px] text-[14px] transition mb-1 ${
           collapsed ? "justify-center px-0 py-2.5" : "gap-3 px-3 py-2"
-        } ${active ? "bg-emerald-500/10 text-[#34D399] ring-1 ring-emerald-500/25" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
+        } ${active ? "bg-emerald-500/10 text-[var(--brand-fg)] ring-1 ring-emerald-500/25" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
       >
         <span className="relative shrink-0">
           {/* The design's own icon, exported from Figma: one outlined
@@ -203,7 +204,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
         title={collapsed ? "Smart Goals" : undefined}
         className={`flex items-center rounded-[10px] text-[14px] transition mb-1 ${
           collapsed ? "justify-center px-0 py-2.5" : "gap-3 px-3 py-2"
-        } ${active ? "bg-emerald-500/10 text-[#34D399] ring-1 ring-emerald-500/25" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
+        } ${active ? "bg-emerald-500/10 text-[var(--brand-fg)] ring-1 ring-emerald-500/25" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
       >
         <span className="relative shrink-0">
           <svg {...ICON_PROPS}>
@@ -330,10 +331,10 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
                   title={collapsed ? label : undefined}
                   className={`flex items-center rounded-[10px] text-[14px] transition mb-1 ${
                     collapsed ? "justify-center px-0 py-2.5" : "gap-3 px-3 py-2"
-                  } ${active ? "bg-emerald-500/10 text-[#34D399] ring-1 ring-emerald-500/25" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
+                  } ${active ? "bg-emerald-500/10 text-[var(--brand-fg)] ring-1 ring-emerald-500/25" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
                 >
                   <span
-                    className={`relative shrink-0 ${active ? "text-[#34D399]" : "text-[#A1A1AA]"}`}
+                    className={`relative shrink-0 ${active ? "text-[var(--brand-fg)]" : "text-[#A1A1AA]"}`}
                   >
                     {icon}
                   </span>
@@ -357,7 +358,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
             referrerPolicy="no-referrer"
           />
         ) : (
-          <div className="w-8 h-8 rounded-full bg-[linear-gradient(135deg,#059669,#34d399)] flex items-center justify-center text-white text-[12px] font-bold shrink-0">
+          <div className="w-8 h-8 rounded-full bg-[linear-gradient(135deg,var(--brand),var(--brand-fg))] flex items-center justify-center text-white text-[12px] font-bold shrink-0">
             {session?.name ? session.name.slice(0, 2).toUpperCase() : "U"}
           </div>
         )}
@@ -371,6 +372,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
                 {session?.email ?? ""}
               </p>
             </div>
+            <AccentPicker />
             {onLogout && (
               <button
                 onClick={onLogout}
@@ -482,11 +484,13 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
                       onClick={onMobileClose}
                       className={`flex items-center gap-3 px-3 py-2 rounded-[10px] text-[14px] transition mb-1 ${
                         active
-                          ? "bg-emerald-500/10 text-[#34D399] ring-1 ring-emerald-500/25"
+                          ? "bg-emerald-500/10 text-[var(--brand-fg)] ring-1 ring-emerald-500/25"
                           : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"
                       }`}
                     >
-                      <span className={active ? "text-[#34D399]" : "text-[#A1A1AA]"}>{icon}</span>
+                      <span className={active ? "text-[var(--brand-fg)]" : "text-[#A1A1AA]"}>
+                        {icon}
+                      </span>
                       {label}
                     </Link>
                   );
@@ -495,7 +499,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
             ))}
           </nav>
           <div className="border-t border-zinc-800 p-3 flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-full bg-[linear-gradient(135deg,#059669,#34d399)] flex items-center justify-center text-white text-[12px] font-bold shrink-0">
+            <div className="w-8 h-8 rounded-full bg-[linear-gradient(135deg,var(--brand),var(--brand-fg))] flex items-center justify-center text-white text-[12px] font-bold shrink-0">
               {session?.name ? session.name.slice(0, 2).toUpperCase() : "U"}
             </div>
             <div className="overflow-hidden flex-1 min-w-0">

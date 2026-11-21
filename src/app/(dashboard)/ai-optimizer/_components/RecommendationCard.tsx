@@ -17,7 +17,7 @@ import {
 const PRIORITY: Record<Priority, { label: string; className: string }> = {
   high: { label: "● HIGH", className: "text-[#C10007] bg-[rgba(239,68,68,0.12)]" },
   medium: { label: "● MEDIUM", className: "text-amber-400 bg-amber-500/10" },
-  low: { label: "● LOW", className: "text-[#34D399] bg-[rgba(59,130,246,0.12)]" },
+  low: { label: "● LOW", className: "text-[var(--brand-fg)] bg-[rgba(59,130,246,0.12)]" },
 };
 
 const KIND_ICON: Record<Recommendation["kind"], string> = {
@@ -271,7 +271,7 @@ export default function RecommendationCard({
               <p className="text-[14px] font-semibold text-[#F4F4F5]">{rec.title}</p>
               <p className="text-[12px] text-[#71717A] mt-0.5">{rec.detail}</p>
               {rec.impact > 0 && (
-                <p className="text-[12px] font-medium text-[#10B981] mt-1">
+                <p className="text-[12px] font-medium text-[var(--brand)] mt-1">
                   Impact: +{impact}
                   {impactSuffix} {impactLabel.toLowerCase()} potential
                 </p>
@@ -279,13 +279,13 @@ export default function RecommendationCard({
             </div>
           </div>
           <div className="flex flex-col items-end justify-between gap-3 shrink-0">
-            <span className="text-[12px] font-medium text-[#10B981]">
+            <span className="text-[12px] font-medium text-[var(--brand)]">
               {isComp ? "Completed" : "Dismissed"}
               {stateAt ? ` ${stateAt}` : ""}
             </span>
             <button
               onClick={onRestore}
-              className="px-3.5 py-1 text-[12px] font-semibold text-[#10B981] bg-[rgba(59,130,246,0.12)] border border-blue-500/25 rounded-lg hover:bg-emerald-500/10 transition"
+              className="px-3.5 py-1 text-[12px] font-semibold text-[var(--brand)] bg-[rgba(59,130,246,0.12)] border border-blue-500/25 rounded-lg hover:bg-emerald-500/10 transition"
             >
               Restore
             </button>
@@ -356,7 +356,7 @@ export default function RecommendationCard({
         </div>
         <div className="text-right shrink-0 bg-emerald-500/10 border border-emerald-500/25 rounded-lg px-2.5 py-1">
           <p className="text-[10px] font-bold text-[#71717A] uppercase tracking-wider">Impact</p>
-          <p className="text-[13px] font-bold text-[#10B981]">
+          <p className="text-[13px] font-bold text-[var(--brand)]">
             +{impact}
             {impactSuffix} {impactLabel.toLowerCase()} potential
           </p>

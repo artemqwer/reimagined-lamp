@@ -114,7 +114,7 @@ export default function PageSourceTabs({
                     onClick={() => setActiveConnector(id)}
                     className={`flex items-center gap-2 text-[13.5px] font-medium px-3 py-2.5 -mb-px border-b-2 whitespace-nowrap transition ${
                       on
-                        ? "border-[#34D399] text-[#34D399]"
+                        ? "border-[var(--brand-fg)] text-[var(--brand-fg)]"
                         : "border-transparent text-[#71717A] hover:text-[#A1A1AA]"
                     }`}
                   >

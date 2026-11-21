@@ -30,7 +30,7 @@ const BANDS = [
     from: 80,
     label: "80-100: Excellent",
     color: "#00BC7D",
-    pillBg: "rgba(16,185,129,0.12)",
+    pillBg: "rgba(var(--brand-rgb), 0.12)",
     pillText: "#00994D",
   },
   {

@@ -1242,7 +1242,7 @@ export default function AdminPage() {
           </p>
           <Link
             href="/"
-            className="inline-block mt-5 text-[13.5px] font-semibold text-[#34D399] hover:underline"
+            className="inline-block mt-5 text-[13.5px] font-semibold text-[var(--brand-fg)] hover:underline"
           >
             Back to the dashboard
           </Link>
@@ -1504,7 +1504,7 @@ export default function AdminPage() {
                 height="18"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#10b981"
+                stroke="var(--brand)"
                 strokeWidth="2"
               >
                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -1535,7 +1535,7 @@ export default function AdminPage() {
               rows={PLANS.map((p, i) => ({
                 label: p,
                 value: users.filter((u) => u.plan === p).length,
-                color: ["#71717A", "#10b981", "#EC4899", "#8B5CF6"][i],
+                color: ["#71717A", "var(--brand)", "#EC4899", "#8B5CF6"][i],
               }))}
             />
           </div>
@@ -1558,7 +1558,7 @@ export default function AdminPage() {
                 label: p,
                 value:
                   users.filter((u) => u.plan === p && u.status === "Active").length * PLAN_PRICE[p],
-                color: ["#10b981", "#EC4899", "#8B5CF6"][i],
+                color: ["var(--brand)", "#EC4899", "#8B5CF6"][i],
               }))}
             />
           </div>

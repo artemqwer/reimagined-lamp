@@ -17,7 +17,7 @@ const BAND_STYLES: Record<
   { bg: string; border: string; chip: string; title: string; text: string }
 > = {
   excellent: {
-    bg: "bg-[rgba(16,185,129,0.12)]",
+    bg: "bg-[rgba(var(--brand-rgb), 0.12)]",
     border: "border-[#A4F4CF]",
     chip: "bg-[#D0FAE5]",
     title: "text-[#004F3B]",
@@ -90,7 +90,7 @@ function wordsFor(def: GoalMetricDef) {
  * Default color palette options for metrics.
  */
 export const COLOR_PALETTE = [
-  "#10b981", // Blue
+  "var(--brand)", // Blue
   "#EF4444", // Red
   "#8B5CF6", // Purple
   "#009966", // Green
@@ -104,7 +104,7 @@ export const COLOR_PALETTE = [
  */
 function accentFor(_def: GoalMetricDef, config?: { color?: string }): string {
   if (config?.color) return config.color;
-  return "#10b981";
+  return "var(--brand)";
 }
 
 /** The glyph inside the icon chip — from the metric's format, so it still

@@ -96,7 +96,8 @@ function statusOf(raw: string | undefined): { label: string; fg: string; bg: str
   const s = (raw ?? "").trim().toUpperCase();
   if (!s) return null;
   // Same scheme as the dashboard tables: active green, paused grey, removed red.
-  if (s === "ENABLED" || s === "ACTIVE") return { label: "Active", fg: "#10B981", bg: "#DCFCE7" };
+  if (s === "ENABLED" || s === "ACTIVE")
+    return { label: "Active", fg: "var(--brand)", bg: "#DCFCE7" };
   if (s === "PAUSED") return { label: "Paused", fg: "#A1A1AA", bg: "#27272A" };
   if (s === "REMOVED") return { label: "Removed", fg: "#DC2626", bg: "rgba(239,68,68,0.14)" };
   // A word this app hasn't seen — show it rather than swallow it.
@@ -123,7 +124,7 @@ function statusDotFor(status: unknown, spend: number): StatusDot {
 /** The text badge for a resolved status-dot colour, so the open-entity header
  *  reads the SAME status as its row in the list (both off statusColors). */
 function statusBadgeFor(c: StatusDot): { label: string; fg: string; bg: string } | null {
-  if (c === "green") return { label: "Active", fg: "#10B981", bg: "#DCFCE7" };
+  if (c === "green") return { label: "Active", fg: "var(--brand)", bg: "#DCFCE7" };
   if (c === "yellow") return { label: "Paused", fg: "#A1A1AA", bg: "#27272A" };
   if (c === "red") return { label: "Removed", fg: "#DC2626", bg: "rgba(239,68,68,0.14)" };
   return null;
@@ -1069,7 +1070,7 @@ export default function AiOptimizerPage() {
                   the old "Campaign" badge there is replaced by Potential Impact
                   below — so the type badge only shows for an open entity. */}
               {openEntity && entityTypes[openEntity] && (
-                <span className="text-[12px] font-semibold text-[#34D399] bg-[rgba(59,130,246,0.14)] rounded-lg px-2.5 py-0.5">
+                <span className="text-[12px] font-semibold text-[var(--brand-fg)] bg-[rgba(59,130,246,0.14)] rounded-lg px-2.5 py-0.5">
                   {entityTypes[openEntity]}
                 </span>
               )}
@@ -1078,7 +1079,7 @@ export default function AiOptimizerPage() {
                   overview, one entity when opened), so the headline potential is
                   visible at a glance. */}
               {analysis && monthlyImpact > 0 && (
-                <span className="inline-flex items-center gap-1 text-[12px] font-semibold text-[#10B981] bg-emerald-500/10 border border-emerald-500/25 rounded-lg px-2.5 py-0.5">
+                <span className="inline-flex items-center gap-1 text-[12px] font-semibold text-[var(--brand)] bg-emerald-500/10 border border-emerald-500/25 rounded-lg px-2.5 py-0.5">
                   +{formatImpact(monthlyImpact, analysis.impactMetric)}{" "}
                   {analysis.impactMetricLabel.toLowerCase()}
                   {impactIsCumulative ? " / month" : ""}
@@ -1093,7 +1094,7 @@ export default function AiOptimizerPage() {
             <p className="text-[13px] text-violet-400 font-semibold mt-2">
               {openCount} optimizations available —{" "}
               <span className="text-[#C10007]">{analysis?.counts.high ?? 0} High</span>,{" "}
-              <span className="text-[#10B981]">{analysis?.counts.medium ?? 0} Medium</span>,{" "}
+              <span className="text-[var(--brand)]">{analysis?.counts.medium ?? 0} Medium</span>,{" "}
               <span className="text-[#A1A1AA]">{analysis?.counts.low ?? 0} Low</span> priority.{" "}
               <span className="text-[#71717A] font-normal">
                 Analysis period: {dateFrom} to {dateTo}
@@ -1125,7 +1126,7 @@ export default function AiOptimizerPage() {
           <div
             className={`shrink-0 rounded-xl border p-3.5 min-w-[240px] ${
               score >= 80
-                ? "bg-[rgba(16,185,129,0.12)] border-[#A4F4CF]"
+                ? "bg-[rgba(var(--brand-rgb), 0.12)] border-[#A4F4CF]"
                 : "bg-[rgba(239,68,68,0.12)] border-[#FFC9C9]"
             }`}
           >
@@ -1437,7 +1438,7 @@ export default function AiOptimizerPage() {
                   {
                     group: "growth" as const,
                     heading: "⚙️ SETTINGS & IMPROVEMENTS",
-                    headingColor: "text-[#10B981]",
+                    headingColor: "text-[var(--brand)]",
                     hint: "Optimize setup and configuration",
                   },
                 ].map((sec) => {

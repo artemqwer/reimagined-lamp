@@ -54,7 +54,7 @@ export default function AuthShell({ children }: { children: React.ReactNode }) {
           <ul className="mt-8 space-y-5">
             {FEATURES.map((f) => (
               <li key={f.title} className="flex gap-3.5 max-w-[400px]">
-                <span className="mt-0.5 shrink-0 w-6 h-6 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-[#34D399]">
+                <span className="mt-0.5 shrink-0 w-6 h-6 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-[var(--brand-fg)]">
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                     <path
                       d="M2 6l3 3 5-5"

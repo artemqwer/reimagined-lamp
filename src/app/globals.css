@@ -7,20 +7,39 @@
   --surface: #101013;
   --surface-2: #18181b;
   --border: #27272a;
-  /* MetricForge brand accent */
-  --brand: #10b981;
-  --brand-fg: #34d399;
-  --brand-glow: rgba(16, 185, 129, 0.14);
+  /* MetricForge brand accent (overridden by data-accent below) */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-brand: var(--brand);
+  --color-brand-fg: var(--brand-fg);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
+}
+
+/* Accent palettes — pick in the sidebar footer */
+:root,
+[data-accent="forge"] {
+  --brand: #10b981;
+  --brand-rgb: 16, 185, 129;
+  --brand-fg: #34d399;
+  --brand-glow: rgba(16, 185, 129, 0.14);
+}
+[data-accent="ember"] {
+  --brand: #f97316;
+  --brand-rgb: 249, 115, 22;
+  --brand-fg: #fb923c;
+  --brand-glow: rgba(249, 115, 22, 0.14);
+}
+[data-accent="iris"] {
+  --brand: #8b5cf6;
+  --brand-rgb: 139, 92, 246;
+  --brand-fg: #a78bfa;
+  --brand-glow: rgba(139, 92, 246, 0.14);
 }
 
 /* MetricForge wordmark accent (sidebar + dashboard header) */

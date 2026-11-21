@@ -12,12 +12,12 @@ import {
 import ConnectorBrandIcon from "@/components/ConnectorBrandIcon";
 
 /**
- * The header Smart Goals and the optimizer open with: what section you are in,
+ * The header Watchtower and the optimizer open with: what section you are in,
  * then which platform you are looking at.
  *
  * These are sections in their own right, not a view of a dashboard, and the
  * page used to open with the source's mark — so it read as "Google Ads" with
- * some goals attached rather than "Smart Goals, currently showing Google Ads".
+ * some goals attached rather than "Watchtower, currently showing Google Ads".
  * Naming the section and putting the platforms under it as tabs makes the two
  * levels of navigation visible, which is what they are.
  *

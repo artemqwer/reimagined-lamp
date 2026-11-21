@@ -13,7 +13,7 @@ const FEATURES = [
   },
   {
     title: "Goals that watch themselves",
-    body: "Smart Goals flag anomalies the moment a metric drifts off plan.",
+    body: "Watchtower flag anomalies the moment a metric drifts off plan.",
   },
 ];
 

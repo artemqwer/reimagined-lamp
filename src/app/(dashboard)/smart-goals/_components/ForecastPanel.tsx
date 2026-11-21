@@ -8,7 +8,7 @@ import type { OptimizerSummary } from "@/lib/aiOptimizer";
 import { confidenceBand, type Forecast } from "@/lib/smartGoalsData";
 import { formatGoalValue, formatMetric } from "./format";
 
-// Hidden until the Smart Goals optimizer summary and the AI Optimizer page count
+// Hidden until the Watchtower optimizer summary and the Forge AI page count
 // the same thing (this counts campaigns only; the page counts every breakdown).
 // Flip to true to show the summary block again.
 const SHOW_OPTIMIZER_SUMMARY = false;
@@ -325,7 +325,7 @@ export default function ForecastPanel({
               <svg width="14" height="14" viewBox="0 0 24 24" fill="#8200DB">
                 <path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z" />
               </svg>
-              AI Optimizer
+              Forge AI
               <span className="text-[12px] font-medium text-white bg-[#009966] rounded-full px-1.5">
                 {optimizer.count}
               </span>

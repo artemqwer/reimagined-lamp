@@ -420,7 +420,7 @@ export default function DashboardView() {
   const [hiddenSeries, setHiddenSeries] = useState<Set<string>>(new Set());
   const [granularity, setGranularity] = useState<"days" | "weeks" | "months">("days");
   const [granularityOpen, setGranularityOpen] = useState(false);
-  // Arriving from the AI Optimizer's "Explore in Dashboard": open the view best
+  // Arriving from the Forge AI's "Explore in Dashboard": open the view best
   // suited to the recommendation — Profit & Loss, weekly, over the optimizer's
   // own ~90-day window — so the loss is visible without switching tabs by hand.
   // One-shot flags set by the optimizer, consumed once here. If the source lacks
@@ -827,7 +827,7 @@ export default function DashboardView() {
   // User events, the auto US holiday calendar, and this source's own detected
   // anomalies for the visible range.
   //
-  // The detector already ran on Smart Goals; it belongs here too, per source —
+  // The detector already ran on Watchtower; it belongs here too, per source —
   // a Google Ads spend drop on the Google Ads timeline, a GA4 one on GA4's.
   // It reads the same daily series the charts draw, so it costs no extra
   // request.
@@ -920,7 +920,7 @@ export default function DashboardView() {
           (t) => t.id === primaryTableSource.widgetId,
         )
       : undefined;
-  // An admin can rename the primary (hero) table in Data Sources — its label
+  // An admin can rename the primary (hero) table in Pipelines — its label
   // lives in the dimensions config under the effective primary key. Applied to
   // the hero's title so the rename shows here too, not only in the optimizer.
   const heroPrimaryKey =

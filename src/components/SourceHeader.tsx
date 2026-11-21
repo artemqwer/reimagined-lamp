@@ -8,7 +8,7 @@ import ConnectorSwitcher from "@/app/(dashboard)/_dashboard/_components/Connecto
  * which is also how you switch source.
  *
  * It is the dashboard's ConnectorSwitcher, not a copy of it — the spec draws
- * the same header on Smart Goals and the optimizer, and two switchers that
+ * the same header on Watchtower and the optimizer, and two switchers that
  * merely look alike would be two things to keep in step. Whatever the charts
  * do when a source is picked, these pages now do too.
  *

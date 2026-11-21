@@ -42,7 +42,7 @@ import HealthRadar, { bandFor } from "./_components/HealthRadar";
 import RecommendationCard from "./_components/RecommendationCard";
 import HelpTip from "@/app/(dashboard)/smart-goals/_components/HelpTip";
 
-// AI Optimizer — the whole account, one breakdown at a time.
+// Forge AI — the whole account, one breakdown at a time.
 //
 // Every table the source exposes is fetched and analysed, so the answer to
 // "where is this account losing ground" isn't limited to campaigns: it can be a
@@ -286,7 +286,7 @@ export default function AiOptimizerPage() {
     // A table is analysed when its own "AI" toggle is on (optimizer !== false).
     // The dashboard-visibility toggle is deliberately NOT consulted: hiding a
     // noisy table (Search Terms is the usual one) from the dashboard's Extended
-    // Analytics must not silently drop it from the AI Optimizer — the AI toggle
+    // Analytics must not silently drop it from the Forge AI — the AI toggle
     // is the single control for optimizer participation, matching the
     // optimizer-only breakdowns (Day of Week / Time of Day) which already key off
     // that toggle alone.
@@ -299,7 +299,7 @@ export default function AiOptimizerPage() {
         singular: t.dimensionLabel,
       }));
     // Day of Week and Time of Day — the two actionable slices of the Time table.
-    // They're their OWN entries in Data Sources now (see buildRows), so each has
+    // They're their OWN entries in Pipelines now (see buildRows), so each has
     // its own on/off (AI toggle) and label; the optimizer honours those the same
     // as any other table. No longer hardcoded, no longer tied to the combined
     // "Time" widget.
@@ -1015,7 +1015,7 @@ export default function AiOptimizerPage() {
       {/* One section: the platform tabs, what is being analysed, and the shape
           of it. They answer one question between them, so they share a card
           rather than stacking as three. */}
-      <PageSourceTabs title="AI Optimizer" feature="optimizer">
+      <PageSourceTabs title="Forge AI" feature="optimizer">
         {openEntity && (
           // A plain anchor, not next/link: this must return to the list whether
           // the entity page was reached by clicking through or by a browser
@@ -1084,7 +1084,7 @@ export default function AiOptimizerPage() {
                   {analysis.impactMetricLabel.toLowerCase()}
                   {impactIsCumulative ? " / month" : ""}
                   <HelpTip title="Potential Impact">
-                    Estimated monthly impact based on the AI Focus metric set in Smart Goals.
+                    Estimated monthly impact based on the AI Focus metric set in Watchtower.
                     Calculated using the last 90 days of available platform data. Estimate only —
                     review recommendations before applying.
                   </HelpTip>

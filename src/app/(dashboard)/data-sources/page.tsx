@@ -167,7 +167,7 @@ export default function DataSourcesPage() {
         </div>
       )}
 
-      <h1 className="text-[22px] font-bold text-zinc-100 mb-1">Data Sources</h1>
+      <h1 className="text-[22px] font-bold text-zinc-100 mb-1">Pipelines</h1>
       <p className="text-[13px] text-zinc-400 mb-8">
         Connect your advertising platforms to start tracking performance
       </p>
@@ -213,7 +213,7 @@ export default function DataSourcesPage() {
                 ds={ds}
                 connectorId={id}
                 name={c.label}
-                description="Custom data source — added from the Admin Panel"
+                description="Custom data source — added from the Control Room"
                 icon={<ConnectorBrandIcon id={id} size={22} />}
                 tables={c.dimensions.length}
                 initialAccount={windsorAccounts[ds] ?? null}

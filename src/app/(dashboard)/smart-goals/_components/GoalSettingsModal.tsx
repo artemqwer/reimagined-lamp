@@ -17,7 +17,7 @@ import { formatGoalValue, formatPeriod } from "./format";
 import PeriodPicker from "./PeriodPicker";
 import { COLOR_PALETTE } from "./AchievementCenter";
 
-// Goal Settings — the modal every other part of Smart Goals reads from.
+// Goal Settings — the modal every other part of Watchtower reads from.
 //
 // One row per preset metric: on/off, a target that is either typed in or
 // derived ("Auto"), and a radio picking the single goal the AI focuses on.
@@ -61,7 +61,7 @@ function GoalRow({
     <div className="px-3 py-2.5">
       <div className="flex items-center gap-2.5 sm:gap-3">
         {/* Reorder controls — set the display order without dragging, which is
-            awkward on a phone. The order is the card order on the Smart Goals
+            awkward on a phone. The order is the card order on the Watchtower
             page and is independent of the dashboards. */}
         <div className="flex flex-col shrink-0 -my-1">
           <button

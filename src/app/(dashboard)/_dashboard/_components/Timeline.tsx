@@ -192,7 +192,7 @@ export function normalizeType(category: string | null | undefined): EventType {
 }
 
 // ─── US holiday calendar (auto "Holidays" events) ────────────────────────────
-// The calendar itself lives in lib/holidays.ts — Smart Goals marks the same
+// The calendar itself lives in lib/holidays.ts — Watchtower marks the same
 // holidays, and a shopping calendar that disagreed between two screens would be
 // worse than none. This only maps it into this timeline's event shape.
 

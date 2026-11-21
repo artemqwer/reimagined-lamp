@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import type { EventType } from "@/app/(dashboard)/_dashboard/_data/types";
 import AddEventModal from "@/app/(dashboard)/_dashboard/_components/AddEventModal";
 
-// Smart Goals used to have its own add-event window with its own categories,
+// Watchtower used to have its own add-event window with its own categories,
 // writing to its own table. Two windows, two stores, one concept. This is the
 // dashboard's window, writing where the dashboard writes, so an event added on
 // either side shows up on both timelines. It now also edits and deletes, the

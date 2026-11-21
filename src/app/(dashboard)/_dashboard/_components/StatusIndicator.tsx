@@ -1,6 +1,6 @@
 import React from "react";
 
-// One status glyph across every table (dashboard + AI Optimizer), so a state
+// One status glyph across every table (dashboard + Forge AI), so a state
 // always reads the same:
 //   Active         → green dot
 //   Paused/unknown → grey dot   (paused used to be yellow, which read ambiguously)

@@ -448,23 +448,23 @@ const PROMPT_TYPES: { id: PromptType; label: string; hint?: string }[] = [
   },
   {
     id: "optimizer_google_ads",
-    label: "AI Optimizer — Google Ads",
-    hint: "How the AI Optimizer words its findings for Google Ads. The findings' numbers stay computed; this shapes the wording only.",
+    label: "Forge AI — Google Ads",
+    hint: "How the Forge AI words its findings for Google Ads. The findings' numbers stay computed; this shapes the wording only.",
   },
   {
     id: "optimizer_meta_ads",
-    label: "AI Optimizer — Meta Ads",
-    hint: "How the AI Optimizer words its findings for Meta Ads. Numbers stay computed; this shapes the wording only.",
+    label: "Forge AI — Meta Ads",
+    hint: "How the Forge AI words its findings for Meta Ads. Numbers stay computed; this shapes the wording only.",
   },
   {
     id: "optimizer_ga4",
-    label: "AI Optimizer — Google Analytics 4",
-    hint: "How the AI Optimizer words its findings for GA4. Numbers stay computed; this shapes the wording only.",
+    label: "Forge AI — Google Analytics 4",
+    hint: "How the Forge AI words its findings for GA4. Numbers stay computed; this shapes the wording only.",
   },
   {
     id: "optimizer_shopify",
-    label: "AI Optimizer — Shopify",
-    hint: "How the AI Optimizer words its findings for Shopify. Numbers stay computed; this shapes the wording only.",
+    label: "Forge AI — Shopify",
+    hint: "How the Forge AI words its findings for Shopify. Numbers stay computed; this shapes the wording only.",
   },
 ];
 
@@ -1271,7 +1271,7 @@ export default function AdminPage() {
       {/* Header */}
       <div className="flex items-start justify-between gap-3 mb-5 flex-wrap">
         <div>
-          <h1 className="text-[20px] sm:text-[24px] font-bold text-zinc-100">Admin Panel</h1>
+          <h1 className="text-[20px] sm:text-[24px] font-bold text-zinc-100">Control Room</h1>
           <p className="text-[13px] text-zinc-500 mt-0.5">
             Manage users, subscriptions and analytics
           </p>
@@ -1308,7 +1308,7 @@ export default function AdminPage() {
             ["users", "User Management"],
             ["analytics", "Analytics"],
             ["prompts", "Prompts"],
-            ["connectors", "Data Sources"],
+            ["connectors", "Pipelines"],
           ] as const
         ).map(([id, label]) => (
           <button

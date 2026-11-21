@@ -49,7 +49,7 @@ interface Row {
   // Also offer this in the chart dropdowns — the breakdown in "by" (tables
   // list), the metric in the metric dropdown (metric columns list).
   charts?: boolean;
-  // Whether the AI Optimizer analyses this table (tables list only).
+  // Whether the Forge AI analyses this table (tables list only).
   optimizer?: boolean;
   // The source's primary ("hero") table — listed so it can be renamed, but it
   // can't be hidden, reordered or dropped from the optimizer (it IS the entity
@@ -61,7 +61,7 @@ interface Row {
   optimizerOnly?: boolean;
 }
 
-// Optimizer-only breakdowns, per source: analysed by the AI Optimizer but not
+// Optimizer-only breakdowns, per source: analysed by the Forge AI but not
 // shown as dashboard tables. Google Ads exposes the two actionable time slices.
 const OPTIMIZER_ONLY_TABLES: Partial<Record<ConnectorId, { key: string; label: string }[]>> = {
   google_ads: [
@@ -205,7 +205,7 @@ function ConfigList({
   hint?: string;
   showFormat?: boolean;
   showChartsToggle?: boolean;
-  // Also offer an "AI" toggle deciding whether the AI Optimizer analyses this
+  // Also offer an "AI" toggle deciding whether the Forge AI analyses this
   // table — so an admin can start it on a few core tables and add the rest.
   showOptimizerToggle?: boolean;
   // Rows the chart has no series for (CTR, CPC, ROAS — no per-entity value per
@@ -338,7 +338,7 @@ function ConfigList({
               })()}
             {!r.primary && showOptimizerToggle && (
               <label
-                title="Include this table in the AI Optimizer's analysis"
+                title="Include this table in the Forge AI's analysis"
                 className={`flex items-center gap-1.5 text-[11px] shrink-0 ${r.visible ? "cursor-pointer text-zinc-400" : "cursor-not-allowed text-zinc-600"}`}
               >
                 <input
@@ -669,8 +669,8 @@ export default function ConnectorConfigPanel({
             <div className="flex flex-wrap gap-4">
               {(
                 [
-                  ["smartGoals", "Smart Goals"],
-                  ["optimizer", "AI Optimizer"],
+                  ["smartGoals", "Watchtower"],
+                  ["optimizer", "Forge AI"],
                 ] as const
               ).map(([key, label]) => (
                 <label key={key} className="flex items-center gap-2 text-[13px] text-zinc-300">
@@ -690,7 +690,7 @@ export default function ConnectorConfigPanel({
           {features?.optimizer !== false && (
             <>
               <p className="px-5 pt-5 pb-1 text-[11px] font-bold text-zinc-500 uppercase tracking-widest border-t border-zinc-800">
-                AI Optimizer instructions
+                Forge AI instructions
               </p>
               <div className="px-5 pb-3">
                 <p className="text-[11px] text-zinc-500 mb-2">
@@ -837,7 +837,7 @@ export default function ConnectorConfigPanel({
           <ConfigList
             rows={rows}
             setRows={setRows}
-            hint="Every breakdown table this source has. 'Charts' keeps it in the tables but drops it from the Trends / Distribution 'by' dropdowns; 'AI' keeps it in the tables but drops it from the AI Optimizer's analysis."
+            hint="Every breakdown table this source has. 'Charts' keeps it in the tables but drops it from the Trends / Distribution 'by' dropdowns; 'AI' keeps it in the tables but drops it from the Forge AI's analysis."
             showChartsToggle
             showOptimizerToggle
           />

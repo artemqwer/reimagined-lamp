@@ -50,7 +50,7 @@ export default function ExtendedAnalytics({
   rangeLabel,
 }: ExtendedAnalyticsProps) {
   const [open, setOpen] = useState(false);
-  // Arriving from the AI Optimizer's "Explore in Dashboard" / "Open Detailed
+  // Arriving from the Forge AI's "Explore in Dashboard" / "Open Detailed
   // Analytics": the user came for exactly these tables and filters, so open the
   // section for them. A one-shot sessionStorage flag set by the optimizer,
   // consumed once here (read in an effect, not initial state, so the server and

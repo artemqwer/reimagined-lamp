@@ -30,17 +30,14 @@ const ICON_PROPS = {
 
 const SYSTEM_NAV = [
   {
-    group: "SYSTEM",
+    group: "WORKSPACE",
     items: [
       {
-        label: "Data Sources",
+        label: "Pipelines",
         href: "/data-sources",
         icon: (
           <svg {...ICON_PROPS}>
-            <path d="M8 14.6667V11.3333" />
-            <path d="M6 5.33333V1.33333" />
-            <path d="M10 5.33333V1.33333" />
-            <path d="M12 5.33333V8.66667C12 9.37391 11.719 10.0522 11.219 10.5523C10.7189 11.0524 10.0406 11.3333 9.33333 11.3333H6.66667C5.95942 11.3333 5.28115 11.0524 4.78105 10.5523C4.28095 10.0522 4 9.37391 4 8.66667V5.33333H12Z" />
+            <path d="M2.667 2.667h10.666L9.333 7.6V12l-2.666 1.667V7.6L2.667 2.667z" />
           </svg>
         ),
       },
@@ -50,24 +47,27 @@ const SYSTEM_NAV = [
     group: "ACCOUNT",
     items: [
       {
-        label: "Profile",
+        label: "Account",
         href: "/profile",
         icon: (
           <svg {...ICON_PROPS}>
-            <path d="M12.6667 14V12.6667C12.6667 11.9594 12.3857 11.2811 11.8856 10.781C11.3855 10.281 10.7072 10 10 10H6C5.29276 10 4.61448 10.281 4.11438 10.781C3.61428 11.2811 3.33333 11.9594 3.33333 12.6667V14" />
-            <path d="M8 7.33333C9.47276 7.33333 10.6667 6.13943 10.6667 4.66667C10.6667 3.19391 9.47276 2 8 2C6.52724 2 5.33333 3.19391 5.33333 4.66667C5.33333 6.13943 6.52724 7.33333 8 7.33333Z" />
+            <rect x="1.8" y="3.3" width="12.4" height="9.3" rx="2.2" />
+            <circle cx="5.7" cy="6.9" r="1.4" />
+            <path d="M3.4 10.9a2.6 2.6 0 0 1 4.6 0" />
+            <path d="M9.6 6.3h2.9" />
+            <path d="M9.6 8.5h2.9" />
           </svg>
         ),
       },
       {
-        label: "Admin Panel",
+        label: "Control Room",
         href: "/admin",
         icon: (
           <svg {...ICON_PROPS}>
-            <path d="M10.6667 14V12.6667C10.6667 11.9594 10.3857 11.2811 9.88562 10.781C9.38552 10.281 8.70724 10 8 10H4C3.29276 10 2.61448 10.281 2.11438 10.781C1.61428 11.2811 1.33333 11.9594 1.33333 12.6667V14" />
-            <path d="M6 7.33333C7.47276 7.33333 8.66667 6.13943 8.66667 4.66667C8.66667 3.19391 7.47276 2 6 2C4.52724 2 3.33333 3.19391 3.33333 4.66667C3.33333 6.13943 4.52724 7.33333 6 7.33333Z" />
-            <path d="M14.6667 14V12.6667C14.6662 12.0758 14.4696 11.5018 14.1076 11.0349C13.7456 10.5679 13.2388 10.2344 12.6667 10.0867" />
-            <path d="M10.6667 2.08667C11.2403 2.23353 11.7487 2.56713 12.1118 3.03487C12.4748 3.50261 12.6719 4.07789 12.6719 4.67C12.6719 5.26211 12.4748 5.83739 12.1118 6.30513C11.7487 6.77287 11.2403 7.10647 10.6667 7.25333" />
+            <path d="M3 2.7v4.6M3 10.2v2.5M8 2.7v1.7M8 6.9v5.8M13 2.7v6.7M13 11.2v1.5" />
+            <circle cx="3" cy="8.6" r="1.5" />
+            <circle cx="8" cy="5.7" r="1.5" />
+            <circle cx="13" cy="10.7" r="1.5" />
           </svg>
         ),
       },
@@ -99,7 +99,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
   const connectorConfigs = useCrossFilter((s) => s.connectorConfigs);
   // Only the user's connected sources appear here (loaded from their record).
   // Empty until we know — a new account with nothing connected shows no
-  // platform section (and no Smart Goals / AI Optimizer), just Data Sources.
+  // platform section (and no Watchtower / Forge AI), just Pipelines.
   const [platforms, setPlatforms] = useState<ConnectorId[]>([]);
   // Admin-added sources reach the registry asynchronously (see the layout), so
   // this must recompute when they land — otherwise it keeps the built-ins-only
@@ -127,8 +127,8 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
       .then(({ data: { user } }) => setPlatforms(connectedConnectorsRaw(user)));
   }, [connectorsVersion]);
 
-  // Smart Goals / AI Optimizer show only when at least one CONNECTED source has
-  // that feature left on in Admin → Data Sources. A feature defaults to on, so
+  // Watchtower / Forge AI show only when at least one CONNECTED source has
+  // that feature left on in Admin → Pipelines. A feature defaults to on, so
   // before configs load a connected source still shows them (never spuriously
   // blank), and the list updates automatically as connections/settings change.
   const showSmartGoals = platforms.some((id) =>
@@ -171,7 +171,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
       <Link
         href="/ai-optimizer"
         onClick={onNavigate}
-        title={collapsed ? "AI Optimizer" : undefined}
+        title={collapsed ? "Forge AI" : undefined}
         className={`flex items-center rounded-[10px] text-[14px] transition mb-1 ${
           collapsed ? "justify-center px-0 py-2.5" : "gap-3 px-3 py-2"
         } ${active ? "bg-emerald-500/10 text-[var(--brand-fg)] ring-1 ring-emerald-500/25" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
@@ -183,14 +183,11 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
               which is what made the old pair of solid stars sit heavier than
               its neighbours. */}
           <svg {...ICON_PROPS}>
-            <path d="M6.62469 10.3333C6.56517 10.1026 6.44492 9.89209 6.27643 9.7236C6.10795 9.55512 5.8974 9.43487 5.66669 9.37535L1.57669 8.32068C1.50691 8.30088 1.44549 8.25885 1.40176 8.20098C1.35803 8.14311 1.33437 8.07255 1.33437 8.00002C1.33437 7.92748 1.35803 7.85692 1.40176 7.79905C1.44549 7.74118 1.50691 7.69915 1.57669 7.67935L5.66669 6.62402C5.89732 6.56455 6.10782 6.4444 6.27629 6.27604C6.44476 6.10768 6.56507 5.89727 6.62469 5.66668L7.67936 1.57668C7.69896 1.50663 7.74095 1.44491 7.7989 1.40094C7.85686 1.35698 7.92761 1.33318 8.00036 1.33318C8.0731 1.33318 8.14385 1.35698 8.20181 1.40094C8.25977 1.44491 8.30175 1.50663 8.32136 1.57668L9.37536 5.66668C9.43488 5.8974 9.55513 6.10795 9.72361 6.27643C9.89209 6.44491 10.1026 6.56516 10.3334 6.62468L14.4234 7.67868C14.4937 7.69808 14.5557 7.74002 14.5999 7.79807C14.6441 7.85611 14.6681 7.92706 14.6681 8.00002C14.6681 8.07297 14.6441 8.14392 14.5999 8.20196C14.5557 8.26001 14.4937 8.30195 14.4234 8.32135L10.3334 9.37535C10.1026 9.43487 9.89209 9.55512 9.72361 9.7236C9.55513 9.89209 9.43488 10.1026 9.37536 10.3333L8.32069 14.4234C8.30109 14.4934 8.2591 14.5551 8.20114 14.5991C8.14319 14.6431 8.07244 14.6669 7.99969 14.6669C7.92694 14.6669 7.8562 14.6431 7.79824 14.5991C7.74028 14.5551 7.6983 14.4934 7.67869 14.4234L6.62469 10.3333Z" />
-            <path d="M13.3333 2V4.66667" />
-            <path d="M14.6667 3.33333H12" />
-            <path d="M2.66667 11.3333V12.6667" />
-            <path d="M3.33333 12H2" />
+            <rect x="2.8" y="2.8" width="10.4" height="10.4" rx="2.8" />
+            <path d="M8.9 5.3 6.2 8.4h1.9L7.2 10.9 10.1 7.6H8.1l.8-2.3z" />
           </svg>
         </span>
-        {!collapsed && <span className="whitespace-nowrap flex-1">AI Optimizer</span>}
+        {!collapsed && <span className="whitespace-nowrap flex-1">Forge AI</span>}
       </Link>
     );
   };
@@ -201,19 +198,19 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
       <Link
         href="/smart-goals"
         onClick={onNavigate}
-        title={collapsed ? "Smart Goals" : undefined}
+        title={collapsed ? "Watchtower" : undefined}
         className={`flex items-center rounded-[10px] text-[14px] transition mb-1 ${
           collapsed ? "justify-center px-0 py-2.5" : "gap-3 px-3 py-2"
         } ${active ? "bg-emerald-500/10 text-[var(--brand-fg)] ring-1 ring-emerald-500/25" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
       >
         <span className="relative shrink-0">
           <svg {...ICON_PROPS}>
-            <circle cx="8" cy="8" r="6.667" />
-            <circle cx="8" cy="8" r="4" />
-            <circle cx="8" cy="8" r="1.333" />
+            <path d="M8 14A6 6 0 1 1 14 8" />
+            <path d="M8 8l3.2-3.2" />
+            <circle cx="8" cy="8" r="1.3" fill="currentColor" stroke="none" />
           </svg>
         </span>
-        {!collapsed && <span className="whitespace-nowrap flex-1">Smart Goals</span>}
+        {!collapsed && <span className="whitespace-nowrap flex-1">Watchtower</span>}
       </Link>
     );
   };
@@ -294,6 +291,29 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
 
       {/* Nav */}
       <nav className="flex-1 overflow-y-auto overflow-x-hidden px-2 pt-2">
+        {/* Command palette trigger — ⌘K everywhere in the app */}
+        {!collapsed && (
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("open-command-palette"))}
+            className="w-full mb-4 flex items-center gap-2 px-3 py-2 rounded-xl border border-zinc-800/80 bg-zinc-800/40 text-[13px] text-zinc-500 hover:text-zinc-300 hover:border-zinc-700 transition"
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            <span className="flex-1 text-left">Search…</span>
+            <kbd className="text-[10px] text-zinc-600 border border-zinc-700/70 rounded px-1.5 py-0.5">
+              ⌘K
+            </kbd>
+          </button>
+        )}
         {(showSmartGoals || showOptimizer) && (
           <div className="mb-4">
             {showSmartGoals && smartGoalsLink(onMobileClose)}
@@ -306,7 +326,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
           <div className="mb-4">
             {!collapsed && (
               <p className="px-3 mb-2 text-[11px] font-medium text-[#71717A] tracking-[0.8px] uppercase whitespace-nowrap">
-                PLATFORMS
+                CHANNELS
               </p>
             )}
             {renderPlatforms(onMobileClose)}
@@ -464,7 +484,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
             {platforms.length > 0 && (
               <div className="mb-4">
                 <p className="px-3 mb-2 text-[11px] font-medium text-[#71717A] tracking-[0.8px] uppercase">
-                  PLATFORMS
+                  CHANNELS
                 </p>
                 {renderPlatforms(onMobileClose)}
               </div>

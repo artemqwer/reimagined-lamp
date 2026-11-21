@@ -72,7 +72,7 @@ import PeriodPicker from "./_components/PeriodPicker";
 import HelpTip from "./_components/HelpTip";
 import PageSourceTabs from "@/components/PageSourceTabs";
 
-// Smart Goals — the goal layer over the Google Ads account.
+// Watchtower — the goal layer over the Google Ads account.
 //
 // Everything on this page is a view of three things: the goals configured for
 // the selected period, the account's actual daily numbers for it, and where in
@@ -467,7 +467,7 @@ export default function SmartGoalsPage() {
       .filter((f): f is NonNullable<typeof f> => f !== null);
   }, [goals, buckets, settings, progress, metricOf]);
 
-  // The AI Optimizer summary shown under the forecast is about the account's
+  // The Forge AI summary shown under the forecast is about the account's
   // CURRENT state, not this calendar period — so it uses the same window the AI
   // Optimizer page does (its default 90 days), and is shown only for a current
   // period (this month, this year), never a past or future one. Same numbers a
@@ -480,7 +480,7 @@ export default function SmartGoalsPage() {
       return;
     }
     let cancelled = false;
-    // Don't blank the rows before the refetch lands — that made the AI Optimizer
+    // Don't blank the rows before the refetch lands — that made the Forge AI
     // summary block flicker out and back on every source/breakdown change. Keep
     // the last data on screen until the new data replaces it.
     const primary = activeBreakdown ?? getConnector(activeConnector).primaryDimension;
@@ -604,7 +604,7 @@ export default function SmartGoalsPage() {
   /**
    * The same events, in the shape the shared timeline reads.
    *
-   * Smart Goals kept its own timeline and its own event shape, so the same
+   * Watchtower kept its own timeline and its own event shape, so the same
    * promotion looked like two different things depending on which page you were
    * on. The component is now the dashboard's; only this mapping lives here —
    * and it carries all three sources, including the days the data itself
@@ -642,7 +642,7 @@ export default function SmartGoalsPage() {
       {/* The section's name and controls on the page itself, then one card
           holding the platform tabs and the achievement centre together. */}
       <PageSourceTabs
-        title="Smart Goals"
+        title="Watchtower"
         feature="smartGoals"
         actions={
           <>

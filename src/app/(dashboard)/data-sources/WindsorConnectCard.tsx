@@ -75,7 +75,7 @@ export default function WindsorConnectCard({
       onToast("success", `${name} connected`);
       // Refresh the whole app so the new source shows immediately without a manual
       // reload: the sidebar re-reads the connected sources (new platform section,
-      // Smart Goals / AI Optimizer if enabled), and we land on this source's
+      // Watchtower / Forge AI if enabled), and we land on this source's
       // dashboard. A full navigation is the reliable way to get the fresh
       // app_metadata (where the connection lives) everywhere at once. The short
       // delay lets the "connected" toast register first.

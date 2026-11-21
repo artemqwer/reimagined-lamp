@@ -1,7 +1,7 @@
 import { getConnector, type ConnectorId } from "@/lib/connectors";
 
 // Official brand marks for each connector, shared by the header switcher, the
-// sidebar, the mobile header and the Data Sources page so every surface shows
+// sidebar, the mobile header and the Pipelines page so every surface shows
 // the same, current logo. The SVGs are the official brand assets (via theSVG),
 // each kept at its own viewBox and scaled to `size`.
 export default function ConnectorBrandIcon({ id, size = 20 }: { id: ConnectorId; size?: number }) {

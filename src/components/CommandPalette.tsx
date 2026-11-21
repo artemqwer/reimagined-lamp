@@ -44,7 +44,12 @@ export default function CommandPalette() {
       if (e.key === "Escape") close();
     };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    const onOpen = () => setOpen(true);
+    window.addEventListener("open-command-palette", onOpen);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("open-command-palette", onOpen);
+    };
   }, [close]);
 
   // Build the item list on open — session-driven, like the Sidebar.
@@ -54,23 +59,23 @@ export default function CommandPalette() {
       const nav: Item[] = [
         {
           id: "smart-goals",
-          label: "Smart Goals",
+          label: "Watchtower",
           hint: "Section",
           run: () => router.push("/smart-goals"),
         },
         {
           id: "ai-optimizer",
-          label: "AI Optimizer",
+          label: "Forge AI",
           hint: "Section",
           run: () => router.push("/ai-optimizer"),
         },
         {
           id: "data-sources",
-          label: "Data Sources",
+          label: "Pipelines",
           hint: "Section",
           run: () => router.push("/data-sources"),
         },
-        { id: "profile", label: "Profile", hint: "Account", run: () => router.push("/profile") },
+        { id: "profile", label: "Account", hint: "Account", run: () => router.push("/profile") },
       ];
       try {
         const {
@@ -79,7 +84,7 @@ export default function CommandPalette() {
         if (user && isPlatformAdmin(user)) {
           nav.push({
             id: "admin",
-            label: "Admin Panel",
+            label: "Control Room",
             hint: "Account",
             run: () => router.push("/admin"),
           });

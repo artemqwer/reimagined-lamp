@@ -3,7 +3,7 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
-/** The "?" help icons Smart Goals carries on its main blocks. Click rather than
+/** The "?" help icons Watchtower carries on its main blocks. Click rather than
  *  hover, so the text is reachable on a phone too.
  *
  *  The panel is drawn on the body at a measured, clamped position — not

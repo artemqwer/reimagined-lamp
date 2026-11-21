@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import BrandLogo from "@/components/BrandLogo";
+import AuthShell from "@/components/AuthShell";
 import {
   getSupabaseSession,
   landingRoute,
@@ -118,8 +119,10 @@ export default function LoginPage() {
     }`;
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4">
-      <BrandLogo />
+    <AuthShell>
+      <div className="lg:hidden">
+        <BrandLogo />
+      </div>
 
       <h1 className="text-[20px] font-semibold text-zinc-100 mb-1">
         {mfaFactorId ? "Two-step verification" : "Welcome back"}
@@ -407,6 +410,6 @@ export default function LoginPage() {
           )}
         </form>
       )}
-    </div>
+    </AuthShell>
   );
 }

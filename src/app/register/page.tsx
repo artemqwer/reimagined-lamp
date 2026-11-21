@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import BrandLogo from "@/components/BrandLogo";
+import AuthShell from "@/components/AuthShell";
 import { registerUser, loginUser, landingRoute } from "@/lib/auth";
 
 function isValidEmail(v: string) {
@@ -147,7 +148,9 @@ export default function RegisterPage() {
   if (success) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center px-4">
-        <BrandLogo />
+        <div className="lg:hidden">
+          <BrandLogo />
+        </div>
         <div className="card-elevate rounded-2xl p-8 w-full max-w-[400px] text-center">
           <div className="w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
             <svg
@@ -171,8 +174,10 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-10">
-      <BrandLogo />
+    <AuthShell>
+      <div className="lg:hidden">
+        <BrandLogo />
+      </div>
 
       <h1 className="text-[20px] font-semibold text-zinc-100 mb-1">Create your account</h1>
       <p className="text-[14px] text-zinc-400 mb-6 text-center">
@@ -352,6 +357,6 @@ export default function RegisterPage() {
           </Link>
         </p>
       </form>
-    </div>
+    </AuthShell>
   );
 }

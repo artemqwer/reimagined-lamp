@@ -155,7 +155,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
           title={collapsed ? CONNECTORS[id].label : undefined}
           className={`flex items-center rounded-[10px] text-[14px] transition mb-1 ${
             collapsed ? "justify-center px-0 py-2.5" : "gap-3 px-3 py-2"
-          } ${active ? "bg-emerald-500/10 text-[#34D399]" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
+          } ${active ? "bg-emerald-500/10 text-[#34D399] ring-1 ring-emerald-500/25" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
         >
           <span className="relative shrink-0">
             <ConnectorIcon id={id} />
@@ -173,7 +173,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
         title={collapsed ? "AI Optimizer" : undefined}
         className={`flex items-center rounded-[10px] text-[14px] transition mb-1 ${
           collapsed ? "justify-center px-0 py-2.5" : "gap-3 px-3 py-2"
-        } ${active ? "bg-emerald-500/10 text-[#34D399]" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
+        } ${active ? "bg-emerald-500/10 text-[#34D399] ring-1 ring-emerald-500/25" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
       >
         <span className="relative shrink-0">
           {/* The design's own icon, exported from Figma: one outlined
@@ -203,7 +203,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
         title={collapsed ? "Smart Goals" : undefined}
         className={`flex items-center rounded-[10px] text-[14px] transition mb-1 ${
           collapsed ? "justify-center px-0 py-2.5" : "gap-3 px-3 py-2"
-        } ${active ? "bg-emerald-500/10 text-[#34D399]" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
+        } ${active ? "bg-emerald-500/10 text-[#34D399] ring-1 ring-emerald-500/25" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
       >
         <span className="relative shrink-0">
           <svg {...ICON_PROPS}>
@@ -219,7 +219,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
 
   const content = (
     <aside
-      className={`relative h-full glass border-r flex flex-col transition-[width] duration-200 ease-out ${collapsed ? "w-[72px]" : "w-[256px]"}`}
+      className={`relative h-full glass rounded-2xl flex flex-col transition-[width] duration-200 ease-out ${collapsed ? "w-[72px]" : "w-[256px]"}`}
     >
       {/* Desktop collapse toggle — floating circular button on the right edge (Figma) */}
       <button
@@ -304,7 +304,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
         {platforms.length > 0 && (
           <div className="mb-4">
             {!collapsed && (
-              <p className="px-3 mb-2 text-[12px] text-[#71717A] tracking-[0.6px] uppercase whitespace-nowrap">
+              <p className="px-3 mb-2 text-[11px] font-medium text-[#71717A] tracking-[0.8px] uppercase whitespace-nowrap">
                 PLATFORMS
               </p>
             )}
@@ -314,7 +314,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
         {SYSTEM_NAV.map(({ group, items }) => (
           <div key={group} className="mb-4">
             {!collapsed && (
-              <p className="px-3 mb-2 text-[12px] text-[#71717A] tracking-[0.6px] uppercase whitespace-nowrap">
+              <p className="px-3 mb-2 text-[11px] font-medium text-[#71717A] tracking-[0.8px] uppercase whitespace-nowrap">
                 {group}
               </p>
             )}
@@ -330,7 +330,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
                   title={collapsed ? label : undefined}
                   className={`flex items-center rounded-[10px] text-[14px] transition mb-1 ${
                     collapsed ? "justify-center px-0 py-2.5" : "gap-3 px-3 py-2"
-                  } ${active ? "bg-emerald-500/10 text-[#34D399]" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
+                  } ${active ? "bg-emerald-500/10 text-[#34D399] ring-1 ring-emerald-500/25" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
                 >
                   <span
                     className={`relative shrink-0 ${active ? "text-[#34D399]" : "text-[#A1A1AA]"}`}
@@ -400,8 +400,8 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
 
   return (
     <>
-      {/* Desktop sidebar */}
-      <div className="hidden lg:flex h-screen shrink-0 sticky top-0 z-30">{content}</div>
+      {/* Desktop sidebar — floating rounded panel */}
+      <div className="hidden lg:flex h-screen shrink-0 sticky top-0 z-30 p-3">{content}</div>
 
       {/* Mobile drawer — always rendered, animated via transform */}
       <div
@@ -461,7 +461,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
             )}
             {platforms.length > 0 && (
               <div className="mb-4">
-                <p className="px-3 mb-2 text-[12px] text-[#71717A] tracking-[0.6px] uppercase">
+                <p className="px-3 mb-2 text-[11px] font-medium text-[#71717A] tracking-[0.8px] uppercase">
                   PLATFORMS
                 </p>
                 {renderPlatforms(onMobileClose)}
@@ -469,7 +469,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
             )}
             {SYSTEM_NAV.map(({ group, items }) => (
               <div key={group} className="mb-4">
-                <p className="px-3 mb-2 text-[12px] text-[#71717A] tracking-[0.6px] uppercase">
+                <p className="px-3 mb-2 text-[11px] font-medium text-[#71717A] tracking-[0.8px] uppercase">
                   {group}
                 </p>
                 {items.map(({ label, href, icon }) => {
@@ -482,7 +482,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
                       onClick={onMobileClose}
                       className={`flex items-center gap-3 px-3 py-2 rounded-[10px] text-[14px] transition mb-1 ${
                         active
-                          ? "bg-emerald-500/10 text-[#34D399]"
+                          ? "bg-emerald-500/10 text-[#34D399] ring-1 ring-emerald-500/25"
                           : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"
                       }`}
                     >

@@ -32,7 +32,7 @@ export default function KpiCard({
   const gradId = `kg-${label.replace(/[^a-zA-Z0-9]/g, "")}`;
 
   return (
-    <div className="bg-zinc-900 rounded-2xl border border-zinc-800 px-2 sm:px-4 pt-2.5 sm:pt-3 pb-0 min-w-0 flex-1 flex flex-col transition-colors duration-200">
+    <div className="card-elevate rounded-2xl px-2 sm:px-4 pt-2.5 sm:pt-3 pb-0 min-w-0 flex-1 flex flex-col transition-colors duration-200">
       <div className="flex items-center justify-between mb-1">
         <div className="flex items-center gap-1.5 min-w-0">
           <span className="shrink-0" style={{ color: iconColor ?? (up ? "#22C55E" : "#EF4444") }}>
@@ -86,7 +86,7 @@ export default function KpiCard({
           </span>
           <span
             key={`d-${delta}`}
-            className={`shrink-0 text-[11px] font-semibold leading-none px-1.5 py-1 rounded-md animate-in fade-in duration-300 ${up ? "text-emerald-700 bg-emerald-500/10" : "text-red-600 bg-red-500/10"}`}
+            className={`shrink-0 text-[11px] font-semibold leading-none px-1.5 py-1 rounded-md animate-in fade-in duration-300 ${up ? "text-emerald-400 bg-emerald-500/10" : "text-red-400 bg-red-500/10"}`}
           >
             {delta}
           </span>
@@ -130,16 +130,16 @@ export default function KpiCard({
                 return (
                   <div
                     style={{
-                      background: "#fff",
+                      background: "#18181b",
                       border: "1px solid #3F3F46",
                       borderRadius: 8,
                       padding: "3px 8px",
-                      boxShadow: "0 2px 8px rgba(0,0,0,0.10)",
+                      boxShadow: "0 8px 24px rgba(0,0,0,0.5)",
                       pointerEvents: "none",
                     }}
                   >
                     <div
-                      style={{ fontSize: 9, color: "#71717A", fontWeight: 500, lineHeight: 1.4 }}
+                      style={{ fontSize: 9, color: "#A1A1AA", fontWeight: 500, lineHeight: 1.4 }}
                     >
                       {lbl}
                     </div>

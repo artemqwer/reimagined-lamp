@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect, useRef, useCallback } from "react";
 import BrandLogo from "@/components/BrandLogo";
+import AuthShell from "@/components/AuthShell";
 import { sendPasswordResetEmail, verifyPasswordResetOtp } from "@/lib/auth";
 
 const RESEND_TIMEOUT = 60;
@@ -142,8 +143,10 @@ export default function ResetPasswordPage() {
   const isCodeComplete = code.every((d) => d !== "");
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4">
-      <BrandLogo />
+    <AuthShell>
+      <div className="lg:hidden">
+        <BrandLogo />
+      </div>
 
       {step === "email" ? (
         <>
@@ -378,6 +381,6 @@ export default function ResetPasswordPage() {
           </div>
         </>
       )}
-    </div>
+    </AuthShell>
   );
 }

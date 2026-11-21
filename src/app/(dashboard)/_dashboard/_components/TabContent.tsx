@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { useCrossFilter } from "@/lib/store";
 import {
   BarChart,
@@ -12,6 +12,7 @@ import {
   LineChart,
   LabelList,
   ComposedChart,
+  Area,
   ReferenceLine,
   CartesianGrid,
   Line,
@@ -161,6 +162,43 @@ export default function TabContent({
   onEditEvent,
 }: TabContentProps) {
   const [legendExpanded, setLegendExpanded] = useState(false);
+  // Trends chart view modes: plain bars, smooth stacked areas, or running total.
+  const [chartMode, setChartMode] = useState<"columns" | "spline" | "cumulative">("columns");
+  const cumulativeBarData = useMemo(() => {
+    const totals = new Map<string, number>();
+    return aggregatedBarData.map((row) => {
+      const out: Record<string, string | number> = { ...row };
+      chartSeries.forEach(({ name }) => {
+        const next = (totals.get(name) || 0) + ((row[name] as number) || 0);
+        totals.set(name, next);
+        out[name] = next;
+      });
+      return out;
+    });
+  }, [aggregatedBarData, chartSeries]);
+  const chartRows = chartMode === "cumulative" ? cumulativeBarData : aggregatedBarData;
+  // Peak / average strip for the header row.
+  const trendStats = useMemo(() => {
+    let peakIdx = -1;
+    let peakVal = -1;
+    let sum = 0;
+    aggregatedBarData.forEach((row, i) => {
+      const v = chartSeries.reduce(
+        (s, { name }) => s + (hiddenSeries.has(name) ? 0 : (row[name] as number) || 0),
+        0,
+      );
+      if (v > peakVal) {
+        peakVal = v;
+        peakIdx = i;
+      }
+      sum += v;
+    });
+    return {
+      peakVal,
+      peakDate: peakIdx >= 0 ? String(aggregatedBarData[peakIdx]?.date ?? "") : "",
+      avg: aggregatedBarData.length ? sum / aggregatedBarData.length : 0,
+    };
+  }, [aggregatedBarData, chartSeries, hiddenSeries]);
   const LEGEND_LIMIT = 10;
   const { filters, selectSingle, clearFilter, setFilter } = useCrossFilter();
   const selectedCampaignCount = (filters["campaign_selected"] ?? []).length;
@@ -454,9 +492,50 @@ export default function TabContent({
                       )}
                     </div>
                   )}
+                  {/* View modes + peak/avg strip */}
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-3 px-1">
+                    <p className="text-[12px] text-zinc-500">
+                      {trendStats.peakDate && (
+                        <>
+                          Peak:{" "}
+                          <span className="text-zinc-300 font-semibold">{trendStats.peakVal}</span>{" "}
+                          on{" "}
+                          <span className="text-zinc-300 font-semibold">{trendStats.peakDate}</span>
+                          {" · "}Avg:{" "}
+                          <span className="text-zinc-300 font-semibold">
+                            {chartMetricIsMoney
+                              ? fmtChartMoney(trendStats.avg)
+                              : fmtChartNum(trendStats.avg)}
+                          </span>
+                          /day
+                        </>
+                      )}
+                    </p>
+                    <div className="flex items-center gap-1 bg-zinc-800/50 rounded-xl p-1">
+                      {(
+                        [
+                          ["columns", "Columns"],
+                          ["spline", "Spline Area"],
+                          ["cumulative", "Cumulative"],
+                        ] as const
+                      ).map(([mode, label]) => (
+                        <button
+                          key={mode}
+                          onClick={() => setChartMode(mode)}
+                          className={`px-3 py-1.5 rounded-lg text-[12.5px] font-medium transition ${
+                            chartMode === mode
+                              ? "bg-zinc-900 text-[var(--brand-fg)] shadow-sm"
+                              : "text-zinc-400 hover:text-zinc-200"
+                          }`}
+                        >
+                          {label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                   <ResponsiveContainer width="100%" height="100%">
                     <ComposedChart
-                      data={aggregatedBarData}
+                      data={chartRows}
                       barCategoryGap="18%"
                       margin={{ top: 28, right: 10, left: -10, bottom: isMobile ? 0 : 4 }}
                     >
@@ -464,9 +543,9 @@ export default function TabContent({
                       <XAxis
                         dataKey="date"
                         tick={
-                          isMobile && aggregatedBarData.length > 8
+                          isMobile && chartRows.length > 8
                             ? false
-                            : (p) => <BarXTick {...p} data={aggregatedBarData} />
+                            : (p) => <BarXTick {...p} data={chartRows} />
                         }
                         axisLine={{ stroke: "#3F3F46", strokeWidth: 1 }}
                         tickLine={false}
@@ -510,6 +589,25 @@ export default function TabContent({
                         // Shared here so no current or future source re-enables it.
                         const drillDown = false;
                         const isOthers = name === "Others";
+                        // Spline Area mode: smooth stacked areas instead of columns.
+                        if (chartMode === "spline") {
+                          return (
+                            <Area
+                              key={name}
+                              dataKey={name}
+                              stackId="a"
+                              type="monotone"
+                              stroke={color}
+                              strokeWidth={2}
+                              fill={color}
+                              fillOpacity={0.22}
+                              hide={isHidden}
+                              isAnimationActive={true}
+                              animationDuration={700}
+                              animationEasing="ease-out"
+                            />
+                          );
+                        }
                         const isBarSelected =
                           isCampaignGroupBy &&
                           (isOthers
@@ -528,7 +626,7 @@ export default function TabContent({
                                 : 1
                             }
                             hide={isHidden}
-                            radius={isVisibleTop ? [7, 7, 0, 0] : [0, 0, 0, 0]}
+                            radius={[6, 6, 6, 6]}
                             isAnimationActive={true}
                             animationDuration={700}
                             animationEasing="ease-out"
@@ -552,6 +650,27 @@ export default function TabContent({
                           ></Bar>
                         );
                       })}
+                      {/* Spline overlay: total across visible series, so the columns
+                          always read against a smooth trend line (never "just bars"). */}
+                      <Line
+                        type="monotone"
+                        dataKey={
+                          ((row: Record<string, string | number>) =>
+                            chartSeries
+                              .filter(({ name }) => !hiddenSeries.has(name))
+                              .reduce(
+                                (s, { name }) => s + ((row[name] as number) || 0),
+                                0,
+                              )) as never
+                        }
+                        stroke="var(--brand-fg)"
+                        strokeWidth={2}
+                        strokeOpacity={0.9}
+                        dot={false}
+                        activeDot={{ r: 3.5, fill: "var(--brand-fg)", strokeWidth: 0 }}
+                        isAnimationActive={false}
+                        hide={chartMode !== "columns"}
+                      />
                     </ComposedChart>
                   </ResponsiveContainer>
                 </div>

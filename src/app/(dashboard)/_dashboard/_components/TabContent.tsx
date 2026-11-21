@@ -914,7 +914,7 @@ export default function TabContent({
                     stackId="a"
                     fill="#F87171"
                     fillOpacity={0.9}
-                    radius={[0, 0, 6, 6]}
+                    radius={[6, 6, 6, 6]}
                     hide={hiddenAdPerf.has("cost")}
                     isAnimationActive={true}
                     animationDuration={700}
@@ -930,7 +930,7 @@ export default function TabContent({
                     dataKey="profitBar"
                     stackId="a"
                     fill="#4ADE80"
-                    radius={[6, 6, 0, 0]}
+                    radius={[6, 6, 6, 6]}
                     hide={hiddenAdPerf.has("profit")}
                     isAnimationActive={true}
                     animationDuration={700}
@@ -949,7 +949,7 @@ export default function TabContent({
                     dataKey="lossBar"
                     stackId="a"
                     fill="#B91C1C"
-                    radius={[0, 0, 6, 6]}
+                    radius={[6, 6, 6, 6]}
                     hide={hiddenAdPerf.has("loss")}
                     isAnimationActive={true}
                     animationDuration={700}
@@ -958,6 +958,20 @@ export default function TabContent({
                     {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                     <LabelList dataKey="lossBar" content={renderLossSegLabel as any} />
                   </Bar>
+                  {/* Profit spline — the smooth trend over the profit stack, so the
+                      chart reads against a curve rather than bare columns. */}
+                  <Line
+                    yAxisId="left"
+                    type="monotone"
+                    dataKey="profitBar"
+                    stroke="var(--brand-fg)"
+                    strokeWidth={2}
+                    strokeOpacity={0.9}
+                    dot={false}
+                    activeDot={{ r: 3.5, fill: "var(--brand-fg)", strokeWidth: 0 }}
+                    hide={hiddenAdPerf.has("profit")}
+                    isAnimationActive={false}
+                  />
                   <Line
                     yAxisId="clicks"
                     type="monotone"
@@ -1210,7 +1224,7 @@ export default function TabContent({
                   <Bar
                     yAxisId="left"
                     dataKey="cumulative"
-                    radius={[6, 6, 0, 0]}
+                    radius={[6, 6, 6, 6]}
                     hide={hiddenPL.has("cumulative")}
                     isAnimationActive={true}
                     animationDuration={700}
@@ -1225,9 +1239,9 @@ export default function TabContent({
                     yAxisId="left"
                     type="monotone"
                     dataKey="dailyProfit"
-                    stroke="#D4D4D8"
-                    strokeWidth={1.5}
-                    strokeDasharray="1 4"
+                    stroke="var(--brand-fg)"
+                    strokeWidth={2}
+                    strokeOpacity={0.9}
                     hide={hiddenPL.has("daily")}
                     isAnimationActive={true}
                     animationDuration={700}
@@ -1566,7 +1580,7 @@ export default function TabContent({
                     yAxisId="left"
                     dataKey="convValue"
                     fill="#4ADE80"
-                    radius={[6, 6, 0, 0]}
+                    radius={[6, 6, 6, 6]}
                     isAnimationActive={true}
                     animationDuration={700}
                     animationEasing="ease-out"
@@ -1575,9 +1589,9 @@ export default function TabContent({
                     yAxisId="orders"
                     type="monotone"
                     dataKey="conv"
-                    stroke="#D4D4D8"
-                    strokeWidth={1.5}
-                    strokeDasharray="1 4"
+                    stroke="var(--brand-fg)"
+                    strokeWidth={2}
+                    strokeOpacity={0.9}
                     dot={false}
                     activeDot={{ r: 4, fill: "#D4D4D8" }}
                     isAnimationActive={true}

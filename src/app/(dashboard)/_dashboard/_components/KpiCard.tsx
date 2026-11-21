@@ -35,7 +35,10 @@ export default function KpiCard({
     <div className="card-elevate rounded-2xl px-2 sm:px-4 pt-2.5 sm:pt-3 pb-0 min-w-0 flex-1 flex flex-col transition-colors duration-200">
       <div className="flex items-center justify-between mb-1">
         <div className="flex items-center gap-1.5 min-w-0">
-          <span className="shrink-0" style={{ color: iconColor ?? (up ? "#22C55E" : "#EF4444") }}>
+          <span
+            className="shrink-0 w-6 h-6 rounded-lg bg-zinc-800/70 flex items-center justify-center [&>svg]:w-3.5 [&>svg]:h-3.5"
+            style={{ color: iconColor ?? (up ? "#22C55E" : "#EF4444") }}
+          >
             {icon}
           </span>
           <span className="sm:hidden text-[13px] font-medium text-zinc-400 truncate">

@@ -4982,7 +4982,7 @@ export default function DashboardView() {
             of the AI button height or overflow-x-auto). The AI button is `self-center`.
             `py-3` keeps the row compact (the card already supplies the 16px top space
             from the Figma spec) while the AI pill still reads as centred. */}
-            <div className="flex items-center justify-between gap-3 mb-2 sm:mb-5 min-w-0 border-b border-zinc-800 pt-0 pb-0">
+            <div className="flex items-center justify-between gap-3 mb-3 sm:mb-5 min-w-0">
               {/* Tab buttons on ALL devices. The buttons fill the row height
               (items-stretch) so their border-b-2 -mb-px underline lands exactly on
               the divider and the label sits vertically centred.
@@ -4992,7 +4992,7 @@ export default function DashboardView() {
               pin the first and last to opposite edges with a gap of dead space
               between them, which reads as a layout bug rather than a choice. */}
               <div
-                className={`flex items-stretch self-stretch ${visibleTabs.length >= 4 ? "justify-between" : "justify-start"} sm:justify-start gap-1 sm:gap-8 flex-1 overflow-x-clip min-w-0`}
+                className={`flex items-center gap-1 bg-zinc-800/50 rounded-xl p-1 ${visibleTabs.length >= 4 ? "justify-between" : "justify-start"} sm:justify-start flex-1 overflow-x-auto scrollbar-none min-w-0`}
               >
                 {visibleTabs.map(({ label: t, idx: i }) => {
                   const tabIcon = TAB_ICONS[i];
@@ -5001,10 +5001,10 @@ export default function DashboardView() {
                     <button
                       key={t}
                       onClick={() => setActiveTab(i)}
-                      className={`flex items-center gap-1.5 sm:gap-2 px-0.5 sm:px-0 pt-2.5 pb-2.5 sm:pt-0 sm:pb-4.5 sm:h-10.5 border-b-2 -mb-px text-[13px] sm:text-[16px] leading-none sm:leading-6 font-medium transition whitespace-nowrap tracking-[-0.2px] cursor-pointer ${
+                      className={`flex items-center gap-1.5 sm:gap-2 px-3 py-2 rounded-lg text-[13px] sm:text-[14px] leading-none font-medium transition whitespace-nowrap tracking-[-0.2px] cursor-pointer ${
                         active
-                          ? "border-[var(--brand)] text-[var(--brand-fg)]"
-                          : "border-transparent text-[#A1A1AA] hover:text-zinc-300 hover:border-zinc-700"
+                          ? "bg-zinc-900 text-[var(--brand-fg)] shadow-sm"
+                          : "text-[#A1A1AA] hover:text-zinc-300"
                       }`}
                     >
                       <span className="shrink-0 flex items-center [&>svg]:size-4 sm:[&>svg]:size-5">
@@ -5048,7 +5048,7 @@ export default function DashboardView() {
                     className={`flex items-center gap-2 h-8 px-3 leading-none text-[14px] font-medium rounded-[9px] transition whitespace-nowrap ${
                       aiOpen
                         ? "text-zinc-500 bg-zinc-900 cursor-default"
-                        : "text-[#A1A1AA] bg-zinc-900 hover:bg-zinc-800/60/80"
+                        : "text-[#A1A1AA] bg-zinc-900 hover:bg-zinc-800/60"
                     }`}
                   >
                     <svg

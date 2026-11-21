@@ -277,7 +277,7 @@ export function WindsorFieldPicker({
             key={o.key}
             type="button"
             onClick={() => onAdd(o)}
-            className="w-full flex items-center justify-between gap-2 px-2.5 py-1.5 hover:bg-emerald-500/10/50 text-left"
+            className="w-full flex items-center justify-between gap-2 px-2.5 py-1.5 hover:bg-emerald-500/12 text-left"
           >
             <span className="min-w-0">
               <span className="text-[12px] text-zinc-300 truncate block">{o.label}</span>

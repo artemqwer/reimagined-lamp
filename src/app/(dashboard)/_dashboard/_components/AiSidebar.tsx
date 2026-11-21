@@ -78,7 +78,7 @@ function FilterActionCard({ action, onApply }: { action: FilterAction; onApply: 
 function ActionsList({ actions }: { actions: string[] }) {
   if (!actions.length) return null;
   return (
-    <div className="mb-2 space-y-1 bg-violet-500/10/60 border border-violet-500/20 rounded-xl px-3 py-2">
+    <div className="mb-2 space-y-1 bg-violet-500/12 border border-violet-500/20 rounded-xl px-3 py-2">
       {actions.map((a, i) => (
         <div key={i} className="flex items-center gap-1.5 text-[11px] text-zinc-400">
           <svg
@@ -444,7 +444,7 @@ export default function AiSidebar({
             Updates automatically with selection / filters / period. Hidden in the
             history view. Especially important on mobile where the dashboard is off-screen. */}
         {!historyView && (
-          <div className="shrink-0 flex items-center gap-2 px-5 py-2 bg-violet-500/10/70 border-b border-violet-500/20 text-[11px]">
+          <div className="shrink-0 flex items-center gap-2 px-5 py-2 bg-violet-500/12 border-b border-violet-500/20 text-[11px]">
             <svg
               width="12"
               height="12"
@@ -524,7 +524,7 @@ export default function AiSidebar({
                   {sessions.map((s) => (
                     <div
                       key={s.id}
-                      className={`group flex items-center gap-2 rounded-xl border px-3.5 py-3 cursor-pointer transition ${s.id === currentSessionId ? "border-violet-500/20 bg-violet-500/10/60" : "border-zinc-800 hover:border-violet-500/20 hover:bg-violet-500/10/30"}`}
+                      className={`group flex items-center gap-2 rounded-xl border px-3.5 py-3 cursor-pointer transition ${s.id === currentSessionId ? "border-violet-500/20 bg-violet-500/12" : "border-zinc-800 hover:border-violet-500/20 hover:bg-violet-500/12"}`}
                       onClick={() => {
                         onLoadSession(s);
                         setHistoryView(false);
@@ -568,7 +568,7 @@ export default function AiSidebar({
           {/* Context Panel */}
           {!historyView && (
             <>
-              <div className="px-5 py-3 bg-violet-500/10/40 border-b border-zinc-800">
+              <div className="px-5 py-3 bg-violet-500/12 border-b border-zinc-800">
                 <p className="text-[11px] font-bold text-zinc-400 uppercase tracking-wide mb-1.5">
                   Current Context
                 </p>
@@ -632,7 +632,7 @@ export default function AiSidebar({
                         <button
                           key={`${q.question}-${i}`}
                           onClick={() => onAnalyze(q.question, q.description)}
-                          className="group flex items-center justify-between gap-2 text-[13px] text-zinc-300 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-left hover:border-violet-300 hover:bg-violet-500/10/40 transition"
+                          className="group flex items-center justify-between gap-2 text-[13px] text-zinc-300 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-left hover:border-violet-300 hover:bg-violet-500/12 transition"
                         >
                           <span>{q.question}</span>
                           <svg
@@ -653,7 +653,7 @@ export default function AiSidebar({
                     <div className="border-t border-zinc-800 pt-3 mt-1">
                       <button
                         onClick={() => onAnalyze()}
-                        className="group flex items-center justify-between gap-2 text-[13px] text-zinc-300 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-left hover:border-violet-300 hover:bg-violet-500/10/40 transition w-full"
+                        className="group flex items-center justify-between gap-2 text-[13px] text-zinc-300 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-left hover:border-violet-300 hover:bg-violet-500/12 transition w-full"
                       >
                         <span className="flex items-center gap-2">
                           <svg

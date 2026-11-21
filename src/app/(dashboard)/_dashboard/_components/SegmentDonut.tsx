@@ -207,7 +207,7 @@ export default function SegmentDonut({
                       setMetric(m.key);
                       setMetricOpen(false);
                     }}
-                    className={`w-full text-left px-3 py-1.5 text-[12px] hover:bg-zinc-800/60 flex items-center justify-between transition ${metric === m.key ? "text-[var(--brand-fg)] font-semibold bg-emerald-500/10/60" : "text-zinc-300"}`}
+                    className={`w-full text-left px-3 py-1.5 text-[12px] hover:bg-zinc-800/60 flex items-center justify-between transition ${metric === m.key ? "text-[var(--brand-fg)] font-semibold bg-emerald-500/12" : "text-zinc-300"}`}
                   >
                     {m.label}
                     {metric === m.key && (
@@ -262,7 +262,7 @@ export default function SegmentDonut({
                       setSegBy(s);
                       setSegByOpen(false);
                     }}
-                    className={`w-full text-left px-3 py-1.5 text-[12px] hover:bg-zinc-800/60 flex items-center justify-between transition ${segBy === s ? "text-[var(--brand-fg)] font-semibold bg-emerald-500/10/60" : "text-zinc-300"}`}
+                    className={`w-full text-left px-3 py-1.5 text-[12px] hover:bg-zinc-800/60 flex items-center justify-between transition ${segBy === s ? "text-[var(--brand-fg)] font-semibold bg-emerald-500/12" : "text-zinc-300"}`}
                   >
                     {s}
                     {segBy === s && (

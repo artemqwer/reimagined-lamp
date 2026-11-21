@@ -216,7 +216,7 @@ export default function TabContent({
                           onChartMetricChange(m.key);
                           onChartMetricOpenChange(false);
                         }}
-                        className={`w-full text-left px-3 py-2 text-[13px] hover:bg-zinc-800/60 flex items-center gap-2.5 transition ${chartMetric === m.key ? "text-[var(--brand-fg)] font-semibold bg-emerald-500/10/60" : "text-zinc-300"}`}
+                        className={`w-full text-left px-3 py-2 text-[13px] hover:bg-zinc-800/60 flex items-center gap-2.5 transition ${chartMetric === m.key ? "text-[var(--brand-fg)] font-semibold bg-emerald-500/12" : "text-zinc-300"}`}
                       >
                         {m.label}
                         {chartMetric === m.key && (
@@ -276,7 +276,7 @@ export default function TabContent({
                           onChartGroupByChange(g);
                           onChartGroupByOpenChange(false);
                         }}
-                        className={`w-full text-left px-3 py-2 text-[13px] hover:bg-zinc-800/60 flex items-center gap-2.5 transition ${chartGroupBy === g ? "text-[var(--brand-fg)] font-semibold bg-emerald-500/10/60" : "text-zinc-300"}`}
+                        className={`w-full text-left px-3 py-2 text-[13px] hover:bg-zinc-800/60 flex items-center gap-2.5 transition ${chartGroupBy === g ? "text-[var(--brand-fg)] font-semibold bg-emerald-500/12" : "text-zinc-300"}`}
                       >
                         {groupByLabel(g)}
                         {chartGroupBy === g && (
@@ -388,7 +388,7 @@ export default function TabContent({
                         onGranularityChange(g);
                         onGranularityOpenChange(false);
                       }}
-                      className={`w-full text-left px-3.5 py-2 text-[13px] hover:bg-zinc-800/60 flex items-center justify-between transition ${granularity === g ? "text-[var(--brand-fg)] font-semibold bg-emerald-500/10/60" : "text-zinc-300"}`}
+                      className={`w-full text-left px-3.5 py-2 text-[13px] hover:bg-zinc-800/60 flex items-center justify-between transition ${granularity === g ? "text-[var(--brand-fg)] font-semibold bg-emerald-500/12" : "text-zinc-300"}`}
                     >
                       {g.charAt(0).toUpperCase() + g.slice(1)}
                       {granularity === g && (

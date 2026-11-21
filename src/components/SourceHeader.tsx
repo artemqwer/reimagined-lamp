@@ -22,9 +22,17 @@ export default function SourceHeader({ children }: { children?: React.ReactNode 
     // nothing else to carry — two headers, one saying METRICFORGE and one
     // saying Google Ads, was the thing to fix.
     <div
-      className={`glass rounded-2xl px-4 sm:px-5 py-3 mb-4 ${children ? "" : "hidden sm:block"}`}
+      className={`glass rounded-2xl px-4 sm:px-5 py-3.5 mb-4 relative overflow-hidden ${
+        children ? "" : "hidden sm:block"
+      }`}
     >
-      <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
+      {/* accent edge on the left — brand signature on every source-scoped page */}
+      <span
+        aria-hidden
+        className="absolute inset-y-0 left-0 w-[3px]"
+        style={{ background: "linear-gradient(180deg, var(--brand-fg), var(--brand))" }}
+      />
+      <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3 pl-1.5">
         <div className="hidden sm:flex">
           <ConnectorSwitcher />
         </div>

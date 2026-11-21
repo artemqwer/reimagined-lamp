@@ -43,7 +43,7 @@ function fmt(v: number, format: string): string {
 
 function EvidenceTable({ evidence }: { evidence: Evidence }) {
   return (
-    <div className="mt-3 rounded-xl border border-violet-500/20 bg-violet-500/10/40 overflow-hidden">
+    <div className="mt-3 rounded-xl border border-violet-500/20 bg-violet-500/12 overflow-hidden">
       <div className="flex flex-wrap items-center justify-between gap-2 px-3 py-2">
         <p className="text-[10px] font-bold text-violet-700 uppercase tracking-wider">
           AI analysis: data used for this recommendation
@@ -71,7 +71,7 @@ function EvidenceTable({ evidence }: { evidence: Evidence }) {
             {evidence.rows.map((r) => (
               <tr
                 key={r.label}
-                className={`border-t border-violet-500/20 ${r.flagged ? "bg-red-500/10/60" : ""}`}
+                className={`border-t border-violet-500/20 ${r.flagged ? "bg-red-500/12" : ""}`}
               >
                 {evidence.columns.map((c, i) =>
                   i === 0 ? (

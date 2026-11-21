@@ -247,7 +247,7 @@ export default function WindsorConnectCard({
               <button
                 key={a.account_id}
                 onClick={() => selectAccount(a)}
-                className="w-full flex items-center gap-3 text-left p-3 rounded-xl border border-zinc-800 hover:border-emerald-300 hover:bg-emerald-500/10/40 transition"
+                className="w-full flex items-center gap-3 text-left p-3 rounded-xl border border-zinc-800 hover:border-emerald-300 hover:bg-emerald-500/12 transition"
               >
                 <div className="min-w-0 flex-1">
                   <div className="text-[13.5px] font-semibold text-zinc-200 truncate">
@@ -304,7 +304,7 @@ export default function WindsorConnectCard({
                 <button
                   key={a.account_id}
                   onClick={() => adminAssign(a)}
-                  className="w-full flex items-center gap-3 text-left p-3 rounded-xl border border-zinc-800 hover:border-purple-300 hover:bg-purple-500/10/40 transition"
+                  className="w-full flex items-center gap-3 text-left p-3 rounded-xl border border-zinc-800 hover:border-purple-300 hover:bg-purple-500/12 transition"
                 >
                   <div className="min-w-0 flex-1">
                     <div className="text-[13.5px] font-semibold text-zinc-200 truncate">

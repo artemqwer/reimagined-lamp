@@ -573,10 +573,10 @@ export default function CampaignTable({
                     }}
                     className={`border-t border-zinc-800 cursor-pointer group transition-colors duration-150 ${
                       isSelected
-                        ? "bg-emerald-500/10/40"
+                        ? "bg-emerald-500/12"
                         : isDimmed
                           ? "opacity-50 hover:opacity-80"
-                          : "hover:bg-emerald-500/10/20"
+                          : "hover:bg-emerald-500/12"
                     }`}
                   >
                     <td

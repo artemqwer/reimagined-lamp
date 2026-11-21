@@ -170,7 +170,7 @@ export default function ConnectPreviewPage() {
                 {accounts.map((a) => (
                   <div
                     key={a.account_id}
-                    className="flex items-center gap-3 p-3.5 rounded-2xl border border-green-500/20 bg-green-500/10/60"
+                    className="flex items-center gap-3 p-3.5 rounded-2xl border border-green-500/20 bg-green-500/12"
                   >
                     <div className="w-9 h-9 rounded-full bg-green-500/10 flex items-center justify-center shrink-0">
                       <svg

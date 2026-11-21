@@ -1822,14 +1822,14 @@ export default function PerformanceTable({
                         }}
                         className={`border-t border-zinc-800 cursor-pointer group transition-colors duration-150 ${
                           isSelected
-                            ? "bg-emerald-500/10/40 [&_td]:font-bold"
+                            ? "bg-emerald-500/12 [&_td]:font-bold"
                             : anySelected
                               ? "opacity-50 hover:opacity-80"
-                              : "hover:bg-emerald-500/10/20"
+                              : "hover:bg-emerald-500/12"
                         }`}
                       >
                         <td
-                          className={`px-2.5 py-2.5 sticky left-0 z-10 isolate ${isSelected ? "bg-emerald-500/10" : "bg-zinc-900 group-hover:bg-emerald-500/10/40"}`}
+                          className={`px-2.5 py-2.5 sticky left-0 z-10 isolate ${isSelected ? "bg-emerald-500/10" : "bg-zinc-900 group-hover:bg-emerald-500/12"}`}
                           onClick={(e) => e.stopPropagation()}
                         >
                           <input
@@ -1847,7 +1847,7 @@ export default function PerformanceTable({
                           </td>
                         )}
                         <td
-                          className={`sticky left-8 z-10 isolate overflow-hidden after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-zinc-800 p-0 ${isSelected ? "bg-emerald-500/10" : "bg-zinc-900 group-hover:bg-emerald-500/10/40"}`}
+                          className={`sticky left-8 z-10 isolate overflow-hidden after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-zinc-800 p-0 ${isSelected ? "bg-emerald-500/10" : "bg-zinc-900 group-hover:bg-emerald-500/12"}`}
                         >
                           <div
                             style={{

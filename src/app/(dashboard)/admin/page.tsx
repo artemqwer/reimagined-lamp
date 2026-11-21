@@ -980,7 +980,7 @@ function PromptsPanel({ showToast }: { showToast: (t: "success" | "error", s: st
               return (
                 <div
                   key={p.id}
-                  className="flex items-center gap-3 px-5 py-3.5 hover:bg-emerald-500/10/20 transition cursor-pointer"
+                  className="flex items-center gap-3 px-5 py-3.5 hover:bg-emerald-500/12 transition cursor-pointer"
                   onClick={() => setEdit(p)}
                 >
                   <div className="min-w-0 flex-1">
@@ -1673,7 +1673,7 @@ export default function AdminPage() {
                     pageRows.map((u) => (
                       <tr
                         key={u.id}
-                        className="border-t border-zinc-800 hover:bg-emerald-500/10/20 transition cursor-pointer"
+                        className="border-t border-zinc-800 hover:bg-emerald-500/12 transition cursor-pointer"
                         onClick={() => router.push(`/admin/${u.id}`)}
                       >
                         <td className="px-5 py-3.5">

@@ -146,7 +146,7 @@ export default function PeriodPicker({
   };
 
   const arrow =
-    "w-7 h-7 flex items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900 text-zinc-400 hover:text-zinc-300 hover:border-zinc-700 transition";
+    "w-7 h-7 flex items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900 text-zinc-400 hover:text-zinc-300 hover:border-zinc-700 transition";
   const years = yearOptions(period);
   // yearOptions is ascending now, so the ends flipped.
   const minYear = years[0];
@@ -158,7 +158,7 @@ export default function PeriodPicker({
       // Switching shape keeps where you were: the year shown, and the month
       // last looked at within it.
       onClick={() => pick(switchPeriodKind(to, String(viewYear), rememberedMonth))}
-      className={`flex-1 rounded-lg px-3 py-1.5 text-[12px] font-medium transition ${
+      className={`flex-1 rounded-xl px-3 py-1.5 text-[12px] font-medium transition ${
         kind === to ? "bg-zinc-900 shadow-sm text-zinc-100" : "text-zinc-400 hover:text-zinc-300"
       }`}
     >
@@ -191,7 +191,7 @@ export default function PeriodPicker({
           ref={triggerRef}
           onClick={() => (open ? setOpen(false) : openPanel())}
           aria-expanded={open}
-          className="flex items-center gap-2 text-[14px] text-zinc-400 glass rounded-lg px-3 py-1.5 cursor-pointer hover:bg-zinc-800/60 transition"
+          className="flex items-center gap-2 text-[14px] text-zinc-400 glass rounded-xl px-3 py-1.5 cursor-pointer hover:bg-zinc-800/60 transition"
         >
           <svg
             width="14"
@@ -253,7 +253,7 @@ export default function PeriodPicker({
                   <button
                     key={p.label}
                     onClick={() => pick(p.period)}
-                    className={`w-full whitespace-nowrap text-left px-3 py-2 text-[13px] rounded-lg transition-colors ${
+                    className={`w-full whitespace-nowrap text-left px-3 py-2 text-[13px] rounded-xl transition-colors ${
                       p.period === period
                         ? "bg-zinc-900 text-[var(--brand-fg)] font-semibold"
                         : "text-zinc-400 hover:bg-zinc-800/60 hover:text-[var(--brand-fg)]"
@@ -266,7 +266,7 @@ export default function PeriodPicker({
 
               <div className="flex-1 p-4">
                 {/* Which shape the period has — and so how the chart reads it. */}
-                <div className="flex items-center gap-1 glass rounded-lg p-0.5 mb-4">
+                <div className="flex items-center gap-1 glass rounded-xl p-0.5 mb-4">
                   {tab("month", "Month", "day by day")}
                   {tab("year", "Year", "month by month")}
                 </div>
@@ -319,7 +319,7 @@ export default function PeriodPicker({
                           onClick={() => pick(p)}
                           className={`py-2 rounded-xl text-[13px] font-medium transition ${
                             p === period
-                              ? "bg-emerald-600 text-white"
+                              ? "bg-[var(--brand)] text-white"
                               : "text-zinc-300 hover:bg-emerald-500/10 hover:text-[var(--brand-fg)]"
                           }`}
                         >
@@ -336,7 +336,7 @@ export default function PeriodPicker({
                         onClick={() => pick(String(y))}
                         className={`py-2 rounded-xl text-[13px] font-medium transition ${
                           String(y) === period
-                            ? "bg-emerald-600 text-white"
+                            ? "bg-[var(--brand)] text-white"
                             : "text-zinc-300 hover:bg-emerald-500/10 hover:text-[var(--brand-fg)]"
                         }`}
                       >

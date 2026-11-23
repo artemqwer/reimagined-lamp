@@ -127,7 +127,7 @@ export default function KpiCard({
           <span className="w-3.5 h-3.5 rounded-full border border-zinc-800 flex items-center justify-center text-[7px] text-zinc-600 cursor-help select-none">
             i
           </span>
-          <div className="absolute right-0 top-5 w-[170px] bg-zinc-900 text-zinc-100 text-[11px] rounded-lg px-2.5 py-1.5 opacity-0 group-hover:opacity-100 transition-opacity z-50 pointer-events-none shadow-lg leading-snug">
+          <div className="absolute right-0 top-5 w-[170px] bg-zinc-900 text-zinc-100 text-[11px] rounded-xl px-2.5 py-1.5 opacity-0 group-hover:opacity-100 transition-opacity z-50 pointer-events-none shadow-lg leading-snug">
             {desc}
           </div>
         </div>

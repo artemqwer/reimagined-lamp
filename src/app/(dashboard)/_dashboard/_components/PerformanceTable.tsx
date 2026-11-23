@@ -1170,7 +1170,7 @@ export default function PerformanceTable({
                 }
                 setDimDropdownOpen((v) => !v);
               }}
-              className={`flex items-center gap-1.5 border rounded-lg px-2.5 py-1.5 text-[13px] transition whitespace-nowrap shrink-0 ${
+              className={`flex items-center gap-1.5 border rounded-xl px-2.5 py-1.5 text-[13px] transition whitespace-nowrap shrink-0 ${
                 dropdownFiltered
                   ? "bg-emerald-500/10 border-emerald-300 text-[var(--brand-fg)] font-medium"
                   : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:bg-zinc-800/60"
@@ -1193,11 +1193,11 @@ export default function PerformanceTable({
               {/* Count shows how many rows the dropdown is acting on — the
                   included subset, or the excluded set prefixed with a minus. */}
               {includeFilter.length > 0 ? (
-                <span className="bg-emerald-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none">
+                <span className="bg-[var(--brand)] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none">
                   {includeFilter.length}
                 </span>
               ) : excludeFilter.length > 0 ? (
-                <span className="bg-emerald-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none">
+                <span className="bg-[var(--brand)] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none">
                   −{excludeFilter.length}
                 </span>
               ) : null}
@@ -1229,7 +1229,7 @@ export default function PerformanceTable({
                     }}
                   >
                     <div className="p-2 border-b border-zinc-800 shrink-0">
-                      <div className="flex items-center gap-1.5 border border-zinc-800 rounded-lg px-2 py-1.5 bg-zinc-900/50">
+                      <div className="flex items-center gap-1.5 border border-zinc-800 rounded-xl px-2 py-1.5 bg-zinc-900/50">
                         <svg
                           width="12"
                           height="12"
@@ -1408,7 +1408,7 @@ export default function PerformanceTable({
                             {visibleNames.slice(0, dropdownRender).map((n) => (
                               <label
                                 key={n}
-                                className="flex items-center gap-2 px-2 py-1.5 hover:bg-zinc-800/60 cursor-pointer rounded-lg transition"
+                                className="flex items-center gap-2 px-2 py-1.5 hover:bg-zinc-800/60 cursor-pointer rounded-xl transition"
                               >
                                 <input
                                   type="checkbox"
@@ -1481,7 +1481,7 @@ export default function PerformanceTable({
                 }
                 setFilterOpen((v) => !v);
               }}
-              className={`flex items-center gap-1 border rounded-lg px-2.5 py-1.5 text-[13px] transition ${
+              className={`flex items-center gap-1 border rounded-xl px-2.5 py-1.5 text-[13px] transition ${
                 statusFilter !== "All" || isMetricFilterActive(metricFilter)
                   ? "bg-emerald-500/10 border-emerald-300 text-[var(--brand-fg)] font-medium"
                   : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:bg-zinc-800/60"
@@ -1541,7 +1541,7 @@ export default function PerformanceTable({
                               }}
                               className={`px-2 py-0.5 rounded-full text-[12px] font-medium transition ${
                                 statusFilter === s
-                                  ? "bg-emerald-600 text-white"
+                                  ? "bg-[var(--brand)] text-white"
                                   : "bg-zinc-800 text-zinc-400 hover:bg-zinc-800"
                               }`}
                             >
@@ -1680,7 +1680,7 @@ export default function PerformanceTable({
               the longer background cross-filter / period / dimension work (crossFilterBusy),
               so the indicator never disappears while the request is still running. */}
           {(loading || crossFilterBusy) && (
-            <div className="absolute top-2.5 right-3 z-30 flex items-center gap-1.5 text-[12px] font-medium text-[var(--brand-fg)] bg-zinc-900/95 border border-emerald-500/20 px-2.5 py-1 rounded-lg shadow-sm">
+            <div className="absolute top-2.5 right-3 z-30 flex items-center gap-1.5 text-[12px] font-medium text-[var(--brand-fg)] bg-zinc-900/95 border border-emerald-500/20 px-2.5 py-1 rounded-xl shadow-sm">
               <div className="w-3 h-3 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin" />
               Updating…
             </div>
@@ -1941,7 +1941,7 @@ export default function PerformanceTable({
             <div className="flex items-center gap-1">
               <button
                 onClick={() => setPage((p) => Math.max(1, p - 1))}
-                className="w-7 h-7 rounded-lg flex items-center justify-center text-zinc-500 hover:bg-zinc-800 transition"
+                className="w-7 h-7 rounded-xl flex items-center justify-center text-zinc-500 hover:bg-zinc-800 transition"
               >
                 <svg
                   width="14"
@@ -1967,7 +1967,7 @@ export default function PerformanceTable({
                   <button
                     key={p}
                     onClick={() => setPage(p)}
-                    className={`w-7 h-7 rounded-lg text-[13px] font-medium transition ${page === p ? "bg-emerald-600 text-white" : "text-zinc-400 hover:bg-zinc-800"}`}
+                    className={`w-7 h-7 rounded-xl text-[13px] font-medium transition ${page === p ? "bg-[var(--brand)] text-white" : "text-zinc-400 hover:bg-zinc-800"}`}
                   >
                     {p}
                   </button>
@@ -1975,7 +1975,7 @@ export default function PerformanceTable({
               })}
               <button
                 onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-                className="w-7 h-7 rounded-lg flex items-center justify-center text-zinc-500 hover:bg-zinc-800 transition"
+                className="w-7 h-7 rounded-xl flex items-center justify-center text-zinc-500 hover:bg-zinc-800 transition"
               >
                 <svg
                   width="14"

@@ -288,7 +288,7 @@ export default function AdminUserDetailPage() {
                 }
                 router.push("/google-ads");
               }}
-              className="inline-flex items-center gap-2 h-[41px] px-4 rounded-xl bg-[var(--brand)] hover:bg-emerald-700 text-white text-[16px] transition"
+              className="inline-flex items-center gap-2 h-[41px] px-4 rounded-xl bg-[var(--brand)] hover:brightness-110 text-white text-[16px] transition"
             >
               <Eye size={16} /> View as Client
             </button>
@@ -406,7 +406,7 @@ export default function AdminUserDetailPage() {
                   Connected Channels
                 </h3>
                 {user.channels.length === 0 ? (
-                  <div className="bg-zinc-900/60 border border-zinc-700/50 rounded-[14px] py-8 text-center text-[14px] text-[#71717A]">
+                  <div className="bg-zinc-800/50 border border-zinc-700/60 rounded-[14px] py-8 text-center text-[14px] text-[#71717A]">
                     No data sources connected yet.
                   </div>
                 ) : (

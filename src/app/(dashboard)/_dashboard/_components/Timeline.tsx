@@ -526,7 +526,7 @@ function Popover({
                   <button
                     onClick={() => onEdit(m)}
                     title="Edit event"
-                    className="shrink-0 w-6 h-6 rounded-lg flex items-center justify-center text-zinc-500 hover:text-white hover:bg-zinc-800/60/10 transition"
+                    className="shrink-0 w-6 h-6 rounded-xl flex items-center justify-center text-zinc-500 hover:text-white hover:bg-zinc-800/60/10 transition"
                   >
                     <svg
                       width="13"
@@ -680,7 +680,7 @@ export default function Timeline({
               {/* Count badge ALWAYS shown — including 0 — so the user immediately sees
                   there are no events for the current period (spec: "Milestones (0)"). */}
               <span
-                className={`text-[12px] font-semibold rounded-lg px-2 h-[22px] inline-flex items-center leading-none ${
+                className={`text-[12px] font-semibold rounded-xl px-2 h-[22px] inline-flex items-center leading-none ${
                   total > 0
                     ? "text-[var(--brand-fg)] bg-linear-to-r from-[rgba(59,130,246,0.12)] to-[rgba(99,102,241,0.12)] border border-blue-500/25"
                     : "text-zinc-500 glass"
@@ -757,7 +757,7 @@ export default function Timeline({
           {!compact && <div className="bg-[#52525B] h-6 w-px shrink-0" />}
           <button
             onClick={onAddEvent}
-            className="text-[12px] font-medium text-[#A1A1AA] border border-zinc-700/60 rounded-lg px-[11px] py-[7px] hover:bg-zinc-800/60 flex items-center gap-1.5 whitespace-nowrap"
+            className="text-[12px] font-medium text-[#A1A1AA] border border-zinc-700/60 rounded-xl px-[11px] py-[7px] hover:bg-zinc-800/60 flex items-center gap-1.5 whitespace-nowrap"
           >
             <svg
               width="14"
@@ -970,7 +970,7 @@ export default function Timeline({
                 className="fixed z-[200] -translate-x-1/2 pointer-events-none"
                 style={{ left: catTip.x, top: catTip.y }}
               >
-                <div className="bg-zinc-950 text-white rounded-lg px-2.5 py-1.5 shadow-lg whitespace-nowrap">
+                <div className="bg-zinc-950 text-white rounded-xl px-2.5 py-1.5 shadow-lg whitespace-nowrap">
                   <div className="text-[11px] font-semibold flex items-center gap-1.5">
                     <span style={{ color: meta.color }}>{meta.icon}</span>
                     {meta.label}

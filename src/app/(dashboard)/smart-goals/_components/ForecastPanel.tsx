@@ -173,7 +173,7 @@ export default function ForecastPanel({
             </p>
           </div>
         </div>
-        <span className="text-[12px] font-semibold px-2 py-1 rounded-lg bg-violet-500/14 text-violet-400 shrink-0">
+        <span className="text-[12px] font-semibold px-2 py-1 rounded-xl bg-violet-500/14 text-violet-400 shrink-0">
           {confidence}% Confidence
         </span>
       </div>

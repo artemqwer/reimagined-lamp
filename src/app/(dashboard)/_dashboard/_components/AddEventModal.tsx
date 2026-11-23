@@ -161,7 +161,7 @@ export default function AddEventModal({
               value={evtTitle}
               onChange={(e) => onTitleChange(e.target.value)}
               placeholder="e.g., Homepage redesign launch"
-              className="w-full text-[14px] border border-zinc-800 rounded-xl px-4 py-2.5 outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-50 bg-zinc-900 transition-all placeholder-gray-300"
+              className="w-full text-[14px] border border-zinc-800 rounded-xl px-4 py-2.5 outline-none focus:border-[var(--brand)] focus:ring-4 focus:ring-emerald-50 bg-zinc-900 transition-all placeholder-gray-300"
             />
             <div className="flex justify-end mt-1">
               <p className="text-[10px] font-medium text-zinc-500">{evtTitle.length}/80</p>
@@ -193,7 +193,7 @@ export default function AddEventModal({
                   type="date"
                   value={evtStartDate}
                   onChange={(e) => onStartDateChange(e.target.value)}
-                  className="w-full text-[14px] border border-zinc-800 rounded-xl px-3 py-2.5 outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-50 bg-zinc-900 transition-all appearance-none min-h-[44px]"
+                  className="w-full text-[14px] border border-zinc-800 rounded-xl px-3 py-2.5 outline-none focus:border-[var(--brand)] focus:ring-4 focus:ring-emerald-50 bg-zinc-900 transition-all appearance-none min-h-[44px]"
                 />
               </div>
               <div className="relative">
@@ -205,7 +205,7 @@ export default function AddEventModal({
                   value={evtEndDate}
                   min={evtStartDate}
                   onChange={(e) => onEndDateChange(e.target.value)}
-                  className="w-full text-[14px] border border-zinc-800 rounded-xl px-3 py-2.5 outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-50 bg-zinc-900 transition-all appearance-none min-h-[44px]"
+                  className="w-full text-[14px] border border-zinc-800 rounded-xl px-3 py-2.5 outline-none focus:border-[var(--brand)] focus:ring-4 focus:ring-emerald-50 bg-zinc-900 transition-all appearance-none min-h-[44px]"
                 />
               </div>
             </div>
@@ -246,7 +246,7 @@ export default function AddEventModal({
               value={evtDesc}
               onChange={(e) => onDescChange(e.target.value)}
               placeholder="Add additional details about this event..."
-              className="w-full text-[14px] border border-zinc-800 rounded-xl px-4 py-2.5 outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-50 bg-zinc-900 transition-all placeholder-gray-300 resize-none"
+              className="w-full text-[14px] border border-zinc-800 rounded-xl px-4 py-2.5 outline-none focus:border-[var(--brand)] focus:ring-4 focus:ring-emerald-50 bg-zinc-900 transition-all placeholder-gray-300 resize-none"
             />
           </div>
         </div>
@@ -281,7 +281,7 @@ export default function AddEventModal({
           <button
             disabled={!evtTitle.trim() || !evtStartDate || backwards}
             onClick={onSubmit}
-            className="flex-1 py-2.5 rounded-xl text-[14px] font-semibold transition bg-emerald-600 text-white hover:bg-emerald-700 disabled:bg-zinc-800 disabled:text-zinc-500 disabled:cursor-not-allowed"
+            className="flex-1 py-2.5 rounded-xl text-[14px] font-semibold transition bg-[var(--brand)] text-white hover:brightness-110 disabled:bg-zinc-800 disabled:text-zinc-500 disabled:cursor-not-allowed"
           >
             {editing ? "Save" : "Add Event"}
           </button>

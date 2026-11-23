@@ -676,7 +676,7 @@ export default function SmartGoalsPage() {
                     ? undefined
                     : "Goals cannot be changed for completed periods. Only the current active period can be edited."
                 }
-                className="px-3.5 py-2 rounded-lg bg-emerald-600 text-white text-[13px] font-semibold hover:bg-emerald-700 transition disabled:bg-zinc-800 disabled:text-zinc-500 disabled:cursor-not-allowed disabled:hover:bg-zinc-800"
+                className="px-3.5 py-2 rounded-xl bg-[var(--brand)] text-white text-[13px] font-semibold hover:brightness-110 transition disabled:bg-zinc-800 disabled:text-zinc-500 disabled:cursor-not-allowed disabled:hover:bg-zinc-800"
               >
                 Edit goals
               </button>
@@ -720,7 +720,7 @@ export default function SmartGoalsPage() {
           <p className="text-[13px] text-zinc-400 mb-4">{settingsError}</p>
           <button
             onClick={loadSettings}
-            className="px-4 py-2 rounded-lg bg-emerald-600 text-white text-[13px] font-semibold hover:bg-emerald-700 transition"
+            className="px-4 py-2 rounded-xl bg-[var(--brand)] text-white text-[13px] font-semibold hover:brightness-110 transition"
           >
             Try again
           </button>
@@ -753,7 +753,7 @@ export default function SmartGoalsPage() {
           {editable ? (
             <button
               onClick={() => setModalOpen(true)}
-              className="w-full sm:w-auto px-4 py-2.5 rounded-lg bg-emerald-600 text-white text-[13px] font-semibold hover:bg-emerald-700 transition"
+              className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-[var(--brand)] text-white text-[13px] font-semibold hover:brightness-110 transition"
             >
               Set goals for {formatPeriod(period)}
             </button>
@@ -901,7 +901,7 @@ export default function SmartGoalsPage() {
           {editable && (
             <button
               onClick={() => setModalOpen(true)}
-              className="px-4 py-2 rounded-lg bg-emerald-600 text-white text-[13px] font-semibold hover:bg-emerald-700 transition"
+              className="px-4 py-2 rounded-xl bg-[var(--brand)] text-white text-[13px] font-semibold hover:brightness-110 transition"
             >
               Open goal settings
             </button>

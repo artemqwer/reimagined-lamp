@@ -139,10 +139,10 @@ export default function RegisterPage() {
   };
 
   const fieldClass = (field: keyof Errors, extra = "") =>
-    `w-full py-2.5 text-[14px] border rounded-lg outline-none transition text-zinc-300 placeholder-zinc-600 ${extra} ${
+    `w-full py-2.5 text-[14px] border rounded-xl outline-none transition text-zinc-300 placeholder-zinc-600 ${extra} ${
       touched[field] && errors[field]
         ? "border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-500/20"
-        : "border-zinc-800 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+        : "border-zinc-800 focus:border-[var(--brand)] focus:ring-2 focus:ring-emerald-500/20"
     }`;
 
   if (success) {
@@ -190,7 +190,7 @@ export default function RegisterPage() {
         className="card-elevate rounded-2xl p-5 sm:p-8 w-full max-w-[400px]"
       >
         {serverError && (
-          <div className="mb-4 px-3 py-2.5 bg-red-500/10 border border-red-500/20 rounded-lg text-[13px] text-red-600 flex items-center gap-2">
+          <div className="mb-4 px-3 py-2.5 bg-red-500/10 border border-red-500/20 rounded-xl text-[13px] text-red-600 flex items-center gap-2">
             <svg
               width="14"
               height="14"
@@ -327,7 +327,7 @@ export default function RegisterPage() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 disabled:bg-emerald-400 text-white font-medium text-[15px] py-2.5 rounded-lg flex items-center justify-center gap-2 transition mb-5"
+          className="w-full bg-[var(--brand)] hover:brightness-110 active:brightness-95 disabled:opacity-40 text-white font-medium text-[15px] py-2.5 rounded-xl flex items-center justify-center gap-2 transition mb-5"
         >
           {loading ? (
             <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />

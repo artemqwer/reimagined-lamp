@@ -4668,7 +4668,7 @@ export default function DashboardView() {
                     if (datePickerOpen) setDatePickerOpen(false);
                     else openDatePicker();
                   }}
-                  className="flex items-center gap-2 text-[14px] text-zinc-400 glass rounded-lg px-3 py-1.5 cursor-pointer hover:bg-zinc-800/60 transition"
+                  className="flex items-center gap-2 text-[14px] text-zinc-400 glass rounded-xl px-3 py-1.5 cursor-pointer hover:bg-zinc-800/60 transition"
                 >
                   <svg
                     width="14"
@@ -4762,7 +4762,7 @@ export default function DashboardView() {
               const clearBtn = (
                 <button
                   onClick={clearAll}
-                  className="flex items-center gap-1 text-[12px] font-semibold text-red-500 hover:text-red-600 border border-red-500/20 rounded-lg px-2.5 py-1 hover:bg-red-500/10 transition shrink-0"
+                  className="flex items-center gap-1 text-[12px] font-semibold text-red-500 hover:text-red-600 border border-red-500/20 rounded-xl px-2.5 py-1 hover:bg-red-500/10 transition shrink-0"
                 >
                   <svg
                     width="12"
@@ -4943,7 +4943,7 @@ export default function DashboardView() {
                     <button
                       key={t}
                       onClick={() => setActiveTab(i)}
-                      className={`flex items-center gap-1.5 sm:gap-2 px-3 py-2 rounded-lg text-[13px] sm:text-[14px] leading-none font-medium transition whitespace-nowrap tracking-[-0.2px] cursor-pointer ${
+                      className={`flex items-center gap-1.5 sm:gap-2 px-3 py-2 rounded-xl text-[13px] sm:text-[14px] leading-none font-medium transition whitespace-nowrap tracking-[-0.2px] cursor-pointer ${
                         active
                           ? "bg-zinc-900 text-[var(--brand-fg)] shadow-sm"
                           : "text-[#A1A1AA] hover:text-zinc-300"

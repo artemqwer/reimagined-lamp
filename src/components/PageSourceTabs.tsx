@@ -117,7 +117,7 @@ export default function PageSourceTabs({
                   <button
                     key={id}
                     onClick={() => setActiveConnector(id)}
-                    className={`flex items-center gap-2 text-[13.5px] font-medium px-3.5 py-2 whitespace-nowrap rounded-lg transition ${
+                    className={`flex items-center gap-2 text-[13.5px] font-medium px-3.5 py-2 whitespace-nowrap rounded-xl transition ${
                       on
                         ? "bg-zinc-900 text-[var(--brand-fg)] shadow-sm"
                         : "text-[#71717A] hover:text-[#A1A1AA]"

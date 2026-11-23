@@ -71,14 +71,14 @@ export default function BigQuerySyncPanel({
           <button
             onClick={() => run("test")}
             disabled={busy !== null}
-            className="px-3.5 py-2 rounded-lg text-[13px] font-medium border border-zinc-800 text-zinc-300 hover:bg-zinc-800/60 disabled:opacity-50"
+            className="px-3.5 py-2 rounded-xl text-[13px] font-medium border border-zinc-800 text-zinc-300 hover:bg-zinc-800/60 disabled:opacity-50"
           >
             {busy === "test" ? "Testing…" : "Test connection"}
           </button>
           <button
             onClick={() => run("sync")}
             disabled={busy !== null}
-            className="px-3.5 py-2 rounded-lg text-[13px] font-medium bg-emerald-600 text-white hover:bg-emerald-700 disabled:opacity-50"
+            className="px-3.5 py-2 rounded-xl text-[13px] font-medium bg-[var(--brand)] text-white hover:brightness-110 disabled:opacity-50"
           >
             {busy === "sync" ? "Syncing…" : "Run sync now"}
           </button>
@@ -102,7 +102,7 @@ export default function BigQuerySyncPanel({
                       ? `Accounts: ${result.accounts} · Synced: ${result.synced} · Errors: ${result.errors}`
                       : "Done"}
           </div>
-          <pre className="mt-2 text-[11.5px] text-zinc-400 glass rounded-lg p-3 overflow-x-auto">
+          <pre className="mt-2 text-[11.5px] text-zinc-400 glass rounded-xl p-3 overflow-x-auto">
             {JSON.stringify(result, null, 2)}
           </pre>
         </div>

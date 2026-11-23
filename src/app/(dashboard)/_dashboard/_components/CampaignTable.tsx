@@ -318,7 +318,7 @@ export default function CampaignTable({
                     setCampaignDropdownPos(computePos(campaignBtnRef.current, 260, 360));
                   onCampaignDropdownOpen(!campaignDropdownOpen);
                 }}
-                className={`flex items-center gap-1.5 text-[13px] border rounded-lg px-2.5 py-1.5 transition whitespace-nowrap ${
+                className={`flex items-center gap-1.5 text-[13px] border rounded-xl px-2.5 py-1.5 transition whitespace-nowrap ${
                   selected.length > 0 || campaignSearch
                     ? "border-emerald-400 bg-emerald-500/10 text-[var(--brand-fg)]"
                     : "border-zinc-800 text-zinc-400 hover:bg-zinc-800/60"
@@ -327,7 +327,7 @@ export default function CampaignTable({
                 <span className="sm:hidden">{primaryLabel}</span>
                 <span className="hidden sm:inline">{primaryLabel} Name</span>
                 {selected.length > 0 && (
-                  <span className="bg-emerald-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none">
+                  <span className="bg-[var(--brand)] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none">
                     {selected.length}
                   </span>
                 )}
@@ -355,7 +355,7 @@ export default function CampaignTable({
                   setFilterDropdownOpen(!filterDropdownOpen);
                   onCampaignDropdownOpen(false);
                 }}
-                className={`flex items-center gap-1 text-[13px] border rounded-lg px-2.5 py-1.5 transition whitespace-nowrap ${
+                className={`flex items-center gap-1 text-[13px] border rounded-xl px-2.5 py-1.5 transition whitespace-nowrap ${
                   typeFilter !== "All" ||
                   statusFilter !== "Status" ||
                   isMetricFilterActive(metricFilter)
@@ -850,7 +850,7 @@ export default function CampaignTable({
           <div className="flex items-center gap-1">
             <button
               onClick={() => onPageChange(Math.max(1, page - 1))}
-              className="w-7 h-7 rounded-lg flex items-center justify-center text-zinc-500 hover:bg-zinc-800 transition"
+              className="w-7 h-7 rounded-xl flex items-center justify-center text-zinc-500 hover:bg-zinc-800 transition"
             >
               <svg
                 width="14"
@@ -876,8 +876,8 @@ export default function CampaignTable({
                 <button
                   key={p}
                   onClick={() => onPageChange(p)}
-                  className={`w-7 h-7 rounded-lg text-[13px] font-medium transition ${
-                    page === p ? "bg-emerald-600 text-white" : "text-zinc-400 hover:bg-zinc-800"
+                  className={`w-7 h-7 rounded-xl text-[13px] font-medium transition ${
+                    page === p ? "bg-[var(--brand)] text-white" : "text-zinc-400 hover:bg-zinc-800"
                   }`}
                 >
                   {p}
@@ -886,7 +886,7 @@ export default function CampaignTable({
             })}
             <button
               onClick={() => onPageChange(Math.min(totalPages, page + 1))}
-              className="w-7 h-7 rounded-lg flex items-center justify-center text-zinc-500 hover:bg-zinc-800 transition"
+              className="w-7 h-7 rounded-xl flex items-center justify-center text-zinc-500 hover:bg-zinc-800 transition"
             >
               <svg
                 width="14"
@@ -924,7 +924,7 @@ export default function CampaignTable({
                 }}
               >
                 <div className="p-2 border-b border-zinc-800 shrink-0">
-                  <div className="flex items-center gap-1.5 border border-zinc-800 rounded-lg px-2 py-1.5 bg-zinc-900/50">
+                  <div className="flex items-center gap-1.5 border border-zinc-800 rounded-xl px-2 py-1.5 bg-zinc-900/50">
                     <svg
                       width="12"
                       height="12"
@@ -1079,7 +1079,7 @@ export default function CampaignTable({
                         }}
                         className={`px-2 py-0.5 rounded-full text-[12px] font-medium transition ${
                           typeFilter === t
-                            ? "bg-emerald-600 text-white"
+                            ? "bg-[var(--brand)] text-white"
                             : "bg-zinc-800 text-zinc-400 hover:bg-zinc-800"
                         }`}
                       >
@@ -1104,7 +1104,7 @@ export default function CampaignTable({
                         onClick={() => onStatusFilter(v)}
                         className={`px-2 py-0.5 rounded-full text-[12px] font-medium transition ${
                           statusFilter === v
-                            ? "bg-emerald-600 text-white"
+                            ? "bg-[var(--brand)] text-white"
                             : "bg-zinc-800 text-zinc-400 hover:bg-zinc-800"
                         }`}
                       >

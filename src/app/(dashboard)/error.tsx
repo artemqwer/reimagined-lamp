@@ -33,13 +33,13 @@ export default function DashboardError({
         </div>
         <h2 className="text-[18px] font-bold text-zinc-100 mb-2">Something went wrong</h2>
         <p className="text-[13px] text-zinc-400 mb-3">This page hit an error while rendering.</p>
-        <pre className="text-[11px] text-zinc-400 glass rounded-lg p-3 mb-5 text-left overflow-auto max-h-40 whitespace-pre-wrap break-words">
+        <pre className="text-[11px] text-zinc-400 glass rounded-xl p-3 mb-5 text-left overflow-auto max-h-40 whitespace-pre-wrap break-words">
           {error.message}
           {error.digest ? `\n\ndigest: ${error.digest}` : ""}
         </pre>
         <button
           onClick={reset}
-          className="bg-emerald-600 hover:bg-emerald-700 text-white text-[13px] font-semibold px-5 py-2 rounded-xl transition"
+          className="bg-[var(--brand)] hover:brightness-110 text-white text-[13px] font-semibold px-5 py-2 rounded-xl transition"
         >
           Try again
         </button>

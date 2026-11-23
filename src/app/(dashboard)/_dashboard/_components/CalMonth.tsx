@@ -80,7 +80,7 @@ export default function CalMonth({
           onClick={() => !disabled && onDayClick(ts)}
           onMouseEnter={() => !disabled && onDayHover(ts)}
           className={`w-8 h-8 text-[12px] rounded-full flex items-center justify-center relative z-10 transition leading-none
-            ${isStart || isEnd ? "bg-emerald-600 text-white font-semibold shadow-sm" : ""}
+            ${isStart || isEnd ? "bg-[var(--brand)] text-white font-semibold shadow-sm" : ""}
             ${inRange && !isStart && !isEnd ? "text-[var(--brand-fg)] hover:bg-emerald-500/10" : ""}
             ${!inRange && !isStart && !isEnd ? (disabled ? "text-zinc-600 cursor-not-allowed" : isWknd ? "text-emerald-400 hover:bg-emerald-500/10 cursor-pointer" : "text-zinc-300 hover:bg-zinc-800 cursor-pointer") : ""}
           `}

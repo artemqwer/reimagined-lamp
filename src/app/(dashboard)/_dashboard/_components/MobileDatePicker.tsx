@@ -222,7 +222,7 @@ export default function MobileDatePicker({
                         }}
                         className={`py-3 rounded-2xl text-[14px] font-medium transition ${
                           isActive
-                            ? "bg-emerald-600 text-white shadow-md shadow-emerald-200"
+                            ? "bg-[var(--brand)] text-white shadow-md shadow-emerald-200"
                             : isFuture
                               ? "text-zinc-600 cursor-not-allowed"
                               : "text-zinc-300 hover:bg-emerald-500/10 hover:text-[var(--brand-fg)]"
@@ -315,7 +315,7 @@ export default function MobileDatePicker({
                 // Keep active cross-filters when only the period changes.
               }
             }}
-            className="flex-1 py-3 text-[14px] bg-emerald-600 text-white rounded-2xl font-bold hover:bg-emerald-700 disabled:bg-zinc-800 disabled:text-zinc-500 transition-all"
+            className="flex-1 py-3 text-[14px] bg-[var(--brand)] text-white rounded-2xl font-bold hover:brightness-110 disabled:bg-zinc-800 disabled:text-zinc-500 transition-all"
           >
             Apply Period
           </button>

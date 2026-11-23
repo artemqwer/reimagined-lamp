@@ -232,7 +232,7 @@ function EditModal({ user, onClose, onSave, onDelete }: EditModalProps) {
           </div>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-lg flex items-center justify-center text-zinc-500 hover:bg-zinc-800 transition"
+            className="w-8 h-8 rounded-xl flex items-center justify-center text-zinc-500 hover:bg-zinc-800 transition"
           >
             <svg
               width="14"
@@ -298,7 +298,7 @@ function EditModal({ user, onClose, onSave, onDelete }: EditModalProps) {
           <button
             type="button"
             onClick={() => setIsAdmin((v) => !v)}
-            className="w-full flex items-center justify-between gap-3 border border-zinc-800 rounded-lg px-3 py-2.5 hover:bg-zinc-800/60 transition"
+            className="w-full flex items-center justify-between gap-3 border border-zinc-800 rounded-xl px-3 py-2.5 hover:bg-zinc-800/60 transition"
           >
             <div className="flex items-center gap-2 text-left">
               <svg
@@ -362,7 +362,7 @@ function EditModal({ user, onClose, onSave, onDelete }: EditModalProps) {
               <button
                 onClick={save}
                 disabled={busy}
-                className="flex-1 text-[13px] font-medium bg-emerald-600 hover:bg-emerald-700 text-white py-2 rounded-xl transition disabled:opacity-50"
+                className="flex-1 text-[13px] font-medium bg-[var(--brand)] hover:brightness-110 text-white py-2 rounded-xl transition disabled:opacity-50"
               >
                 {busy ? "Saving…" : "Save"}
               </button>
@@ -374,7 +374,7 @@ function EditModal({ user, onClose, onSave, onDelete }: EditModalProps) {
   );
 }
 const inputCls =
-  "w-full border border-zinc-800 rounded-lg px-3 py-2 text-[13px] text-zinc-300 outline-none focus:border-emerald-400";
+  "w-full border border-zinc-800 rounded-xl px-3 py-2 text-[13px] text-zinc-300 outline-none focus:border-emerald-400";
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
@@ -574,7 +574,7 @@ function QuestionList({
       <button
         type="button"
         onClick={add}
-        className="flex items-center gap-1.5 text-[12px] text-[var(--brand-fg)] hover:text-[var(--brand-fg)] border border-dashed border-emerald-500/20 rounded-lg px-3 py-1.5 w-full justify-center hover:bg-emerald-500/10 transition"
+        className="flex items-center gap-1.5 text-[12px] text-[var(--brand-fg)] hover:text-[var(--brand-fg)] border border-dashed border-emerald-500/20 rounded-xl px-3 py-1.5 w-full justify-center hover:bg-emerald-500/10 transition"
       >
         <svg
           width="12"
@@ -681,7 +681,7 @@ function PromptEditor({
           </h2>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-lg flex items-center justify-center text-zinc-500 hover:bg-zinc-800 transition"
+            className="w-8 h-8 rounded-xl flex items-center justify-center text-zinc-500 hover:bg-zinc-800 transition"
           >
             <svg
               width="14"
@@ -743,7 +743,7 @@ function PromptEditor({
           <button
             type="button"
             onClick={() => setActive((v) => !v)}
-            className="w-full flex items-center justify-between gap-3 border border-zinc-800 rounded-lg px-3 py-2.5 hover:bg-zinc-800/60 transition"
+            className="w-full flex items-center justify-between gap-3 border border-zinc-800 rounded-xl px-3 py-2.5 hover:bg-zinc-800/60 transition"
           >
             <div className="text-left">
               <p className="text-[13px] font-medium text-zinc-300">Active</p>
@@ -787,7 +787,7 @@ function PromptEditor({
           <button
             onClick={save}
             disabled={busy}
-            className="flex-1 text-[13px] font-medium bg-emerald-600 hover:bg-emerald-700 text-white py-2 rounded-xl transition disabled:opacity-50"
+            className="flex-1 text-[13px] font-medium bg-[var(--brand)] hover:brightness-110 text-white py-2 rounded-xl transition disabled:opacity-50"
           >
             {busy ? "Saving…" : "Save"}
           </button>
@@ -915,7 +915,7 @@ function PromptsPanel({ showToast }: { showToast: (t: "success" | "error", s: st
           )}
           <button
             onClick={() => setEdit("new")}
-            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-[13px] font-semibold px-3.5 py-2 rounded-xl transition"
+            className="flex items-center gap-2 bg-[var(--brand)] hover:brightness-110 text-white text-[13px] font-semibold px-3.5 py-2 rounded-xl transition"
           >
             <svg
               width="14"
@@ -1006,7 +1006,7 @@ function PromptsPanel({ showToast }: { showToast: (t: "success" | "error", s: st
                         e.stopPropagation();
                         activate(p.id);
                       }}
-                      className="text-[12px] font-medium text-[var(--brand-fg)] border border-emerald-500/20 rounded-lg px-2.5 py-1 hover:bg-emerald-500/10 transition shrink-0"
+                      className="text-[12px] font-medium text-[var(--brand-fg)] border border-emerald-500/20 rounded-xl px-2.5 py-1 hover:bg-emerald-500/10 transition shrink-0"
                     >
                       Activate
                     </button>
@@ -1278,7 +1278,7 @@ export default function AdminPage() {
         </div>
         <button
           onClick={exportCSV}
-          className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-[13px] font-semibold px-4 py-2 rounded-xl transition"
+          className="flex items-center gap-2 bg-[var(--brand)] hover:brightness-110 text-white text-[13px] font-semibold px-4 py-2 rounded-xl transition"
         >
           <svg
             width="15"
@@ -1380,7 +1380,7 @@ export default function AdminPage() {
           className="ml-auto shrink-0 flex items-center gap-2 whitespace-nowrap pb-2.5 text-[13px] font-medium text-zinc-400 hover:text-zinc-300 disabled:opacity-50"
         >
           <span
-            className={`relative inline-flex h-5 w-9 items-center rounded-full transition ${regEnabled ? "bg-emerald-600" : "bg-zinc-700"}`}
+            className={`relative inline-flex h-5 w-9 items-center rounded-full transition ${regEnabled ? "bg-[var(--brand)]" : "bg-zinc-700"}`}
           >
             <span
               className={`inline-block h-4 w-4 transform rounded-full bg-zinc-900 shadow transition ${regEnabled ? "translate-x-4" : "translate-x-0.5"}`}
@@ -1404,7 +1404,7 @@ export default function AdminPage() {
           className="shrink-0 flex items-center gap-2 whitespace-nowrap pb-2.5 text-[13px] font-medium text-zinc-400 hover:text-zinc-300"
         >
           <span
-            className={`relative inline-flex h-5 w-9 items-center rounded-full transition ${mockMode ? "bg-emerald-600" : "bg-zinc-700"}`}
+            className={`relative inline-flex h-5 w-9 items-center rounded-full transition ${mockMode ? "bg-[var(--brand)]" : "bg-zinc-700"}`}
           >
             <span
               className={`inline-block h-4 w-4 transform rounded-full bg-zinc-900 shadow transition ${mockMode ? "translate-x-4" : "translate-x-0.5"}`}
@@ -1815,7 +1815,7 @@ export default function AdminPage() {
                 <button
                   onClick={() => setPage((p) => Math.max(1, p - 1))}
                   disabled={curPage === 1}
-                  className="flex items-center gap-1 text-[12px] text-zinc-400 border border-zinc-800 rounded-lg px-2.5 py-1.5 hover:bg-zinc-800/60 disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="flex items-center gap-1 text-[12px] text-zinc-400 border border-zinc-800 rounded-xl px-2.5 py-1.5 hover:bg-zinc-800/60 disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   ‹ Previous
                 </button>
@@ -1823,7 +1823,7 @@ export default function AdminPage() {
                   <button
                     key={p}
                     onClick={() => setPage(p)}
-                    className={`w-8 h-8 rounded-lg text-[12px] font-medium transition ${p === curPage ? "bg-emerald-600 text-white" : "text-zinc-400 border border-zinc-800 hover:bg-zinc-800/60"}`}
+                    className={`w-8 h-8 rounded-xl text-[12px] font-medium transition ${p === curPage ? "bg-[var(--brand)] text-white" : "text-zinc-400 border border-zinc-800 hover:bg-zinc-800/60"}`}
                   >
                     {p}
                   </button>
@@ -1831,7 +1831,7 @@ export default function AdminPage() {
                 <button
                   onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                   disabled={curPage === totalPages}
-                  className="flex items-center gap-1 text-[12px] text-zinc-400 border border-zinc-800 rounded-lg px-2.5 py-1.5 hover:bg-zinc-800/60 disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="flex items-center gap-1 text-[12px] text-zinc-400 border border-zinc-800 rounded-xl px-2.5 py-1.5 hover:bg-zinc-800/60 disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   Next ›
                 </button>

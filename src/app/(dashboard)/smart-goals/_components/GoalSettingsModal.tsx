@@ -120,7 +120,7 @@ function GoalRow({
             title="Pick color"
           />
           {pickerOpen && goal.enabled && (
-            <div className="absolute left-0 top-6 z-50 glass rounded-lg p-2 shadow-lg flex gap-1.5">
+            <div className="absolute left-0 top-6 z-50 glass rounded-xl p-2 shadow-lg flex gap-1.5">
               {COLOR_PALETTE.map((c) => (
                 <button
                   key={c}
@@ -168,7 +168,7 @@ function GoalRow({
                 })
               }
               placeholder={def.format === "ratio" ? "3.5" : "10000"}
-              className={`w-32 bg-zinc-900 border rounded-lg px-2.5 py-1.5 text-[13px] tabular-nums focus:outline-none transition ${
+              className={`w-32 bg-zinc-900 border rounded-xl px-2.5 py-1.5 text-[13px] tabular-nums focus:outline-none transition ${
                 error
                   ? "border-red-300 focus:border-red-400"
                   : "border-zinc-800 focus:border-emerald-400"
@@ -371,7 +371,7 @@ export default function GoalSettingsModal({
                   value={draft.marginPct}
 
                   onChange={(e) => setDraft((d) => ({ ...d, marginPct: Number(e.target.value) }))}
-                  className="w-24 glass rounded-lg px-2.5 py-1.5 text-[13px] tabular-nums focus:outline-none focus:border-emerald-400"
+                  className="w-24 glass rounded-xl px-2.5 py-1.5 text-[13px] tabular-nums focus:outline-none focus:border-emerald-400"
                 />
                 <span className="text-[13px] text-zinc-400">%</span>
               </div>
@@ -399,7 +399,7 @@ export default function GoalSettingsModal({
           </div>
 
           {validation.formErrors.length > 0 && (
-            <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg px-3 py-2">
+            <div className="bg-amber-500/10 border border-amber-500/20 rounded-xl px-3 py-2">
               {validation.formErrors.map((e) => (
                 <p key={e} className="text-[12px] text-amber-700">
                   {e}
@@ -408,7 +408,7 @@ export default function GoalSettingsModal({
             </div>
           )}
           {saveError && (
-            <div className="bg-red-500/10 border border-red-500/20 rounded-lg px-3 py-2">
+            <div className="bg-red-500/10 border border-red-500/20 rounded-xl px-3 py-2">
               <p className="text-[12px] text-red-600">{saveError}</p>
             </div>
           )}
@@ -425,7 +425,7 @@ export default function GoalSettingsModal({
           <button
             onClick={() => onSave(draft)}
             disabled={!validation.canSave || saving}
-            className="px-4 py-2 rounded-lg bg-emerald-600 text-white text-[13px] font-semibold hover:bg-emerald-700 disabled:opacity-40 disabled:cursor-not-allowed transition"
+            className="px-4 py-2 rounded-xl bg-[var(--brand)] text-white text-[13px] font-semibold hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed transition"
           >
             {saving ? "Saving…" : "Save changes"}
           </button>

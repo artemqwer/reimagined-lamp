@@ -257,7 +257,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           {onDashboard && (
             <div
               onClick={() => window.dispatchEvent(new CustomEvent("open-date-picker"))}
-              className="flex items-center gap-1.5 text-[12px] text-zinc-400 glass rounded-lg px-2.5 py-1.5 cursor-pointer active:bg-zinc-900 transition-colors"
+              className="flex items-center gap-1.5 text-[12px] text-zinc-400 glass rounded-xl px-2.5 py-1.5 cursor-pointer active:bg-zinc-900 transition-colors"
             >
               <svg
                 width="13"

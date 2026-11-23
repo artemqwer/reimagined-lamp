@@ -206,7 +206,7 @@ export default function WindsorConnectCard({
           <button
             onClick={startConnect}
             disabled={connecting}
-            className="inline-flex items-center gap-2 text-white text-[12px] font-semibold px-4 py-2 rounded-xl transition shrink-0 disabled:opacity-90 bg-emerald-600 hover:bg-emerald-700 shadow-sm"
+            className="inline-flex items-center gap-2 text-white text-[12px] font-semibold px-4 py-2 rounded-xl transition shrink-0 disabled:opacity-90 bg-[var(--brand)] hover:brightness-110 shadow-sm"
           >
             {connecting ? (
               <>

@@ -233,7 +233,7 @@ function GoalCard({
       <div className="flex flex-wrap items-center gap-x-1.5 sm:gap-x-2 gap-y-1 pr-5 sm:pr-6 mb-2 sm:mb-3">
         <span
           aria-hidden
-          className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg sm:rounded-[14px] flex items-center justify-center text-[11px] sm:text-[13px] font-bold shrink-0"
+          className="w-6 h-6 sm:w-7 sm:h-7 rounded-xl sm:rounded-[14px] flex items-center justify-center text-[11px] sm:text-[13px] font-bold shrink-0"
           style={{ background: `${barColor}14`, color: barColor }}
         >
           {glyphFor(def)}

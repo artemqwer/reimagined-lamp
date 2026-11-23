@@ -37,7 +37,7 @@ const densityStore = prefStore<Density>("mf_density", "comfort");
 const bgStore = prefStore<BgStyle>("mf_bg", "aurora");
 
 const SEG =
-  "flex-1 text-center px-2 py-1.5 rounded-lg text-[11.5px] font-medium transition cursor-pointer";
+  "flex-1 text-center px-2 py-1.5 rounded-xl text-[11.5px] font-medium transition cursor-pointer";
 
 // Workspace preferences: accent, density, background — all live via data-attributes.
 export default function PreferencesMenu() {

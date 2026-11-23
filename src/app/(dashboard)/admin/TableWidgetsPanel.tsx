@@ -10,7 +10,7 @@ import {
 } from "@/lib/connectors";
 
 const inputCls =
-  "w-full border border-zinc-800 rounded-lg px-3 py-2 text-[13px] text-zinc-300 outline-none focus:border-emerald-400";
+  "w-full border border-zinc-800 rounded-xl px-3 py-2 text-[13px] text-zinc-300 outline-none focus:border-emerald-400";
 
 let nextId = 0;
 const makeId = () => `tbl_${Date.now()}_${nextId++}`;
@@ -124,7 +124,7 @@ function TableEditor({
             return (
               <span
                 key={key}
-                className="flex items-center gap-1 text-[12px] glass rounded-lg px-2 py-1"
+                className="flex items-center gap-1 text-[12px] glass rounded-xl px-2 py-1"
               >
                 {d?.singular ?? key}
                 <button
@@ -161,7 +161,7 @@ function TableEditor({
                     additionalDimensions: [...table.additionalDimensions, e.target.value],
                   });
               }}
-              className="text-[12px] border border-dashed border-emerald-500/20 text-[var(--brand-fg)] rounded-lg px-2 py-1 bg-zinc-900 cursor-pointer"
+              className="text-[12px] border border-dashed border-emerald-500/20 text-[var(--brand-fg)] rounded-xl px-2 py-1 bg-zinc-900 cursor-pointer"
             >
               <option value="">+ Add dimension</option>
               {availableDims.map((d) => (
@@ -176,7 +176,7 @@ function TableEditor({
 
       <div>
         <label className="text-[12px] font-medium text-zinc-400 block mb-1.5">Metric Columns</label>
-        <div className="card-elevate rounded-lg divide-y divide-gray-50">
+        <div className="card-elevate rounded-xl divide-y divide-gray-50">
           {visibleMetricRows.length === 0 && (
             <p className="px-3 py-3 text-[12px] text-zinc-500">No columns yet — add one below.</p>
           )}
@@ -231,7 +231,7 @@ function TableEditor({
                 <button
                   key={r.key}
                   onClick={() => toggleMetric(r.key)}
-                  className="text-[11px] font-medium text-[var(--brand-fg)] border border-dashed border-emerald-500/20 rounded-lg px-2 py-1 hover:bg-emerald-500/10"
+                  className="text-[11px] font-medium text-[var(--brand-fg)] border border-dashed border-emerald-500/20 rounded-xl px-2 py-1 hover:bg-emerald-500/10"
                 >
                   + {r.label}
                 </button>
@@ -245,11 +245,11 @@ function TableEditor({
         <button
           type="button"
           onClick={() => onChange({ ...table, crossFiltering: !table.crossFiltering })}
-          className="flex items-center justify-between gap-3 border border-zinc-800 rounded-lg px-3 py-2 hover:bg-zinc-800/60 transition bg-zinc-900"
+          className="flex items-center justify-between gap-3 border border-zinc-800 rounded-xl px-3 py-2 hover:bg-zinc-800/60 transition bg-zinc-900"
         >
           <span className="text-[13px] font-medium text-zinc-300">Cross-filtering</span>
           <span
-            className={`w-9 h-5 rounded-full p-0.5 transition shrink-0 ${table.crossFiltering ? "bg-emerald-600" : "bg-zinc-800"}`}
+            className={`w-9 h-5 rounded-full p-0.5 transition shrink-0 ${table.crossFiltering ? "bg-[var(--brand)]" : "bg-zinc-800"}`}
           >
             <span
               className={`block w-4 h-4 rounded-full bg-zinc-900 transition-transform ${table.crossFiltering ? "translate-x-4" : ""}`}
@@ -404,7 +404,7 @@ export default function TableWidgetsPanel({
                   value={t.name}
                   onClick={(e) => e.stopPropagation()}
                   onChange={(e) => rename(t.id, e.target.value)}
-                  className={`w-full text-[13px] border border-transparent hover:border-zinc-800 focus:border-emerald-400 rounded-lg px-2 py-1 outline-none ${t.enabled ? "text-zinc-200" : "text-zinc-500 line-through"}`}
+                  className={`w-full text-[13px] border border-transparent hover:border-zinc-800 focus:border-emerald-400 rounded-xl px-2 py-1 outline-none ${t.enabled ? "text-zinc-200" : "text-zinc-500 line-through"}`}
                 />
               </button>
               <button
@@ -444,7 +444,7 @@ export default function TableWidgetsPanel({
       <div className="px-5 py-3.5">
         <button
           onClick={add}
-          className="flex items-center gap-1.5 text-[12px] font-semibold text-[var(--brand-fg)] border border-dashed border-emerald-500/20 rounded-lg px-3 py-1.5 hover:bg-emerald-500/10 transition"
+          className="flex items-center gap-1.5 text-[12px] font-semibold text-[var(--brand-fg)] border border-dashed border-emerald-500/20 rounded-xl px-3 py-1.5 hover:bg-emerald-500/10 transition"
         >
           <svg
             width="12"

@@ -125,7 +125,7 @@ function ExploreButton({ onClick }: { onClick: () => void }) {
   return (
     <button
       onClick={onClick}
-      className="mt-2.5 inline-flex items-center gap-1.5 text-[12px] font-medium text-[#A1A1AA] glass hover:bg-zinc-800/60 rounded-lg px-3 py-1.5 transition"
+      className="mt-2.5 inline-flex items-center gap-1.5 text-[12px] font-medium text-[#A1A1AA] glass hover:bg-zinc-800/60 rounded-xl px-3 py-1.5 transition"
     >
       <svg
         width="14"
@@ -160,13 +160,13 @@ function AnalysisBlocks({ rec }: { rec: Recommendation }) {
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
-        <div className="rounded-xl bg-zinc-900/60 border border-zinc-700/50 px-3 py-2">
+        <div className="rounded-xl bg-zinc-800/50 border border-zinc-700/60 px-3 py-2">
           <p className="text-[10px] font-bold text-[#71717A] uppercase tracking-wider mb-0.5">
             Current state
           </p>
           <p className="text-[12px] text-[#F4F4F5] font-medium">{rec.currentState}</p>
         </div>
-        <div className="rounded-xl bg-zinc-900/60 border border-zinc-700/50 px-3 py-2">
+        <div className="rounded-xl bg-zinc-800/50 border border-zinc-700/60 px-3 py-2">
           <p className="text-[10px] font-bold text-[#71717A] uppercase tracking-wider mb-0.5">
             Expected result
           </p>
@@ -285,7 +285,7 @@ export default function RecommendationCard({
             </span>
             <button
               onClick={onRestore}
-              className="px-3.5 py-1 text-[12px] font-semibold text-[var(--brand)] bg-[rgba(59,130,246,0.12)] border border-blue-500/25 rounded-lg hover:bg-emerald-500/10 transition"
+              className="px-3.5 py-1 text-[12px] font-semibold text-[var(--brand)] bg-[rgba(59,130,246,0.12)] border border-blue-500/25 rounded-xl hover:bg-emerald-500/10 transition"
             >
               Restore
             </button>
@@ -354,7 +354,7 @@ export default function RecommendationCard({
           </p>
           <p className="text-[12px] text-[#A1A1AA] mt-0.5">{rec.detail}</p>
         </div>
-        <div className="text-right shrink-0 bg-emerald-500/10 border border-emerald-500/25 rounded-lg px-2.5 py-1">
+        <div className="text-right shrink-0 bg-emerald-500/10 border border-emerald-500/25 rounded-xl px-2.5 py-1">
           <p className="text-[10px] font-bold text-[#71717A] uppercase tracking-wider">Impact</p>
           <p className="text-[13px] font-bold text-[var(--brand)]">
             +{impact}
@@ -370,13 +370,13 @@ export default function RecommendationCard({
       <div className="flex justify-end gap-2 mt-3">
         <button
           onClick={onDismiss}
-          className="px-3 py-1.5 rounded-lg border border-zinc-800 text-[12px] font-medium text-[#71717A] hover:bg-zinc-800/60 transition"
+          className="px-3 py-1.5 rounded-xl border border-zinc-800 text-[12px] font-medium text-[#71717A] hover:bg-zinc-800/60 transition"
         >
           Dismiss
         </button>
         <button
           onClick={onComplete}
-          className="px-3.5 py-1.5 rounded-lg bg-violet-500/14 text-[12px] font-medium text-violet-400 hover:bg-violet-500/20 transition"
+          className="px-3.5 py-1.5 rounded-xl bg-violet-500/14 text-[12px] font-medium text-violet-400 hover:bg-violet-500/20 transition"
         >
           Completed
         </button>

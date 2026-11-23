@@ -221,7 +221,7 @@ export default function GoalProgressChart({
                 if (!active || !payload?.length) return null;
                 const p = payload[0].payload as SeriesPoint;
                 return (
-                  <div className="glass rounded-lg shadow-md px-2.5 py-2 text-[11px]">
+                  <div className="glass rounded-xl shadow-md px-2.5 py-2 text-[11px]">
                     <p className="font-semibold text-zinc-300 mb-1">{formatBucket(p.key)}</p>
                     <p className="text-zinc-400">
                       {def.label}:{" "}

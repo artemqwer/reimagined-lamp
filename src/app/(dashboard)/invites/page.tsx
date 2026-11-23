@@ -78,7 +78,7 @@ export default function InvitesPage() {
           {invites.map((inv) => (
             <div key={inv.from_id} className="card-elevate rounded-2xl shadow-sm p-5">
               <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-full bg-emerald-600 flex items-center justify-center text-white text-[14px] font-bold shrink-0">
+                <div className="w-11 h-11 rounded-full bg-[var(--brand)] flex items-center justify-center text-white text-[14px] font-bold shrink-0">
                   {inv.from_name.slice(0, 2).toUpperCase()}
                 </div>
                 <div className="flex-1 min-w-0">
@@ -105,7 +105,7 @@ export default function InvitesPage() {
                 <button
                   onClick={() => handleRespond(inv.from_id, "accept")}
                   disabled={responding === inv.from_id}
-                  className="flex-1 text-[13px] font-medium bg-emerald-600 hover:bg-emerald-700 text-white py-2 rounded-xl transition disabled:opacity-50 flex items-center justify-center gap-2"
+                  className="flex-1 text-[13px] font-medium bg-[var(--brand)] hover:brightness-110 text-white py-2 rounded-xl transition disabled:opacity-50 flex items-center justify-center gap-2"
                 >
                   {responding === inv.from_id && (
                     <div className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />

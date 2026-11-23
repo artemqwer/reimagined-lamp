@@ -529,7 +529,7 @@ export default function TabContent({
                         <button
                           key={mode}
                           onClick={() => setChartMode(mode)}
-                          className={`px-3 py-1.5 rounded-lg text-[12.5px] font-medium transition ${
+                          className={`px-3 py-1.5 rounded-xl text-[12.5px] font-medium transition ${
                             chartMode === mode
                               ? "bg-zinc-900 text-[var(--brand-fg)] shadow-sm"
                               : "text-zinc-400 hover:text-zinc-200"
@@ -553,7 +553,7 @@ export default function TabContent({
                         <button
                           key={s}
                           onClick={() => setChartScale(s)}
-                          className={`w-7 py-1.5 rounded-lg text-[12px] font-semibold transition ${
+                          className={`w-7 py-1.5 rounded-xl text-[12px] font-semibold transition ${
                             chartScale === s
                               ? "bg-zinc-900 text-[var(--brand-fg)] shadow-sm"
                               : "text-zinc-500 hover:text-zinc-300"

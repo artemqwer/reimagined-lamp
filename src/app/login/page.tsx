@@ -112,10 +112,10 @@ export default function LoginPage() {
   };
 
   const fieldClass = (field: keyof Errors, extra = "") =>
-    `w-full py-2.5 text-[14px] border rounded-lg outline-none transition text-zinc-300 placeholder-zinc-600 ${extra} ${
+    `w-full py-2.5 text-[14px] border rounded-xl outline-none transition text-zinc-300 placeholder-zinc-600 ${extra} ${
       touched[field] && errors[field]
         ? "border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-500/20"
-        : "border-zinc-800 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+        : "border-zinc-800 focus:border-[var(--brand)] focus:ring-2 focus:ring-emerald-500/20"
     }`;
 
   return (
@@ -139,7 +139,7 @@ export default function LoginPage() {
           className="card-elevate rounded-2xl p-5 sm:p-8 w-full max-w-[400px]"
         >
           {mfaError && (
-            <div className="mb-4 px-3 py-2.5 bg-red-500/10 border border-red-500/20 rounded-lg text-[13px] text-red-600 flex items-center gap-2">
+            <div className="mb-4 px-3 py-2.5 bg-red-500/10 border border-red-500/20 rounded-xl text-[13px] text-red-600 flex items-center gap-2">
               <svg
                 width="14"
                 height="14"
@@ -164,12 +164,12 @@ export default function LoginPage() {
             inputMode="numeric"
             autoFocus
             placeholder="000000"
-            className="w-full text-center tracking-[0.5em] text-[20px] font-semibold border border-zinc-800 rounded-lg py-3 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 mb-4"
+            className="w-full text-center tracking-[0.5em] text-[20px] font-semibold border border-zinc-800 rounded-xl py-3 outline-none focus:border-[var(--brand)] focus:ring-2 focus:ring-emerald-500/20 mb-4"
           />
           <button
             type="submit"
             disabled={mfaBusy || mfaCode.length < 6}
-            className="w-full bg-emerald-600 hover:bg-emerald-700 disabled:bg-emerald-400 text-white font-medium text-[15px] py-2.5 rounded-lg flex items-center justify-center gap-2 transition mb-3"
+            className="w-full bg-[var(--brand)] hover:brightness-110 disabled:opacity-40 text-white font-medium text-[15px] py-2.5 rounded-xl flex items-center justify-center gap-2 transition mb-3"
           >
             {mfaBusy ? (
               <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -196,7 +196,7 @@ export default function LoginPage() {
           className="card-elevate rounded-2xl p-5 sm:p-8 w-full max-w-[400px]"
         >
           {serverError && (
-            <div className="mb-4 px-3 py-2.5 bg-red-500/10 border border-red-500/20 rounded-lg text-[13px] text-red-600 flex items-center gap-2">
+            <div className="mb-4 px-3 py-2.5 bg-red-500/10 border border-red-500/20 rounded-xl text-[13px] text-red-600 flex items-center gap-2">
               <svg
                 width="14"
                 height="14"
@@ -349,7 +349,9 @@ export default function LoginPage() {
               <div
                 onClick={() => setRememberMe(!rememberMe)}
                 className={`w-4 h-4 border rounded flex items-center justify-center ${
-                  rememberMe ? "bg-emerald-600 border-emerald-600" : "border-zinc-700 bg-zinc-900"
+                  rememberMe
+                    ? "bg-[var(--brand)] border-[var(--brand)]"
+                    : "border-zinc-700 bg-zinc-900"
                 }`}
               >
                 {rememberMe && (
@@ -377,7 +379,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 disabled:bg-emerald-400 text-white font-medium text-[15px] py-2.5 rounded-lg flex items-center justify-center gap-2 transition mb-5"
+            className="w-full bg-[var(--brand)] hover:brightness-110 active:brightness-95 disabled:opacity-40 text-white font-medium text-[15px] py-2.5 rounded-xl flex items-center justify-center gap-2 transition mb-5"
           >
             {loading ? (
               <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />

@@ -160,7 +160,7 @@ export default function ResetPasswordPage() {
             className="card-elevate rounded-2xl p-5 sm:p-8 w-full max-w-100"
           >
             {serverError && (
-              <div className="mb-4 px-3 py-2.5 bg-red-500/10 border border-red-500/20 rounded-lg text-[13px] text-red-600 flex items-center gap-2">
+              <div className="mb-4 px-3 py-2.5 bg-red-500/10 border border-red-500/20 rounded-xl text-[13px] text-red-600 flex items-center gap-2">
                 <svg
                   width="14"
                   height="14"
@@ -207,10 +207,10 @@ export default function ResetPasswordPage() {
                     setEmailError(validateEmail(email));
                   }}
                   placeholder="john@company.com"
-                  className={`w-full pl-9 pr-4 py-2.5 text-[14px] border rounded-lg outline-none transition text-zinc-300 placeholder-zinc-600 ${
+                  className={`w-full pl-9 pr-4 py-2.5 text-[14px] border rounded-xl outline-none transition text-zinc-300 placeholder-zinc-600 ${
                     emailTouched && emailError
                       ? "border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-500/20"
-                      : "border-zinc-800 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+                      : "border-zinc-800 focus:border-[var(--brand)] focus:ring-2 focus:ring-emerald-500/20"
                   }`}
                 />
               </div>
@@ -236,7 +236,7 @@ export default function ResetPasswordPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 disabled:bg-emerald-400 text-white font-medium text-[15px] py-2.5 rounded-lg flex items-center justify-center gap-2 transition mb-5"
+              className="w-full bg-[var(--brand)] hover:brightness-110 active:brightness-95 disabled:opacity-40 text-white font-medium text-[15px] py-2.5 rounded-xl flex items-center justify-center gap-2 transition mb-5"
             >
               {loading ? (
                 <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -275,7 +275,7 @@ export default function ResetPasswordPage() {
 
           <div className="card-elevate rounded-2xl p-5 sm:p-8 w-full max-w-100">
             {(serverError || codeError) && (
-              <div className="mb-4 px-3 py-2.5 bg-red-500/10 border border-red-500/20 rounded-lg text-[13px] text-red-600 flex items-center gap-2">
+              <div className="mb-4 px-3 py-2.5 bg-red-500/10 border border-red-500/20 rounded-xl text-[13px] text-red-600 flex items-center gap-2">
                 <svg
                   width="14"
                   height="14"
@@ -307,7 +307,7 @@ export default function ResetPasswordPage() {
                   onKeyDown={(e) => handleCodeKeyDown(i, e)}
                   className={`w-9 h-10 sm:w-10 sm:h-11 text-center text-[16px] sm:text-[18px] font-semibold border rounded-xl outline-none transition
                     ${digit ? "border-emerald-500 bg-emerald-500/10 text-[var(--brand-fg)]" : "border-zinc-800 text-zinc-300"}
-                    focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20`}
+                    focus:border-[var(--brand)] focus:ring-2 focus:ring-emerald-500/20`}
                 />
               ))}
             </div>
@@ -337,9 +337,9 @@ export default function ResetPasswordPage() {
             <button
               disabled={!isCodeComplete || verifying}
               onClick={handleConfirmCode}
-              className={`w-full font-medium text-[15px] py-2.5 rounded-lg flex items-center justify-center gap-2 transition mb-5 ${
+              className={`w-full font-medium text-[15px] py-2.5 rounded-xl flex items-center justify-center gap-2 transition mb-5 ${
                 isCodeComplete && !verifying
-                  ? "bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white"
+                  ? "bg-[var(--brand)] hover:brightness-110 active:bg-emerald-800 text-white"
                   : "bg-zinc-800 text-zinc-500 cursor-not-allowed"
               }`}
             >

@@ -406,7 +406,7 @@ export default function AiSidebar({
             <button
               onClick={() => setHistoryView((v) => !v)}
               title="Chat history"
-              className={`w-8 h-8 flex items-center justify-center rounded-lg transition ${historyView ? "bg-violet-500/10 text-violet-600" : "hover:bg-zinc-800 text-zinc-500"}`}
+              className={`w-8 h-8 flex items-center justify-center rounded-xl transition ${historyView ? "bg-violet-500/10 text-violet-600" : "hover:bg-zinc-800 text-zinc-500"}`}
             >
               <svg
                 width="16"
@@ -422,7 +422,7 @@ export default function AiSidebar({
             </button>
             <button
               onClick={onClose}
-              className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-zinc-800 text-zinc-500 transition"
+              className="w-8 h-8 flex items-center justify-center rounded-xl hover:bg-zinc-800 text-zinc-500 transition"
             >
               <svg
                 width="16"
@@ -542,7 +542,7 @@ export default function AiSidebar({
                           setConfirmDelete(s);
                         }}
                         title="Delete chat"
-                        className="w-6 h-6 flex items-center justify-center rounded-lg text-zinc-600 hover:text-red-400 hover:bg-red-500/10 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition shrink-0"
+                        className="w-6 h-6 flex items-center justify-center rounded-xl text-zinc-600 hover:text-red-400 hover:bg-red-500/10 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition shrink-0"
                       >
                         <svg
                           width="12"
@@ -688,7 +688,7 @@ export default function AiSidebar({
                 so it's always clear what the AI is answering. */}
                 {focusQuestion && (insightsLoading || insights.length > 0) && (
                   <div className="flex justify-end">
-                    <div className="max-w-[78%] bg-emerald-600 text-white rounded-2xl rounded-tr-sm px-4 py-3">
+                    <div className="max-w-[78%] bg-[var(--brand)] text-white rounded-2xl rounded-tr-sm px-4 py-3">
                       <p className="text-[13px] leading-relaxed">{focusQuestion}</p>
                     </div>
                   </div>
@@ -761,7 +761,7 @@ export default function AiSidebar({
                           </div>
                         )}
                         <div
-                          className={`max-w-[78%] ${msg.role === "assistant" ? "card-elevate rounded-2xl rounded-tl-sm" : "bg-emerald-600 text-white rounded-2xl rounded-tr-sm"} px-4 py-3`}
+                          className={`max-w-[78%] ${msg.role === "assistant" ? "card-elevate rounded-2xl rounded-tl-sm" : "bg-[var(--brand)] text-white rounded-2xl rounded-tr-sm"} px-4 py-3`}
                         >
                           {msg.role === "assistant" ? (
                             <>

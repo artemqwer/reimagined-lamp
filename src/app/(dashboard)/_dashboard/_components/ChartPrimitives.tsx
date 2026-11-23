@@ -74,7 +74,7 @@ export const ChartTooltip = ({
   const heading = dow ? `${label} (${dow})` : label;
   const fmtV = (v: number) => (isMoney ? fmtChartMoney(v) : fmtChartNum(v));
   return (
-    <div className="glass rounded-lg shadow-md px-2.5 py-2 text-[11px] max-w-50 sm:max-w-70">
+    <div className="glass rounded-xl shadow-md px-2.5 py-2 text-[11px] max-w-50 sm:max-w-70">
       <p className="font-semibold text-zinc-300 mb-1.5">{heading}</p>
       <div className="max-h-40 sm:max-h-none overflow-y-auto space-y-0.5">
         {nonZero.map((p) => (
@@ -170,7 +170,7 @@ export const AdTooltip = ({ active, payload, label, data }: any) => {
   const item = data.find((d: AdPerfItem) => d.date === label);
   if (!item) return null;
   return (
-    <div className="glass rounded-lg shadow-md px-3 py-2.5 text-[11px]">
+    <div className="glass rounded-xl shadow-md px-3 py-2.5 text-[11px]">
       <p className="font-semibold text-zinc-300 mb-1.5">{label}</p>
       <div className="flex justify-between gap-4">
         <span className="text-zinc-400">Conv. Value</span>
@@ -204,7 +204,7 @@ export const PlTooltip = ({ active, payload, label, data }: any) => {
   const item = data.find((d: PlItem) => d.date === label);
   if (!item) return null;
   return (
-    <div className="glass rounded-lg shadow-md px-3 py-2.5 text-[11px]">
+    <div className="glass rounded-xl shadow-md px-3 py-2.5 text-[11px]">
       <p className="font-semibold text-zinc-300 mb-1.5">{label}</p>
       <div className="flex justify-between gap-4">
         <span className="text-green-600">Cumulative</span>

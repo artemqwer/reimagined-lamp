@@ -1058,7 +1058,7 @@ export default function AiOptimizerPage() {
                 if (!st) return null;
                 return (
                   <span
-                    className="text-[12px] font-semibold rounded-lg px-2.5 py-0.5"
+                    className="text-[12px] font-semibold rounded-xl px-2.5 py-0.5"
                     style={{ color: st.fg, background: st.bg }}
                   >
                     {st.label}
@@ -1070,7 +1070,7 @@ export default function AiOptimizerPage() {
                   the old "Campaign" badge there is replaced by Potential Impact
                   below — so the type badge only shows for an open entity. */}
               {openEntity && entityTypes[openEntity] && (
-                <span className="text-[12px] font-semibold text-[var(--brand-fg)] bg-[rgba(59,130,246,0.14)] rounded-lg px-2.5 py-0.5">
+                <span className="text-[12px] font-semibold text-[var(--brand-fg)] bg-[rgba(59,130,246,0.14)] rounded-xl px-2.5 py-0.5">
                   {entityTypes[openEntity]}
                 </span>
               )}
@@ -1079,7 +1079,7 @@ export default function AiOptimizerPage() {
                   overview, one entity when opened), so the headline potential is
                   visible at a glance. */}
               {analysis && monthlyImpact > 0 && (
-                <span className="inline-flex items-center gap-1 text-[12px] font-semibold text-[var(--brand)] bg-emerald-500/10 border border-emerald-500/25 rounded-lg px-2.5 py-0.5">
+                <span className="inline-flex items-center gap-1 text-[12px] font-semibold text-[var(--brand)] bg-emerald-500/10 border border-emerald-500/25 rounded-xl px-2.5 py-0.5">
                   +{formatImpact(monthlyImpact, analysis.impactMetric)}{" "}
                   {analysis.impactMetricLabel.toLowerCase()}
                   {impactIsCumulative ? " / month" : ""}
@@ -1178,7 +1178,7 @@ export default function AiOptimizerPage() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder={`Search ${primaryNoun}…`}
-                className="w-full sm:w-64 border border-zinc-800 rounded-lg px-3 py-1.5 text-[13px] outline-none focus:border-emerald-400"
+                className="w-full sm:w-64 border border-zinc-800 rounded-xl px-3 py-1.5 text-[13px] outline-none focus:border-emerald-400"
               />
             </div>
 
@@ -1240,7 +1240,7 @@ export default function AiOptimizerPage() {
                   const optBadge = notEnough ? (
                     <span className="text-[12px] text-zinc-500">0</span>
                   ) : eff.count > 0 ? (
-                    <span className="inline-flex items-center gap-1 text-[12px] font-semibold text-violet-400 bg-violet-500/10 border border-violet-500/25 rounded-lg px-2 py-0.5">
+                    <span className="inline-flex items-center gap-1 text-[12px] font-semibold text-violet-400 bg-violet-500/10 border border-violet-500/25 rounded-xl px-2 py-0.5">
                       ✨ {eff.count}
                     </span>
                   ) : (

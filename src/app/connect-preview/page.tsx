@@ -237,7 +237,7 @@ export default function ConnectPreviewPage() {
                   value={apiKey}
                   onChange={(e) => setApiKey(e.target.value)}
                   placeholder="paste your Windsor workspace key (or set in env)"
-                  className="w-full text-[13px] border border-zinc-800 rounded-lg px-3 py-2 outline-none focus:border-emerald-400 bg-zinc-900 mb-4"
+                  className="w-full text-[13px] border border-zinc-800 rounded-xl px-3 py-2 outline-none focus:border-emerald-400 bg-zinc-900 mb-4"
                 />
 
                 <button

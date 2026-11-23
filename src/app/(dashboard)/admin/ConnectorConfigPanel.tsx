@@ -308,7 +308,7 @@ function ConfigList({
           <input
             value={r.label}
             onChange={(e) => rename(i, e.target.value)}
-            className={`flex-1 min-w-[8rem] text-[13px] border border-zinc-800 rounded-lg px-2.5 py-1.5 outline-none focus:border-emerald-400 ${r.visible ? "text-zinc-200" : "text-zinc-500 line-through"}`}
+            className={`flex-1 min-w-[8rem] text-[13px] border border-zinc-800 rounded-xl px-2.5 py-1.5 outline-none focus:border-emerald-400 ${r.visible ? "text-zinc-200" : "text-zinc-500 line-through"}`}
           />
           <div className="flex items-center gap-2 sm:gap-3 ml-auto shrink-0">
             {!r.primary &&
@@ -356,7 +356,7 @@ function ConfigList({
               <select
                 value={r.format ?? ""}
                 onChange={(e) => setFormat(i, e.target.value as ValueFormat)}
-                className="text-[11px] border border-zinc-800 rounded-lg px-2 py-1.5 outline-none bg-zinc-900 text-zinc-400 cursor-pointer shrink-0"
+                className="text-[11px] border border-zinc-800 rounded-xl px-2 py-1.5 outline-none bg-zinc-900 text-zinc-400 cursor-pointer shrink-0"
               >
                 <option value="">Default format</option>
                 {VALUE_FORMATS.map((f) => (
@@ -570,7 +570,7 @@ export default function ConnectorConfigPanel({
             <div key={id} className="flex items-center gap-0.5">
               <button
                 onClick={() => setSelected(id)}
-                className={`flex items-center gap-2 text-[13px] font-medium px-3 py-1.5 rounded-lg border transition ${isSel ? "border-emerald-300 bg-emerald-500/10 text-[var(--brand-fg)]" : "border-zinc-800 text-zinc-400 hover:bg-zinc-800/60"}`}
+                className={`flex items-center gap-2 text-[13px] font-medium px-3 py-1.5 rounded-xl border transition ${isSel ? "border-emerald-300 bg-emerald-500/10 text-[var(--brand-fg)]" : "border-zinc-800 text-zinc-400 hover:bg-zinc-800/60"}`}
               >
                 <span className="w-2.5 h-2.5 rounded-full" style={{ background: c.color }} />
                 {c.label}
@@ -603,7 +603,7 @@ export default function ConnectorConfigPanel({
         })}
         <button
           onClick={() => setEditingCustom("new")}
-          className="flex items-center gap-1.5 text-[12px] font-semibold text-[var(--brand-fg)] border border-dashed border-emerald-500/20 rounded-lg px-3 py-1.5 hover:bg-emerald-500/10 transition"
+          className="flex items-center gap-1.5 text-[12px] font-semibold text-[var(--brand-fg)] border border-dashed border-emerald-500/20 rounded-xl px-3 py-1.5 hover:bg-emerald-500/10 transition"
         >
           <svg
             width="12"
@@ -704,7 +704,7 @@ export default function ConnectorConfigPanel({
                   onChange={(e) => setOptimizerInstructions(e.target.value)}
                   rows={4}
                   placeholder="e.g. Lead with wasted spend on search terms and suggest negative keywords. Be direct and concise."
-                  className="w-full border border-zinc-800 rounded-lg px-3 py-2 text-[13px] text-zinc-300 outline-none focus:border-emerald-400 bg-zinc-900 resize-y"
+                  className="w-full border border-zinc-800 rounded-xl px-3 py-2 text-[13px] text-zinc-300 outline-none focus:border-emerald-400 bg-zinc-900 resize-y"
                 />
 
                 <p className="text-[11px] font-semibold text-zinc-400 mt-4 mb-1">
@@ -726,7 +726,7 @@ export default function ConnectorConfigPanel({
                             rs.map((r, j) => (j === i ? { ...r, metric: e.target.value } : r)),
                           )
                         }
-                        className="flex-1 min-w-0 border border-zinc-800 rounded-lg px-2 py-1.5 text-[12px] text-zinc-300 bg-zinc-900 outline-none focus:border-emerald-400 cursor-pointer"
+                        className="flex-1 min-w-0 border border-zinc-800 rounded-xl px-2 py-1.5 text-[12px] text-zinc-300 bg-zinc-900 outline-none focus:border-emerald-400 cursor-pointer"
                       >
                         {THRESHOLD_METRIC_KEYS.map((k) => (
                           <option key={k} value={k}>
@@ -743,7 +743,7 @@ export default function ConnectorConfigPanel({
                             ),
                           )
                         }
-                        className="w-14 border border-zinc-800 rounded-lg px-2 py-1.5 text-[13px] text-zinc-300 bg-zinc-900 outline-none focus:border-emerald-400 cursor-pointer text-center"
+                        className="w-14 border border-zinc-800 rounded-xl px-2 py-1.5 text-[13px] text-zinc-300 bg-zinc-900 outline-none focus:border-emerald-400 cursor-pointer text-center"
                       >
                         {THRESHOLD_OPS.map((o) => (
                           <option key={o.id} value={o.id}>
@@ -761,7 +761,7 @@ export default function ConnectorConfigPanel({
                             ),
                           )
                         }
-                        className="w-24 border border-zinc-800 rounded-lg px-2 py-1.5 text-[13px] text-zinc-300 bg-zinc-900 outline-none focus:border-emerald-400"
+                        className="w-24 border border-zinc-800 rounded-xl px-2 py-1.5 text-[13px] text-zinc-300 bg-zinc-900 outline-none focus:border-emerald-400"
                       />
                       <button
                         type="button"
@@ -814,7 +814,7 @@ export default function ConnectorConfigPanel({
                 else if (v.startsWith("widget:"))
                   setPrimaryTableSource({ type: "widget", widgetId: v.slice(7) });
               }}
-              className="w-full border border-zinc-800 rounded-lg px-3 py-2 text-[13px] text-zinc-300 outline-none focus:border-emerald-400 bg-zinc-900 cursor-pointer"
+              className="w-full border border-zinc-800 rounded-xl px-3 py-2 text-[13px] text-zinc-300 outline-none focus:border-emerald-400 bg-zinc-900 cursor-pointer"
             >
               <option value="">Default ({CONNECTORS[selected].primaryLabel} Performance)</option>
               {CONNECTORS[selected].dimensions
@@ -884,7 +884,7 @@ export default function ConnectorConfigPanel({
             <button
               onClick={save}
               disabled={saving}
-              className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-[13px] font-semibold px-4 py-2 rounded-xl transition disabled:opacity-50"
+              className="inline-flex items-center gap-2 bg-[var(--brand)] hover:brightness-110 text-white text-[13px] font-semibold px-4 py-2 rounded-xl transition disabled:opacity-50"
             >
               {saving && (
                 <span className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin" />

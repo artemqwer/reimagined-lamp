@@ -17,7 +17,7 @@ function Msg({ msg }: { msg: { type: "success" | "error"; text: string } | null 
   if (!msg) return null;
   return (
     <div
-      className={`mb-4 px-3 py-2.5 rounded-lg text-[13px] flex items-center gap-2 ${msg.type === "success" ? "bg-green-500/10 border border-green-500/20 text-green-700" : "bg-red-500/10 border border-red-500/20 text-red-600"}`}
+      className={`mb-4 px-3 py-2.5 rounded-xl text-[13px] flex items-center gap-2 ${msg.type === "success" ? "bg-green-500/10 border border-green-500/20 text-green-700" : "bg-red-500/10 border border-red-500/20 text-red-600"}`}
     >
       {msg.type === "success" ? (
         <svg
@@ -333,7 +333,7 @@ export default function ProfilePage() {
                 initials
               )}
             </div>
-            <div className="absolute bottom-0 right-0 w-8 h-8 bg-[var(--brand)] rounded-full flex items-center justify-center shadow hover:bg-emerald-700 transition border-2 border-white">
+            <div className="absolute bottom-0 right-0 w-8 h-8 bg-[var(--brand)] rounded-full flex items-center justify-center shadow hover:brightness-110 transition border-2 border-white">
               <svg
                 width="14"
                 height="14"
@@ -367,7 +367,7 @@ export default function ProfilePage() {
                 type="button"
                 onClick={() => fileInputRef.current?.click()}
                 disabled={avatarLoading}
-                className="text-[14px] px-4 h-[37px] bg-[var(--brand)] hover:bg-emerald-700 disabled:bg-emerald-400 text-white rounded-xl transition"
+                className="text-[14px] px-4 h-[37px] bg-[var(--brand)] hover:brightness-110 disabled:opacity-40 text-white rounded-xl transition"
               >
                 Upload new photo
               </button>
@@ -418,7 +418,7 @@ export default function ProfilePage() {
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                   placeholder="John"
-                  className="w-full h-11 pl-10 pr-4 text-[16px] border border-zinc-700/60 rounded-xl outline-none transition text-[#0a0a0a] placeholder-[#71717A] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
+                  className="w-full h-11 pl-10 pr-4 text-[16px] border border-zinc-700/60 rounded-xl outline-none transition text-[#0a0a0a] placeholder-[#71717A] focus:border-[var(--brand)] focus:ring-2 focus:ring-emerald-100"
                 />
               </div>
             </div>
@@ -443,7 +443,7 @@ export default function ProfilePage() {
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   placeholder="Doe"
-                  className="w-full h-11 pl-10 pr-4 text-[16px] border border-zinc-700/60 rounded-xl outline-none transition text-[#0a0a0a] placeholder-[#71717A] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
+                  className="w-full h-11 pl-10 pr-4 text-[16px] border border-zinc-700/60 rounded-xl outline-none transition text-[#0a0a0a] placeholder-[#71717A] focus:border-[var(--brand)] focus:ring-2 focus:ring-emerald-100"
                 />
               </div>
             </div>
@@ -494,7 +494,7 @@ export default function ProfilePage() {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="+1 (555) 123-4567"
-                  className="w-full h-11 pl-10 pr-4 text-[16px] border border-zinc-700/60 rounded-xl outline-none transition text-[#0a0a0a] placeholder-[#71717A] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
+                  className="w-full h-11 pl-10 pr-4 text-[16px] border border-zinc-700/60 rounded-xl outline-none transition text-[#0a0a0a] placeholder-[#71717A] focus:border-[var(--brand)] focus:ring-2 focus:ring-emerald-100"
                 />
               </div>
             </div>
@@ -521,7 +521,7 @@ export default function ProfilePage() {
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
                 placeholder="New York, USA"
-                className="w-full h-11 pl-10 pr-4 text-[16px] border border-zinc-700/60 rounded-xl outline-none transition text-[#0a0a0a] placeholder-[#71717A] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
+                className="w-full h-11 pl-10 pr-4 text-[16px] border border-zinc-700/60 rounded-xl outline-none transition text-[#0a0a0a] placeholder-[#71717A] focus:border-[var(--brand)] focus:ring-2 focus:ring-emerald-100"
               />
             </div>
           </div>
@@ -532,7 +532,7 @@ export default function ProfilePage() {
             <button
               type="submit"
               disabled={profileLoading}
-              className="bg-[var(--brand)] hover:bg-emerald-700 disabled:bg-emerald-400 text-white text-[16px] px-5 h-11 rounded-xl flex items-center gap-2 transition"
+              className="bg-[var(--brand)] hover:brightness-110 disabled:opacity-40 text-white text-[16px] px-5 h-11 rounded-xl flex items-center gap-2 transition"
             >
               {profileLoading && (
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -594,7 +594,7 @@ export default function ProfilePage() {
                   value={value}
                   onChange={(e) => set(e.target.value)}
                   placeholder={placeholder}
-                  className="w-full h-11 pl-10 pr-11 text-[16px] border border-zinc-700/60 rounded-xl outline-none transition text-[#0a0a0a] placeholder-[#71717A] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
+                  className="w-full h-11 pl-10 pr-11 text-[16px] border border-zinc-700/60 rounded-xl outline-none transition text-[#0a0a0a] placeholder-[#71717A] focus:border-[var(--brand)] focus:ring-2 focus:ring-emerald-100"
                 />
                 <button
                   type="button"
@@ -638,7 +638,7 @@ export default function ProfilePage() {
             <button
               type="submit"
               disabled={passwordLoading}
-              className="bg-[var(--brand)] hover:bg-emerald-700 disabled:bg-emerald-400 text-white text-[16px] px-5 h-11 rounded-xl flex items-center gap-2 transition"
+              className="bg-[var(--brand)] hover:brightness-110 disabled:opacity-40 text-white text-[16px] px-5 h-11 rounded-xl flex items-center gap-2 transition"
             >
               {passwordLoading && (
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -719,7 +719,7 @@ export default function ProfilePage() {
               type="button"
               onClick={handleStartMfa}
               disabled={mfaBusy}
-              className="shrink-0 text-[14px] px-4 h-9 bg-[var(--brand)] hover:bg-emerald-700 disabled:opacity-50 text-white rounded-xl transition flex items-center gap-1.5"
+              className="shrink-0 text-[14px] px-4 h-9 bg-[var(--brand)] hover:brightness-110 disabled:opacity-50 text-white rounded-xl transition flex items-center gap-1.5"
             >
               {mfaBusy && !mfaEnrolling && (
                 <div className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -772,7 +772,7 @@ export default function ProfilePage() {
             <p className="text-[11px] text-zinc-500 text-center mb-1">
               Can&apos;t scan? Enter this key manually:
             </p>
-            <p className="text-[12px] font-mono text-zinc-300 text-center glass rounded-lg py-1.5 mb-4 break-all select-all">
+            <p className="text-[12px] font-mono text-zinc-300 text-center glass rounded-xl py-1.5 mb-4 break-all select-all">
               {mfaEnrolling.secret}
             </p>
             <input
@@ -805,7 +805,7 @@ export default function ProfilePage() {
                 type="button"
                 onClick={handleVerifyMfa}
                 disabled={mfaBusy || mfaCode.length < 6}
-                className="flex-1 text-[13px] font-medium bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 text-white py-2 rounded-xl transition flex items-center justify-center gap-1.5"
+                className="flex-1 text-[13px] font-medium bg-[var(--brand)] hover:brightness-110 disabled:opacity-50 text-white py-2 rounded-xl transition flex items-center justify-center gap-1.5"
               >
                 {mfaBusy && (
                   <div className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -827,7 +827,7 @@ export default function ProfilePage() {
           <button
             type="button"
             onClick={() => setDeleteConfirm(true)}
-            className="text-[13px] font-medium px-4 py-2 border border-red-500/20 text-red-600 hover:bg-red-500/10 rounded-lg transition"
+            className="text-[13px] font-medium px-4 py-2 border border-red-500/20 text-red-600 hover:bg-red-500/10 rounded-xl transition"
           >
             Delete account
           </button>
@@ -840,14 +840,14 @@ export default function ProfilePage() {
               <button
                 type="button"
                 onClick={handleDeleteAccount}
-                className="text-[13px] font-medium px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition"
+                className="text-[13px] font-medium px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-xl transition"
               >
                 Yes, delete account
               </button>
               <button
                 type="button"
                 onClick={() => setDeleteConfirm(false)}
-                className="text-[13px] font-medium px-4 py-2 border border-zinc-800 text-zinc-400 hover:bg-zinc-800/60 rounded-lg transition"
+                className="text-[13px] font-medium px-4 py-2 border border-zinc-800 text-zinc-400 hover:bg-zinc-800/60 rounded-xl transition"
               >
                 Cancel
               </button>

@@ -181,7 +181,7 @@ export default function SegmentDonut({
               setMetricOpen((v) => !v);
               setSegByOpen(false);
             }}
-            className="flex items-center gap-1 glass rounded-lg px-2.5 py-1 text-[12px] font-medium cursor-pointer hover:bg-zinc-800/60 transition"
+            className="flex items-center gap-1 glass rounded-xl px-2.5 py-1 text-[12px] font-medium cursor-pointer hover:bg-zinc-800/60 transition"
           >
             {metricLabel}
             <svg
@@ -236,7 +236,7 @@ export default function SegmentDonut({
               setSegByOpen((v) => !v);
               setMetricOpen(false);
             }}
-            className="flex items-center gap-1 glass rounded-lg px-2.5 py-1 text-[12px] font-medium cursor-pointer hover:bg-zinc-800/60 transition"
+            className="flex items-center gap-1 glass rounded-xl px-2.5 py-1 text-[12px] font-medium cursor-pointer hover:bg-zinc-800/60 transition"
           >
             {segBy}
             <svg

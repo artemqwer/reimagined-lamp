@@ -38,7 +38,7 @@ export default function TimePerformanceTable({ dateFrom, dateTo, rangeLabel, isV
         rangeLabel={rangeLabel}
         isVisible={isVisible}
         headerRight={
-          <div className="flex items-center gap-1 glass rounded-lg p-0.5 overflow-x-auto scrollbar-none">
+          <div className="flex items-center gap-1 glass rounded-xl p-0.5 overflow-x-auto scrollbar-none">
             <span className="text-[11px] text-zinc-500 px-2 hidden lg:inline whitespace-nowrap shrink-0">
               Time by:
             </span>

@@ -75,7 +75,7 @@ export default function ConnectorSwitcher({ compact = false }: { compact?: boole
         <ConnectorLogo id={activeConnector} size={compact ? 32 : 40} />
         <div>
           <h1
-            className={`font-bold text-[#F4F4F5] leading-tight flex items-center gap-1.5 ${
+            className={`font-bold text-zinc-100 leading-tight flex items-center gap-1.5 ${
               compact ? "text-[15px]" : "text-[18px]"
             }`}
           >
@@ -94,7 +94,7 @@ export default function ConnectorSwitcher({ compact = false }: { compact?: boole
           </h1>
           {/* The phone bar has one line's worth of room, and the source's
               name is the part that has to be there. */}
-          {!compact && <p className="text-[14px] text-[#71717A]">Channel Analytics</p>}
+          {!compact && <p className="text-[14px] text-zinc-500">Channel Analytics</p>}
         </div>
       </button>
 

@@ -125,7 +125,7 @@ function ExploreButton({ onClick }: { onClick: () => void }) {
   return (
     <button
       onClick={onClick}
-      className="mt-2.5 inline-flex items-center gap-1.5 text-[12px] font-medium text-[#A1A1AA] glass hover:bg-zinc-800/60 rounded-xl px-3 py-1.5 transition"
+      className="mt-2.5 inline-flex items-center gap-1.5 text-[12px] font-medium text-zinc-400 glass hover:bg-zinc-800/60 rounded-xl px-3 py-1.5 transition"
     >
       <svg
         width="14"
@@ -161,22 +161,22 @@ function AnalysisBlocks({ rec }: { rec: Recommendation }) {
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
         <div className="rounded-xl bg-zinc-800/50 border border-zinc-700/60 px-3 py-2">
-          <p className="text-[10px] font-bold text-[#71717A] uppercase tracking-wider mb-0.5">
+          <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider mb-0.5">
             Current state
           </p>
-          <p className="text-[12px] text-[#F4F4F5] font-medium">{rec.currentState}</p>
+          <p className="text-[12px] text-zinc-100 font-medium">{rec.currentState}</p>
         </div>
         <div className="rounded-xl bg-zinc-800/50 border border-zinc-700/60 px-3 py-2">
-          <p className="text-[10px] font-bold text-[#71717A] uppercase tracking-wider mb-0.5">
+          <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider mb-0.5">
             Expected result
           </p>
-          <p className="text-[12px] text-[#F4F4F5] font-medium">{rec.expectedResult}</p>
+          <p className="text-[12px] text-zinc-100 font-medium">{rec.expectedResult}</p>
         </div>
       </div>
 
       <div className="mt-2.5 rounded-xl border border-zinc-700/50 bg-zinc-900/60 px-3 py-2.5">
-        <p className="text-[12px] text-[#A1A1AA]">
-          <span className="font-semibold text-[#F4F4F5]">⚡ Action:</span> {rec.action}
+        <p className="text-[12px] text-zinc-400">
+          <span className="font-semibold text-zinc-100">⚡ Action:</span> {rec.action}
         </p>
       </div>
 
@@ -264,12 +264,12 @@ export default function RecommendationCard({
             </div>
             <div className="min-w-0 flex-1">
               <div className="flex items-center gap-2 mb-0.5">
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-[#71717A]">
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-zinc-500">
                   {KIND_ICON[rec.kind]} {rec.categoryLabel ?? "RECOMMENDATION"}
                 </span>
               </div>
-              <p className="text-[14px] font-semibold text-[#F4F4F5]">{rec.title}</p>
-              <p className="text-[12px] text-[#71717A] mt-0.5">{rec.detail}</p>
+              <p className="text-[14px] font-semibold text-zinc-100">{rec.title}</p>
+              <p className="text-[12px] text-zinc-500 mt-0.5">{rec.detail}</p>
               {rec.impact > 0 && (
                 <p className="text-[12px] font-medium text-[var(--brand)] mt-1">
                   Impact: +{impact}
@@ -318,10 +318,10 @@ export default function RecommendationCard({
             <div className="mt-2">
               {analysisPeriod && (
                 <div className="rounded-xl bg-zinc-900 border border-[#3F3F46] px-3 py-2 inline-block">
-                  <p className="text-[10px] font-bold text-[#71717A] uppercase tracking-wider mb-0.5">
+                  <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider mb-0.5">
                     Analysis period
                   </p>
-                  <p className="text-[12px] text-[#F4F4F5] font-medium">
+                  <p className="text-[12px] text-zinc-100 font-medium">
                     {fmtDay(analysisPeriod.from)} – {fmtDay(analysisPeriod.to)}
                   </p>
                 </div>
@@ -348,14 +348,14 @@ export default function RecommendationCard({
               {p.label}
             </span>
           </div>
-          <p className="text-[14px] font-semibold text-[#F4F4F5] flex items-start gap-1.5">
+          <p className="text-[14px] font-semibold text-zinc-100 flex items-start gap-1.5">
             <span aria-hidden>{KIND_ICON[rec.kind]}</span>
             <span className="min-w-0">{rec.title}</span>
           </p>
-          <p className="text-[12px] text-[#A1A1AA] mt-0.5">{rec.detail}</p>
+          <p className="text-[12px] text-zinc-400 mt-0.5">{rec.detail}</p>
         </div>
         <div className="text-right shrink-0 bg-emerald-500/10 border border-emerald-500/25 rounded-xl px-2.5 py-1">
-          <p className="text-[10px] font-bold text-[#71717A] uppercase tracking-wider">Impact</p>
+          <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider">Impact</p>
           <p className="text-[13px] font-bold text-[var(--brand)]">
             +{impact}
             {impactSuffix} {impactLabel.toLowerCase()} potential
@@ -370,7 +370,7 @@ export default function RecommendationCard({
       <div className="flex justify-end gap-2 mt-3">
         <button
           onClick={onDismiss}
-          className="px-3 py-1.5 rounded-xl border border-zinc-800 text-[12px] font-medium text-[#71717A] hover:bg-zinc-800/60 transition"
+          className="px-3 py-1.5 rounded-xl border border-zinc-800 text-[12px] font-medium text-zinc-500 hover:bg-zinc-800/60 transition"
         >
           Dismiss
         </button>

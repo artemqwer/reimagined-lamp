@@ -238,7 +238,7 @@ function GoalCard({
         >
           {glyphFor(def)}
         </span>
-        <span className="text-[13px] sm:text-[16px] font-semibold text-[#F4F4F5]">{def.label}</span>
+        <span className="text-[13px] sm:text-[16px] font-semibold text-zinc-100">{def.label}</span>
         {note && (
           <span className="text-[9px] sm:text-[10px] font-semibold text-zinc-500 glass rounded px-1 py-0.5">
             {note}
@@ -255,10 +255,10 @@ function GoalCard({
       </div>
 
       <div className="flex items-baseline justify-between gap-1 sm:gap-2 mb-2 sm:mb-2.5">
-        <span className="text-[15px] sm:text-[20px] font-bold text-[#F4F4F5] tabular-nums">
+        <span className="text-[15px] sm:text-[20px] font-bold text-zinc-100 tabular-nums">
           {formatMetric(status.actual, def)}
         </span>
-        <span className="text-[11px] sm:text-[14px] tabular-nums shrink-0 text-[#71717A]">
+        <span className="text-[11px] sm:text-[14px] tabular-nums shrink-0 text-zinc-500">
           of {formatMetric(status.target, def)}
         </span>
       </div>
@@ -361,7 +361,7 @@ export default function AchievementCenter({
       <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
         <div className="min-w-0">
           <div className="flex items-center gap-1.5">
-            <h2 className="text-[20px] font-bold text-[#F4F4F5] tracking-[-0.0225em]">
+            <h2 className="text-[20px] font-bold text-zinc-100 tracking-[-0.0225em]">
               Goals Achievement Center
             </h2>
             <HelpTip title="Track and hit your advertising goals">
@@ -372,7 +372,7 @@ export default function AchievementCenter({
           </div>
           {/* No inline "Edit Goals" link here: it duplicated the Edit goals
               button in the section header, which is the one way in. */}
-          <p className="text-[14px] text-[#A1A1AA] mt-0.5">{positionText}</p>
+          <p className="text-[14px] text-zinc-400 mt-0.5">{positionText}</p>
         </div>
 
         <div

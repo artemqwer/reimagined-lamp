@@ -154,7 +154,7 @@ export default function GoalProgressChart({
       <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
         <div className="min-w-0">
           <div className="flex items-center gap-1.5">
-            <h2 className="text-[20px] font-bold text-[#F4F4F5] tracking-[-0.0225em]">
+            <h2 className="text-[20px] font-bold text-zinc-100 tracking-[-0.0225em]">
               {def.label} Progress Chart
             </h2>
             <HelpTip title="Goal progress over time">
@@ -162,7 +162,7 @@ export default function GoalProgressChart({
               needs to be to finish on target.
             </HelpTip>
           </div>
-          <p className="text-[14px] text-[#A1A1AA] tracking-[-0.0195em] mt-0.5">
+          <p className="text-[14px] text-zinc-400 tracking-[-0.0195em] mt-0.5">
             Click on any goal above to switch the chart view.
           </p>
         </div>

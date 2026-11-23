@@ -984,7 +984,7 @@ export default function AiOptimizerPage() {
   // tables are agreed when a source is set up, so this one stands on them.
   const radarPair = (
     <div>
-      <p className="text-[14px] font-semibold text-[#F4F4F5] mb-3">
+      <p className="text-[14px] font-semibold text-zinc-100 mb-3">
         {openEntity ? "Campaign health by area" : "Account health by area"}
       </p>
       {analysis ? (
@@ -1045,7 +1045,7 @@ export default function AiOptimizerPage() {
         <div className="py-1 pb-4 mb-4 border-b border-zinc-800 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-2.5">
-              <h1 className="text-[22px] sm:text-[24px] font-bold text-[#F4F4F5] truncate">
+              <h1 className="text-[22px] sm:text-[24px] font-bold text-zinc-100 truncate">
                 {openEntity ?? sourceLabel}
               </h1>
               {(() => {
@@ -1095,8 +1095,8 @@ export default function AiOptimizerPage() {
               {openCount} optimizations available —{" "}
               <span className="text-[#C10007]">{analysis?.counts.high ?? 0} High</span>,{" "}
               <span className="text-[var(--brand)]">{analysis?.counts.medium ?? 0} Medium</span>,{" "}
-              <span className="text-[#A1A1AA]">{analysis?.counts.low ?? 0} Low</span> priority.{" "}
-              <span className="text-[#71717A] font-normal">
+              <span className="text-zinc-400">{analysis?.counts.low ?? 0} Low</span> priority.{" "}
+              <span className="text-zinc-500 font-normal">
                 Analysis period: {dateFrom} to {dateTo}
               </span>
             </p>
@@ -1104,12 +1104,12 @@ export default function AiOptimizerPage() {
                 findings themselves are always current; only their AI phrasing is
                 produced once a day by the refresh job, so opening the page never
                 triggers a new AI run. */}
-            <p className="text-[12px] text-[#71717A] mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-0.5">
+            <p className="text-[12px] text-zinc-500 mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-0.5">
               <span>
                 {analyzedAt ? (
                   <>
                     Last analyzed:{" "}
-                    <span className="font-semibold text-[#A1A1AA]">{whenLabel(analyzedAt)}</span>
+                    <span className="font-semibold text-zinc-400">{whenLabel(analyzedAt)}</span>
                   </>
                 ) : analysisPending ? (
                   "AI recommendations refresh overnight — showing the latest computed results."
@@ -1117,7 +1117,7 @@ export default function AiOptimizerPage() {
                   "Showing the latest computed results."
                 )}
               </span>
-              <span className="text-[#71717A]">
+              <span className="text-zinc-500">
                 AI recommendations are automatically updated once per day.
               </span>
             </p>
@@ -1132,10 +1132,10 @@ export default function AiOptimizerPage() {
           >
             <div className="flex items-center justify-between gap-3">
               <div>
-                <p className="text-[12px] font-semibold text-[#A1A1AA]">
+                <p className="text-[12px] font-semibold text-zinc-400">
                   Overall Optimization Score
                 </p>
-                <p className="text-[12px] text-[#71717A]">Campaign health status</p>
+                <p className="text-[12px] text-zinc-500">Campaign health status</p>
               </div>
               <div className="text-right">
                 <span
@@ -1171,7 +1171,7 @@ export default function AiOptimizerPage() {
         <div className="space-y-4">
           <div className="card-elevate rounded-2xl overflow-hidden">
             <div className="flex flex-wrap items-center justify-between gap-3 px-4 sm:px-5 py-3 border-b border-zinc-800">
-              <p className="text-[16px] font-semibold text-[#F4F4F5]">
+              <p className="text-[16px] font-semibold text-zinc-100">
                 {primaryLabel} ({entityList?.entities.length ?? 0})
               </p>
               <input
@@ -1183,7 +1183,7 @@ export default function AiOptimizerPage() {
             </div>
 
             {/* Table Header */}
-            <div className="hidden sm:grid grid-cols-[1fr_130px_120px_160px_24px] gap-4 px-5 py-2.5 bg-zinc-900 border-b border-zinc-800 text-[11px] font-semibold uppercase tracking-wider text-[#71717A]">
+            <div className="hidden sm:grid grid-cols-[1fr_130px_120px_160px_24px] gap-4 px-5 py-2.5 bg-zinc-900 border-b border-zinc-800 text-[11px] font-semibold uppercase tracking-wider text-zinc-500">
               <div>{primaryNoun.toUpperCase()}</div>
               <div className="text-center">SCORE</div>
               <div className="text-center">OPTIMIZATIONS</div>
@@ -1259,7 +1259,7 @@ export default function AiOptimizerPage() {
                         <div className="flex items-center justify-between gap-2">
                           <div className="flex items-center gap-2 min-w-0">
                             <StatusIndicator status={statusColor} title={statusLabel} />
-                            <span className="text-[14px] font-semibold text-[#F4F4F5] truncate">
+                            <span className="text-[14px] font-semibold text-zinc-100 truncate">
                               {e.name}
                             </span>
                           </div>
@@ -1275,7 +1275,7 @@ export default function AiOptimizerPage() {
                             <polyline points="9 18 15 12 9 6" />
                           </svg>
                         </div>
-                        <div className="flex items-center gap-x-4 gap-y-1 flex-wrap mt-1.5 text-[12px] text-[#71717A]">
+                        <div className="flex items-center gap-x-4 gap-y-1 flex-wrap mt-1.5 text-[12px] text-zinc-500">
                           <span className="flex items-center gap-1">
                             Score:{" "}
                             {notEnough ? (
@@ -1307,10 +1307,10 @@ export default function AiOptimizerPage() {
                         <div className="flex items-center gap-2.5 min-w-0">
                           <StatusIndicator status={statusColor} title={statusLabel} />
                           <div className="min-w-0 flex-1">
-                            <span className="block text-[14px] font-medium text-[#F4F4F5] truncate">
+                            <span className="block text-[14px] font-medium text-zinc-100 truncate">
                               {e.name}
                             </span>
-                            <span className="block text-[12px] text-[#71717A]">
+                            <span className="block text-[12px] text-zinc-500">
                               {entityTypes[e.name] ?? `${Math.round(e.share * 100)}% of account`}
                             </span>
                           </div>
@@ -1399,7 +1399,7 @@ export default function AiOptimizerPage() {
           {/* Categories — the full list matching Figma */}
           <aside className="lg:w-[270px] shrink-0">
             <div className="card-elevate rounded-2xl p-3 lg:sticky lg:top-4">
-              <p className="px-2.5 py-1.5 text-[11px] font-semibold text-[#71717A] uppercase tracking-wider">
+              <p className="px-2.5 py-1.5 text-[11px] font-semibold text-zinc-500 uppercase tracking-wider">
                 OPTIMIZATION CATEGORIES
               </p>
               <button
@@ -1407,7 +1407,7 @@ export default function AiOptimizerPage() {
                 className={`w-full flex items-center justify-between gap-2 px-3 py-2 rounded-xl text-[13px] transition ${
                   selectedCategory === null
                     ? "bg-violet-500/10 text-violet-400 font-semibold border border-violet-500/40"
-                    : "text-[#F4F4F5] hover:bg-zinc-800/60 border border-transparent"
+                    : "text-zinc-100 hover:bg-zinc-800/60 border border-transparent"
                 }`}
               >
                 <span className="flex items-center gap-2 font-medium">
@@ -1453,7 +1453,7 @@ export default function AiOptimizerPage() {
                       >
                         {sec.heading}
                       </p>
-                      <p className="px-2.5 pb-1 text-[10px] text-[#71717A]">{sec.hint}</p>
+                      <p className="px-2.5 pb-1 text-[10px] text-zinc-500">{sec.hint}</p>
                       <div className="space-y-0.5">
                         {cats.map((c) => {
                           const isSel = selectedCategory === c.key;
@@ -1474,7 +1474,7 @@ export default function AiOptimizerPage() {
                                 className={`flex-1 truncate text-left text-[14px] ${
                                   isSel
                                     ? "text-violet-400 font-semibold"
-                                    : "text-[#F4F4F5] font-medium"
+                                    : "text-zinc-100 font-medium"
                                 }`}
                               >
                                 {c.label}
@@ -1576,7 +1576,7 @@ export default function AiOptimizerPage() {
 
               {tab !== "open" && history.length > 0 && (
                 <div className="px-4 sm:px-5 pt-4 pb-1">
-                  <h3 className="text-[16px] font-semibold text-[#F4F4F5]">
+                  <h3 className="text-[16px] font-semibold text-zinc-100">
                     {tab === "completed"
                       ? "Completed Recommendations"
                       : "Dismissed Recommendations"}

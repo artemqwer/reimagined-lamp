@@ -157,10 +157,10 @@ export default function ForecastPanel({
             </svg>
           </span>
           <div className="min-w-0">
-            <h2 className="text-[16px] font-semibold text-[#F4F4F5] tracking-[-0.0195em]">
+            <h2 className="text-[16px] font-semibold text-zinc-100 tracking-[-0.0195em]">
               {title}
             </h2>
-            <p className="text-[12px] text-[#A1A1AA] mt-1">
+            <p className="text-[12px] text-zinc-400 mt-1">
               Based on{" "}
               <span className="font-semibold">
                 {forecasts[0].basedOnBuckets} {bucketNoun}
@@ -192,7 +192,7 @@ export default function ForecastPanel({
               key={f.metric}
               className="flex flex-wrap items-center gap-x-2.5 gap-y-1 glass rounded-xl px-3 py-2"
             >
-              <span className="text-[13px] font-semibold text-[#F4F4F5] mr-auto">
+              <span className="text-[13px] font-semibold text-zinc-100 mr-auto">
                 {def?.label ?? f.metric}
               </span>
               {target !== null && (
@@ -204,7 +204,7 @@ export default function ForecastPanel({
               <span className="text-zinc-600">→</span>
               <span className="text-[11px] text-zinc-500 whitespace-nowrap">
                 Forecast{" "}
-                <span className="font-bold tabular-nums text-[#F4F4F5]">
+                <span className="font-bold tabular-nums text-zinc-100">
                   {formatMetric(f.projected, def)}
                 </span>
               </span>
@@ -309,7 +309,7 @@ export default function ForecastPanel({
               {formatGoalValue(optimizer.averageImpact, impactFormat)}
               <span className="font-normal"> per {entityNoun.replace(/s$/, "")}.</span>
             </p>
-            <p className="text-[12px] text-[#A1A1AA] mt-1">
+            <p className="text-[12px] text-zinc-400 mt-1">
               💡 Implementing these optimizations can increase your chances of achieving or
               exceeding your {periodNoun}ly goals
             </p>
@@ -321,7 +321,7 @@ export default function ForecastPanel({
               background: "linear-gradient(90deg, #00BC7D 0%, #00BBA7 50%, #00B8DB 100%)",
             }}
           >
-            <span className="flex items-center gap-2 bg-zinc-900 rounded-[11px] px-3 py-1.5 text-[14px] text-[#A1A1AA]">
+            <span className="flex items-center gap-2 bg-zinc-900 rounded-[11px] px-3 py-1.5 text-[14px] text-zinc-400">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="#8200DB">
                 <path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z" />
               </svg>

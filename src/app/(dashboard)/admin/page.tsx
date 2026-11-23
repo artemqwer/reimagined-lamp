@@ -135,7 +135,7 @@ function Kpi({
         </div>
         <div className="min-w-0">
           <div className="flex items-baseline gap-2 flex-wrap">
-            <p className="text-[20px] sm:text-[24px] font-bold text-[#F4F4F5] leading-7 sm:leading-8 truncate">
+            <p className="text-[20px] sm:text-[24px] font-bold text-zinc-100 leading-7 sm:leading-8 truncate">
               {value}
             </p>
             {delta && (
@@ -147,7 +147,7 @@ function Kpi({
               </span>
             )}
           </div>
-          <p className="text-[14px] text-[#A1A1AA] leading-5">{label}</p>
+          <p className="text-[14px] text-zinc-400 leading-5">{label}</p>
         </div>
       </div>
       <svg
@@ -1235,7 +1235,7 @@ export default function AdminPage() {
     return (
       <div className="px-4 sm:px-6 py-16 min-h-screen flex items-start justify-center">
         <div className="glass rounded-2xl p-8 max-w-md text-center">
-          <p className="text-[16px] font-semibold text-[#F4F4F5]">This page is for admins</p>
+          <p className="text-[16px] font-semibold text-zinc-100">This page is for admins</p>
           <p className="text-[13.5px] text-zinc-400 mt-1.5">
             Your account doesn&apos;t have access to user management. If you think it should, ask
             whoever set up your workspace.

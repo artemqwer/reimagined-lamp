@@ -80,7 +80,7 @@ export default function AuthShell({ children }: { children: React.ReactNode }) {
       </aside>
 
       {/* Form column */}
-      <main className="flex-1 flex flex-col items-center justify-center px-4 py-10 pb-safe">
+      <main className="flex-1 flex flex-col items-center justify-center px-4 py-10 pb-safe page-fade">
         <div className="lg:hidden mb-6">
           <BrandLogo />
         </div>

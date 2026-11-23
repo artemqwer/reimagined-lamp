@@ -35,6 +35,7 @@ function prefStore<T extends string>(key: string, fallback: T) {
 const accentStore = prefStore<AccentId>("mf_accent", "forge");
 const densityStore = prefStore<Density>("mf_density", "comfort");
 const bgStore = prefStore<BgStyle>("mf_bg", "aurora");
+const themeStore = prefStore<"dark" | "light">("mf_theme", "dark");
 
 const SEG =
   "flex-1 text-center px-2 py-1.5 rounded-xl text-[11.5px] font-medium transition cursor-pointer";
@@ -52,13 +53,19 @@ export default function PreferencesMenu() {
     () => "comfort" as Density,
   );
   const bg = useSyncExternalStore(bgStore.subscribe, bgStore.get, () => "aurora" as BgStyle);
+  const theme = useSyncExternalStore(
+    themeStore.subscribe,
+    themeStore.get,
+    () => "dark" as "dark" | "light",
+  );
 
   useEffect(() => {
     const root = document.documentElement;
     root.dataset.accent = accent;
     root.dataset.density = density;
     root.dataset.bg = bg;
-  }, [accent, density, bg]);
+    root.dataset.theme = theme;
+  }, [accent, density, bg, theme]);
 
   return (
     <div className="relative group/prefs shrink-0">
@@ -82,6 +89,23 @@ export default function PreferencesMenu() {
       {/* Popover — opens on hover via CSS only, no state needed */}
       <div className="invisible opacity-0 group-hover/prefs:visible group-hover/prefs:opacity-100 hover:visible hover:opacity-100 transition-opacity absolute bottom-full left-0 mb-2 w-[228px] glass rounded-2xl p-3 z-50 shadow-2xl">
         <p className="text-[10px] font-semibold text-zinc-500 uppercase tracking-[0.8px] mb-2">
+          Theme
+        </p>
+        <div className="flex gap-1 bg-zinc-800/60 rounded-xl p-1 mb-3">
+          <button
+            onClick={() => themeStore.set("dark")}
+            className={`${SEG} ${theme === "dark" ? "bg-zinc-900 text-[var(--brand-fg)]" : "text-zinc-500 hover:text-zinc-300"}`}
+          >
+            Dark
+          </button>
+          <button
+            onClick={() => themeStore.set("light")}
+            className={`${SEG} ${theme === "light" ? "bg-zinc-900 text-[var(--brand-fg)]" : "text-zinc-500 hover:text-zinc-300"}`}
+          >
+            Light
+          </button>
+        </div>
+        <p className="text-[10px] font-semibold text-zinc-500 uppercase tracking-[0.8px] mb-2">
           Accent
         </p>
         <div className="flex items-center gap-2 mb-3">
@@ -92,7 +116,7 @@ export default function PreferencesMenu() {
               title={a.label}
               className={`w-5 h-5 rounded-full transition ${
                 accent === a.id
-                  ? "ring-2 ring-zinc-400 ring-offset-2 ring-offset-[#101013]"
+                  ? "ring-2 ring-zinc-400 ring-offset-2 ring-offset-[var(--surface)]"
                   : "opacity-60 hover:opacity-100"
               }`}
               style={{ background: a.color }}

@@ -296,14 +296,14 @@ export default function ProfilePage() {
 
   return (
     <div className="p-4 sm:p-6 max-w-[896px] mx-auto">
-      <h1 className="text-[30px] leading-[36px] font-bold text-[#F4F4F5] mb-2">Profile Settings</h1>
-      <p className="text-[16px] text-[#A1A1AA] mb-8">
+      <h1 className="text-[30px] leading-[36px] font-bold text-zinc-100 mb-2">Profile Settings</h1>
+      <p className="text-[16px] text-zinc-400 mb-8">
         Manage your personal information and account security
       </p>
 
       {/* ── Profile Photo ── */}
       <div className="bg-zinc-900 rounded-[14px] border border-[#3F3F46] p-6 mb-6">
-        <p className="text-[16px] font-semibold text-[#F4F4F5] mb-6">Profile Photo</p>
+        <p className="text-[16px] font-semibold text-zinc-100 mb-6">Profile Photo</p>
         <div className="flex items-start gap-6">
           {/* Drop zone avatar */}
           <div
@@ -358,10 +358,10 @@ export default function ProfilePage() {
           </div>
 
           <div className="flex-1 min-w-0">
-            <p className="text-[16px] font-semibold text-[#F4F4F5] truncate">
+            <p className="text-[16px] font-semibold text-zinc-100 truncate">
               {`${firstName} ${lastName}`.trim() || email}
             </p>
-            <p className="text-[14px] text-[#A1A1AA] mt-1">JPG, PNG or GIF. Max size of 2MB</p>
+            <p className="text-[14px] text-zinc-400 mt-1">JPG, PNG or GIF. Max size of 2MB</p>
             <div className="flex items-center gap-3 mt-4 flex-wrap">
               <button
                 type="button"
@@ -375,7 +375,7 @@ export default function ProfilePage() {
                 <button
                   type="button"
                   onClick={handleRemoveAvatar}
-                  className="text-[14px] px-4 h-[37px] border border-zinc-700/60 text-[#A1A1AA] hover:bg-zinc-800/60 rounded-xl transition"
+                  className="text-[14px] px-4 h-[37px] border border-zinc-700/60 text-zinc-400 hover:bg-zinc-800/60 rounded-xl transition"
                 >
                   Remove
                 </button>
@@ -394,13 +394,13 @@ export default function ProfilePage() {
 
       {/* ── Personal Information ── */}
       <div className="bg-zinc-900 rounded-[14px] border border-[#3F3F46] p-6 mb-6">
-        <p className="text-[16px] font-semibold text-[#F4F4F5] mb-6">Personal Information</p>
+        <p className="text-[16px] font-semibold text-zinc-100 mb-6">Personal Information</p>
         <form onSubmit={handleSaveProfile}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
             <div>
-              <label className="block text-[14px] text-[#A1A1AA] mb-2">First Name</label>
+              <label className="block text-[14px] text-zinc-400 mb-2">First Name</label>
               <div className="relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#71717A]">
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500">
                   <svg
                     width="20"
                     height="20"
@@ -423,9 +423,9 @@ export default function ProfilePage() {
               </div>
             </div>
             <div>
-              <label className="block text-[14px] text-[#A1A1AA] mb-2">Last Name</label>
+              <label className="block text-[14px] text-zinc-400 mb-2">Last Name</label>
               <div className="relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#71717A]">
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500">
                   <svg
                     width="20"
                     height="20"
@@ -451,9 +451,9 @@ export default function ProfilePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
             <div>
-              <label className="block text-[14px] text-[#A1A1AA] mb-2">Email</label>
+              <label className="block text-[14px] text-zinc-400 mb-2">Email</label>
               <div className="relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#71717A]">
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500">
                   <svg
                     width="20"
                     height="20"
@@ -475,9 +475,9 @@ export default function ProfilePage() {
               </div>
             </div>
             <div>
-              <label className="block text-[14px] text-[#A1A1AA] mb-2">Phone</label>
+              <label className="block text-[14px] text-zinc-400 mb-2">Phone</label>
               <div className="relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#71717A]">
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500">
                   <svg
                     width="20"
                     height="20"
@@ -501,9 +501,9 @@ export default function ProfilePage() {
           </div>
 
           <div className="mb-6">
-            <label className="block text-[14px] text-[#A1A1AA] mb-2">Location</label>
+            <label className="block text-[14px] text-zinc-400 mb-2">Location</label>
             <div className="relative">
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#71717A]">
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500">
                 <svg
                   width="20"
                   height="20"
@@ -545,7 +545,7 @@ export default function ProfilePage() {
 
       {/* ── Security ── */}
       <div className="bg-zinc-900 rounded-[14px] border border-[#3F3F46] p-6 mb-6">
-        <p className="text-[16px] font-semibold text-[#F4F4F5] mb-6">Security</p>
+        <p className="text-[16px] font-semibold text-zinc-100 mb-6">Security</p>
         <form onSubmit={handleChangePassword}>
           {[
             {
@@ -574,9 +574,9 @@ export default function ProfilePage() {
             },
           ].map(({ label, placeholder, value, set, show, toggle }) => (
             <div key={label} className="mb-6 last:mb-0">
-              <label className="block text-[14px] text-[#A1A1AA] mb-2">{label}</label>
+              <label className="block text-[14px] text-zinc-400 mb-2">{label}</label>
               <div className="relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#71717A]">
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500">
                   <svg
                     width="20"
                     height="20"
@@ -599,7 +599,7 @@ export default function ProfilePage() {
                 <button
                   type="button"
                   onClick={toggle}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#71717A] hover:text-zinc-400 transition"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-400 transition"
                 >
                   {show ? (
                     <svg
@@ -668,7 +668,7 @@ export default function ProfilePage() {
               </svg>
             </div>
             <div className="min-w-0">
-              <p className="text-[16px] font-semibold text-[#F4F4F5] flex items-center gap-2">
+              <p className="text-[16px] font-semibold text-zinc-100 flex items-center gap-2">
                 Two-Factor Authentication
                 {mfaFactorId && (
                   <span className="text-[11px] font-semibold text-green-700 bg-green-500/10 border border-green-500/20 rounded-full px-2 py-0.5">
@@ -676,7 +676,7 @@ export default function ProfilePage() {
                   </span>
                 )}
               </p>
-              <p className="text-[14px] text-[#A1A1AA]">
+              <p className="text-[14px] text-zinc-400">
                 {mfaFactorId
                   ? "Your account is protected by an authenticator app"
                   : "Add an extra layer of security with an authenticator app"}
@@ -689,7 +689,7 @@ export default function ProfilePage() {
                 <button
                   type="button"
                   onClick={() => setMfaDisableConfirm(false)}
-                  className="text-[14px] px-3 h-9 border border-zinc-700/60 text-[#A1A1AA] hover:bg-zinc-800/60 rounded-xl transition"
+                  className="text-[14px] px-3 h-9 border border-zinc-700/60 text-zinc-400 hover:bg-zinc-800/60 rounded-xl transition"
                 >
                   Cancel
                 </button>

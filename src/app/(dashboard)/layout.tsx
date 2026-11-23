@@ -230,7 +230,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             ) : section ? (
               // Watchtower / Forge AI name themselves; their platform tabs
               // inside the page do the source switching.
-              <div className="flex items-center gap-2 text-[#F4F4F5]">
+              <div className="flex items-center gap-2 text-zinc-100">
                 <span className="text-[var(--brand)]">{section.icon}</span>
                 <span className="text-[15px] font-bold">{section.name}</span>
               </div>
@@ -301,7 +301,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             </button>
           </div>
         )}
-        <main className="flex-1 pb-6 sm:pb-10">{children}</main>
+        <main className="flex-1 pb-6 sm:pb-10 page-fade">{children}</main>
       </div>
     </div>
   );

@@ -4946,7 +4946,7 @@ export default function DashboardView() {
                       className={`flex items-center gap-1.5 sm:gap-2 px-3 py-2 rounded-xl text-[13px] sm:text-[14px] leading-none font-medium transition whitespace-nowrap tracking-[-0.2px] cursor-pointer ${
                         active
                           ? "bg-zinc-900 text-[var(--brand-fg)] shadow-sm"
-                          : "text-[#A1A1AA] hover:text-zinc-300"
+                          : "text-zinc-400 hover:text-zinc-300"
                       }`}
                     >
                       <span className="shrink-0 flex items-center [&>svg]:size-4 sm:[&>svg]:size-5">
@@ -4990,7 +4990,7 @@ export default function DashboardView() {
                     className={`flex items-center gap-2 h-8 px-3 leading-none text-[14px] font-medium rounded-[9px] transition whitespace-nowrap ${
                       aiOpen
                         ? "text-zinc-500 bg-zinc-900 cursor-default"
-                        : "text-[#A1A1AA] bg-zinc-900 hover:bg-zinc-800/60"
+                        : "text-zinc-400 bg-zinc-900 hover:bg-zinc-800/60"
                     }`}
                   >
                     <svg

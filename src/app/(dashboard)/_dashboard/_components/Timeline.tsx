@@ -674,7 +674,7 @@ export default function Timeline({
           </span>
           <div>
             <div className="flex items-center gap-1.5">
-              <span className="text-[14px] font-normal text-[#F4F4F5] leading-[20px] tracking-[-0.15px]">
+              <span className="text-[14px] font-normal text-zinc-100 leading-[20px] tracking-[-0.15px]">
                 Milestones
               </span>
               {/* Count badge ALWAYS shown — including 0 — so the user immediately sees
@@ -710,7 +710,7 @@ export default function Timeline({
             </div>
             {/* Subtitle hidden on mobile (#2) — Figma: 12px #71717A */}
             {!compact && (
-              <p className="text-[12px] text-[#71717A] mt-0.5">
+              <p className="text-[12px] text-zinc-500 mt-0.5">
                 Holidays, promotions, website, products, and Ads changes
               </p>
             )}
@@ -757,7 +757,7 @@ export default function Timeline({
           {!compact && <div className="bg-[#52525B] h-6 w-px shrink-0" />}
           <button
             onClick={onAddEvent}
-            className="text-[12px] font-medium text-[#A1A1AA] border border-zinc-700/60 rounded-xl px-[11px] py-[7px] hover:bg-zinc-800/60 flex items-center gap-1.5 whitespace-nowrap"
+            className="text-[12px] font-medium text-zinc-400 border border-zinc-700/60 rounded-xl px-[11px] py-[7px] hover:bg-zinc-800/60 flex items-center gap-1.5 whitespace-nowrap"
           >
             <svg
               width="14"

@@ -156,7 +156,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
           title={collapsed ? CONNECTORS[id].label : undefined}
           className={`flex items-center rounded-xl text-[14px] transition mb-1 ${
             collapsed ? "justify-center px-0 py-2.5" : "gap-3 px-3 py-2"
-          } ${active ? "bg-emerald-500/10 text-[var(--brand-fg)] ring-1 ring-emerald-500/25" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
+          } ${active ? "bg-emerald-500/10 text-[var(--brand-fg)] ring-1 ring-emerald-500/25" : "text-zinc-400 hover:bg-zinc-800/60 hover:text-zinc-200"}`}
         >
           <span className="relative shrink-0">
             <ConnectorIcon id={id} />
@@ -174,7 +174,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
         title={collapsed ? "Forge AI" : undefined}
         className={`flex items-center rounded-xl text-[14px] transition mb-1 ${
           collapsed ? "justify-center px-0 py-2.5" : "gap-3 px-3 py-2"
-        } ${active ? "bg-emerald-500/10 text-[var(--brand-fg)] ring-1 ring-emerald-500/25" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
+        } ${active ? "bg-emerald-500/10 text-[var(--brand-fg)] ring-1 ring-emerald-500/25" : "text-zinc-400 hover:bg-zinc-800/60 hover:text-zinc-200"}`}
       >
         <span className="relative shrink-0">
           {/* The design's own icon, exported from Figma: one outlined
@@ -201,7 +201,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
         title={collapsed ? "Watchtower" : undefined}
         className={`flex items-center rounded-xl text-[14px] transition mb-1 ${
           collapsed ? "justify-center px-0 py-2.5" : "gap-3 px-3 py-2"
-        } ${active ? "bg-emerald-500/10 text-[var(--brand-fg)] ring-1 ring-emerald-500/25" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
+        } ${active ? "bg-emerald-500/10 text-[var(--brand-fg)] ring-1 ring-emerald-500/25" : "text-zinc-400 hover:bg-zinc-800/60 hover:text-zinc-200"}`}
       >
         <span className="relative shrink-0">
           <svg {...ICON_PROPS}>
@@ -325,7 +325,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
         {platforms.length > 0 && (
           <div className="mb-4">
             {!collapsed && (
-              <p className="px-3 mb-2 text-[11px] font-medium text-[#71717A] tracking-[0.8px] uppercase whitespace-nowrap">
+              <p className="px-3 mb-2 text-[11px] font-medium text-zinc-500 tracking-[0.8px] uppercase whitespace-nowrap">
                 CHANNELS
               </p>
             )}
@@ -335,7 +335,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
         {SYSTEM_NAV.map(({ group, items }) => (
           <div key={group} className="mb-4">
             {!collapsed && (
-              <p className="px-3 mb-2 text-[11px] font-medium text-[#71717A] tracking-[0.8px] uppercase whitespace-nowrap">
+              <p className="px-3 mb-2 text-[11px] font-medium text-zinc-500 tracking-[0.8px] uppercase whitespace-nowrap">
                 {group}
               </p>
             )}
@@ -351,10 +351,10 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
                   title={collapsed ? label : undefined}
                   className={`flex items-center rounded-xl text-[14px] transition mb-1 ${
                     collapsed ? "justify-center px-0 py-2.5" : "gap-3 px-3 py-2"
-                  } ${active ? "bg-emerald-500/10 text-[var(--brand-fg)] ring-1 ring-emerald-500/25" : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"}`}
+                  } ${active ? "bg-emerald-500/10 text-[var(--brand-fg)] ring-1 ring-emerald-500/25" : "text-zinc-400 hover:bg-zinc-800/60 hover:text-zinc-200"}`}
                 >
                   <span
-                    className={`relative shrink-0 ${active ? "text-[var(--brand-fg)]" : "text-[#A1A1AA]"}`}
+                    className={`relative shrink-0 ${active ? "text-[var(--brand-fg)]" : "text-zinc-400"}`}
                   >
                     {icon}
                   </span>
@@ -483,7 +483,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
             )}
             {platforms.length > 0 && (
               <div className="mb-4">
-                <p className="px-3 mb-2 text-[11px] font-medium text-[#71717A] tracking-[0.8px] uppercase">
+                <p className="px-3 mb-2 text-[11px] font-medium text-zinc-500 tracking-[0.8px] uppercase">
                   CHANNELS
                 </p>
                 {renderPlatforms(onMobileClose)}
@@ -491,7 +491,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
             )}
             {SYSTEM_NAV.map(({ group, items }) => (
               <div key={group} className="mb-4">
-                <p className="px-3 mb-2 text-[11px] font-medium text-[#71717A] tracking-[0.8px] uppercase">
+                <p className="px-3 mb-2 text-[11px] font-medium text-zinc-500 tracking-[0.8px] uppercase">
                   {group}
                 </p>
                 {items.map(({ label, href, icon }) => {
@@ -505,10 +505,10 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
                       className={`flex items-center gap-3 px-3 py-2 rounded-xl text-[14px] transition mb-1 ${
                         active
                           ? "bg-emerald-500/10 text-[var(--brand-fg)] ring-1 ring-emerald-500/25"
-                          : "text-[#A1A1AA] hover:bg-zinc-800/60 hover:text-zinc-200"
+                          : "text-zinc-400 hover:bg-zinc-800/60 hover:text-zinc-200"
                       }`}
                     >
-                      <span className={active ? "text-[var(--brand-fg)]" : "text-[#A1A1AA]"}>
+                      <span className={active ? "text-[var(--brand-fg)]" : "text-zinc-400"}>
                         {icon}
                       </span>
                       {label}

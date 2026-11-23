@@ -85,7 +85,7 @@ export default function PageSourceTabs({
       <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3 mb-3 px-1 empty:mb-0">
         {/* Hidden on a phone: the top bar already names the section there, so
             the page heading would just repeat it. Kept from sm up. */}
-        <h1 className="hidden sm:flex items-center gap-2.5 text-[22px] sm:text-[26px] font-bold text-[#F4F4F5] leading-tight">
+        <h1 className="hidden sm:flex items-center gap-2.5 text-[22px] sm:text-[26px] font-bold text-zinc-100 leading-tight">
           <span
             aria-hidden
             className="w-2 h-6 rounded-full"
@@ -120,7 +120,7 @@ export default function PageSourceTabs({
                     className={`flex items-center gap-2 text-[13.5px] font-medium px-3.5 py-2 whitespace-nowrap rounded-xl transition ${
                       on
                         ? "bg-zinc-900 text-[var(--brand-fg)] shadow-sm"
-                        : "text-[#71717A] hover:text-[#A1A1AA]"
+                        : "text-zinc-500 hover:text-zinc-400"
                     }`}
                   >
                     <ConnectorBrandIcon id={id} size={15} />

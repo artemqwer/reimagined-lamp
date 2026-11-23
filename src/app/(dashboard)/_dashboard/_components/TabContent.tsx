@@ -232,7 +232,7 @@ export default function TabContent({
                   onChartMetricOpenChange(!chartMetricOpen);
                   onChartGroupByOpenChange(false);
                 }}
-                className="flex w-full items-center justify-start gap-1 min-w-0 text-[15px] sm:text-[16px] font-medium text-[#F4F4F5] tracking-[-0.3px] overflow-hidden cursor-pointer hover:opacity-80 transition"
+                className="flex w-full items-center justify-start gap-1 min-w-0 text-[15px] sm:text-[16px] font-medium text-zinc-100 tracking-[-0.3px] overflow-hidden cursor-pointer hover:opacity-80 transition"
               >
                 <span className="truncate min-w-0">{chartMetricLabel}</span>
                 <svg
@@ -283,7 +283,7 @@ export default function TabContent({
                 </>
               )}
             </div>
-            <span className="text-[#71717A] text-[15px] sm:text-[16px] shrink-0">by</span>
+            <span className="text-zinc-500 text-[15px] sm:text-[16px] shrink-0">by</span>
             {/* GroupBy dropdown — same as the metric: min-w-0 + w-full button so it
                 stays compact when short and truncates (never overlaps) when long. */}
             <div className="relative min-w-0">
@@ -292,7 +292,7 @@ export default function TabContent({
                   onChartGroupByOpenChange(!chartGroupByOpen);
                   onChartMetricOpenChange(false);
                 }}
-                className="flex w-full items-center justify-start gap-1 min-w-0 text-[15px] sm:text-[16px] font-medium text-[#F4F4F5] tracking-[-0.3px] overflow-hidden cursor-pointer hover:opacity-80 transition"
+                className="flex w-full items-center justify-start gap-1 min-w-0 text-[15px] sm:text-[16px] font-medium text-zinc-100 tracking-[-0.3px] overflow-hidden cursor-pointer hover:opacity-80 transition"
               >
                 <span className="truncate min-w-0">{groupByLabel(chartGroupBy)}</span>
                 <svg
@@ -404,7 +404,7 @@ export default function TabContent({
           <div className="relative shrink-0">
             <button
               onClick={() => onGranularityOpenChange(!granularityOpen)}
-              className="flex items-center gap-2 bg-zinc-800/50 border border-zinc-700/60 rounded-xl px-4 py-2 cursor-pointer hover:bg-zinc-800/60 whitespace-nowrap text-[14px] font-medium text-[#A1A1AA]"
+              className="flex items-center gap-2 bg-zinc-800/50 border border-zinc-700/60 rounded-xl px-4 py-2 cursor-pointer hover:bg-zinc-800/60 whitespace-nowrap text-[14px] font-medium text-zinc-400"
             >
               {granularity.charAt(0).toUpperCase() + granularity.slice(1)}
               <svg

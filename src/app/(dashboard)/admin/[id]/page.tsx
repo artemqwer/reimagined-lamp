@@ -252,14 +252,14 @@ export default function AdminUserDetailPage() {
   ];
 
   return (
-    <div className="p-4 sm:p-6 flex flex-col gap-6 text-[#F4F4F5]">
+    <div className="p-4 sm:p-6 flex flex-col gap-6 text-zinc-100">
       {/* ── Header bar ── */}
       <div className="bg-zinc-900 border border-[#3F3F46] rounded-xl p-6">
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <div className="flex items-center gap-4">
             <button
               onClick={() => router.push("/admin")}
-              className="w-10 h-10 rounded-xl bg-[#27272A] hover:bg-zinc-800 flex items-center justify-center text-[#F4F4F5] transition shrink-0"
+              className="w-10 h-10 rounded-xl bg-[#27272A] hover:bg-zinc-800 flex items-center justify-center text-zinc-100 transition shrink-0"
             >
               <ArrowLeft size={20} />
             </button>
@@ -268,7 +268,7 @@ export default function AdminUserDetailPage() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => router.push(`/admin?edit=${user.id}`)}
-              className="inline-flex items-center gap-2 h-[41px] px-4 rounded-xl border border-zinc-700/60 bg-zinc-900 text-[16px] text-[#A1A1AA] hover:bg-zinc-800/60 transition"
+              className="inline-flex items-center gap-2 h-[41px] px-4 rounded-xl border border-zinc-700/60 bg-zinc-900 text-[16px] text-zinc-400 hover:bg-zinc-800/60 transition"
             >
               <Pencil size={16} /> Edit
             </button>
@@ -323,8 +323,8 @@ export default function AdminUserDetailPage() {
               )}
             </div>
             <div className="ml-4 pb-1">
-              <p className="text-[24px] leading-[32px] font-bold text-[#F4F4F5]">{user.name}</p>
-              <p className="text-[16px] leading-[24px] text-[#A1A1AA]">{company}</p>
+              <p className="text-[24px] leading-[32px] font-bold text-zinc-100">{user.name}</p>
+              <p className="text-[16px] leading-[24px] text-zinc-400">{company}</p>
             </div>
           </div>
 
@@ -332,10 +332,10 @@ export default function AdminUserDetailPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-4">
             {FIELDS.map((f) => (
               <div key={f.label} className="flex items-center gap-3">
-                <span className="text-[#71717A] shrink-0">{f.icon}</span>
+                <span className="text-zinc-500 shrink-0">{f.icon}</span>
                 <div className="min-w-0">
-                  <p className="text-[12px] leading-[16px] text-[#71717A]">{f.label}</p>
-                  <p className="text-[14px] leading-[20px] text-[#F4F4F5] truncate">{f.value}</p>
+                  <p className="text-[12px] leading-[16px] text-zinc-500">{f.label}</p>
+                  <p className="text-[14px] leading-[20px] text-zinc-100 truncate">{f.value}</p>
                 </div>
               </div>
             ))}
@@ -366,10 +366,10 @@ export default function AdminUserDetailPage() {
                 {s.icon}
               </div>
               <div className="min-w-0">
-                <p className="text-[24px] leading-[32px] font-bold text-[#F4F4F5] truncate">
+                <p className="text-[24px] leading-[32px] font-bold text-zinc-100 truncate">
                   {s.value}
                 </p>
-                <p className="text-[14px] leading-[20px] text-[#A1A1AA]">{s.label}</p>
+                <p className="text-[14px] leading-[20px] text-zinc-400">{s.label}</p>
               </div>
             </div>
           </div>
@@ -390,7 +390,7 @@ export default function AdminUserDetailPage() {
             <button
               key={key}
               onClick={() => setTab(key)}
-              className={`h-[54px] px-[22px] text-[14px] font-medium border-b-2 -mb-px transition ${tab === key ? "border-[var(--brand)] text-[var(--brand)]" : "border-transparent text-[#71717A] hover:text-zinc-300"}`}
+              className={`h-[54px] px-[22px] text-[14px] font-medium border-b-2 -mb-px transition ${tab === key ? "border-[var(--brand)] text-[var(--brand)]" : "border-transparent text-zinc-500 hover:text-zinc-300"}`}
             >
               {label}
             </button>
@@ -402,11 +402,11 @@ export default function AdminUserDetailPage() {
             <div className="flex flex-col gap-6">
               {/* Connected Channels */}
               <div className="flex flex-col gap-4">
-                <h3 className="text-[18px] leading-[28px] font-semibold text-[#F4F4F5]">
+                <h3 className="text-[18px] leading-[28px] font-semibold text-zinc-100">
                   Connected Channels
                 </h3>
                 {user.channels.length === 0 ? (
-                  <div className="bg-zinc-800/50 border border-zinc-700/60 rounded-[14px] py-8 text-center text-[14px] text-[#71717A]">
+                  <div className="bg-zinc-800/50 border border-zinc-700/60 rounded-[14px] py-8 text-center text-[14px] text-zinc-500">
                     No data sources connected yet.
                   </div>
                 ) : (
@@ -427,10 +427,10 @@ export default function AdminUserDetailPage() {
                                 <Megaphone size={24} />
                               </div>
                               <div className="min-w-0">
-                                <p className="text-[16px] leading-[24px] font-semibold text-[#F4F4F5] truncate">
+                                <p className="text-[16px] leading-[24px] font-semibold text-zinc-100 truncate">
                                   {ch.label}
                                 </p>
-                                <p className="text-[12px] leading-[16px] text-[#71717A]">
+                                <p className="text-[12px] leading-[16px] text-zinc-500">
                                   {st.kind}
                                 </p>
                               </div>
@@ -442,8 +442,8 @@ export default function AdminUserDetailPage() {
                               <CheckCircle size={12} /> Active
                             </span>
                           </div>
-                          <div className="flex items-center gap-2 text-[#A1A1AA]">
-                            <span className="text-[#71717A] shrink-0">
+                          <div className="flex items-center gap-2 text-zinc-400">
+                            <span className="text-zinc-500 shrink-0">
                               <Activity size={16} />
                             </span>
                             <span className="text-[14px] leading-[20px] truncate">
@@ -459,7 +459,7 @@ export default function AdminUserDetailPage() {
 
               {/* Recent Activity */}
               <div className="flex flex-col gap-4">
-                <h3 className="text-[18px] leading-[28px] font-semibold text-[#F4F4F5]">
+                <h3 className="text-[18px] leading-[28px] font-semibold text-zinc-100">
                   Recent Activity
                 </h3>
                 <div className="flex flex-col gap-3">
@@ -472,14 +472,14 @@ export default function AdminUserDetailPage() {
                         {a.icon}
                       </span>
                       <div className="flex-1 min-w-0">
-                        <p className="text-[14px] leading-[20px] font-medium text-[#F4F4F5]">
+                        <p className="text-[14px] leading-[20px] font-medium text-zinc-100">
                           {a.title}
                         </p>
-                        <p className="text-[12px] leading-[16px] text-[#A1A1AA] truncate">
+                        <p className="text-[12px] leading-[16px] text-zinc-400 truncate">
                           {a.desc}
                         </p>
                       </div>
-                      <span className="text-[12px] leading-[16px] text-[#71717A] shrink-0 whitespace-nowrap">
+                      <span className="text-[12px] leading-[16px] text-zinc-500 shrink-0 whitespace-nowrap">
                         {a.time}
                       </span>
                     </div>
@@ -505,12 +505,12 @@ export default function AdminUserDetailPage() {
                     {a.icon}
                   </span>
                   <div className="flex-1 min-w-0">
-                    <p className="text-[14px] leading-[20px] font-medium text-[#F4F4F5]">
+                    <p className="text-[14px] leading-[20px] font-medium text-zinc-100">
                       {a.title}
                     </p>
-                    <p className="text-[12px] leading-[16px] text-[#A1A1AA] truncate">{a.desc}</p>
+                    <p className="text-[12px] leading-[16px] text-zinc-400 truncate">{a.desc}</p>
                   </div>
-                  <span className="text-[12px] leading-[16px] text-[#71717A] shrink-0 whitespace-nowrap">
+                  <span className="text-[12px] leading-[16px] text-zinc-500 shrink-0 whitespace-nowrap">
                     {a.time}
                   </span>
                 </div>

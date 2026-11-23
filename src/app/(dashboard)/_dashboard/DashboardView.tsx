@@ -4912,10 +4912,12 @@ export default function DashboardView() {
                 </div>
               );
             })()}
-          {/* Chart card. Desktop padding per the Figma spec: 16px top, 24px sides,
+          {/* Workspace grid: chart hero left, KPI rail right on wide screens. */}
+          <div className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_300px] items-start">
+            {/* Chart card. Desktop padding per the Figma spec: 16px top, 24px sides,
           ~0 bottom (the inner blocks carry their own bottom spacing). */}
-          <div className="card-elevate rounded-2xl p-3 sm:px-6 sm:pt-4 sm:pb-0 mb-5 min-w-0">
-            {/* Tabs row. Two things must hold at once:
+            <div className="card-elevate rounded-2xl p-3 sm:px-6 sm:pt-4 sm:pb-0 mb-5 min-w-0">
+              {/* Tabs row. Two things must hold at once:
               1) the active tab's 2px underline merges with the bottom divider, and
               2) the Ask Forge AI button is vertically CENTRED in the row.
             We get both with: the tabs wrapper is `self-stretch` + `items-stretch`, so
@@ -4924,8 +4926,8 @@ export default function DashboardView() {
             of the AI button height or overflow-x-auto). The AI button is `self-center`.
             `py-3` keeps the row compact (the card already supplies the 16px top space
             from the Figma spec) while the AI pill still reads as centred. */}
-            <div className="flex items-center justify-between gap-3 mb-3 sm:mb-5 min-w-0">
-              {/* Tab buttons on ALL devices. The buttons fill the row height
+              <div className="flex items-center justify-between gap-3 mb-3 sm:mb-5 min-w-0">
+                {/* Tab buttons on ALL devices. The buttons fill the row height
               (items-stretch) so their border-b-2 -mb-px underline lands exactly on
               the divider and the label sits vertically centred.
               Mobile spreads the tabs full-width only when there are enough of them
@@ -4933,228 +4935,232 @@ export default function DashboardView() {
               (GA4, Shopify) left-aligns instead — justify-between would otherwise
               pin the first and last to opposite edges with a gap of dead space
               between them, which reads as a layout bug rather than a choice. */}
-              <div
-                className={`flex items-center gap-1 bg-zinc-800/50 rounded-xl p-1 ${visibleTabs.length >= 4 ? "justify-between" : "justify-start"} sm:justify-start flex-1 overflow-x-auto scrollbar-none min-w-0`}
-              >
-                {visibleTabs.map(({ label: t, idx: i }) => {
-                  const tabIcon = TAB_ICONS[i];
-                  const active = activeTab === i;
-                  return (
-                    <button
-                      key={t}
-                      onClick={() => setActiveTab(i)}
-                      className={`flex items-center gap-1.5 sm:gap-2 px-3 py-2 rounded-xl text-[13px] sm:text-[14px] leading-none font-medium transition whitespace-nowrap tracking-[-0.2px] cursor-pointer ${
-                        active
-                          ? "bg-zinc-900 text-[var(--brand-fg)] shadow-sm"
-                          : "text-[#A1A1AA] hover:text-zinc-300"
-                      }`}
-                    >
-                      <span className="shrink-0 flex items-center [&>svg]:size-4 sm:[&>svg]:size-5">
-                        {tabIcon}
-                      </span>
-                      {/* Mobile shortens "Profit & Loss" → "P&L". */}
-                      {i === 2 ? (
-                        <>
-                          <span className="sm:hidden">P&amp;L</span>
-                          <span className="hidden sm:inline">{t}</span>
-                        </>
-                      ) : (
-                        t
-                      )}
-                    </button>
-                  );
-                })}
-              </div>
-              {/* Inline AI button — desktop/tablet only (mobile uses the floating AI
+                <div
+                  className={`flex items-center gap-1 bg-zinc-800/50 rounded-xl p-1 ${visibleTabs.length >= 4 ? "justify-between" : "justify-start"} sm:justify-start flex-1 overflow-x-auto scrollbar-none min-w-0`}
+                >
+                  {visibleTabs.map(({ label: t, idx: i }) => {
+                    const tabIcon = TAB_ICONS[i];
+                    const active = activeTab === i;
+                    return (
+                      <button
+                        key={t}
+                        onClick={() => setActiveTab(i)}
+                        className={`flex items-center gap-1.5 sm:gap-2 px-3 py-2 rounded-xl text-[13px] sm:text-[14px] leading-none font-medium transition whitespace-nowrap tracking-[-0.2px] cursor-pointer ${
+                          active
+                            ? "bg-zinc-900 text-[var(--brand-fg)] shadow-sm"
+                            : "text-[#A1A1AA] hover:text-zinc-300"
+                        }`}
+                      >
+                        <span className="shrink-0 flex items-center [&>svg]:size-4 sm:[&>svg]:size-5">
+                          {tabIcon}
+                        </span>
+                        {/* Mobile shortens "Profit & Loss" → "P&L". */}
+                        {i === 2 ? (
+                          <>
+                            <span className="sm:hidden">P&amp;L</span>
+                            <span className="hidden sm:inline">{t}</span>
+                          </>
+                        ) : (
+                          t
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+                {/* Inline AI button — desktop/tablet only (mobile uses the floating AI
               button). Greys out (inactive) while the panel is open; returns to active
               when closed. The outer transparent cell stretches to the full row height
               and `items-center` vertically centres the gradient pill. */}
-              <div className="hidden sm:flex items-center self-stretch shrink-0">
-                {/* AI button plate — sizes/paddings/radii/gradient transferred 1:1 from
+                <div className="hidden sm:flex items-center self-stretch shrink-0">
+                  {/* AI button plate — sizes/paddings/radii/gradient transferred 1:1 from
               Figma (node 3:245/3:247): 2px gradient border (rounded-11), 32px-tall
               white button, 12px side / 6px vertical padding, 8px gap, rounded-9,
               14px icon, 14px #A1A1AA text. Raised 8px on desktop to match the Figma
               offset (no raise on mobile, where it sits beside the dropdown). */}
-                <div
-                  className="p-[2px] rounded-[11px] transition sm:-translate-y-[8px]"
-                  style={{
-                    background: aiOpen
-                      ? "#3F3F46"
-                      : "linear-gradient(90deg, #2b7fff, #ad46ff, #f6339a)",
-                  }}
-                >
-                  <button
-                    ref={aiBtnRef}
-                    onClick={openAi}
-                    disabled={aiOpen}
-                    className={`flex items-center gap-2 h-8 px-3 leading-none text-[14px] font-medium rounded-[9px] transition whitespace-nowrap ${
-                      aiOpen
-                        ? "text-zinc-500 bg-zinc-900 cursor-default"
-                        : "text-[#A1A1AA] bg-zinc-900 hover:bg-zinc-800/60"
-                    }`}
+                  <div
+                    className="p-[2px] rounded-[11px] transition sm:-translate-y-[8px]"
+                    style={{
+                      background: aiOpen
+                        ? "#3F3F46"
+                        : "linear-gradient(90deg, #2b7fff, #ad46ff, #f6339a)",
+                    }}
                   >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      className={aiOpen ? "opacity-40" : ""}
+                    <button
+                      ref={aiBtnRef}
+                      onClick={openAi}
+                      disabled={aiOpen}
+                      className={`flex items-center gap-2 h-8 px-3 leading-none text-[14px] font-medium rounded-[9px] transition whitespace-nowrap ${
+                        aiOpen
+                          ? "text-zinc-500 bg-zinc-900 cursor-default"
+                          : "text-[#A1A1AA] bg-zinc-900 hover:bg-zinc-800/60"
+                      }`}
                     >
-                      <defs>
-                        <linearGradient id="ai-grad" x1="0" y1="0" x2="1" y2="1">
-                          <stop offset="0%" stopColor="#8b5cf6" />
-                          <stop offset="100%" stopColor="#ec4899" />
-                        </linearGradient>
-                      </defs>
-                      <path
-                        d="M12 1.5C12.5 7.5 16.5 11.5 22.5 12C16.5 12.5 12.5 16.5 12 22.5C11.5 16.5 7.5 12.5 1.5 12C7.5 11.5 11.5 7.5 12 1.5Z"
-                        fill={aiOpen ? "#71717A" : "url(#ai-grad)"}
-                      />
-                      <circle cx="18" cy="6" r="1.5" fill={aiOpen ? "#71717A" : "url(#ai-grad)"} />
-                    </svg>
-                    <span>Ask Forge AI</span>
-                    {aiSelectionChips.length > 0 && (
-                      <span className="ml-0.5 text-[11px] font-bold text-violet-600">
-                        ({aiSelectionChips.reduce((s, c) => s + c.values.length, 0)})
-                      </span>
-                    )}
-                  </button>
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        className={aiOpen ? "opacity-40" : ""}
+                      >
+                        <defs>
+                          <linearGradient id="ai-grad" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stopColor="#8b5cf6" />
+                            <stop offset="100%" stopColor="#ec4899" />
+                          </linearGradient>
+                        </defs>
+                        <path
+                          d="M12 1.5C12.5 7.5 16.5 11.5 22.5 12C16.5 12.5 12.5 16.5 12 22.5C11.5 16.5 7.5 12.5 1.5 12C7.5 11.5 11.5 7.5 12 1.5Z"
+                          fill={aiOpen ? "#71717A" : "url(#ai-grad)"}
+                        />
+                        <circle
+                          cx="18"
+                          cy="6"
+                          r="1.5"
+                          fill={aiOpen ? "#71717A" : "url(#ai-grad)"}
+                        />
+                      </svg>
+                      <span>Ask Forge AI</span>
+                      {aiSelectionChips.length > 0 && (
+                        <span className="ml-0.5 text-[11px] font-bold text-violet-600">
+                          ({aiSelectionChips.reduce((s, c) => s + c.values.length, 0)})
+                        </span>
+                      )}
+                    </button>
+                  </div>
                 </div>
               </div>
+
+              {/* Tab content with charts */}
+              <TabContent
+                activeTab={activeTab}
+                isMobile={isMobile}
+                isLoading={isWindsorLoading || dimensionBarLoading}
+                hasRecords={chartHasRecords}
+                aggregatedBarData={aggregatedBarData}
+                chartSeries={filteredChartSeries}
+                chartMetric={chartMetricKey}
+                chartMetricLabel={chartMetricLabel}
+                chartMetricIsMoney={chartMetricIsMoney}
+                chartGroupBy={chartGroupBy}
+                chartMetricOpen={chartMetricOpen}
+                chartGroupByOpen={chartGroupByOpen}
+                hiddenSeries={hiddenSeries}
+                othersNames={othersNames}
+                rowTypeFilter={effectiveRowTypeFilter}
+                renderTotalLabelChart={renderTotalLabelChart}
+                CHART_METRICS={chartMetricOptions}
+                CHART_GROUPBY={chartGroupByOptions}
+                groupByLabel={groupByLabel}
+                onChartMetricChange={(m) => {
+                  setChartMetric(m);
+                  setHiddenSeries(new Set());
+                }}
+                onChartGroupByChange={(g) => {
+                  setChartGroupBy(g);
+                  setHiddenSeries(new Set());
+                }}
+                onChartMetricOpenChange={setChartMetricOpen}
+                onChartGroupByOpenChange={setChartGroupByOpen}
+                onToggleSeries={toggleSeries}
+                onClearRowFilter={() => clearFilter("campaign_selected")}
+                aggregatedAdPerfData={aggregatedAdPerfData}
+                hiddenAdPerf={hiddenAdPerf}
+                renderConvLabel={renderConvLabel}
+                renderLossTopLabel={renderLossTopLabel}
+                onHiddenAdPerfChange={setHiddenAdPerf}
+                aggregatedPlData={aggregatedPlData}
+                hiddenPL={hiddenPL}
+                dates={dates}
+                onHiddenPLChange={setHiddenPL}
+                buildSegData={buildSegData}
+                segDateFrom={effectiveDateFrom}
+                segDateTo={effectiveDateTo}
+                chartKey={chartKey}
+                granularity={granularity}
+                granularityOpen={granularityOpen}
+                onGranularityChange={setGranularity}
+                onGranularityOpenChange={setGranularityOpen}
+                timelineOpen={timelineOpen}
+                customEvents={timelineEvents}
+                autoSourceLabel={getConnector(activeConnector).label}
+                onToggleTimeline={() => setTimelineOpen(!timelineOpen)}
+                onAddEvent={() => {
+                  setEditingEventId(null);
+                  setAddEventOpen(true);
+                  setEvtType("promotions");
+                  setEvtStartDate(new Date(rangeEnd).toISOString().split("T")[0]);
+                  setEvtEndDate("");
+                  setEvtTitle("");
+                  setEvtDesc("");
+                }}
+                onDeleteEvent={handleDeleteEvent}
+                onEditEvent={(m) =>
+                  openEditEvent({
+                    id: m.id,
+                    category: m.type,
+                    type: null,
+                    startDate: m.startDate,
+                    endDate: m.endDate ?? "",
+                    title: m.title,
+                    desc: m.desc ?? "",
+                  } as CustomEvent)
+                }
+              />
             </div>
 
-            {/* Tab content with charts */}
-            <TabContent
-              activeTab={activeTab}
-              isMobile={isMobile}
-              isLoading={isWindsorLoading || dimensionBarLoading}
-              hasRecords={chartHasRecords}
-              aggregatedBarData={aggregatedBarData}
-              chartSeries={filteredChartSeries}
-              chartMetric={chartMetricKey}
-              chartMetricLabel={chartMetricLabel}
-              chartMetricIsMoney={chartMetricIsMoney}
-              chartGroupBy={chartGroupBy}
-              chartMetricOpen={chartMetricOpen}
-              chartGroupByOpen={chartGroupByOpen}
-              hiddenSeries={hiddenSeries}
-              othersNames={othersNames}
-              rowTypeFilter={effectiveRowTypeFilter}
-              renderTotalLabelChart={renderTotalLabelChart}
-              CHART_METRICS={chartMetricOptions}
-              CHART_GROUPBY={chartGroupByOptions}
-              groupByLabel={groupByLabel}
-              onChartMetricChange={(m) => {
-                setChartMetric(m);
-                setHiddenSeries(new Set());
-              }}
-              onChartGroupByChange={(g) => {
-                setChartGroupBy(g);
-                setHiddenSeries(new Set());
-              }}
-              onChartMetricOpenChange={setChartMetricOpen}
-              onChartGroupByOpenChange={setChartGroupByOpen}
-              onToggleSeries={toggleSeries}
-              onClearRowFilter={() => clearFilter("campaign_selected")}
-              aggregatedAdPerfData={aggregatedAdPerfData}
-              hiddenAdPerf={hiddenAdPerf}
-              renderConvLabel={renderConvLabel}
-              renderLossTopLabel={renderLossTopLabel}
-              onHiddenAdPerfChange={setHiddenAdPerf}
-              aggregatedPlData={aggregatedPlData}
-              hiddenPL={hiddenPL}
-              dates={dates}
-              onHiddenPLChange={setHiddenPL}
-              buildSegData={buildSegData}
-              segDateFrom={effectiveDateFrom}
-              segDateTo={effectiveDateTo}
-              chartKey={chartKey}
-              granularity={granularity}
-              granularityOpen={granularityOpen}
-              onGranularityChange={setGranularity}
-              onGranularityOpenChange={setGranularityOpen}
-              timelineOpen={timelineOpen}
-              customEvents={timelineEvents}
-              autoSourceLabel={getConnector(activeConnector).label}
-              onToggleTimeline={() => setTimelineOpen(!timelineOpen)}
-              onAddEvent={() => {
-                setEditingEventId(null);
-                setAddEventOpen(true);
-                setEvtType("promotions");
-                setEvtStartDate(new Date(rangeEnd).toISOString().split("T")[0]);
-                setEvtEndDate("");
-                setEvtTitle("");
-                setEvtDesc("");
-              }}
-              onDeleteEvent={handleDeleteEvent}
-              onEditEvent={(m) =>
-                openEditEvent({
-                  id: m.id,
-                  category: m.type,
-                  type: null,
-                  startDate: m.startDate,
-                  endDate: m.endDate ?? "",
-                  title: m.title,
-                  desc: m.desc ?? "",
-                } as CustomEvent)
-              }
-            />
-          </div>
-
-          <div className="overflow-x-auto scrollbar-none -mx-1 px-1 pt-1 pb-3 mb-4">
-            {/* 8-in-a-row only when there's room. With the AI panel open the content is
+            <div className="xl:col-start-2 xl:row-start-1 pb-2 xl:mb-0">
+              {/* 8-in-a-row only when there's room. With the AI panel open the content is
           ~456px narrower, so stay at 4 columns (two rows) to keep the values
           readable instead of squeezing 8 cards and clipping the numbers. */}
-            {/* Container-query driven: 8 KPIs stay in one row whenever the available
+              {/* Container-query driven: 8 KPIs stay in one row whenever the available
           width (which already accounts for the open AI panel) genuinely fits
           them; only then does it wrap to two rows of 4. */}
-            <div
-              className={`kpi-grid grid grid-cols-4 gap-2 sm:gap-3 ${visibleKpis.length > 4 ? "@[960px]:grid-cols-8" : ""}`}
-            >
-              {visibleKpis.map((k) => {
-                // When a secondary cross-filter is active (a Device / Search Term
-                // / Time-of-Day selection, e.g. from the optimizer's "Explore in
-                // Dashboard"), crossFilterData IS the scoped set — already
-                // intersected with any campaign selection. dynKpis, by contrast,
-                // sums the selected CAMPAIGNS across every sub-dimension, so it
-                // would show the campaign totals while the tables and charts show
-                // the filtered subset. Prefer realKpis (crossFilterData) then, so
-                // every card matches the rest of the dashboard.
-                const crossActive = !!(crossFilterData && crossFilterData.length > 0);
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                const dyn = crossActive ? undefined : (dynKpis?.[k.idx] as any);
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                const real = realKpis?.[k.idx] as any;
-                const src = dyn ?? real;
-                // Sparkline follows the same scope as the value: the selected rows'
-                // series when a selection/filter is active, else the account series.
-                const spark = dyn?.spark ?? real?.spark ?? [];
-                // An admin-chosen Value Format overrides the slot's own formatting —
-                // reformat the same raw number instead of the pre-built string.
-                const raw = dyn?.raw ?? real?.raw;
-                const value =
-                  k.format && typeof raw === "number"
-                    ? k.format === "currency"
-                      ? fmtCurrency(raw)
-                      : k.format === "percent"
-                        ? fmtPct(raw)
-                        : fmtNum(raw)
-                    : (src?.value ?? "—");
-                return (
-                  <KpiCard
-                    key={k.label}
-                    label={k.label}
-                    shortLabel={k.shortLabel}
-                    icon={k.icon}
-                    iconColor={k.iconColor}
-                    value={value}
-                    delta={src?.delta ?? "—"}
-                    up={src?.up ?? true}
-                    spark={spark}
-                    desc={k.desc}
-                    hoverFmt={real?.hoverFmt ?? k.hoverFmt}
-                  />
-                );
-              })}
+              <div className={`kpi-grid grid grid-cols-2 gap-2`}>
+                {visibleKpis.map((k) => {
+                  // When a secondary cross-filter is active (a Device / Search Term
+                  // / Time-of-Day selection, e.g. from the optimizer's "Explore in
+                  // Dashboard"), crossFilterData IS the scoped set — already
+                  // intersected with any campaign selection. dynKpis, by contrast,
+                  // sums the selected CAMPAIGNS across every sub-dimension, so it
+                  // would show the campaign totals while the tables and charts show
+                  // the filtered subset. Prefer realKpis (crossFilterData) then, so
+                  // every card matches the rest of the dashboard.
+                  const crossActive = !!(crossFilterData && crossFilterData.length > 0);
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  const dyn = crossActive ? undefined : (dynKpis?.[k.idx] as any);
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  const real = realKpis?.[k.idx] as any;
+                  const src = dyn ?? real;
+                  // Sparkline follows the same scope as the value: the selected rows'
+                  // series when a selection/filter is active, else the account series.
+                  const spark = dyn?.spark ?? real?.spark ?? [];
+                  // An admin-chosen Value Format overrides the slot's own formatting —
+                  // reformat the same raw number instead of the pre-built string.
+                  const raw = dyn?.raw ?? real?.raw;
+                  const value =
+                    k.format && typeof raw === "number"
+                      ? k.format === "currency"
+                        ? fmtCurrency(raw)
+                        : k.format === "percent"
+                          ? fmtPct(raw)
+                          : fmtNum(raw)
+                      : (src?.value ?? "—");
+                  return (
+                    <KpiCard
+                      key={k.label}
+                      label={k.label}
+                      shortLabel={k.shortLabel}
+                      icon={k.icon}
+                      iconColor={k.iconColor}
+                      value={value}
+                      delta={src?.delta ?? "—"}
+                      up={src?.up ?? true}
+                      spark={spark}
+                      desc={k.desc}
+                      hoverFmt={real?.hoverFmt ?? k.hoverFmt}
+                    />
+                  );
+                })}
+              </div>
             </div>
           </div>
 

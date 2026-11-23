@@ -4912,64 +4912,6 @@ export default function DashboardView() {
                 </div>
               );
             })()}
-          <div className="overflow-x-auto scrollbar-none -mx-1 px-1 pt-1 pb-3 mb-4">
-            {/* 8-in-a-row only when there's room. With the AI panel open the content is
-          ~456px narrower, so stay at 4 columns (two rows) to keep the values
-          readable instead of squeezing 8 cards and clipping the numbers. */}
-            {/* Container-query driven: 8 KPIs stay in one row whenever the available
-          width (which already accounts for the open AI panel) genuinely fits
-          them; only then does it wrap to two rows of 4. */}
-            <div
-              className={`grid grid-cols-4 gap-2 sm:gap-3 ${visibleKpis.length > 4 ? "@[960px]:grid-cols-8" : ""}`}
-            >
-              {visibleKpis.map((k) => {
-                // When a secondary cross-filter is active (a Device / Search Term
-                // / Time-of-Day selection, e.g. from the optimizer's "Explore in
-                // Dashboard"), crossFilterData IS the scoped set — already
-                // intersected with any campaign selection. dynKpis, by contrast,
-                // sums the selected CAMPAIGNS across every sub-dimension, so it
-                // would show the campaign totals while the tables and charts show
-                // the filtered subset. Prefer realKpis (crossFilterData) then, so
-                // every card matches the rest of the dashboard.
-                const crossActive = !!(crossFilterData && crossFilterData.length > 0);
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                const dyn = crossActive ? undefined : (dynKpis?.[k.idx] as any);
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                const real = realKpis?.[k.idx] as any;
-                const src = dyn ?? real;
-                // Sparkline follows the same scope as the value: the selected rows'
-                // series when a selection/filter is active, else the account series.
-                const spark = dyn?.spark ?? real?.spark ?? [];
-                // An admin-chosen Value Format overrides the slot's own formatting —
-                // reformat the same raw number instead of the pre-built string.
-                const raw = dyn?.raw ?? real?.raw;
-                const value =
-                  k.format && typeof raw === "number"
-                    ? k.format === "currency"
-                      ? fmtCurrency(raw)
-                      : k.format === "percent"
-                        ? fmtPct(raw)
-                        : fmtNum(raw)
-                    : (src?.value ?? "—");
-                return (
-                  <KpiCard
-                    key={k.label}
-                    label={k.label}
-                    shortLabel={k.shortLabel}
-                    icon={k.icon}
-                    iconColor={k.iconColor}
-                    value={value}
-                    delta={src?.delta ?? "—"}
-                    up={src?.up ?? true}
-                    spark={spark}
-                    desc={k.desc}
-                    hoverFmt={real?.hoverFmt ?? k.hoverFmt}
-                  />
-                );
-              })}
-            </div>
-          </div>
-
           {/* Chart card. Desktop padding per the Figma spec: 16px top, 24px sides,
           ~0 bottom (the inner blocks carry their own bottom spacing). */}
           <div className="card-elevate rounded-2xl p-3 sm:px-6 sm:pt-4 sm:pb-0 mb-5 min-w-0">
@@ -5156,6 +5098,64 @@ export default function DashboardView() {
                 } as CustomEvent)
               }
             />
+          </div>
+
+          <div className="overflow-x-auto scrollbar-none -mx-1 px-1 pt-1 pb-3 mb-4">
+            {/* 8-in-a-row only when there's room. With the AI panel open the content is
+          ~456px narrower, so stay at 4 columns (two rows) to keep the values
+          readable instead of squeezing 8 cards and clipping the numbers. */}
+            {/* Container-query driven: 8 KPIs stay in one row whenever the available
+          width (which already accounts for the open AI panel) genuinely fits
+          them; only then does it wrap to two rows of 4. */}
+            <div
+              className={`grid grid-cols-4 gap-2 sm:gap-3 ${visibleKpis.length > 4 ? "@[960px]:grid-cols-8" : ""}`}
+            >
+              {visibleKpis.map((k) => {
+                // When a secondary cross-filter is active (a Device / Search Term
+                // / Time-of-Day selection, e.g. from the optimizer's "Explore in
+                // Dashboard"), crossFilterData IS the scoped set — already
+                // intersected with any campaign selection. dynKpis, by contrast,
+                // sums the selected CAMPAIGNS across every sub-dimension, so it
+                // would show the campaign totals while the tables and charts show
+                // the filtered subset. Prefer realKpis (crossFilterData) then, so
+                // every card matches the rest of the dashboard.
+                const crossActive = !!(crossFilterData && crossFilterData.length > 0);
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                const dyn = crossActive ? undefined : (dynKpis?.[k.idx] as any);
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                const real = realKpis?.[k.idx] as any;
+                const src = dyn ?? real;
+                // Sparkline follows the same scope as the value: the selected rows'
+                // series when a selection/filter is active, else the account series.
+                const spark = dyn?.spark ?? real?.spark ?? [];
+                // An admin-chosen Value Format overrides the slot's own formatting —
+                // reformat the same raw number instead of the pre-built string.
+                const raw = dyn?.raw ?? real?.raw;
+                const value =
+                  k.format && typeof raw === "number"
+                    ? k.format === "currency"
+                      ? fmtCurrency(raw)
+                      : k.format === "percent"
+                        ? fmtPct(raw)
+                        : fmtNum(raw)
+                    : (src?.value ?? "—");
+                return (
+                  <KpiCard
+                    key={k.label}
+                    label={k.label}
+                    shortLabel={k.shortLabel}
+                    icon={k.icon}
+                    iconColor={k.iconColor}
+                    value={value}
+                    delta={src?.delta ?? "—"}
+                    up={src?.up ?? true}
+                    spark={spark}
+                    desc={k.desc}
+                    hoverFmt={real?.hoverFmt ?? k.hoverFmt}
+                  />
+                );
+              })}
+            </div>
           </div>
 
           {/* Primary ("hero") table. Built-in default = CampaignTable, bound to

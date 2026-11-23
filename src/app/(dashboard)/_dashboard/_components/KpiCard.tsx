@@ -32,80 +32,41 @@ export default function KpiCard({
   const gradId = `kg-${label.replace(/[^a-zA-Z0-9]/g, "")}`;
 
   return (
-    <div className="card-elevate rounded-2xl px-2 sm:px-4 pt-2.5 sm:pt-3 pb-0 min-w-0 flex-1 flex flex-col transition-colors duration-200">
-      <div className="flex items-center justify-between mb-1">
-        <div className="flex items-center gap-1.5 min-w-0">
+    <div className="card-elevate rounded-2xl px-3 py-2.5 min-w-0 flex-1 flex items-center gap-2.5 sm:gap-3 relative transition-colors duration-200">
+      {/* Left: identity + value */}
+      <div className="min-w-0 flex-1">
+        <div className="flex items-center gap-1.5 mb-1 pr-4">
           <span
-            className="shrink-0 w-6 h-6 rounded-lg bg-zinc-800/70 flex items-center justify-center [&>svg]:w-3.5 [&>svg]:h-3.5"
+            className="shrink-0 w-5 h-5 rounded-md bg-zinc-800/70 flex items-center justify-center [&>svg]:w-3 [&>svg]:h-3"
             style={{ color: iconColor ?? (up ? "#22C55E" : "#EF4444") }}
           >
             {icon}
           </span>
-          <span className="sm:hidden text-[13px] font-medium text-zinc-400 truncate">
-            {shortLabel ?? label}
-          </span>
-          <span className="hidden sm:inline text-[13px] text-zinc-400 truncate">{label}</span>
+          <span className="text-[11.5px] sm:text-[12px] text-zinc-400 truncate">{label}</span>
         </div>
-        <div className="relative group shrink-0 ml-1 hidden sm:block">
-          <span className="w-3 h-3 sm:w-4 sm:h-4 rounded-full border border-zinc-800 flex items-center justify-center text-[7px] sm:text-[8px] text-zinc-500 cursor-help select-none">
-            i
-          </span>
-          <div className="absolute right-0 top-5 w-[170px] bg-zinc-950 text-white text-[11px] rounded-lg px-2.5 py-1.5 opacity-0 group-hover:opacity-100 transition-opacity z-50 pointer-events-none shadow-lg leading-snug">
-            {desc}
-          </div>
-        </div>
-      </div>
-      <div className="mb-0.5">
-        {/* Mobile: value with delta stacked underneath. Keyed spans fade+slide in
-            whenever the value/delta changes (period, metric, filters…). Keys are
-            prefixed so value and delta NEVER share a key — during loading both are
-            "—", and an unprefixed key collision left a stale "—" stuck on screen. */}
-        <div className="flex flex-col gap-y-0 sm:hidden">
+        <div className="flex items-baseline gap-1.5 flex-nowrap">
           <span
             key={`v-${value}`}
-            className="text-[15px] font-bold text-zinc-100 leading-tight truncate animate-in fade-in slide-in-from-bottom-1 duration-300"
+            className="text-[16px] sm:text-[18px] font-bold text-zinc-100 leading-none whitespace-nowrap truncate min-w-0 animate-in fade-in slide-in-from-bottom-1 duration-300"
           >
             {value}
           </span>
           <span
             key={`d-${delta}`}
-            className={`text-[10px] font-semibold leading-none animate-in fade-in duration-300 ${up ? "text-green-500" : "text-red-500"}`}
-          >
-            {delta}
-          </span>
-        </div>
-        {/* Desktop: value on the left, delta badge on the right — ALWAYS one line
-            (never wrap). A wrapping badge made only some cards' headers 2 lines tall,
-            so their fixed-height sparklines shifted, leaving a gap below (the bug).
-            Keeping one line + a slightly smaller value keeps every card's header the
-            same height, so all sparklines align. min-w-0 + truncate is a last-resort
-            guard for extreme widths so the badge is never pushed down. */}
-        <div className="hidden sm:flex items-center justify-between gap-x-1.5 flex-nowrap">
-          <span
-            key={`v-${value}`}
-            className="text-[18px] font-bold text-zinc-100 leading-tight whitespace-nowrap truncate min-w-0 animate-in fade-in slide-in-from-bottom-1 duration-300"
-          >
-            {value}
-          </span>
-          <span
-            key={`d-${delta}`}
-            className={`shrink-0 text-[11px] font-semibold leading-none px-1.5 py-1 rounded-md animate-in fade-in duration-300 ${up ? "text-emerald-400 bg-emerald-500/10" : "text-red-400 bg-red-500/10"}`}
+            className={`shrink-0 text-[10px] font-semibold leading-none px-1 py-0.5 rounded animate-in fade-in duration-300 ${
+              up ? "text-emerald-400 bg-emerald-500/10" : "text-red-400 bg-red-500/10"
+            }`}
           >
             {delta}
           </span>
         </div>
       </div>
-      {/* mt-auto pins the sparkline to the card bottom so equal-height cards never
-          show empty space beneath the chart, regardless of header height. */}
-      <div className="mt-auto h-[62px] sm:h-[68px] -mx-2 sm:-mx-4 overflow-hidden rounded-b-2xl">
+
+      {/* Right: inline mini spark */}
+      <div className="w-[64px] sm:w-[84px] h-9 shrink-0">
         <ResponsiveContainer width="100%" height="100%">
-          <AreaChart data={spark} margin={{ top: 4, right: 0, left: 0, bottom: 0 }}>
+          <AreaChart data={spark} margin={{ top: 2, right: 0, left: 0, bottom: 0 }}>
             <XAxis dataKey="date" hide />
-            {/* Scale Y to the data's OWN range so the sparkline always fills the card
-                height. Without this Recharts baselines at 0, so high-value / low-variance
-                series (e.g. 200K–250K) got squeezed into the top with a big empty gap
-                below — the reported bug. baseValue=dataMin keeps the fill anchored to the
-                card bottom for every period / filter / dataset. */}
             <YAxis hide domain={["dataMin", "dataMax"]} />
             <defs>
               <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
@@ -153,12 +114,23 @@ export default function KpiCard({
                 );
               }}
               cursor={{ stroke: color, strokeWidth: 1, strokeDasharray: "3 2", strokeOpacity: 0.5 }}
-              position={{ y: 22 }}
               isAnimationActive={false}
               wrapperStyle={{ zIndex: 20 }}
             />
           </AreaChart>
         </ResponsiveContainer>
+      </div>
+
+      {/* Info tooltip — pinned top-right, hover only */}
+      <div className="absolute right-2 top-2 hidden sm:block">
+        <div className="relative group">
+          <span className="w-3.5 h-3.5 rounded-full border border-zinc-800 flex items-center justify-center text-[7px] text-zinc-600 cursor-help select-none">
+            i
+          </span>
+          <div className="absolute right-0 top-5 w-[170px] bg-zinc-900 text-zinc-100 text-[11px] rounded-lg px-2.5 py-1.5 opacity-0 group-hover:opacity-100 transition-opacity z-50 pointer-events-none shadow-lg leading-snug">
+            {desc}
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -4645,9 +4645,9 @@ export default function DashboardView() {
   return (
     <>
       {(isWindsorLoading || dimensionBarLoading || crossFilterLoading || tableLoadingCount > 0) && (
-        <div className="fixed top-0 inset-x-0 z-[100] h-[3px] overflow-hidden bg-emerald-500/10">
+        <div className="fixed top-0 inset-x-0 z-[100] h-[3px] overflow-hidden bg-[rgba(var(--brand-rgb),0.1)]">
           <div
-            className="absolute h-full w-[35%] bg-emerald-500"
+            className="absolute h-full w-[35%] bg-[var(--brand)]"
             style={{ animation: "loading-bar 1.2s ease-in-out infinite" }}
           />
         </div>

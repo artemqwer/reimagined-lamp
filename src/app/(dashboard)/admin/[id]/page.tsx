@@ -406,7 +406,7 @@ export default function AdminUserDetailPage() {
                   Connected Channels
                 </h3>
                 {user.channels.length === 0 ? (
-                  <div className="bg-[#18181B] border border-[#3F3F46] rounded-[14px] py-8 text-center text-[14px] text-[#71717A]">
+                  <div className="bg-zinc-900/60 border border-zinc-700/50 rounded-[14px] py-8 text-center text-[14px] text-[#71717A]">
                     No data sources connected yet.
                   </div>
                 ) : (
@@ -466,7 +466,7 @@ export default function AdminUserDetailPage() {
                   {ACTIVITY.map((a, i) => (
                     <div
                       key={i}
-                      className="bg-[#18181B] rounded-xl h-[62px] px-3 flex items-center gap-3"
+                      className="bg-zinc-900/60 rounded-xl h-[62px] px-3 flex items-center gap-3"
                     >
                       <span className="shrink-0 mt-0.5" style={{ color: a.fg }}>
                         {a.icon}
@@ -499,7 +499,7 @@ export default function AdminUserDetailPage() {
               {ACTIVITY.map((a, i) => (
                 <div
                   key={i}
-                  className="bg-[#18181B] rounded-xl h-[62px] px-3 flex items-center gap-3"
+                  className="bg-zinc-900/60 rounded-xl h-[62px] px-3 flex items-center gap-3"
                 >
                   <span className="shrink-0 mt-0.5" style={{ color: a.fg }}>
                     {a.icon}

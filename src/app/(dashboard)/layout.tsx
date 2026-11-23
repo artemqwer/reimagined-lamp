@@ -153,7 +153,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
   if (checking) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#18181B]">
+      <div className="min-h-screen flex items-center justify-center ">
         <div className="w-6 h-6 border-2 border-emerald-600 border-t-transparent rounded-full animate-spin" />
       </div>
     );
@@ -193,7 +193,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         : null;
 
   return (
-    <div className="flex w-full min-h-screen bg-[#18181B]">
+    <div className="flex w-full min-h-screen">
       <Sidebar
         mobileOpen={mobileOpen}
         onMobileClose={() => setMobileOpen(false)}

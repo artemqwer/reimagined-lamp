@@ -14,7 +14,7 @@ import {
   type ConnectorId,
 } from "@/lib/connectors";
 import ConnectorBrandIcon from "@/components/ConnectorBrandIcon";
-import AccentPicker from "@/components/AccentPicker";
+import PreferencesMenu from "@/components/PreferencesMenu";
 
 // Icons mirror the Figma sidebar exactly (Lucide, 16px viewBox, #A1A1AA stroke).
 const ICON_PROPS = {
@@ -392,7 +392,7 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
                 {session?.email ?? ""}
               </p>
             </div>
-            <AccentPicker />
+            <PreferencesMenu />
             {onLogout && (
               <button
                 onClick={onLogout}

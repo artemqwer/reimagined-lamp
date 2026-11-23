@@ -32,7 +32,7 @@ export default function KpiCard({
   const gradId = `kg-${label.replace(/[^a-zA-Z0-9]/g, "")}`;
 
   return (
-    <div className="card-elevate rounded-2xl px-3 py-2.5 min-w-0 flex-1 flex items-center gap-2.5 sm:gap-3 relative transition-colors duration-200">
+    <div className="card-elevate rounded-2xl px-3 py-2.5 min-w-0 flex-1 flex items-center gap-2.5 sm:gap-3 relative kpi-tile transition-colors duration-200">
       {/* Left: identity + value */}
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-1.5 mb-1 pr-4">

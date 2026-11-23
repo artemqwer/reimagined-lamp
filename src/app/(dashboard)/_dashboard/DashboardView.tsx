@@ -4653,7 +4653,7 @@ export default function DashboardView() {
         </div>
       )}
       <div
-        className={`w-full px-4 sm:px-6 pt-6 pb-6 bg-[#18181B] ${isMobile ? "" : "transition-[padding] duration-300 ease-out"} ${aiOpen ? "lg:pr-[456px]" : ""}`}
+        className={`w-full px-4 sm:px-6 pt-6 pb-6 ${isMobile ? "" : "transition-[padding] duration-300 ease-out"} ${aiOpen ? "lg:pr-[456px]" : ""}`}
       >
         <div className="max-w-[1600px] @container">
           {/* Header — desktop only; below lg the dashboard layout's mobile top bar
@@ -5108,7 +5108,7 @@ export default function DashboardView() {
           width (which already accounts for the open AI panel) genuinely fits
           them; only then does it wrap to two rows of 4. */}
             <div
-              className={`grid grid-cols-4 gap-2 sm:gap-3 ${visibleKpis.length > 4 ? "@[960px]:grid-cols-8" : ""}`}
+              className={`kpi-grid grid grid-cols-4 gap-2 sm:gap-3 ${visibleKpis.length > 4 ? "@[960px]:grid-cols-8" : ""}`}
             >
               {visibleKpis.map((k) => {
                 // When a secondary cross-filter is active (a Device / Search Term

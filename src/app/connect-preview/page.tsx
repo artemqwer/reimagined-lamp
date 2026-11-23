@@ -114,7 +114,7 @@ export default function ConnectPreviewPage() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#18181B] flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen w-full flex flex-col items-center justify-center p-4">
       <div className="w-full max-w-md flex items-center justify-end gap-4 mb-3">
         <Link
           href="/login"

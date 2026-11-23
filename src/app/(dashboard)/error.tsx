@@ -15,7 +15,7 @@ export default function DashboardError({
   }, [error]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#18181B] p-6">
+    <div className="min-h-screen flex items-center justify-center p-6">
       <div className="card-elevate rounded-2xl shadow-sm p-8 max-w-lg w-full text-center">
         <div className="w-12 h-12 bg-red-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
           <svg

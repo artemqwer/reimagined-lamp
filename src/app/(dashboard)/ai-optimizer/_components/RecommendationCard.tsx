@@ -160,13 +160,13 @@ function AnalysisBlocks({ rec }: { rec: Recommendation }) {
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
-        <div className="rounded-xl bg-[#18181B] border border-[#3F3F46] px-3 py-2">
+        <div className="rounded-xl bg-zinc-900/60 border border-zinc-700/50 px-3 py-2">
           <p className="text-[10px] font-bold text-[#71717A] uppercase tracking-wider mb-0.5">
             Current state
           </p>
           <p className="text-[12px] text-[#F4F4F5] font-medium">{rec.currentState}</p>
         </div>
-        <div className="rounded-xl bg-[#18181B] border border-[#3F3F46] px-3 py-2">
+        <div className="rounded-xl bg-zinc-900/60 border border-zinc-700/50 px-3 py-2">
           <p className="text-[10px] font-bold text-[#71717A] uppercase tracking-wider mb-0.5">
             Expected result
           </p>
@@ -174,7 +174,7 @@ function AnalysisBlocks({ rec }: { rec: Recommendation }) {
         </div>
       </div>
 
-      <div className="mt-2.5 rounded-xl border border-[#3F3F46] bg-[#18181B] px-3 py-2.5">
+      <div className="mt-2.5 rounded-xl border border-zinc-700/50 bg-zinc-900/60 px-3 py-2.5">
         <p className="text-[12px] text-[#A1A1AA]">
           <span className="font-semibold text-[#F4F4F5]">⚡ Action:</span> {rec.action}
         </p>

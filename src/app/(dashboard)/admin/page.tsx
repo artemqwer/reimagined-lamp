@@ -1230,10 +1230,10 @@ export default function AdminPage() {
   // — but the panel rendered around the refusal: title, tabs, revenue cards,
   // an Export button, and a bare red "Forbidden" where the table belongs. It
   // read as broken software and showed the shape of a panel that isn't theirs.
-  if (allowed === null) return <div className="min-h-screen bg-[#18181B]" />;
+  if (allowed === null) return <div className="min-h-screen" />;
   if (!allowed)
     return (
-      <div className="px-4 sm:px-6 py-16 min-h-screen bg-[#18181B] flex items-start justify-center">
+      <div className="px-4 sm:px-6 py-16 min-h-screen flex items-start justify-center">
         <div className="glass rounded-2xl p-8 max-w-md text-center">
           <p className="text-[16px] font-semibold text-[#F4F4F5]">This page is for admins</p>
           <p className="text-[13.5px] text-zinc-400 mt-1.5">
@@ -1251,7 +1251,7 @@ export default function AdminPage() {
     );
 
   return (
-    <div className="px-4 sm:px-6 py-6 bg-[#18181B] min-h-screen">
+    <div className="px-4 sm:px-6 py-6 min-h-screen">
       {toast && (
         <div
           className={`fixed top-5 right-5 z-[60] flex items-center gap-2.5 px-4 py-3 rounded-xl shadow-lg text-[13px] font-medium ${toast.type === "success" ? "bg-green-500/10 border border-green-500/20 text-green-700" : "bg-red-500/10 border border-red-500/20 text-red-700"}`}

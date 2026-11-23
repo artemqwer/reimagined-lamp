@@ -1464,7 +1464,7 @@ export default function AiOptimizerPage() {
                               className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-xl border transition ${
                                 isSel
                                   ? "bg-violet-500/10 border-violet-500/40"
-                                  : "bg-[#18181B] border-[#27272A] hover:bg-zinc-800/70"
+                                  : "bg-zinc-900/60 border-zinc-700/50 hover:bg-zinc-800/70"
                               }`}
                             >
                               <span aria-hidden className="text-[16px] leading-6 shrink-0">

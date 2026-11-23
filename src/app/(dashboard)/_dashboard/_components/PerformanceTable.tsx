@@ -406,8 +406,8 @@ export default function PerformanceTable({
   // the admin's account (who may not have this source) and 503 "No data source
   // configured". Set on the admin page before navigating in; stable per session.
   const viewAsParam =
-    typeof window !== "undefined" && sessionStorage.getItem("dr_view_as")
-      ? `&view_as=${encodeURIComponent(sessionStorage.getItem("dr_view_as")!)}`
+    typeof window !== "undefined" && sessionStorage.getItem("mf_view_as")
+      ? `&view_as=${encodeURIComponent(sessionStorage.getItem("mf_view_as")!)}`
       : "";
   // Status is derived from spend > 0, so it says nothing on a source without
   // ad spend. The primary table already drops it there; dropping it here too

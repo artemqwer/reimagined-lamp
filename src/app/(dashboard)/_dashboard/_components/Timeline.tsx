@@ -615,7 +615,7 @@ export default function Timeline({
           <path d="M2 12a10 10 0 0 0 18 6" />
           <polyline points="20 13 20 18 15 18" />
         </svg>
-        <span className="text-[12px]">Rotate your phone to view the Event Timeline</span>
+        <span className="text-[12px]">Rotate your phone to view the Milestones</span>
       </div>
     );
   }
@@ -675,10 +675,10 @@ export default function Timeline({
           <div>
             <div className="flex items-center gap-1.5">
               <span className="text-[14px] font-normal text-[#F4F4F5] leading-[20px] tracking-[-0.15px]">
-                Event Timeline
+                Milestones
               </span>
               {/* Count badge ALWAYS shown — including 0 — so the user immediately sees
-                  there are no events for the current period (spec: "Event Timeline (0)"). */}
+                  there are no events for the current period (spec: "Milestones (0)"). */}
               <span
                 className={`text-[12px] font-semibold rounded-lg px-2 h-[22px] inline-flex items-center leading-none ${
                   total > 0

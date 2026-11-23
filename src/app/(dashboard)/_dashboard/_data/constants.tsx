@@ -354,16 +354,16 @@ export const kpis = [
 ];
 
 export const CAMPAIGNS = [
-  "Search - Men T-Shirts",
-  "Search - Men Shirts",
-  "PMax - Women Clothing",
-  "Search - Men Jeans",
-  "Display - Retargeting",
-  "PMax - Summer Collection",
+  "Search - Aurora Hoodie",
+  "Search - Aurora Tee",
+  "PMax - Aurora Fleece",
+  "Search - Northwind Denim",
+  "Display - Retargeting Pool",
+  "PMax - Alpine Capsule",
   "PMax - Men Pants",
-  "Search - Men Jackets",
-  "Search - Men Sneakers",
-  "Shopping - Winter Clearance",
+  "Search - Summit Shell",
+  "Search - Ridge Runners",
+  "Shopping - Frost Sale",
 ];
 export const COLORS = [
   "#22D3EE",
@@ -379,16 +379,16 @@ export const COLORS = [
 ];
 
 export const CAMPAIGN_TYPE_MAP: Record<string, string> = {
-  "Search - Men T-Shirts": "Search",
-  "Search - Men Shirts": "Search",
-  "PMax - Women Clothing": "PMax",
-  "Search - Men Jeans": "Search",
-  "Display - Retargeting": "Display",
-  "PMax - Summer Collection": "PMax",
+  "Search - Aurora Hoodie": "Search",
+  "Search - Aurora Tee": "Search",
+  "PMax - Aurora Fleece": "PMax",
+  "Search - Northwind Denim": "Search",
+  "Display - Retargeting Pool": "Display",
+  "PMax - Alpine Capsule": "PMax",
   "PMax - Men Pants": "PMax",
-  "Search - Men Jackets": "Search",
-  "Search - Men Sneakers": "Search",
-  "Shopping - Winter Clearance": "Shopping",
+  "Search - Summit Shell": "Search",
+  "Search - Ridge Runners": "Search",
+  "Shopping - Frost Sale": "Shopping",
 };
 export const TYPES = [
   "Search",
@@ -551,7 +551,7 @@ export const segRevenue = [
   { name: "PMax - Women Dresses", value: 199760 },
   { name: "PMax - Accessories", value: 184270 },
   { name: "Search - Men Hoodies", value: 178090 },
-  { name: "Search - Men T-Shirts", value: 167620 },
+  { name: "Search - Aurora Hoodie", value: 167620 },
   { name: "PMax - Sportswear", value: 142660 },
   { name: "Display - Summer Sale", value: 135290 },
   { name: "Others", value: 1070000 },
@@ -561,7 +561,7 @@ export const segAdProfit = [
   { name: "Shopping - Women Sneakers", value: 126110 },
   { name: "PMax - Premium Brands", value: 112690 },
   { name: "PMax - Women Dresses", value: 99880 },
-  { name: "Search - Men T-Shirts", value: 99450 },
+  { name: "Search - Aurora Hoodie", value: 99450 },
   { name: "PMax - Men Jackets", value: 88720 },
   { name: "Search - Men Hoodies", value: 73330 },
   { name: "Search - Women Jeans", value: 65430 },
@@ -572,13 +572,13 @@ export const segAdProfit = [
 
 export const segConversions = [
   { name: "Search - Men Boots", value: 5400 },
-  { name: "Search - Men Shirts", value: 4760 },
+  { name: "Search - Aurora Tee", value: 4760 },
   { name: "Search - Men Suits", value: 4690 },
-  { name: "Search - Men Jackets", value: 3700 },
+  { name: "Search - Summit Shell", value: 3700 },
   { name: "Shopping - Men Outerwear", value: 3430 },
   { name: "Search - Women Skirts", value: 3400 },
   { name: "PMax - Men Clothing", value: 2960 },
-  { name: "Search - Men Jeans", value: 2950 },
+  { name: "Search - Northwind Denim", value: 2950 },
   { name: "Search - Men Tops", value: 2930 },
   { name: "Others", value: 37500 },
 ];
@@ -586,7 +586,7 @@ export const segConversions = [
 export const campaignRows = [
   {
     status: "gray",
-    name: "Search - Men T-Shirts",
+    name: "Search - Aurora Hoodie",
     type: "Search",
     roas: "160.00%",
     roasColor: "green",
@@ -604,7 +604,7 @@ export const campaignRows = [
   },
   {
     status: "green",
-    name: "Search - Men Shirts",
+    name: "Search - Aurora Tee",
     type: "Search",
     roas: "94.00%",
     roasColor: "red",
@@ -622,7 +622,7 @@ export const campaignRows = [
   },
   {
     status: "gray",
-    name: "PMax - Women Clothing",
+    name: "PMax - Aurora Fleece",
     type: "PMax",
     roas: "117.00%",
     roasColor: "red",
@@ -640,7 +640,7 @@ export const campaignRows = [
   },
   {
     status: "green",
-    name: "Search - Men Jeans",
+    name: "Search - Northwind Denim",
     type: "Search",
     roas: "160.00%",
     roasColor: "green",
@@ -658,7 +658,7 @@ export const campaignRows = [
   },
   {
     status: "gray",
-    name: "Display - Retargeting",
+    name: "Display - Retargeting Pool",
     type: "Display",
     roas: "196.00%",
     roasColor: "green",
@@ -676,7 +676,7 @@ export const campaignRows = [
   },
   {
     status: "gray",
-    name: "PMax - Summer Collection",
+    name: "PMax - Alpine Capsule",
     type: "PMax",
     roas: "null",
     roasColor: "gray",
@@ -712,7 +712,7 @@ export const campaignRows = [
   },
   {
     status: "green",
-    name: "Search - Men Jackets",
+    name: "Search - Summit Shell",
     type: "Search",
     roas: "109.00%",
     roasColor: "red",
@@ -730,7 +730,7 @@ export const campaignRows = [
   },
   {
     status: "gray",
-    name: "Search - Men Sneakers",
+    name: "Search - Ridge Runners",
     type: "Search",
     roas: "167.00%",
     roasColor: "green",
@@ -748,7 +748,7 @@ export const campaignRows = [
   },
   {
     status: "green",
-    name: "Shopping - Winter Clearance",
+    name: "Shopping - Frost Sale",
     type: "Shopping",
     roas: "100.00%",
     roasColor: "green",

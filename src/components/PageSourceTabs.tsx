@@ -51,8 +51,8 @@ export default function PageSourceTabs({
     // page), not the admin's — getUser() only ever returns the admin. Mirrors the
     // sidebar's platform list.
     if (typeof window !== "undefined") {
-      const raw = sessionStorage.getItem("dr_view_as_connectors");
-      if (sessionStorage.getItem("dr_view_as") && raw) {
+      const raw = sessionStorage.getItem("mf_view_as_connectors");
+      if (sessionStorage.getItem("mf_view_as") && raw) {
         try {
           const ids = JSON.parse(raw) as ConnectorId[];
           if (Array.isArray(ids) && ids.length) {

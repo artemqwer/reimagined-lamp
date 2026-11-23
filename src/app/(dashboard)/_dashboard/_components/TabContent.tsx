@@ -164,6 +164,13 @@ export default function TabContent({
   const [legendExpanded, setLegendExpanded] = useState(false);
   // Trends chart view modes: plain bars, smooth stacked areas, or running total.
   const [chartMode, setChartMode] = useState<"columns" | "spline" | "cumulative">("columns");
+  // Chart density: user-controlled height so the dashboard flexes to taste.
+  const [chartScale, setChartScale] = useState<"s" | "m" | "l">("m");
+  const scaleH = {
+    s: "h-[240px] sm:h-[300px] lg:h-[340px]",
+    m: "h-[300px] sm:h-[380px] lg:h-[440px]",
+    l: "h-[360px] sm:h-[460px] lg:h-[540px]",
+  }[chartScale];
   const cumulativeBarData = useMemo(() => {
     const totals = new Map<string, number>();
     return aggregatedBarData.map((row) => {
@@ -468,7 +475,7 @@ export default function TabContent({
           return (
             <div key={chartKey} className="chart-fade">
               <div className="sm:overflow-x-auto scrollbar-none -mx-1 px-1 outline-none focus:outline-none">
-                <div className="h-[300px] sm:h-[380px] lg:h-[440px] sm:min-w-[600px] relative">
+                <div className={`${scaleH} sm:min-w-[600px] relative`}>
                   {!metricHasValue && (
                     <div className="absolute inset-y-0 left-12 right-4 sm:left-16 sm:right-6 z-10 flex items-center justify-center pointer-events-none">
                       {isLoading ? (
@@ -526,6 +533,30 @@ export default function TabContent({
                             chartMode === mode
                               ? "bg-zinc-900 text-[var(--brand-fg)] shadow-sm"
                               : "text-zinc-400 hover:text-zinc-200"
+                          }`}
+                        >
+                          {label}
+                        </button>
+                      ))}
+                    </div>
+                    <div
+                      className="flex items-center gap-1 bg-zinc-800/50 rounded-xl p-1"
+                      title="Chart height"
+                    >
+                      {(
+                        [
+                          ["s", "S"],
+                          ["m", "M"],
+                          ["l", "L"],
+                        ] as const
+                      ).map(([s, label]) => (
+                        <button
+                          key={s}
+                          onClick={() => setChartScale(s)}
+                          className={`w-7 py-1.5 rounded-lg text-[12px] font-semibold transition ${
+                            chartScale === s
+                              ? "bg-zinc-900 text-[var(--brand-fg)] shadow-sm"
+                              : "text-zinc-500 hover:text-zinc-300"
                           }`}
                         >
                           {label}

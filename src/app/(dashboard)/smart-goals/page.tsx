@@ -250,7 +250,7 @@ export default function SmartGoalsPage() {
   const dateTo = new Date(range.endExclusive.getTime() - 86_400_000).toISOString().slice(0, 10);
   // "View as Client": read this client's goals + actuals (set on the admin page).
   const viewAs = useMemo(
-    () => (typeof window !== "undefined" ? sessionStorage.getItem("dr_view_as") : null),
+    () => (typeof window !== "undefined" ? sessionStorage.getItem("mf_view_as") : null),
     [],
   );
   const viewAsQS = viewAs ? `&view_as=${encodeURIComponent(viewAs)}` : "";

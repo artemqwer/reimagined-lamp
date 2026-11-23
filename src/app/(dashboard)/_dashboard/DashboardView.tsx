@@ -446,7 +446,7 @@ export default function DashboardView() {
   // (chartMetricDef → chartMetricOptions[0]) rather than a hardcoded Revenue.
   const [chartMetric, setChartMetric] = useState<string>("");
   const [chartGroupBy, setChartGroupBy] = useState<ChartGroupBy>("Campaign");
-  // The inline "AI Analytics" button (desktop/tablet). A floating AI button shows
+  // The inline "Ask Forge AI" button (desktop/tablet). A floating AI button shows
   // when this scrolls out of view; on mobile the inline button is gone so the
   // floating one is always shown.
   const aiBtnRef = useRef<HTMLButtonElement | null>(null);
@@ -525,7 +525,7 @@ export default function DashboardView() {
   // from sessionStorage so it survives the navigation here and a refresh; the
   // app-wide banner (dashboard layout) shows it and clears it. null = own data.
   const [viewAsUserId] = useState<string | null>(() => {
-    if (typeof window !== "undefined") return sessionStorage.getItem("dr_view_as");
+    if (typeof window !== "undefined") return sessionStorage.getItem("mf_view_as");
     return null;
   });
   const [customEvents, setCustomEvents] = useState<CustomEvent[]>([]);
@@ -904,7 +904,7 @@ export default function DashboardView() {
     [activeConnector, connectorConfigs],
   );
 
-  // Which table renders in the "hero" position above Extended Analytics —
+  // Which table renders in the "hero" position above Deep Dive —
   // built-in CampaignTable by default, or an admin-promoted dimension/Table
   // Widget (see ConnectorConfig.primaryTableSource). Purely a display choice:
   // cross-filtering/KPI computation below stay pivoted on this connector's
@@ -2415,7 +2415,7 @@ export default function DashboardView() {
     if (aiScrollRef.current) aiScrollRef.current.scrollTop = aiScrollRef.current.scrollHeight;
   }, [aiMsgs, aiLoading]);
 
-  // Show the floating AI button once the inline AI Analytics button scrolls out of
+  // Show the floating AI button once the inline Ask Forge AI button scrolls out of
   // the viewport (desktop/tablet). On mobile the inline button isn't rendered.
   useEffect(() => {
     const el = aiBtnRef.current;
@@ -2657,7 +2657,7 @@ export default function DashboardView() {
     [selectedNames, campaignScopeNames],
   );
 
-  // AI Analytics: friendly labels for active selections → context chips
+  // Ask Forge AI: friendly labels for active selections → context chips
   // Active filters grouped by display label, carrying the underlying store keys
   // so each can be removed individually from the Active Filters bar.
   const activeFilterGroups = useMemo(() => {
@@ -3082,7 +3082,7 @@ export default function DashboardView() {
     fillDailyGrid,
   ]);
 
-  // Drive the Event Timeline open state from event presence: >0 events → expanded,
+  // Drive the Milestones open state from event presence: >0 events → expanded,
   // 0 events → collapsed. Uses the SAME date columns + granularity the Timeline
   // renders, so it matches its visible count. The effect only re-runs when the
   // presence actually flips, so a manual toggle within the same period still sticks.
@@ -3897,7 +3897,7 @@ export default function DashboardView() {
     fillDailyGrid,
   ]);
 
-  // Cross-filter: fetch Windsor data filtered by Extended Analytics selection
+  // Cross-filter: fetch Windsor data filtered by Deep Dive selection
   useEffect(() => {
     // Dims that don't support the date,{dim} group_by combination (or for which
     // cross-filtering makes no sense, because they ARE the pivot everything is
@@ -4917,7 +4917,7 @@ export default function DashboardView() {
           <div className="card-elevate rounded-2xl p-3 sm:px-6 sm:pt-4 sm:pb-0 mb-5 min-w-0">
             {/* Tabs row. Two things must hold at once:
               1) the active tab's 2px underline merges with the bottom divider, and
-              2) the AI Analytics button is vertically CENTRED in the row.
+              2) the Ask Forge AI button is vertically CENTRED in the row.
             We get both with: the tabs wrapper is `self-stretch` + `items-stretch`, so
             the tab buttons always fill the full row height and their `border-b-2 -mb-px`
             underline lands exactly on the container's `border-b` (no float, regardless
@@ -5011,7 +5011,7 @@ export default function DashboardView() {
                       />
                       <circle cx="18" cy="6" r="1.5" fill={aiOpen ? "#71717A" : "url(#ai-grad)"} />
                     </svg>
-                    <span>AI Analytics</span>
+                    <span>Ask Forge AI</span>
                     {aiSelectionChips.length > 0 && (
                       <span className="ml-0.5 text-[11px] font-bold text-violet-600">
                         ({aiSelectionChips.reduce((s, c) => s + c.values.length, 0)})
@@ -5229,7 +5229,7 @@ export default function DashboardView() {
             />
           )}
 
-          {/* Extended Analytics — 10 dimension tables */}
+          {/* Deep Dive — 10 dimension tables */}
           <ExtendedAnalytics
             dateFrom={new Date(rangeStart).toISOString().slice(0, 10)}
             dateTo={new Date(rangeEnd).toISOString().slice(0, 10)}
@@ -5280,7 +5280,7 @@ export default function DashboardView() {
             return (
               <button
                 onClick={openAi}
-                aria-label="Open AI Analytics"
+                aria-label="Open Ask Forge AI"
                 className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-90 flex items-center gap-2 h-13 sm:h-14 pl-3.5 pr-4 rounded-full text-white font-semibold shadow-xl shadow-violet-300/40 hover:scale-105 active:scale-95 transition animate-in fade-in zoom-in duration-200"
                 style={{ background: "linear-gradient(135deg,#8b5cf6,#ec4899)" }}
               >
@@ -5293,7 +5293,7 @@ export default function DashboardView() {
             );
           })()}
 
-        {/* ── AI Analytics Sidebar ── */}
+        {/* ── Ask Forge AI Sidebar ── */}
         <AiSidebar
           aiOpen={aiOpen}
           aiInput={aiInput}

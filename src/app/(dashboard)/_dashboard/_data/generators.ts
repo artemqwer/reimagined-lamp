@@ -117,7 +117,7 @@ export function getMockAiResponse(input: string): { text: string; suggestions: s
   const lo = input.toLowerCase();
   if (lo.includes("roas"))
     return {
-      text: "📈 **ROAS Analysis**\n\nYour current ROAS is **3.58x** across all campaigns.\n\n**Top performers:**\n• Search - Men T-Shirts: **470%** ROAS\n• Shopping - Winter Clearance: **210%** ROAS\n\n**Needs attention:**\n• Search - Men Shirts: **42%** ROAS (below target)\n• Display - Retargeting: **24%** ROAS\n\nI recommend pausing underperforming campaigns and reallocating budget to top performers.",
+      text: "📈 **ROAS Analysis**\n\nYour current ROAS is **3.58x** across all campaigns.\n\n**Top performers:**\n• Search - Aurora Hoodie: **470%** ROAS\n• Shopping - Frost Sale: **210%** ROAS\n\n**Needs attention:**\n• Search - Aurora Tee: **42%** ROAS (below target)\n• Display - Retargeting Pool: **24%** ROAS\n\nI recommend pausing underperforming campaigns and reallocating budget to top performers.",
       suggestions: [
         "How can I improve low ROAS?",
         "Show budget allocation",
@@ -131,12 +131,12 @@ export function getMockAiResponse(input: string): { text: string; suggestions: s
     };
   if (lo.includes("recommend") || lo.includes("optim"))
     return {
-      text: "💡 **Optimization Recommendations**\n\nBased on your account data, here are my top recommendations:\n\n1. **Scale Search - Men T-Shirts** — 470% ROAS, increase budget by 30%\n2. **Pause Display - Retargeting** — 24% ROAS, negative ROI\n3. **Add negative keywords** to PMax campaigns to reduce wasted spend\n4. **Increase bids on mobile** — CTR 12% higher on mobile\n5. **Run A/B tests** on ad copy for Search campaigns",
+      text: "💡 **Optimization Recommendations**\n\nBased on your account data, here are my top recommendations:\n\n1. **Scale Search - Aurora Hoodie** — 470% ROAS, increase budget by 30%\n2. **Pause Display - Retargeting Pool** — 24% ROAS, negative ROI\n3. **Add negative keywords** to PMax campaigns to reduce wasted spend\n4. **Increase bids on mobile** — CTR 12% higher on mobile\n5. **Run A/B tests** on ad copy for Search campaigns",
       suggestions: ["Implement these changes", "Show keyword analysis", "What is my wasted spend?"],
     };
   if (lo.includes("issue") || lo.includes("problem"))
     return {
-      text: "🔍 **Issues Found**\n\nI've identified **3 issues** in your account:\n\n⚠️ **High CPA campaigns:**\n• Display - Retargeting: CPA $93.3 (target: $30)\n• PMax - Men Pants: CPA $31.8\n\n⚠️ **Low conversion rate:**\n• PMax - Women Clothing: 0.31% (avg: 2.15%)\n\n⚠️ **Budget pacing:**\n• 2 campaigns running out of budget before end of day",
+      text: "🔍 **Issues Found**\n\nI've identified **3 issues** in your account:\n\n⚠️ **High CPA campaigns:**\n• Display - Retargeting Pool: CPA $93.3 (target: $30)\n• PMax - Men Pants: CPA $31.8\n\n⚠️ **Low conversion rate:**\n• PMax - Aurora Fleece: 0.31% (avg: 2.15%)\n\n⚠️ **Budget pacing:**\n• 2 campaigns running out of budget before end of day",
       suggestions: ["How to fix high CPA?", "Review budget pacing", "Show conversion tips"],
     };
   if (lo.includes("cost") || lo.includes("budget"))

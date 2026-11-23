@@ -220,7 +220,7 @@ interface AiSidebarProps {
   aiMsgs: AiMessage[];
   aiLoading: boolean;
   aiScrollRef: React.RefObject<HTMLDivElement>;
-  // AI Analytics additions
+  // Ask Forge AI additions
   mode: "account" | "selection";
   dateRangeLabel: string;
   selectionChips: AiSelectionChip[];
@@ -395,7 +395,7 @@ export default function AiSidebar({
             </div>
             <div>
               <h3 className="text-[15px] font-bold text-zinc-100">
-                AI Analytics{selectedCount > 0 ? ` (${selectedCount} Selected)` : ""}
+                Ask Forge AI{selectedCount > 0 ? ` (${selectedCount} Selected)` : ""}
               </h3>
               <p className="text-[12px] text-zinc-500">
                 {mode === "selection" ? "Analyzing Selected Context" : "Entire Account"}

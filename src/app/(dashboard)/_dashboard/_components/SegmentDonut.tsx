@@ -133,7 +133,7 @@ export default function SegmentDonut({
     };
     // "View as Client": carry view_as so the donut reads the client's account
     // like the rest of the dashboard, not the admin's.
-    const viewAs = typeof window !== "undefined" ? sessionStorage.getItem("dr_view_as") : null;
+    const viewAs = typeof window !== "undefined" ? sessionStorage.getItem("mf_view_as") : null;
     fetch(
       `${dimApiBase()}/${dimKey}?date_from=${dateFrom}&date_to=${dateTo}&page=1&limit=2000&sort=cost&sort_dir=desc${
         c.id !== "google_ads" ? `&connector=${encodeURIComponent(c.id)}` : ""

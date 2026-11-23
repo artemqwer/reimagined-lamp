@@ -344,8 +344,8 @@ export default function TableWidgetsPanel({
       </p>
       <p className="px-5 pb-2 text-[11px] text-zinc-500">
         Independent tables with their own dimension tabs, metric columns, cross-filtering and
-        default sort. When any exist for this source, they replace the built-in Extended Analytics
-        list above on the user dashboard.
+        default sort. When any exist for this source, they replace the built-in Deep Dive list above
+        on the user dashboard.
       </p>
       <div className="divide-y divide-gray-50">
         {sorted.length === 0 && (

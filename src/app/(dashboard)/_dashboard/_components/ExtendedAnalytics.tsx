@@ -132,9 +132,7 @@ export default function ExtendedAnalytics({
               </svg>
             </div>
             <div className="min-w-0">
-              <p className="text-[15px] font-bold text-zinc-100 leading-tight">
-                Extended Analytics
-              </p>
+              <p className="text-[15px] font-bold text-zinc-100 leading-tight">Deep Dive</p>
               <p className="text-[12px] text-zinc-500 truncate">{subtitle}</p>
             </div>
           </button>

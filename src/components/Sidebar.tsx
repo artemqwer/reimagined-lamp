@@ -109,8 +109,8 @@ export default function Sidebar({ mobileOpen, onMobileClose, session, onLogout }
     // Viewing as a client: show THEIR connected platforms (stashed by the admin
     // page), not the admin's own — getUser() here only returns the admin.
     if (typeof window !== "undefined") {
-      const raw = sessionStorage.getItem("dr_view_as_connectors");
-      if (sessionStorage.getItem("dr_view_as") && raw) {
+      const raw = sessionStorage.getItem("mf_view_as_connectors");
+      if (sessionStorage.getItem("mf_view_as") && raw) {
         try {
           const ids = JSON.parse(raw) as ConnectorId[];
           if (Array.isArray(ids) && ids.length) {

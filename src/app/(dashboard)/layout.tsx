@@ -50,7 +50,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   useEffect(() => {
     try {
       setViewAsName(
-        sessionStorage.getItem("dr_view_as") ? sessionStorage.getItem("dr_view_as_name") : null,
+        sessionStorage.getItem("mf_view_as") ? sessionStorage.getItem("mf_view_as_name") : null,
       );
     } catch {
       setViewAsName(null);
@@ -58,9 +58,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   }, [pathname]);
   const exitViewAs = () => {
     try {
-      sessionStorage.removeItem("dr_view_as");
-      sessionStorage.removeItem("dr_view_as_name");
-      sessionStorage.removeItem("dr_view_as_connectors");
+      sessionStorage.removeItem("mf_view_as");
+      sessionStorage.removeItem("mf_view_as_name");
+      sessionStorage.removeItem("mf_view_as_connectors");
     } catch {
       /* private mode */
     }

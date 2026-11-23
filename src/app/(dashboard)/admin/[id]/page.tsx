@@ -278,11 +278,11 @@ export default function AdminUserDetailPage() {
                 // sends it as view_as on every data fetch (the API re-scopes to
                 // this user's connected account after checking we may see them).
                 try {
-                  sessionStorage.setItem("dr_view_as", user.id);
-                  sessionStorage.setItem("dr_view_as_name", user.name);
+                  sessionStorage.setItem("mf_view_as", user.id);
+                  sessionStorage.setItem("mf_view_as_name", user.name);
                   // The client's OWN connected sources, so the sidebar shows their
                   // platforms (they may have Meta while the admin doesn't, etc.).
-                  sessionStorage.setItem("dr_view_as_connectors", JSON.stringify(user.connectors));
+                  sessionStorage.setItem("mf_view_as_connectors", JSON.stringify(user.connectors));
                 } catch {
                   /* private mode — the dashboard just opens on your own data */
                 }

@@ -795,8 +795,8 @@ export default function ConnectorConfigPanel({
           </p>
           <div className="px-5 pb-3">
             <p className="text-[11px] text-zinc-500 mb-1.5">
-              Which table renders first, above Extended Analytics. Purely visual — cross-filtering
-              still works the same way underneath regardless of what&apos;s shown here.
+              Which table renders first, above Deep Dive. Purely visual — cross-filtering still
+              works the same way underneath regardless of what&apos;s shown here.
             </p>
             <select
               value={

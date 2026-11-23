@@ -177,7 +177,7 @@ export default function AiOptimizerPage() {
   // dashboard uses, so the optimizer analyses the CLIENT's account. Stable for
   // the session (set on the admin page before navigating in).
   const viewAs = useMemo(
-    () => (typeof window !== "undefined" ? sessionStorage.getItem("dr_view_as") : null),
+    () => (typeof window !== "undefined" ? sessionStorage.getItem("mf_view_as") : null),
     [],
   );
   const viewAsQS = viewAs ? `&view_as=${encodeURIComponent(viewAs)}` : "";
@@ -330,7 +330,7 @@ export default function AiOptimizerPage() {
       try {
         sessionStorage.setItem("dr_range_start", String(range.start.getTime()));
         sessionStorage.setItem("dr_range_end", String(range.endExclusive.getTime() - 86_400_000));
-        // Open the dashboard's Extended Analytics on arrival — the user came for
+        // Open the dashboard's Deep Dive on arrival — the user came for
         // exactly these tables and filters.
         sessionStorage.setItem("dr_expand_analytics", "1");
         // Over the optimizer's ~90-day window, Profit & Loss weekly shows where
@@ -907,7 +907,7 @@ export default function AiOptimizerPage() {
       try {
         sessionStorage.setItem("dr_range_start", String(ex.rangeStart));
         sessionStorage.setItem("dr_range_end", String(ex.rangeEnd));
-        // Open Extended Analytics on arrival, so the snapshot's tables + filters
+        // Open Deep Dive on arrival, so the snapshot's tables + filters
         // are visible without another click.
         sessionStorage.setItem("dr_expand_analytics", "1");
         sessionStorage.setItem("dr_open_tab", "pl");

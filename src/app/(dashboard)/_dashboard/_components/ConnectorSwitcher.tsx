@@ -94,7 +94,7 @@ export default function ConnectorSwitcher({ compact = false }: { compact?: boole
           </h1>
           {/* The phone bar has one line's worth of room, and the source's
               name is the part that has to be there. */}
-          {!compact && <p className="text-[14px] text-[#71717A]">Performance Analytics</p>}
+          {!compact && <p className="text-[14px] text-[#71717A]">Channel Analytics</p>}
         </div>
       </button>
 

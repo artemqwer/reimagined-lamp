@@ -903,7 +903,7 @@ export default function CampaignTable({
         </div>
 
         {/* Dropdowns rendered in a body portal so they escape any ancestor stacking
-        context / overflow clipping and always sit above the AI Analytics panel. */}
+        context / overflow clipping and always sit above the Ask Forge AI panel. */}
         {mounted &&
           campaignDropdownOpen &&
           createPortal(

@@ -4829,7 +4829,7 @@ export default function DashboardView() {
               ));
 
               return (
-                <div className="sticky top-0 z-30 -mx-1 mb-3">
+                <div className="sticky top-[56px] lg:top-[60px] z-30 -mx-1 mb-3">
                   <div className="relative overflow-x-clip bg-zinc-900/95 backdrop-blur border border-zinc-800 rounded-xl shadow-sm px-3 py-2">
                     {/* Hidden single-line mirror used only to measure the natural one-row
                 width (header + toggle + all chips at full width + Clear All). If it
@@ -4915,7 +4915,7 @@ export default function DashboardView() {
           {/* Chart card. Desktop padding per the Figma spec: 16px top, 24px sides,
           ~0 bottom (the inner blocks carry their own bottom spacing). */}
           <div className="card-elevate rounded-2xl p-3 sm:px-6 sm:pt-4 sm:pb-0 mb-5 min-w-0">
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 px-1 pb-4 mb-1 border-b border-zinc-800/60">
+            <div className="px-1 pb-4 mb-1 border-b border-zinc-800/60">
               {/* 8-in-a-row only when there's room. With the AI panel open the content is
           ~456px narrower, so stay at 4 columns (two rows) to keep the values
           readable instead of squeezing 8 cards and clipping the numbers. */}
@@ -5221,41 +5221,6 @@ export default function DashboardView() {
         {/* Floating AI button (chat-widget style). Shown on any device once the inline
           AI button scrolls out of view (the inline button is now rendered on mobile
           too). Hidden while the panel is open. Badge = active selections/filters. */}
-        {!aiOpen &&
-          !aiBtnVisible &&
-          (() => {
-            const selCount = aiSelectionChips.reduce((s, c) => s + c.values.length, 0);
-            return (
-              <button
-                onClick={openAi}
-                aria-label="Open Ask Forge AI"
-                className="group fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-90 flex items-center gap-2.5 h-14 pl-3 pr-4 rounded-full text-white font-semibold hover:scale-105 active:scale-95 transition animate-in fade-in zoom-in duration-200"
-                style={{ background: "linear-gradient(135deg, var(--brand-fg), var(--brand))" }}
-              >
-                {/* Analyzer core: pulsing halo + orbiting spark */}
-                <span className="relative w-8 h-8 shrink-0 flex items-center justify-center">
-                  <span className="absolute inset-0 rounded-full bg-white/25 animate-ping [animation-duration:2.4s]" />
-                  <span
-                    aria-hidden
-                    className="absolute -inset-1 rounded-full border border-dashed border-white/40 group-hover:rotate-180 transition-transform duration-[1200ms] ease-out"
-                  />
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="white" className="relative">
-                    <path d="M12 1.5C12.5 7.5 16.5 11.5 22.5 12C16.5 12.5 12.5 16.5 12 22.5C11.5 16.5 7.5 12.5 1.5 12C7.5 11.5 11.5 7.5 12 1.5Z" />
-                    <circle cx="18.5" cy="5.5" r="1.4" />
-                  </svg>
-                </span>
-                <span className="hidden sm:flex flex-col items-start leading-none">
-                  <span className="text-[14px] font-bold tracking-tight">Forge Analyzer</span>
-                  <span className="text-[10px] font-medium text-white/70 mt-0.5">
-                    {selCount > 0 ? `${selCount} selected — ask away` : "online · ask away"}
-                  </span>
-                </span>
-                <span className="sm:hidden text-[14px] font-bold">
-                  {selCount > 0 ? selCount : "AI"}
-                </span>
-              </button>
-            );
-          })()}
 
         {/* ── Mobile Date Picker Modal ── */}
         {datePickerOpen && (

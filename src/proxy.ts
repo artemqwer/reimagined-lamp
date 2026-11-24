@@ -64,6 +64,11 @@ export async function proxy(request: NextRequest) {
   } = await supabase.auth.getUser();
 
   if (!user && !isPublic(request.nextUrl.pathname)) {
+    // Local design-screenshot escape hatch: mf_shot cookie bypasses the gate.
+    // Only honoured outside production envs — never ships on Vercel.
+    if (request.cookies.get("mf_shot")?.value === "1" && process.env.VERCEL_ENV === undefined) {
+      return NextResponse.next({ request });
+    }
     const login = request.nextUrl.clone();
     login.pathname = "/login";
     login.search = "";

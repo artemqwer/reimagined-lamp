@@ -210,7 +210,7 @@ export default function TopNav({ session, onLogout }: TopNavProps) {
                 className={linkCls(is(href))}
               >
                 <ConnectorIcon id={id} />
-                <span>{CONNECTORS[id].label}</span>
+                <span className="max-w-[130px] truncate">{CONNECTORS[id].label}</span>
               </Link>
             );
           })}
@@ -229,7 +229,7 @@ export default function TopNav({ session, onLogout }: TopNavProps) {
         <div className="ml-auto flex items-center gap-2 shrink-0">
           <button
             onClick={() => window.dispatchEvent(new CustomEvent("open-command-palette"))}
-            className="flex items-center gap-2 rounded-full border border-zinc-700/60 bg-zinc-800/40 px-3 py-1.5 text-[12.5px] text-zinc-500 hover:text-zinc-300 hover:border-zinc-600 transition"
+            className="hidden xl:flex items-center gap-2 rounded-full border border-zinc-700/60 bg-zinc-800/40 px-3 py-1.5 text-[12.5px] text-zinc-500 hover:text-zinc-300 hover:border-zinc-600 transition"
           >
             <svg
               width="13"

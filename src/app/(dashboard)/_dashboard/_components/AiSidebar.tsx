@@ -78,7 +78,7 @@ function FilterActionCard({ action, onApply }: { action: FilterAction; onApply: 
 function ActionsList({ actions }: { actions: string[] }) {
   if (!actions.length) return null;
   return (
-    <div className="mb-2 space-y-1 bg-violet-500/12 border border-violet-500/20 rounded-xl px-3 py-2">
+    <div className="mb-2 space-y-1 bg-[var(--brand)]/10 border border-[var(--brand)]/20 rounded-xl px-3 py-2">
       {actions.map((a, i) => (
         <div key={i} className="flex items-center gap-1.5 text-[11px] text-zinc-400">
           <svg
@@ -129,7 +129,7 @@ function InsightCard({
   return (
     <div className="border border-zinc-800 rounded-2xl p-4 bg-zinc-900 shadow-sm">
       <div className="flex items-start gap-2 mb-1">
-        <span className="w-5 h-5 rounded-full bg-linear-to-br from-violet-500 to-indigo-500 text-white text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">
+        <span className="w-5 h-5 rounded-full bg-linear-to-br from-[var(--brand-fg)] to-[var(--brand)] text-white text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">
           {index + 1}
         </span>
         <p className="text-[13px] font-semibold text-zinc-100 leading-snug flex-1">{ins.insight}</p>
@@ -387,7 +387,7 @@ export default function AiSidebar({
           <div className="flex items-center gap-3">
             <div
               className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
-              style={{ background: "linear-gradient(135deg,#a78bfa,#818cf8)" }}
+              style={{ background: "linear-gradient(135deg, var(--brand-fg), var(--brand))" }}
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
                 <path d="M12 1.5C12.5 7.5 16.5 11.5 22.5 12C16.5 12.5 12.5 16.5 12 22.5C11.5 16.5 7.5 12.5 1.5 12C7.5 11.5 11.5 7.5 12 1.5Z" />
@@ -406,7 +406,7 @@ export default function AiSidebar({
             <button
               onClick={() => setHistoryView((v) => !v)}
               title="Chat history"
-              className={`w-8 h-8 flex items-center justify-center rounded-xl transition ${historyView ? "bg-violet-500/10 text-[var(--brand-fg)]" : "hover:bg-zinc-800 text-zinc-500"}`}
+              className={`w-8 h-8 flex items-center justify-center rounded-xl transition ${historyView ? "bg-[var(--brand)]/10 text-[var(--brand-fg)]" : "hover:bg-zinc-800 text-zinc-500"}`}
             >
               <svg
                 width="16"
@@ -444,7 +444,7 @@ export default function AiSidebar({
             Updates automatically with selection / filters / period. Hidden in the
             history view. Especially important on mobile where the dashboard is off-screen. */}
         {!historyView && (
-          <div className="shrink-0 flex items-center gap-2 px-5 py-2 bg-violet-500/12 border-b border-violet-500/20 text-[11px]">
+          <div className="shrink-0 flex items-center gap-2 px-5 py-2 bg-[var(--brand)]/10 border-b border-[var(--brand)]/20 text-[11px]">
             <svg
               width="12"
               height="12"
@@ -479,7 +479,7 @@ export default function AiSidebar({
                     onNewChat();
                     setHistoryView(false);
                   }}
-                  className="flex items-center gap-1.5 text-[12px] font-semibold text-[var(--brand-fg)] border border-violet-500/20 rounded-xl px-3 py-1.5 hover:bg-violet-500/10 transition"
+                  className="flex items-center gap-1.5 text-[12px] font-semibold text-[var(--brand-fg)] border border-[var(--brand)]/20 rounded-xl px-3 py-1.5 hover:bg-[var(--brand)]/10 transition"
                 >
                   <svg
                     width="12"
@@ -498,7 +498,7 @@ export default function AiSidebar({
 
               {sessionsLoading ? (
                 <div className="flex items-center justify-center py-10 gap-2 text-zinc-500 text-[13px]">
-                  <div className="w-4 h-4 border-2 border-violet-400 border-t-transparent rounded-full animate-spin" />
+                  <div className="w-4 h-4 border-2 border-[var(--brand-fg)] border-t-transparent rounded-full animate-spin" />
                   Loading…
                 </div>
               ) : sessions.length === 0 ? (
@@ -526,7 +526,7 @@ export default function AiSidebar({
                   {sessions.map((s) => (
                     <div
                       key={s.id}
-                      className={`group flex items-center gap-2 rounded-xl border px-3.5 py-3 cursor-pointer transition ${s.id === currentSessionId ? "border-violet-500/20 bg-violet-500/12" : "border-zinc-800 hover:border-violet-500/20 hover:bg-violet-500/12"}`}
+                      className={`group flex items-center gap-2 rounded-xl border px-3.5 py-3 cursor-pointer transition ${s.id === currentSessionId ? "border-[var(--brand)]/20 bg-[var(--brand)]/10" : "border-zinc-800 hover:border-[var(--brand)]/20 hover:bg-[var(--brand)]/10"}`}
                       onClick={() => {
                         onLoadSession(s);
                         setHistoryView(false);
@@ -570,7 +570,7 @@ export default function AiSidebar({
           {/* Context Panel */}
           {!historyView && (
             <>
-              <div className="px-5 py-3 bg-violet-500/12 border-b border-zinc-800">
+              <div className="px-5 py-3 bg-[var(--brand)]/10 border-b border-zinc-800">
                 <p className="text-[11px] font-bold text-zinc-400 uppercase tracking-wide mb-1.5">
                   Current Context
                 </p>
@@ -595,7 +595,7 @@ export default function AiSidebar({
                     {selectionChips.map((c) => (
                       <span
                         key={c.dimension}
-                        className="text-[11px] bg-zinc-900 border border-violet-500/20 text-[var(--brand-fg)] rounded-full px-2 py-0.5"
+                        className="text-[11px] bg-zinc-900 border border-[var(--brand)]/20 text-[var(--brand-fg)] rounded-full px-2 py-0.5"
                       >
                         <span className="font-semibold">{c.dimension}:</span>{" "}
                         {c.values.slice(0, 2).join(", ")}
@@ -620,12 +620,12 @@ export default function AiSidebar({
                 Picking one runs the focused analysis (colored insight cards). */}
                 {!insightsLoading && insights.length === 0 && aiMsgs.length === 0 && (
                   <div>
-                    <p className="text-[13px] text-zinc-400 mb-1">
-                      Pick a question to analyze{" "}
-                      {mode === "selection" ? "your selection" : "the account"}:
+                    <p className="text-[13px] text-zinc-300 font-medium mb-1">
+                      Forge Analyzer here — what are we forging today?
                     </p>
                     <p className="text-[11px] text-zinc-500 mb-3">
-                      or type your own below — the analysis runs only when you ask.
+                      Pick a question to put on the anvil, or type your own — the analysis runs only
+                      when you ask.
                     </p>
                     <div className="flex flex-col gap-2">
                       {presetQuestions.map((q, i) => (
@@ -634,11 +634,11 @@ export default function AiSidebar({
                         <button
                           key={`${q.question}-${i}`}
                           onClick={() => onAnalyze(q.question, q.description)}
-                          className="group flex items-center justify-between gap-2 text-[13px] text-zinc-300 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-left hover:border-violet-300 hover:bg-violet-500/12 transition"
+                          className="group flex items-center justify-between gap-2 text-[13px] text-zinc-300 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-left hover:border-[var(--brand-fg)] hover:bg-[var(--brand)]/10 transition"
                         >
                           <span>{q.question}</span>
                           <svg
-                            className="text-zinc-600 group-hover:text-violet-400 shrink-0 transition"
+                            className="text-zinc-600 group-hover:text-[var(--brand-fg)] shrink-0 transition"
                             width="14"
                             height="14"
                             viewBox="0 0 24 24"
@@ -655,7 +655,7 @@ export default function AiSidebar({
                     <div className="border-t border-zinc-800 pt-3 mt-1">
                       <button
                         onClick={() => onAnalyze()}
-                        className="group flex items-center justify-between gap-2 text-[13px] text-zinc-300 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-left hover:border-violet-300 hover:bg-violet-500/12 transition w-full"
+                        className="group flex items-center justify-between gap-2 text-[13px] text-zinc-300 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-left hover:border-[var(--brand-fg)] hover:bg-[var(--brand)]/10 transition w-full"
                       >
                         <span className="flex items-center gap-2">
                           <svg
@@ -663,14 +663,14 @@ export default function AiSidebar({
                             height="13"
                             viewBox="0 0 24 24"
                             fill="currentColor"
-                            className="text-violet-400 shrink-0"
+                            className="text-[var(--brand-fg)] shrink-0"
                           >
                             <path d="M12 1.5C12.5 7.5 16.5 11.5 22.5 12C16.5 12.5 12.5 16.5 12 22.5C11.5 16.5 7.5 12.5 1.5 12C7.5 11.5 11.5 7.5 12 1.5Z" />
                           </svg>
                           Analyze {mode === "selection" ? "selection" : "full account"}
                         </span>
                         <svg
-                          className="text-zinc-600 group-hover:text-violet-400 shrink-0 transition"
+                          className="text-zinc-600 group-hover:text-[var(--brand-fg)] shrink-0 transition"
                           width="14"
                           height="14"
                           viewBox="0 0 24 24"
@@ -699,7 +699,7 @@ export default function AiSidebar({
                 {/* AI Insights */}
                 {insightsLoading ? (
                   <div className="flex flex-col items-center justify-center py-10 gap-3">
-                    <div className="w-7 h-7 border-2 border-violet-500 border-t-transparent rounded-full animate-spin" />
+                    <div className="w-7 h-7 border-2 border-[var(--brand)] border-t-transparent rounded-full animate-spin" />
                     <p className="text-[12px] text-zinc-500">
                       Analyzing {mode === "selection" ? "your selection" : "the account"}…
                     </p>
@@ -735,7 +735,7 @@ export default function AiSidebar({
                         <button
                           key={q}
                           onClick={() => onSendMsg(q)}
-                          className="text-[12px] text-zinc-400 border border-zinc-800 rounded-full px-3 py-1 hover:bg-zinc-800/60 hover:border-violet-300 transition text-left"
+                          className="text-[12px] text-zinc-400 border border-zinc-800 rounded-full px-3 py-1 hover:bg-zinc-800/60 hover:border-[var(--brand-fg)] transition text-left"
                         >
                           {q}
                         </button>
@@ -755,7 +755,9 @@ export default function AiSidebar({
                         {msg.role === "assistant" && (
                           <div
                             className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5"
-                            style={{ background: "linear-gradient(135deg,#a78bfa,#818cf8)" }}
+                            style={{
+                              background: "linear-gradient(135deg, var(--brand-fg), var(--brand))",
+                            }}
                           >
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
                               <path d="M12 1.5C12.5 7.5 16.5 11.5 22.5 12C16.5 12.5 12.5 16.5 12 22.5C11.5 16.5 7.5 12.5 1.5 12C7.5 11.5 11.5 7.5 12 1.5Z" />
@@ -785,7 +787,7 @@ export default function AiSidebar({
                                 <button
                                   onClick={() => onTogglePin(msg.id)}
                                   title={msg.pinned ? "Unpin" : "Pin"}
-                                  className={`transition ${msg.pinned ? "text-purple-500" : "text-zinc-600 hover:text-zinc-400"}`}
+                                  className={`transition ${msg.pinned ? "text-[var(--brand-fg)]" : "text-zinc-600 hover:text-zinc-400"}`}
                                 >
                                   <svg
                                     width="12"
@@ -817,20 +819,27 @@ export default function AiSidebar({
                   <div className="flex gap-3">
                     <div
                       className="w-8 h-8 rounded-full flex items-center justify-center shrink-0"
-                      style={{ background: "linear-gradient(135deg,#a78bfa,#818cf8)" }}
+                      style={{
+                        background: "linear-gradient(135deg, var(--brand-fg), var(--brand))",
+                      }}
                     >
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
                         <path d="M12 1.5C12.5 7.5 16.5 11.5 22.5 12C16.5 12.5 12.5 16.5 12 22.5C11.5 16.5 7.5 12.5 1.5 12C7.5 11.5 11.5 7.5 12 1.5Z" />
                       </svg>
                     </div>
-                    <div className="card-elevate rounded-2xl rounded-tl-sm px-4 py-3 flex items-center gap-1.5">
-                      {[0, 0.15, 0.3].map((delay, i) => (
-                        <span
-                          key={i}
-                          className="w-2 h-2 rounded-full bg-zinc-600 animate-bounce inline-block"
-                          style={{ animationDelay: `${delay}s` }}
-                        />
-                      ))}
+                    <div className="card-elevate rounded-2xl rounded-tl-sm px-4 py-3 flex items-center gap-2.5">
+                      <span className="flex items-center gap-1.5">
+                        {[0, 0.15, 0.3].map((delay, i) => (
+                          <span
+                            key={i}
+                            className="w-2 h-2 rounded-full bg-[var(--brand-fg)] animate-bounce inline-block"
+                            style={{ animationDelay: `${delay}s` }}
+                          />
+                        ))}
+                      </span>
+                      <span className="text-[12px] text-zinc-500">
+                        Forge Analyzer is reading the numbers…
+                      </span>
                     </div>
                   </div>
                 )}
@@ -852,7 +861,7 @@ export default function AiSidebar({
                 }
               }}
               placeholder="Ask anything about this context…"
-              className="flex-1 text-[14px] border border-violet-500/20 focus:border-violet-400 rounded-xl px-4 py-2.5 outline-none placeholder-gray-300 transition"
+              className="flex-1 text-[14px] border border-[var(--brand)]/20 focus:border-[var(--brand-fg)] rounded-xl px-4 py-2.5 outline-none placeholder-zinc-500 transition"
             />
             <button
               onClick={() => onSendMsg()}

@@ -5281,14 +5281,30 @@ export default function DashboardView() {
               <button
                 onClick={openAi}
                 aria-label="Open Ask Forge AI"
-                className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-90 flex items-center gap-2 h-13 sm:h-14 pl-3.5 pr-4 rounded-full text-white font-semibold shadow-xl shadow-[rgba(var(--brand-rgb),0.35)]/40 hover:scale-105 active:scale-95 transition animate-in fade-in zoom-in duration-200"
+                className="group fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-90 flex items-center gap-2.5 h-14 pl-3 pr-4 rounded-full text-white font-semibold hover:scale-105 active:scale-95 transition animate-in fade-in zoom-in duration-200"
                 style={{ background: "linear-gradient(135deg, var(--brand-fg), var(--brand))" }}
               >
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="white" className="shrink-0">
-                  <path d="M12 1.5C12.5 7.5 16.5 11.5 22.5 12C16.5 12.5 12.5 16.5 12 22.5C11.5 16.5 7.5 12.5 1.5 12C7.5 11.5 11.5 7.5 12 1.5Z" />
-                  <circle cx="18.5" cy="5.5" r="1.4" />
-                </svg>
-                <span className="text-[15px]">AI{selCount > 0 ? ` (${selCount})` : ""}</span>
+                {/* Analyzer core: pulsing halo + orbiting spark */}
+                <span className="relative w-8 h-8 shrink-0 flex items-center justify-center">
+                  <span className="absolute inset-0 rounded-full bg-white/25 animate-ping [animation-duration:2.4s]" />
+                  <span
+                    aria-hidden
+                    className="absolute -inset-1 rounded-full border border-dashed border-white/40 group-hover:rotate-180 transition-transform duration-[1200ms] ease-out"
+                  />
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="white" className="relative">
+                    <path d="M12 1.5C12.5 7.5 16.5 11.5 22.5 12C16.5 12.5 12.5 16.5 12 22.5C11.5 16.5 7.5 12.5 1.5 12C7.5 11.5 11.5 7.5 12 1.5Z" />
+                    <circle cx="18.5" cy="5.5" r="1.4" />
+                  </svg>
+                </span>
+                <span className="hidden sm:flex flex-col items-start leading-none">
+                  <span className="text-[14px] font-bold tracking-tight">Forge Analyzer</span>
+                  <span className="text-[10px] font-medium text-white/70 mt-0.5">
+                    {selCount > 0 ? `${selCount} selected — ask away` : "online · ask away"}
+                  </span>
+                </span>
+                <span className="sm:hidden text-[14px] font-bold">
+                  {selCount > 0 ? selCount : "AI"}
+                </span>
               </button>
             );
           })()}

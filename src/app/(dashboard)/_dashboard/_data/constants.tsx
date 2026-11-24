@@ -842,6 +842,9 @@ export function fmtChartMoney(v: number): string {
 }
 
 // Heatmap color scale: value between min/max → intensity 0..1
+// Heat style v2 — no more full-cell color washes: each cell keeps a dark base
+// and the intensity shows as a soft "heat floor" glow rising from the bottom,
+// so column edges read as data, not as grid lines.
 export function heatmapBg(
   value: number,
   min: number,
@@ -849,10 +852,12 @@ export function heatmapBg(
   color: "blue" | "green" | "red",
 ): string {
   const t = Math.max(0, Math.min(1, (value - min) / (max - min || 1)));
-  const alpha = 0.08 + t * 0.35;
-  if (color === "blue") return `rgba(59, 130, 246, ${alpha})`;
-  if (color === "green") return `rgba(34, 197, 94, ${alpha})`;
-  return `rgba(239, 68, 68, ${alpha})`;
+  const alpha = t * 0.26;
+  if (color === "blue")
+    return `linear-gradient(180deg, transparent 52%, rgba(129, 140, 248, ${alpha}) 100%)`;
+  if (color === "green")
+    return `linear-gradient(180deg, transparent 52%, rgba(var(--brand-rgb), ${alpha}) 100%)`;
+  return `linear-gradient(180deg, transparent 52%, rgba(248, 113, 113, ${alpha}) 100%)`;
 }
 
 // ─── AI Assistant helpers ─────────────────────────────────────────────────────

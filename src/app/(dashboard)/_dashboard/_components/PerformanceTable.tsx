@@ -942,7 +942,7 @@ export default function PerformanceTable({
     <td
       key={key}
       className={`px-1.5 sm:px-2.5 py-2.5 text-zinc-300 text-right tabular-nums ${extra}`}
-      style={{ backgroundColor: heatmapBg(val, range.min, range.max, color) }}
+      style={{ background: heatmapBg(val, range.min, range.max, color) }}
     >
       {content}
     </td>
@@ -1172,8 +1172,8 @@ export default function PerformanceTable({
               }}
               className={`flex items-center gap-1.5 border rounded-xl px-2.5 py-1.5 text-[13px] transition whitespace-nowrap shrink-0 ${
                 dropdownFiltered
-                  ? "bg-emerald-500/10 border-emerald-300 text-[var(--brand-fg)] font-medium"
-                  : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:bg-zinc-800/60"
+                  ? "bg-[var(--brand)]/10 border-emerald-300 text-[var(--brand-fg)] font-medium"
+                  : "bg-[var(--surface)] border-zinc-800 text-zinc-400 hover:bg-zinc-800/60"
               }`}
             >
               <svg
@@ -1229,7 +1229,7 @@ export default function PerformanceTable({
                     }}
                   >
                     <div className="p-2 border-b border-zinc-800 shrink-0">
-                      <div className="flex items-center gap-1.5 border border-zinc-800 rounded-xl px-2 py-1.5 bg-zinc-900/50">
+                      <div className="flex items-center gap-1.5 border border-zinc-800 rounded-xl px-2 py-1.5 bg-[var(--surface)]/50">
                         <svg
                           width="12"
                           height="12"
@@ -1483,8 +1483,8 @@ export default function PerformanceTable({
               }}
               className={`flex items-center gap-1 border rounded-xl px-2.5 py-1.5 text-[13px] transition ${
                 statusFilter !== "All" || isMetricFilterActive(metricFilter)
-                  ? "bg-emerald-500/10 border-emerald-300 text-[var(--brand-fg)] font-medium"
-                  : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:bg-zinc-800/60"
+                  ? "bg-[var(--brand)]/10 border-emerald-300 text-[var(--brand-fg)] font-medium"
+                  : "bg-[var(--surface)] border-zinc-800 text-zinc-400 hover:bg-zinc-800/60"
               }`}
             >
               <svg
@@ -1680,7 +1680,7 @@ export default function PerformanceTable({
               the longer background cross-filter / period / dimension work (crossFilterBusy),
               so the indicator never disappears while the request is still running. */}
           {(loading || crossFilterBusy) && (
-            <div className="absolute top-2.5 right-3 z-30 flex items-center gap-1.5 text-[12px] font-medium text-[var(--brand-fg)] bg-zinc-900/95 border border-emerald-500/20 px-2.5 py-1 rounded-xl shadow-sm">
+            <div className="absolute top-2.5 right-3 z-30 flex items-center gap-1.5 text-[12px] font-medium text-[var(--brand-fg)] bg-[var(--surface)]/95 border border-emerald-500/20 px-2.5 py-1 rounded-xl shadow-sm">
               <div className="w-3 h-3 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin" />
               Updating…
             </div>
@@ -1693,8 +1693,8 @@ export default function PerformanceTable({
                 as far as the content actually needs. */}
             <table className="w-full text-[13px] border-collapse sm:min-w-275">
               <thead>
-                <tr className="bg-zinc-900/80">
-                  <th className="px-2.5 py-2.5 w-8 sticky left-0 z-20 bg-zinc-900">
+                <tr className="bg-[var(--surface)]/80">
+                  <th className="px-2.5 py-2.5 w-8 sticky left-0 z-20 bg-[var(--surface)]">
                     <div className="flex items-center gap-1.5">
                       <input
                         type="checkbox"
@@ -1723,7 +1723,7 @@ export default function PerformanceTable({
                       {namesCollapsed && (
                         <button
                           onClick={() => setNamesCollapsed(false)}
-                          className="flex items-center justify-center w-6 h-6 rounded-md bg-emerald-500/10 text-[var(--brand-fg)] hover:bg-emerald-200 transition shrink-0 sm:hidden"
+                          className="flex items-center justify-center w-6 h-6 rounded-md bg-[var(--brand)]/10 text-[var(--brand-fg)] hover:bg-emerald-200 transition shrink-0 sm:hidden"
                         >
                           <svg
                             width="14"
@@ -1744,7 +1744,7 @@ export default function PerformanceTable({
                       Status
                     </th>
                   )}
-                  <th className="sm:w-[184px] text-left text-zinc-400 font-medium text-[12px] sticky left-8 z-20 bg-zinc-900 overflow-hidden p-0 after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-zinc-800">
+                  <th className="sm:w-[184px] text-left text-zinc-400 font-medium text-[12px] sticky left-8 z-20 bg-[var(--surface)] overflow-hidden p-0 after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-zinc-800">
                     <div
                       style={{
                         width: isMobile ? (namesCollapsed ? 0 : 120) : 160,
@@ -1822,14 +1822,14 @@ export default function PerformanceTable({
                         }}
                         className={`border-t border-zinc-800 cursor-pointer group transition-colors duration-150 ${
                           isSelected
-                            ? "bg-emerald-500/12 [&_td]:font-bold"
+                            ? "bg-[var(--brand)]/10 [&_td]:font-bold"
                             : anySelected
                               ? "opacity-50 hover:opacity-80"
-                              : "hover:bg-emerald-500/12"
+                              : "hover:bg-[var(--brand)]/10"
                         }`}
                       >
                         <td
-                          className={`px-2.5 py-2.5 sticky left-0 z-10 isolate ${isSelected ? "bg-emerald-500/10" : "bg-zinc-900 group-hover:bg-emerald-500/12"}`}
+                          className={`px-2.5 py-2.5 sticky left-0 z-10 isolate ${isSelected ? "bg-[var(--brand)]/10" : "bg-[var(--surface)] group-hover:bg-[var(--brand)]/10"}`}
                           onClick={(e) => e.stopPropagation()}
                         >
                           <input
@@ -1847,7 +1847,7 @@ export default function PerformanceTable({
                           </td>
                         )}
                         <td
-                          className={`sticky left-8 z-10 isolate overflow-hidden after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-zinc-800 p-0 ${isSelected ? "bg-emerald-500/10" : "bg-zinc-900 group-hover:bg-emerald-500/12"}`}
+                          className={`sticky left-8 z-10 isolate overflow-hidden after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-zinc-800 p-0 ${isSelected ? "bg-[var(--brand)]/10" : "bg-[var(--surface)] group-hover:bg-[var(--brand)]/10"}`}
                         >
                           <div
                             style={{
@@ -1880,10 +1880,12 @@ export default function PerformanceTable({
               </tbody>
               {totals && (
                 <tfoot>
-                  <tr className="bg-zinc-900 border-t-2 border-zinc-800 font-semibold text-zinc-200 text-[13px]">
-                    <td className="px-2.5 py-3 sticky left-0 z-10 bg-zinc-900" />
-                    {showStatus && <td className="hidden sm:table-cell px-2 py-3 bg-zinc-900" />}
-                    <td className="sticky left-8 z-10 bg-zinc-900 overflow-hidden p-0">
+                  <tr className="bg-[var(--surface)] border-t-2 border-zinc-800 font-semibold text-zinc-200 text-[13px]">
+                    <td className="px-2.5 py-3 sticky left-0 z-10 bg-[var(--surface)]" />
+                    {showStatus && (
+                      <td className="hidden sm:table-cell px-2 py-3 bg-[var(--surface)]" />
+                    )}
+                    <td className="sticky left-8 z-10 bg-[var(--surface)] overflow-hidden p-0">
                       <div
                         style={{
                           width: isMobile ? (namesCollapsed ? 0 : 120) : 160,
@@ -1929,7 +1931,7 @@ export default function PerformanceTable({
                       setRowsPerPage(Number(e.target.value));
                       setPage(1);
                     }}
-                    className="ml-1.5 text-[13px] border border-zinc-800 rounded px-1.5 py-0.5 bg-zinc-900 outline-none cursor-pointer"
+                    className="ml-1.5 text-[13px] border border-zinc-800 rounded px-1.5 py-0.5 bg-[var(--surface)] outline-none cursor-pointer"
                   >
                     <option value={10}>10</option>
                     <option value={20}>20</option>

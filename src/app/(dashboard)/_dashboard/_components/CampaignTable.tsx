@@ -284,7 +284,7 @@ export default function CampaignTable({
     value: number,
     color: "blue" | "green" | "red",
   ) => ({
-    backgroundColor: heatmapBg(value, heatCols[col].min, heatCols[col].max, color),
+    background: heatmapBg(value, heatCols[col].min, heatCols[col].max, color),
   });
 
   return (
@@ -425,8 +425,8 @@ export default function CampaignTable({
             className={`w-full text-[13px] border-collapse ${hasCost ? "sm:min-w-[1280px]" : "sm:min-w-275"}`}
           >
             <thead>
-              <tr className="bg-zinc-900/80">
-                <th className="px-2.5 py-2.5 w-8 sticky left-0 z-20 bg-zinc-900">
+              <tr className="bg-[var(--surface)]/70 backdrop-blur-md">
+                <th className="px-2.5 py-2.5 w-8 sticky left-0 z-20 bg-[var(--surface)]">
                   <div className="flex items-center gap-1.5">
                     <input
                       type="checkbox"
@@ -475,7 +475,7 @@ export default function CampaignTable({
                 also lines this table's name column up with the other tables,
                 which have no Status column at all. */}
                 {hasCost && (
-                  <th className="px-2 py-2.5 text-left text-zinc-400 font-medium text-[12px] w-16 sticky left-8 z-20 bg-zinc-900 hidden sm:table-cell">
+                  <th className="px-2 py-2.5 text-left text-zinc-400 font-medium text-[12px] w-16 sticky left-8 z-20 bg-[var(--surface)] hidden sm:table-cell">
                     Status
                   </th>
                 )}
@@ -503,7 +503,7 @@ export default function CampaignTable({
                   <th
                     key={col}
                     onClick={() => onSort(col)}
-                    className={`text-${align} text-zinc-400 font-medium sm:whitespace-nowrap cursor-pointer hover:text-zinc-300 select-none text-[12px]${col === "name" ? ` sm:w-[184px] ${nameSticky} z-20 bg-zinc-900 after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-zinc-800 overflow-hidden p-0` : " px-1.5 sm:px-2.5 py-2.5"}${col === "type" ? " hidden sm:table-cell" : ""}`}
+                    className={`text-${align} text-zinc-400 font-medium sm:whitespace-nowrap cursor-pointer hover:text-zinc-300 select-none text-[12px]${col === "name" ? ` sm:w-[184px] ${nameSticky} z-20 bg-[var(--surface)] after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-zinc-800 overflow-hidden p-0` : " px-1.5 sm:px-2.5 py-2.5"}${col === "type" ? " hidden sm:table-cell" : ""}`}
                   >
                     {col === "name" ? (
                       <div
@@ -573,14 +573,14 @@ export default function CampaignTable({
                     }}
                     className={`border-t border-zinc-800 cursor-pointer group transition-colors duration-150 ${
                       isSelected
-                        ? "bg-emerald-500/12"
+                        ? "bg-[var(--brand)]/10"
                         : isDimmed
                           ? "opacity-50 hover:opacity-80"
-                          : "hover:bg-emerald-500/12"
+                          : "hover:bg-[var(--brand)]/10"
                     }`}
                   >
                     <td
-                      className={`px-2.5 py-2.5 sticky left-0 z-10 isolate ${isSelected ? "bg-emerald-500/10" : "bg-zinc-900 group-hover:bg-emerald-500/10"}`}
+                      className={`px-2.5 py-2.5 sticky left-0 z-10 isolate ${isSelected ? "bg-[var(--brand)]/8" : "bg-[var(--surface)] group-hover:bg-zinc-800/50"}`}
                       onClick={(e) => e.stopPropagation()}
                     >
                       <input
@@ -592,13 +592,13 @@ export default function CampaignTable({
                     </td>
                     {hasCost && (
                       <td
-                        className={`px-2 py-2.5 sticky left-8 z-10 isolate hidden sm:table-cell ${isSelected ? "bg-emerald-500/10" : "bg-zinc-900 group-hover:bg-emerald-500/10"}`}
+                        className={`px-2 py-2.5 sticky left-8 z-10 isolate hidden sm:table-cell ${isSelected ? "bg-[var(--brand)]/8" : "bg-[var(--surface)] group-hover:bg-zinc-800/50"}`}
                       >
                         <StatusIndicator status={row.status} />
                       </td>
                     )}
                     <td
-                      className={`${nameSticky} z-10 isolate overflow-hidden after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-zinc-800 p-0 ${isSelected ? "bg-emerald-500/10" : "bg-zinc-900 group-hover:bg-emerald-500/10"}`}
+                      className={`${nameSticky} z-10 isolate overflow-hidden after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-zinc-800 p-0 ${isSelected ? "bg-[var(--brand)]/8" : "bg-[var(--surface)] group-hover:bg-zinc-800/50"}`}
                     >
                       <div
                         style={{
@@ -723,13 +723,13 @@ export default function CampaignTable({
               })}
             </tbody>
             <tfoot>
-              <tr className="bg-zinc-900 border-t-2 border-zinc-800 font-semibold text-zinc-200 text-[13px]">
-                <td className="px-2.5 py-3 sticky left-0 z-10 bg-zinc-900" />
+              <tr className="bg-[var(--surface)] border-t border-zinc-800/70 font-semibold text-zinc-200 text-[13px]">
+                <td className="px-2.5 py-3 sticky left-0 z-10 bg-[var(--surface)]" />
                 {hasCost && (
-                  <td className="px-2 py-3 sticky left-8 z-10 bg-zinc-900 hidden sm:table-cell" />
+                  <td className="px-2 py-3 sticky left-8 z-10 bg-[var(--surface)] hidden sm:table-cell" />
                 )}
                 <td
-                  className={`${nameSticky} z-10 bg-zinc-900 overflow-hidden after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-zinc-800 p-0`}
+                  className={`${nameSticky} z-10 bg-[var(--surface)] overflow-hidden after:absolute after:inset-y-0 after:right-0 after:w-px after:bg-zinc-800 p-0`}
                 >
                   <div
                     style={{
@@ -838,7 +838,7 @@ export default function CampaignTable({
                     onRowsPerPageChange(Number(e.target.value));
                     onPageChange(1);
                   }}
-                  className="ml-1.5 text-[13px] border border-zinc-800 rounded px-1.5 py-0.5 bg-zinc-900 outline-none cursor-pointer"
+                  className="ml-1.5 text-[13px] border border-zinc-800 rounded px-1.5 py-0.5 bg-[var(--surface)] outline-none cursor-pointer"
                 >
                   <option value={10}>10</option>
                   <option value={20}>20</option>
@@ -924,7 +924,7 @@ export default function CampaignTable({
                 }}
               >
                 <div className="p-2 border-b border-zinc-800 shrink-0">
-                  <div className="flex items-center gap-1.5 border border-zinc-800 rounded-xl px-2 py-1.5 bg-zinc-900/50">
+                  <div className="flex items-center gap-1.5 border border-zinc-800 rounded-xl px-2 py-1.5 bg-[var(--surface)]/50">
                     <svg
                       width="12"
                       height="12"

@@ -49,7 +49,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       setSession({
         email: "shot@metricforge.dev",
         name: "Shot Admin",
-        avatar: null,
+        avatar: undefined,
         teamId: null,
         isAdmin: true,
       });

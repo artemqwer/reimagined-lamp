@@ -4980,7 +4980,7 @@ export default function DashboardView() {
                   style={{
                     background: aiOpen
                       ? "#3F3F46"
-                      : "linear-gradient(90deg, #2b7fff, #ad46ff, #f6339a)",
+                      : "linear-gradient(90deg, var(--brand-fg), var(--brand))",
                   }}
                 >
                   <button
@@ -5001,8 +5001,8 @@ export default function DashboardView() {
                     >
                       <defs>
                         <linearGradient id="ai-grad" x1="0" y1="0" x2="1" y2="1">
-                          <stop offset="0%" stopColor="#8b5cf6" />
-                          <stop offset="100%" stopColor="#ec4899" />
+                          <stop offset="0%" stopColor="var(--brand-fg)" />
+                          <stop offset="100%" stopColor="var(--brand)" />
                         </linearGradient>
                       </defs>
                       <path
@@ -5013,7 +5013,7 @@ export default function DashboardView() {
                     </svg>
                     <span>Ask Forge AI</span>
                     {aiSelectionChips.length > 0 && (
-                      <span className="ml-0.5 text-[11px] font-bold text-violet-600">
+                      <span className="ml-0.5 text-[11px] font-bold text-[var(--brand-fg)]">
                         ({aiSelectionChips.reduce((s, c) => s + c.values.length, 0)})
                       </span>
                     )}
@@ -5281,8 +5281,8 @@ export default function DashboardView() {
               <button
                 onClick={openAi}
                 aria-label="Open Ask Forge AI"
-                className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-90 flex items-center gap-2 h-13 sm:h-14 pl-3.5 pr-4 rounded-full text-white font-semibold shadow-xl shadow-violet-300/40 hover:scale-105 active:scale-95 transition animate-in fade-in zoom-in duration-200"
-                style={{ background: "linear-gradient(135deg,#8b5cf6,#ec4899)" }}
+                className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-90 flex items-center gap-2 h-13 sm:h-14 pl-3.5 pr-4 rounded-full text-white font-semibold shadow-xl shadow-[rgba(var(--brand-rgb),0.35)]/40 hover:scale-105 active:scale-95 transition animate-in fade-in zoom-in duration-200"
+                style={{ background: "linear-gradient(135deg, var(--brand-fg), var(--brand))" }}
               >
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="white" className="shrink-0">
                   <path d="M12 1.5C12.5 7.5 16.5 11.5 22.5 12C16.5 12.5 12.5 16.5 12 22.5C11.5 16.5 7.5 12.5 1.5 12C7.5 11.5 11.5 7.5 12 1.5Z" />

@@ -43,9 +43,9 @@ function fmt(v: number, format: string): string {
 
 function EvidenceTable({ evidence }: { evidence: Evidence }) {
   return (
-    <div className="mt-3 rounded-xl border border-violet-500/20 bg-violet-500/12 overflow-hidden">
+    <div className="mt-3 rounded-xl border border-[var(--brand)]/20 bg-[var(--brand)]/8 overflow-hidden">
       <div className="flex flex-wrap items-center justify-between gap-2 px-3 py-2">
-        <p className="text-[10px] font-bold text-violet-700 uppercase tracking-wider">
+        <p className="text-[10px] font-bold text-[var(--brand-fg)] uppercase tracking-wider">
           AI analysis: data used for this recommendation
         </p>
         {evidence.filter && (
@@ -71,7 +71,7 @@ function EvidenceTable({ evidence }: { evidence: Evidence }) {
             {evidence.rows.map((r) => (
               <tr
                 key={r.label}
-                className={`border-t border-violet-500/20 ${r.flagged ? "bg-red-500/12" : ""}`}
+                className={`border-t border-[var(--brand)]/20 ${r.flagged ? "bg-red-500/12" : ""}`}
               >
                 {evidence.columns.map((c, i) =>
                   i === 0 ? (
@@ -92,7 +92,7 @@ function EvidenceTable({ evidence }: { evidence: Evidence }) {
                 )}
               </tr>
             ))}
-            <tr className="border-t border-violet-500/20 bg-zinc-900/70 font-semibold text-zinc-200">
+            <tr className="border-t border-[var(--brand)]/20 bg-zinc-900/70 font-semibold text-zinc-200">
               {evidence.columns.map((c, i) => (
                 <td
                   key={c.key}
@@ -106,12 +106,12 @@ function EvidenceTable({ evidence }: { evidence: Evidence }) {
         </table>
       </div>
       {evidence.rowCount > evidence.rows.length && (
-        <p className="px-3 py-1.5 text-[11px] text-zinc-400 border-t border-violet-500/20">
+        <p className="px-3 py-1.5 text-[11px] text-zinc-400 border-t border-[var(--brand)]/20">
           Showing first {evidence.rows.length} of {evidence.rowCount.toLocaleString("en-US")} rows —
           open the dashboard for the full set.
         </p>
       )}
-      <p className="px-3 py-2 text-[11px] text-violet-900/70 border-t border-violet-500/20">
+      <p className="px-3 py-2 text-[11px] text-violet-900/70 border-t border-[var(--brand)]/20">
         <span className="font-semibold">AI insight:</span> {evidence.insight}
       </p>
     </div>

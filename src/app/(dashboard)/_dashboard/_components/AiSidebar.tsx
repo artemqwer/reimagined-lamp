@@ -148,7 +148,7 @@ function InsightCard({
       )}
       {ins.whyItMatters && (
         <div className="mt-2">
-          <p className="text-[11px] font-bold text-violet-600 uppercase tracking-wide mb-0.5">
+          <p className="text-[11px] font-bold text-[var(--brand-fg)] uppercase tracking-wide mb-0.5">
             Why It Matters
           </p>
           <p className="text-[12px] text-zinc-400">{ins.whyItMatters}</p>
@@ -194,7 +194,7 @@ function InsightCard({
             if (ins.filterAction) onApplyFilter(ins.filterAction);
             else onViewDashboard();
           }}
-          className="flex items-center gap-1 text-[12px] font-medium text-violet-600 hover:text-violet-700 transition"
+          className="flex items-center gap-1 text-[12px] font-medium text-[var(--brand-fg)] hover:text-[var(--brand-fg)] transition"
         >
           View on dashboard
           <svg
@@ -406,7 +406,7 @@ export default function AiSidebar({
             <button
               onClick={() => setHistoryView((v) => !v)}
               title="Chat history"
-              className={`w-8 h-8 flex items-center justify-center rounded-xl transition ${historyView ? "bg-violet-500/10 text-violet-600" : "hover:bg-zinc-800 text-zinc-500"}`}
+              className={`w-8 h-8 flex items-center justify-center rounded-xl transition ${historyView ? "bg-violet-500/10 text-[var(--brand-fg)]" : "hover:bg-zinc-800 text-zinc-500"}`}
             >
               <svg
                 width="16"
@@ -459,9 +459,11 @@ export default function AiSidebar({
               <line x1="8" y1="2" x2="8" y2="6" />
               <line x1="3" y1="10" x2="21" y2="10" />
             </svg>
-            <span className="font-semibold text-violet-700 truncate">{levelSummary}</span>
-            <span className="text-violet-300 shrink-0">•</span>
-            <span className="text-violet-600 whitespace-nowrap shrink-0">{dateRangeLabel}</span>
+            <span className="font-semibold text-[var(--brand-fg)] truncate">{levelSummary}</span>
+            <span className="text-zinc-500 shrink-0">•</span>
+            <span className="text-[var(--brand-fg)] whitespace-nowrap shrink-0">
+              {dateRangeLabel}
+            </span>
           </div>
         )}
 
@@ -477,7 +479,7 @@ export default function AiSidebar({
                     onNewChat();
                     setHistoryView(false);
                   }}
-                  className="flex items-center gap-1.5 text-[12px] font-semibold text-violet-600 border border-violet-500/20 rounded-xl px-3 py-1.5 hover:bg-violet-500/10 transition"
+                  className="flex items-center gap-1.5 text-[12px] font-semibold text-[var(--brand-fg)] border border-violet-500/20 rounded-xl px-3 py-1.5 hover:bg-violet-500/10 transition"
                 >
                   <svg
                     width="12"
@@ -593,7 +595,7 @@ export default function AiSidebar({
                     {selectionChips.map((c) => (
                       <span
                         key={c.dimension}
-                        className="text-[11px] bg-zinc-900 border border-violet-500/20 text-violet-700 rounded-full px-2 py-0.5"
+                        className="text-[11px] bg-zinc-900 border border-violet-500/20 text-[var(--brand-fg)] rounded-full px-2 py-0.5"
                       >
                         <span className="font-semibold">{c.dimension}:</span>{" "}
                         {c.values.slice(0, 2).join(", ")}

@@ -247,7 +247,7 @@ function GoalCard({
         {isFocus && (
           <span
             title="The AI builds its recommendations around this goal"
-            className="text-[9px] sm:text-[10px] font-bold text-violet-700 bg-violet-500/10 border border-violet-500/20 rounded px-1 sm:px-1.5 py-0.5"
+            className="text-[9px] sm:text-[10px] font-bold text-[var(--brand-fg)] bg-[var(--brand)]/10 border border-[var(--brand)]/20 rounded px-1 sm:px-1.5 py-0.5"
           >
             AI FOCUS
           </span>

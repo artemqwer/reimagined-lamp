@@ -220,89 +220,106 @@ function GoalCard({
         selected ? "shadow-md" : "border-zinc-800 shadow-sm hover:border-zinc-700"
       }`}
     >
-      {/* Pinned to the corner rather than sharing the header row — competing
-          with it for width is what truncated the label ("Reven…", "Net P…")
-          on the cards carrying a badge too. */}
-      <span className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3">
-        <StatusMark status={status} def={def} />
-      </span>
-
       {/* flex-wrap, not truncate: the label is the one thing on this card that
           must never be cut short. A badge that doesn't fit drops to its own
           line instead. */}
-      <div className="flex flex-wrap items-center gap-x-1.5 sm:gap-x-2 gap-y-1 pr-5 sm:pr-6 mb-2 sm:mb-3">
-        <span
-          aria-hidden
-          className="w-6 h-6 sm:w-7 sm:h-7 rounded-xl sm:rounded-[14px] flex items-center justify-center text-[11px] sm:text-[13px] font-bold shrink-0"
-          style={{ background: `${barColor}14`, color: barColor }}
-        >
-          {glyphFor(def)}
-        </span>
-        <span className="text-[13px] sm:text-[16px] font-semibold text-zinc-100">{def.label}</span>
-        {note && (
-          <span className="text-[9px] sm:text-[10px] font-semibold text-zinc-500 glass rounded px-1 py-0.5">
-            {note}
+      <div className="flex items-center gap-3">
+        <div className="min-w-0 flex-1">
+          <div className="flex flex-wrap items-center gap-x-1.5 sm:gap-x-2 gap-y-1 pr-5 sm:pr-6 mb-1.5 sm:mb-2">
+            <span
+              aria-hidden
+              className="w-6 h-6 sm:w-7 sm:h-7 rounded-xl sm:rounded-[14px] flex items-center justify-center text-[11px] sm:text-[13px] font-bold shrink-0"
+              style={{ background: `${barColor}14`, color: barColor }}
+            >
+              {glyphFor(def)}
+            </span>
+            <span className="text-[13px] sm:text-[16px] font-semibold text-zinc-100">
+              {def.label}
+            </span>
+            {note && (
+              <span className="text-[9px] sm:text-[10px] font-semibold text-zinc-500 glass rounded px-1 py-0.5">
+                {note}
+              </span>
+            )}
+            {isFocus && (
+              <span
+                title="The AI builds its recommendations around this goal"
+                className="text-[9px] sm:text-[10px] font-bold text-[var(--brand-fg)] bg-[var(--brand)]/10 border border-[var(--brand)]/20 rounded px-1 sm:px-1.5 py-0.5"
+              >
+                AI FOCUS
+              </span>
+            )}
+          </div>
+
+          <div className="flex items-baseline gap-1.5 sm:gap-2">
+            <span className="text-[15px] sm:text-[20px] font-bold text-zinc-100 tabular-nums">
+              {formatMetric(status.actual, def)}
+            </span>
+            <span className="text-[11px] sm:text-[14px] tabular-nums text-zinc-500">
+              of {formatMetric(status.target, def)}
+            </span>
+          </div>
+        </div>
+
+        {/* Progress ring gauge — the goal's fill as a circular dial with a pace
+            tick, instead of the old linear bar. */}
+        <div className="relative w-12 h-12 sm:w-14 sm:h-14 shrink-0">
+          <svg viewBox="0 0 48 48" className="w-full h-full -rotate-90">
+            <circle
+              cx="24"
+              cy="24"
+              r="20"
+              fill="none"
+              stroke="var(--surface-2)"
+              strokeWidth="4.5"
+            />
+            <circle
+              cx="24"
+              cy="24"
+              r="20"
+              fill="none"
+              stroke={barColor}
+              strokeWidth="4.5"
+              strokeLinecap="round"
+              strokeDasharray={`${(Math.min(100, Math.max(0, fill)) / 100) * 125.66} 125.66`}
+              style={{
+                filter: `drop-shadow(0 0 4px ${barColor}55)`,
+                transition: "stroke-dasharray .4s ease",
+              }}
+            />
+          </svg>
+          {/* Where the goal should be by now. Without it the ring says how far
+              along you are but not whether that is enough — which is the whole
+              question mid-period. Left off the average metrics, whose expectation
+              is the target itself, so a marker at the end would say nothing. */}
+          {expectedPct !== null && (
+            <span
+              title={`Should be around ${formatMetric(status.kind === "pace" ? status.expected : status.target, def)} by now`}
+              className="absolute inset-0 animate-none"
+            >
+              <span
+                className="absolute left-1/2 top-1/2 w-0.5 h-[26px] sm:h-[30px] rounded bg-zinc-400/70 origin-center"
+                style={{
+                  transform: `translate(-50%,-50%) rotate(${(expectedPct / 100) * 360}deg) translateY(-20px)`,
+                }}
+              />
+            </span>
+          )}
+          <span className="absolute inset-0 flex items-center justify-center text-[9.5px] sm:text-[10.5px] font-bold tabular-nums text-zinc-200">
+            {Number.isFinite(pct) ? Math.round(pct) : 0}%
           </span>
-        )}
-        {isFocus && (
-          <span
-            title="The AI builds its recommendations around this goal"
-            className="text-[9px] sm:text-[10px] font-bold text-[var(--brand-fg)] bg-[var(--brand)]/10 border border-[var(--brand)]/20 rounded px-1 sm:px-1.5 py-0.5"
-          >
-            AI FOCUS
-          </span>
-        )}
+        </div>
       </div>
 
-      <div className="flex items-baseline justify-between gap-1 sm:gap-2 mb-2 sm:mb-2.5">
-        <span className="text-[15px] sm:text-[20px] font-bold text-zinc-100 tabular-nums">
-          {formatMetric(status.actual, def)}
-        </span>
-        <span className="text-[11px] sm:text-[14px] tabular-nums shrink-0 text-zinc-500">
-          of {formatMetric(status.target, def)}
-        </span>
-      </div>
-
-      <div
-        className="relative h-2 sm:h-2.5 bg-zinc-800 rounded-full mb-2 sm:mb-2.5"
-        style={{ boxShadow: "inset 0 2px 4px 0 rgba(0,0,0,.05)" }}
-      >
-        <div
-          className="h-full rounded-full transition-all"
-          style={{
-            width: `${fill}%`,
-            backgroundColor: barColor,
-            boxShadow: `0 0 8px 0 ${barColor}40`,
-          }}
-        />
-        {/* Where the goal should be by now. Without it the bar says how far
-            along you are but not whether that is enough — which is the whole
-            question mid-period. Left off the average metrics, whose expectation
-            is the target itself, so a marker at the end would say nothing. */}
-        {expectedPct !== null && (
-          <span
-            title={`Should be around ${formatMetric(status.kind === "pace" ? status.expected : status.target, def)} by now`}
-            className="absolute -top-1 -bottom-1 w-0.5 rounded bg-zinc-500/60"
-            style={{ left: `${expectedPct}%` }}
-          />
-        )}
-      </div>
-
-      <div className="flex items-center justify-between text-[11px] sm:text-[14px]">
-        <span className="tabular-nums font-semibold" style={{ color: statusColor }}>
-          {Number.isFinite(pct) ? Math.round(pct) : 0}%
-        </span>
-        {status.kind === "pace" ? (
-          <span className="font-medium text-[10px] sm:text-[12px]" style={{ color: statusColor }}>
-            {status.pacePct === null || !Number.isFinite(status.pacePct)
+      <div className="flex items-center justify-between text-[11px] sm:text-[13px] mt-2 sm:mt-2.5">
+        <span className="font-medium" style={{ color: statusColor }}>
+          {status.kind === "pace"
+            ? status.pacePct === null || !Number.isFinite(status.pacePct)
               ? words.pace[status.state]
-              : `${formatSignedPct(status.pacePct)} pace`}
-          </span>
-        ) : (
-          <span className="font-medium text-[10px] sm:text-[12px]" style={{ color: statusColor }}>
-            {words.result[status.state]}
-          </span>
-        )}
+              : `${formatSignedPct(status.pacePct)} pace`
+            : words.result[status.state]}
+        </span>
+        <StatusMark status={status} def={def} />
       </div>
     </button>
   );

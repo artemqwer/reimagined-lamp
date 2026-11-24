@@ -1005,9 +1005,9 @@ export default function AiOptimizerPage() {
           are loading or the deep per-campaign pass is still refining the
           numbers, so it's clear the analysis is still running. */}
       {(loading || deepLoading) && (
-        <div className="fixed top-0 inset-x-0 z-[100] h-[3px] overflow-hidden bg-violet-500/10">
+        <div className="fixed top-0 inset-x-0 z-[100] h-[3px] overflow-hidden bg-[rgba(var(--brand-rgb),0.1)]">
           <div
-            className="absolute h-full w-[35%] bg-[#8200DB]"
+            className="absolute h-full w-[35%] bg-[var(--brand)]"
             style={{ animation: "loading-bar 1.2s ease-in-out infinite" }}
           />
         </div>
@@ -1091,7 +1091,7 @@ export default function AiOptimizerPage() {
                 </span>
               )}
             </div>
-            <p className="text-[13px] text-violet-400 font-semibold mt-2">
+            <p className="text-[13px] text-[var(--brand-fg)] font-semibold mt-2">
               {openCount} optimizations available —{" "}
               <span className="text-[#C10007]">{analysis?.counts.high ?? 0} High</span>,{" "}
               <span className="text-[var(--brand)]">{analysis?.counts.medium ?? 0} Medium</span>,{" "}
@@ -1123,40 +1123,49 @@ export default function AiOptimizerPage() {
             </p>
           </div>
 
-          <div
-            className={`shrink-0 rounded-xl border p-3.5 min-w-[240px] ${
-              score >= 80
-                ? "bg-[rgba(var(--brand-rgb), 0.12)] border-[#A4F4CF]"
-                : "bg-[rgba(239,68,68,0.12)] border-[#FFC9C9]"
-            }`}
-          >
-            <div className="flex items-center justify-between gap-3">
-              <div>
-                <p className="text-[12px] font-semibold text-zinc-400">
-                  Overall Optimization Score
-                </p>
-                <p className="text-[12px] text-zinc-500">Campaign health status</p>
-              </div>
-              <div className="text-right">
-                <span
-                  className="text-[28px] sm:text-[30px] font-bold block leading-none"
-                  style={{ color: band.color }}
-                >
-                  {score}%
-                </span>
-                <span
-                  className="text-[11px] font-bold uppercase block mt-0.5"
-                  style={{ color: band.color }}
-                >
-                  {band.label.split(":")[1]?.trim()}
-                </span>
-              </div>
+          <div className="shrink-0 card-elevate rounded-2xl p-4 flex items-center gap-4 min-w-[240px]">
+            {/* Score dial — circular gauge instead of the old linear bar box */}
+            <div className="relative w-[74px] h-[74px] shrink-0">
+              <svg viewBox="0 0 48 48" className="w-full h-full -rotate-90">
+                <circle
+                  cx="24"
+                  cy="24"
+                  r="20"
+                  fill="none"
+                  stroke="var(--surface-2)"
+                  strokeWidth="4.5"
+                />
+                <circle
+                  cx="24"
+                  cy="24"
+                  r="20"
+                  fill="none"
+                  stroke={band.color}
+                  strokeWidth="4.5"
+                  strokeLinecap="round"
+                  strokeDasharray={`${(Math.min(100, Math.max(0, score)) / 100) * 125.66} 125.66`}
+                  style={{ transition: "stroke-dasharray .5s ease" }}
+                />
+              </svg>
+              <span
+                className="absolute inset-0 flex items-center justify-center text-[14px] font-bold tabular-nums"
+                style={{ color: band.color }}
+              >
+                {score}%
+              </span>
             </div>
-            <div className="h-2 bg-zinc-800 rounded-full mt-2.5 overflow-hidden">
-              <div
-                className="h-full rounded-full transition-all"
-                style={{ width: `${score}%`, background: band.color }}
-              />
+            <div className="min-w-0">
+              <p className="text-[12px] font-semibold text-zinc-400">Optimization Score</p>
+              <p className="text-[12px] text-zinc-500">Campaign health status</p>
+              <span
+                className="inline-block text-[11px] font-bold uppercase mt-1 px-1.5 py-0.5 rounded-md"
+                style={{
+                  color: band.color,
+                  background: `color-mix(in srgb, ${band.color} 12%, transparent)`,
+                }}
+              >
+                {band.label.split(":")[1]?.trim()}
+              </span>
             </div>
           </div>
         </div>

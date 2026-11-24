@@ -4655,7 +4655,7 @@ export default function DashboardView() {
       <div
         className={`w-full px-4 sm:px-6 pt-6 pb-6 ${isMobile ? "" : "transition-[padding] duration-300 ease-out"} ${aiOpen ? "lg:pr-[456px]" : ""}`}
       >
-        <div className="max-w-[1600px] @container">
+        <div className="w-full @container">
           {/* Header — desktop only; below lg the dashboard layout's mobile top bar
           renders the header, so gating at lg avoids showing both at once
           (which duplicated the top block on phone landscape / tablets). */}

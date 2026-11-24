@@ -160,9 +160,9 @@ export default function ExtendedAnalytics({
         </div>
       </div>
 
-      {/* Tables */}
+      {/* Tables — two-column masonry on wide screens */}
       {open && (
-        <div className="space-y-4">
+        <div className="grid gap-4 xl:grid-cols-2 items-start [&>*]:min-w-0">
           {tableWidgets.length > 0
             ? tableWidgets.map((t) => (
                 <ConfigurableTableWidget

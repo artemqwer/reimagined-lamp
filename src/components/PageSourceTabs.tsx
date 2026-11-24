@@ -83,16 +83,16 @@ export default function PageSourceTabs({
           card — the card is the section's content, and wrapping the title in
           one made the header read as a separate panel from what follows. */}
       <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3 mb-3 px-1 empty:mb-0">
-        {/* Hidden on a phone: the top bar already names the section there, so
-            the page heading would just repeat it. Kept from sm up. */}
-        <h1 className="hidden sm:flex items-center gap-2.5 text-[22px] sm:text-[26px] font-bold text-zinc-100 leading-tight">
-          <span
-            aria-hidden
-            className="w-2 h-6 rounded-full"
-            style={{ background: "linear-gradient(180deg, var(--brand-fg), var(--brand))" }}
-          />
-          {title}
-        </h1>
+        {/* Compact masthead: overline + tight title — pages open straight
+            into content instead of a display header. */}
+        <div className="hidden sm:block">
+          <p className="text-[10.5px] font-bold text-[var(--brand-fg)] uppercase tracking-[0.14em] mb-0.5">
+            MetricForge · Analytics
+          </p>
+          <h1 className="text-[18px] sm:text-[20px] font-bold text-zinc-100 leading-tight">
+            {title}
+          </h1>
+        </div>
         {actions && <div className="flex items-center gap-2 flex-wrap">{actions}</div>}
       </div>
 

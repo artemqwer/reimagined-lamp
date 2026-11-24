@@ -4656,19 +4656,39 @@ export default function DashboardView() {
         className={`w-full px-4 sm:px-6 pt-6 pb-6 ${isMobile ? "" : "transition-[padding] duration-300 ease-out"} ${aiOpen ? "lg:pr-[456px]" : ""}`}
       >
         <div className="w-full @container">
-          {/* Header — desktop only; below lg the dashboard layout's mobile top bar
-          renders the header, so gating at lg avoids showing both at once
-          (which duplicated the top block on phone landscape / tablets). */}
-          <div className="hidden lg:flex items-center justify-between mb-5 flex-wrap gap-3">
-            <ConnectorSwitcher />
-            <div className="flex items-center gap-3">
+          {/* Header — metricly welcome row: eyebrow + greeting + range/export */}
+          <div className="hidden lg:flex items-end justify-between mb-6 flex-wrap gap-4">
+            <div>
+              <div className="flex items-center gap-2 text-[9.5px] font-bold tracking-[1.15px] text-zinc-500 uppercase">
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand-fg)]" />
+                Your business, at a glance
+              </div>
+              <h1 className="text-[25px] font-bold text-zinc-100 leading-tight tracking-[-0.8px] mt-2">
+                {new Date().getHours() < 12
+                  ? "Good morning"
+                  : new Date().getHours() < 18
+                    ? "Good afternoon"
+                    : "Good evening"}
+                <span
+                  aria-hidden
+                  className="inline-block ml-1.5 text-[#dfae74]"
+                  style={{ verticalAlign: "-2px" }}
+                >
+                  ✨
+                </span>
+              </h1>
+              <p className="text-[12.5px] text-zinc-500 mt-1">
+                Here&apos;s what&apos;s happening with your store.
+              </p>
+            </div>
+            <div className="flex items-center gap-2">
               <div className="relative">
                 <button
                   onClick={() => {
                     if (datePickerOpen) setDatePickerOpen(false);
                     else openDatePicker();
                   }}
-                  className="flex items-center gap-2 text-[14px] text-zinc-400 glass rounded-xl px-3 py-1.5 cursor-pointer hover:bg-zinc-800/60 transition"
+                  className="flex items-center gap-2 text-[12.5px] text-zinc-400 border border-zinc-800/80 bg-white/[0.03] rounded-lg h-[34px] px-3 cursor-pointer hover:border-zinc-700 transition"
                 >
                   <svg
                     width="14"
